@@ -1212,7 +1212,7 @@ Innovate. Automate. Inspire.</p>
             <p class="text-slate-600 text-sm mt-2">Hands-on microcontrollers and basic electronics session for first-year students.</p>
         </div>
     </section>
-   <!-- Live Telegram Channel Feed (Auto-Updating) -->
+   <!-- Fully Automatic Live Telegram Events Section -->
 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 mt-6">
   <div class="flex items-center justify-between mb-4">
     <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
@@ -1223,15 +1223,57 @@ Innovate. Automate. Inspire.</p>
     </span>
   </div>
 
-  <!-- Telegram Web Feed Frame -->
-  <div class="w-full h-[450px] overflow-hidden rounded-xl border border-slate-200">
-    <iframe 
-      src="https://t.me/s/iac_club_ietbu" 
-      class="w-full h-full border-none"
-      title="IAC Club Feed">
-    </iframe>
+  <!-- Container jahan Telegram Post dikhega -->
+  <div id="telegram-auto-post" class="w-full flex justify-center items-center min-h-[160px] bg-slate-50 rounded-xl border border-slate-200 p-4">
+    <p class="text-xs text-slate-400">Loading latest announcement...</p>
   </div>
 </div>
+
+<script>
+  (function loadLatestTelegramPost() {
+    const channelName = 'iac_club_ietbu';
+    const proxyUrl = 'https://api.allorigins.win/get?url=';
+    const targetUrl = encodeURIComponent(`https://t.me/s/${channelName}`);
+
+    fetch(proxyUrl + targetUrl)
+      .then(res => res.json())
+      .then(data => {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(data.contents, 'text/html');
+        
+        // Channel ki saari posts me se last post nikalna
+        const posts = doc.querySelectorAll('.tgme_widget_message');
+        if (posts.length > 0) {
+          const lastPost = posts[posts.length - 1];
+          const postPath = lastPost.getAttribute('data-post'); // e.g., iac_club_ietbu/8
+
+          if (postPath) {
+            const container = document.getElementById('telegram-auto-post');
+            container.innerHTML = ''; // Loading text hatayen
+
+            // Telegram ka official widget script append karen
+            const script = document.createElement('script');
+            script.src = 'https://telegram.org/js/telegram-widget.js?22';
+            script.setAttribute('data-telegram-post', postPath);
+            script.setAttribute('data-width', '100%');
+            script.async = true;
+
+            container.appendChild(script);
+          }
+        }
+      })
+      .catch(err => {
+        console.error('Telegram Fetch Error:', err);
+        // Fallback View agar fetch slow ho
+        document.getElementById('telegram-auto-post').innerHTML = `
+          <script async src="https://telegram.org/js/telegram-widget.js?22" 
+                  data-telegram-post="iac_club_ietbu/7" 
+                  data-width="100%">
+          <\/script>
+        `;
+      });
+  })();
+</script>
 <!-- ========================================== -->
 <!-- PHOTO GALLERY SECTION                      -->
 <!-- ========================================== -->
