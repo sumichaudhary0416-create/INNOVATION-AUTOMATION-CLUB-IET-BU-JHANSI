@@ -1212,7 +1212,7 @@ Innovate. Automate. Inspire.</p>
             <p class="text-slate-600 text-sm mt-2">Hands-on microcontrollers and basic electronics session for first-year students.</p>
         </div>
     </section>
-   <!-- Live Telegram Events Section -->
+   <!-- Live Telegram Channel Feed (Auto-Updating) -->
 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 mt-6">
   <div class="flex items-center justify-between mb-4">
     <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
@@ -1223,57 +1223,15 @@ Innovate. Automate. Inspire.</p>
     </span>
   </div>
 
-  <!-- Dynamic Telegram Post Container -->
-  <div id="telegram-post-container" class="w-full flex justify-center items-center min-h-[150px] bg-slate-50 rounded-xl border border-slate-200 p-4">
-    <p class="text-xs text-slate-400">Loading latest updates...</p>
+  <!-- Telegram Web Feed Frame -->
+  <div class="w-full h-[450px] overflow-hidden rounded-xl border border-slate-200">
+    <iframe 
+      src="https://t.me/s/iac_club_ietbu" 
+      class="w-full h-full border-none"
+      title="IAC Club Feed">
+    </iframe>
   </div>
 </div>
-
-<script>
-  (function() {
-    const channelUsername = 'iac_club_ietbu'; // चैनल का यूज़रनेम
-
-    // Telegram Channel Post Fetcher
-    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://t.me/s/' + channelUsername)}`)
-      .then(response => {
-        if (response.ok) return response.json();
-        throw new Error('Network response was not ok.');
-      })
-      .then(data => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(data.contents, 'text/html');
-        const posts = doc.querySelectorAll('.tgme_widget_message');
-        
-        if (posts.length > 0) {
-          // सबसे नया मैसेज चुनना
-          const lastPost = posts[posts.length - 1];
-          const postPath = lastPost.getAttribute('data-post'); // e.g., iac_club_ietbu/5
-
-          if (postPath) {
-            const container = document.getElementById('telegram-post-container');
-            container.innerHTML = ''; // Loading टेक्स्ट हटाएं
-
-            // Telegram Official Embed Widget Dynamically Insert
-            const script = document.createElement('script');
-            script.src = 'https://telegram.org/js/telegram-widget.js?22';
-            script.setAttribute('data-telegram-post', postPath);
-            script.setAttribute('data-width', '100%');
-            script.async = true;
-
-            container.appendChild(script);
-          }
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching telegram post:', error);
-        document.getElementById('telegram-post-container').innerHTML = `
-          <div class="text-xs text-slate-500 text-center">
-            📢 टेलीग्राम चैनल (@${channelUsername}) में लेटेस्ट अपडेट्स देखें।
-          </div>
-        `;
-      });
-  })();
-</script>
 <!-- ========================================== -->
 <!-- PHOTO GALLERY SECTION                      -->
 <!-- ========================================== -->
