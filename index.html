@@ -471,56 +471,155 @@ Innovate. Automate. Inspire.</p>
 </div>
 
 <!-- JAVASCRIPT LOGIC -->
+<!-- JAVASCRIPT LOGIC WITH LINKEDIN INTEGRATION -->
 <script>
   let currentHeadKey = null;
 
   const teamData = {
     shubhra: {
       title: "President Domain",
-      head: { name: "Shubhra Yadav", role: "President", img: "assets/team/shubhra.jpg.jpeg", bio: "Leading overall execution, domain operations, and strategy for IAC." },
+      head: { 
+        name: "Shubhra Yadav", 
+        role: "President", 
+        img: "assets/team/shubhra.jpg.jpeg", 
+        bio: "Leading overall execution, domain operations, and strategy for IAC.",
+        linkedin: "https://www.linkedin.com/in/username" 
+      },
       members: []
     },
     aditya: {
       title: "Vice President Domain",
-      head: { name: "Aditya Kumar Yadav", role: "Vice President", img: "assets/team/aditya.jpg.jpeg", bio: "Overseeing executive coordination and management operations." },
+      head: { 
+        name: "Aditya Kumar Yadav", 
+        role: "Vice President", 
+        img: "assets/team/aditya.jpg.jpeg", 
+        bio: "Overseeing executive coordination and management operations.",
+        linkedin: "https://www.linkedin.com/in/username" 
+      },
       members: [
-        { id: "gautam", name: "Gautam Rajput", role: "Team Member", img: "assets/team/gautam.jpg.jpeg", bio: "Assisting in club operations and member workflows." }
+        { 
+          id: "gautam", 
+          name: "Gautam Rajput", 
+          role: "Team Member", 
+          img: "assets/team/gautam.jpg.jpeg", 
+          bio: "Assisting in club operations and member workflows.",
+          linkedin: "https://www.linkedin.com/in/username" 
+        }
       ]
     },
     sumit: {
       title: "Technical Domain",
-      head: { name: "Sumit", role: "Technical Head", img: "assets/team/sumit.jpg.jpeg", bio: "Managing web development, technical projects, and systems." },
+      head: { 
+        name: "Sumit", 
+        role: "Technical Head", 
+        img: "assets/team/sumit.jpg.jpeg", 
+        bio: "Managing web development, technical projects, and systems.",
+        linkedin: "https://www.linkedin.com/in/username" 
+      },
       members: [
-        { id: "vishal", name: "Vishal Ahirwar", role: "Technical Member", img: "assets/team/vishal.jpg.jpeg", bio: "Core developer handling frontend components and features." },
-        { id: "satyam", name: "Satyam Tiwari", role: "Technical Member", img: "assets/team/satyam.jpg.jpeg", bio: "Managing technical support, testing, and implementation." }
+        { 
+          id: "vishal", 
+          name: "Vishal Ahirwar", 
+          role: "Technical Member", 
+          img: "assets/team/vishal.jpg.jpeg", 
+          bio: "Core developer handling frontend components and features.",
+          linkedin: "https://www.linkedin.com/in/username" 
+        },
+        { 
+          id: "satyam", 
+          name: "Satyam Tiwari", 
+          role: "Technical Member", 
+          img: "assets/team/satyam.jpg.jpeg", 
+          bio: "Managing technical support, testing, and implementation.",
+          linkedin: "https://www.linkedin.com/in/username" 
+        }
       ]
     },
     documentation: {
       title: "Documentation Domain",
-      head: { name: "Shubhashini Dwivedi", role: "Documentation Head", img: "assets/team/shubhashini.jpg.jpeg", bio: "Managing official club documentation, reports, and records." },
+      head: { 
+        name: "Shubhashini Dwivedi", 
+        role: "Documentation Head", 
+        img: "assets/team/shubhashini.jpg.jpeg", 
+        bio: "Managing official club documentation, reports, and records.",
+        linkedin: "https://www.linkedin.com/in/username" 
+      },
       members: [
-        { id: "yogesh", name: "Yogesh Ahirwar", role: "Documentation Member", img: "assets/team/yogesh.jpg.jpeg", bio: "Assisting in drafting official reports and event records." },
-        { id: "shivam", name: "Shivam Mishra", role: "Documentation Member", img: "assets/team/shivam.jpg.jpeg", bio: "Assisting in drafting official reports and event records." }
+        { 
+          id: "yogesh", 
+          name: "Yogesh Ahirwar", 
+          role: "Documentation Member", 
+          img: "assets/team/yogesh.jpg.jpeg", 
+          bio: "Assisting in drafting official reports and event records.",
+          linkedin: "https://www.linkedin.com/in/username" 
+        },
+        { 
+          id: "shivam", 
+          name: "Shivam Mishra", 
+          role: "Documentation Member", 
+          img: "assets/team/shivam.jpg.jpeg", 
+          bio: "Assisting in drafting official reports and event records.",
+          linkedin: "https://www.linkedin.com/in/username" 
+        }
       ]
     },
     event: {
       title: "Event Management Domain",
-      head: { name: "Event Management", role: "Coordination Lead", img: "assets/team/event/lead.jpg.jpeg", bio: "Planning and scheduling campus events and competitions." },
+      head: { 
+        name: "Event Management", 
+        role: "Coordination Lead", 
+        img: "assets/team/event/lead.jpg.jpeg", 
+        bio: "Planning and scheduling campus events and competitions.",
+        linkedin: "https://www.linkedin.com/in/username" 
+      },
       members: [
-        { id: "divyanshu", name: "Divyanshu Singh", role: "Event Coordinator", img: "assets/team/divyanshu.jpg.jpeg", bio: "Handling logistics, venue coordination, and scheduling." },
-        { id: "anjali", name: "Anjali Kumari", role: "Event Coordinator", img: "assets/team/anjali.jpg.jpeg", bio: "Managing volunteer groups and registration desks." }
+        { 
+          id: "divyanshu", 
+          name: "Divyanshu Singh", 
+          role: "Event Coordinator", 
+          img: "assets/team/divyanshu.jpg.jpeg", 
+          bio: "Handling logistics, venue coordination, and scheduling.",
+          linkedin: "https://www.linkedin.com/in/username" 
+        },
+        { 
+          id: "anjali", 
+          name: "Anjali Kumari", 
+          role: "Event Coordinator", 
+          img: "assets/team/anjali.jpg.jpeg", 
+          bio: "Managing volunteer groups and registration desks.",
+          linkedin: "https://www.linkedin.com/in/username" 
+        }
       ]
     },
     gaurav: {
       title: "Finance Domain",
-      head: { name: "Gaurav Yadav", role: "Finance Lead", img: "assets/team/gaurav.jpg.jpeg", bio: "Managing budgets, accounts, and financial allocation." },
+      head: { 
+        name: "Gaurav Yadav", 
+        role: "Finance Lead", 
+        img: "assets/team/gaurav.jpg.jpeg", 
+        bio: "Managing budgets, accounts, and financial allocation.",
+        linkedin: "https://www.linkedin.com/in/username" 
+      },
       members: [
-        { id: "deepak", name: "Deepak Kumar Gupta", role: "Finance Associate", img: "assets/team/deepak.jpg.jpeg", bio: "Handling documentation and expense tracking." }
+        { 
+          id: "deepak", 
+          name: "Deepak Kumar Gupta", 
+          role: "Finance Associate", 
+          img: "assets/team/deepak.jpg.jpeg", 
+          bio: "Handling documentation and expense tracking.",
+          linkedin: "https://www.linkedin.com/in/username" 
+        }
       ]
     },
     kartik: {
       title: "Design & Media Domain",
-      head: { name: "Kartik Yadav", role: "Design & Media Head", img: "assets/team/kartik.jpg.jpeg", bio: "Directing visual branding, graphic design, and media strategy." },
+      head: { 
+        name: "Kartik Yadav", 
+        role: "Design & Media Head", 
+        img: "assets/team/kartik.jpg.jpeg", 
+        bio: "Directing visual branding, graphic design, and media strategy.",
+        linkedin: "https://www.linkedin.com/in/username" 
+      },
       members: []
     }
   };
@@ -557,6 +656,15 @@ Innovate. Automate. Inspire.</p>
       `;
     }
 
+    // LinkedIn Button Generation for Head
+    const linkedinHTML = data.head.linkedin ? `
+      <div class="mt-4">
+        <a href="${data.head.linkedin}" target="_blank" class="inline-flex items-center gap-2 bg-[#0a66c2] hover:bg-[#084e96] text-white text-xs font-semibold px-4 py-2 rounded-xl transition shadow-sm">
+          <i class="fab fa-linkedin text-sm"></i> Connect on LinkedIn
+        </a>
+      </div>
+    ` : '';
+
     content.innerHTML = `
       <div class="text-center">
         <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">${data.title}</span>
@@ -570,6 +678,7 @@ Innovate. Automate. Inspire.</p>
         <p class="text-xs font-extrabold text-blue-600 uppercase tracking-wider mt-1">${data.head.role}</p>
         <p class="text-xs text-slate-500 mt-3 max-w-xs mx-auto leading-relaxed">${data.head.bio}</p>
 
+        ${linkedinHTML}
         ${membersHTML}
       </div>
     `;
@@ -589,6 +698,15 @@ Innovate. Automate. Inspire.</p>
 
     const content = document.getElementById('modalContent');
 
+    // LinkedIn Button Generation for Member
+    const linkedinHTML = member.linkedin ? `
+      <div class="mt-4">
+        <a href="${member.linkedin}" target="_blank" class="inline-flex items-center gap-2 bg-[#0a66c2] hover:bg-[#084e96] text-white text-xs font-semibold px-4 py-2 rounded-xl transition shadow-sm">
+          <i class="fab fa-linkedin text-sm"></i> Connect on LinkedIn
+        </a>
+      </div>
+    ` : '';
+
     content.innerHTML = `
       <div class="text-center relative pt-2">
         <button onclick="openHeadModal('${currentHeadKey}')" class="absolute top-0 left-0 text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full flex items-center gap-1 hover:bg-blue-100">
@@ -605,6 +723,8 @@ Innovate. Automate. Inspire.</p>
         <h4 class="text-xl font-black text-slate-900">${member.name}</h4>
         <p class="text-xs font-extrabold text-blue-600 uppercase tracking-wider mt-1">${member.role}</p>
         <p class="text-xs text-slate-500 mt-3 max-w-xs mx-auto leading-relaxed">${member.bio}</p>
+
+        ${linkedinHTML}
       </div>
     `;
   }
