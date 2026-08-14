@@ -1212,52 +1212,6 @@ Innovate. Automate. Inspire.</p>
             <p class="text-slate-600 text-sm mt-2">Hands-on microcontrollers and basic electronics session for first-year students.</p>
         </div>
     </section>
-
-    <!-- ========================================== -->
-<!-- 7. PHOTO GALLERY SECTION                  -->
-<!-- ========================================== -->
-<section id="gallery" class="py-16 bg-slate-100">
-  <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-8 text-slate-900">Photo Gallery</h2>
-    
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      
-      <!-- Photo Card 1 -->
-      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo1.png" alt="Student Achievements 2023" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=1';">
-        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
-          🔍 Zoom View
-        </div>
-      </div>
-
-      <!-- Photo Card 2 -->
-      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo2.png" alt="Event Venue View" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=2';">
-        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
-          🔍 Zoom View
-        </div>
-      </div>
-
-      <!-- Photo Card 3 -->
-      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo3.png" alt="Gallery Photo 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=3';">
-        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
-          🔍 Zoom View
-        </div>
-      </div>
-
-      <!-- Photo Card 4 -->
-      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo4.png" alt="Gallery Photo 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=4';">
-        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
-          🔍 Zoom View
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- ========================================== -->
 <!-- 7. PHOTO GALLERY SECTION                  -->
 <!-- ========================================== -->
@@ -1314,12 +1268,12 @@ Innovate. Automate. Inspire.</p>
 
   <!-- Image Wrapper -->
   <div class="relative w-full h-[80vh] max-w-5xl flex items-center justify-center" onclick="event.stopPropagation()">
-    <img id="modalImage" src="" alt="Gallery Image" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl block mx-auto border border-white/10" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=10';">
+    <img id="modalImage" src="" alt="Gallery Preview" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl block mx-auto border border-white/10">
   </div>
 </div>
 
 <!-- ========================================== -->
-<!-- JAVASCRIPT LOGIC & FILE CLOSING            -->
+<!-- EXACT MATCH JAVASCRIPT LOGIC              -->
 <!-- ========================================== -->
 <script>
   // Function to open gallery popup dynamically
@@ -1329,12 +1283,14 @@ Innovate. Automate. Inspire.</p>
     const modalImg = document.getElementById('modalImage');
 
     if (imgTag && modal && modalImg) {
-      let src = imgTag.getAttribute('src');
-      modalImg.src = src;
+      // Fetch the EXACT rendered image URL directly from browser DOM
+      const activeSrc = imgTag.currentSrc || imgTag.src;
+      
+      modalImg.src = activeSrc;
 
       modal.classList.remove('hidden');
       modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden'; // Stop background scroll
     }
   }
 
@@ -1344,14 +1300,14 @@ Innovate. Automate. Inspire.</p>
     if (modal) {
       modal.classList.add('hidden');
       modal.classList.remove('flex');
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = 'auto'; // Restore scroll
     }
   }
 </script>
 
 </body>
 </html>
-    <!-- 8. JOIN IAC -->
+     <!-- 8. JOIN IAC -->
     <section id="join" class="py-20 bg-blue-900 text-white text-center">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-4">Ready to Join IAC?</h2>
