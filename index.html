@@ -1212,19 +1212,8 @@ Innovate. Automate. Inspire.</p>
             <p class="text-slate-600 text-sm mt-2">Hands-on microcontrollers and basic electronics session for first-year students.</p>
         </div>
     </section>
-    <!-- ========================================== -->
-  <!-- TELEGRAM DYNAMIC EVENTS SECTION            -->
-  <!-- ========================================== -->
-  <section class="max-w-7xl mx-auto px-4 mb-16">
-    <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-      <div class="flex items-center justify-between mb-4 border-b border-slate-100 pb-3">
-        <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
-          <span>📢</span> Latest Updates & Live Events
-        </h3>
-        <span class="text-xs bg-blue-100 text-blue-600 px-3 py-1 rounded-full font-medium">Live Feed</span>
-      </div>
-
-      <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 mt-6">
+   <!-- Live Telegram Events Section -->
+<div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 mt-6">
   <div class="flex items-center justify-between mb-4">
     <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
       📢 Latest Updates & Live Events
@@ -1234,105 +1223,57 @@ Innovate. Automate. Inspire.</p>
     </span>
   </div>
 
-  <!-- Telegram Official Embed Box -->
-  <div class="w-full overflow-hidden rounded-xl border border-slate-200">
-    <script async src="https://telegram.org/js/telegram-widget.js?22" 
-            data-telegram-post="iac_club_ietbu/1" 
-            data-width="100%">
-    </script>
+  <!-- Dynamic Telegram Post Container -->
+  <div id="telegram-post-container" class="w-full flex justify-center items-center min-h-[150px] bg-slate-50 rounded-xl border border-slate-200 p-4">
+    <p class="text-xs text-slate-400">Loading latest updates...</p>
   </div>
 </div>
 
-  <!-- Telegram Script (Updated & Fast) -->
-  <script>
-    const CHANNEL_USERNAME = 'iac_club_ietbu'; // बिना @ के अपने चैनल का नाम
+<script>
+  (function() {
+    const channelUsername = 'iac_club_ietbu'; // चैनल का यूज़रनेम
 
-    async function fetchTelegramEvents() {
-      const container = document.getElementById('eventsContainer');
-      try {
-        // RSS2JSON Service se Telegram Public Feed Fetch kar rahe hain
-        const response = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=https://s2s.morss.foreman.logs.tf/telegram/channel/${CHANNEL_USERNAME}`);
-        const data = await response.json();
-
-        if (data.status === 'ok' && data.items && data.items.length > 0) {
-          container.innerHTML = '';
-          
-          // Latest 5 posts hi dikhayega
-          const posts = data.items.slice(0, 5);
-
-          posts.forEach(post => {
-            const date = new Date(post.pubDate).toLocaleDateString('hi-IN', {
-              day: 'numeric',
-              month: 'short',
-              year: 'numeric'
-            });
-
-            // HTML tags ko saaf karne ke liye
-            const cleanText = post.description.replace(/<[^>]*>?/gm, '');
-
-            container.innerHTML += `
-              <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-sm transition text-left">
-                <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
-                  <span class="bg-blue-50 text-blue-600 font-semibold px-2.5 py-0.5 rounded-md">Event Update</span>
-                  <span>${date}</span>
-                </div>
-                <p class="text-sm text-slate-800 whitespace-pre-line leading-relaxed font-normal">${cleanText}</p>
-              </div>
-            `;
-          });
-        } else {
-          // Alternative fallback agar Telegram channel bilkul naya hai
-          fetchFallbackAPI();
-        }
-      } catch (error) {
-        fetchFallbackAPI();
-      }
-    }
-
-    // Direct Telegram Web Scraper Fallback (In case RSS delays)
-    async function fetchFallbackAPI() {
-      const container = document.getElementById('eventsContainer');
-      try {
-        const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://t.me/s/' + CHANNEL_USERNAME)}`);
-        const data = await res.json();
-        
+    // Telegram Channel Post Fetcher
+    fetch(`https://api.allorigins.win/get?url=${encodeURIComponent('https://t.me/s/' + channelUsername)}`)
+      .then(response => {
+        if (response.ok) return response.json();
+        throw new Error('Network response was not ok.');
+      })
+      .then(data => {
         const parser = new DOMParser();
-        const doc = parser.parseHTML ? parser.parseHTML(data.contents) : parser.parseFromString(data.contents, 'text/html');
-        const messages = doc.querySelectorAll('.tgme_widget_message_text');
+        const doc = parser.parseFromString(data.contents, 'text/html');
+        const posts = doc.querySelectorAll('.tgme_widget_message');
+        
+        if (posts.length > 0) {
+          // सबसे नया मैसेज चुनना
+          const lastPost = posts[posts.length - 1];
+          const postPath = lastPost.getAttribute('data-post'); // e.g., iac_club_ietbu/5
 
-        if (messages.length > 0) {
-          container.innerHTML = '';
-          const lastMessages = Array.from(messages).slice(-5).reverse();
+          if (postPath) {
+            const container = document.getElementById('telegram-post-container');
+            container.innerHTML = ''; // Loading टेक्स्ट हटाएं
 
-          lastMessages.forEach(msg => {
-            container.innerHTML += `
-              <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-sm transition text-left">
-                <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
-                  <span class="bg-blue-50 text-blue-600 font-semibold px-2.5 py-0.5 rounded-md">Live Update</span>
-                  <span>Recent</span>
-                </div>
-                <p class="text-sm text-slate-800 whitespace-pre-line leading-relaxed font-normal">${msg.innerText}</p>
-              </div>
-            `;
-          });
-        } else {
-          container.innerHTML = `
-            <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center text-xs text-slate-500">
-              अभी Telegram चैनल में कोई संदेश नहीं है। पहला संदेश शेयर करें!
-            </div>
-          `;
+            // Telegram Official Embed Widget Dynamically Insert
+            const script = document.createElement('script');
+            script.src = 'https://telegram.org/js/telegram-widget.js?22';
+            script.setAttribute('data-telegram-post', postPath);
+            script.setAttribute('data-width', '100%');
+            script.async = true;
+
+            container.appendChild(script);
+          }
         }
-      } catch (err) {
-        container.innerHTML = `
-          <div class="p-4 bg-amber-50 border border-amber-200 text-amber-700 rounded-xl text-center text-xs">
-            📢 Telegram चैनल (@${CHANNEL_USERNAME}) में मैसेज पोस्ट करके रीफ़्रेश करें।
+      })
+      .catch(error => {
+        console.error('Error fetching telegram post:', error);
+        document.getElementById('telegram-post-container').innerHTML = `
+          <div class="text-xs text-slate-500 text-center">
+            📢 टेलीग्राम चैनल (@${channelUsername}) में लेटेस्ट अपडेट्स देखें।
           </div>
         `;
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', fetchTelegramEvents);
-  </script>
+      });
+  })();
+</script>
 <!-- ========================================== -->
 <!-- PHOTO GALLERY SECTION                      -->
 <!-- ========================================== -->
