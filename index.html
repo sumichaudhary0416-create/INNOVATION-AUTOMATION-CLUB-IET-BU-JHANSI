@@ -1221,7 +1221,7 @@ Innovate. Automate. Inspire.</p>
     
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       
-      <!-- Photo Card 1 -->
+      <!-- Photo Card 1 (Student Achievements) -->
       <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
         <img src="assets/gallery/photo1.png" alt="Student Achievements 2023" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=1';">
         <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
@@ -1229,7 +1229,7 @@ Innovate. Automate. Inspire.</p>
         </div>
       </div>
 
-      <!-- Photo Card 2 -->
+      <!-- Photo Card 2 (Event Venue / Auditorium) -->
       <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
         <img src="assets/gallery/photo2.png" alt="Event Venue View" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=2';">
         <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
@@ -1267,47 +1267,48 @@ Innovate. Automate. Inspire.</p>
   </button>
 
   <!-- Image Wrapper -->
-  <div class="relative w-full h-[80vh] max-w-5xl flex items-center justify-center" onclick="event.stopPropagation()">
-    <img id="modalImage" src="" alt="Gallery Preview" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl block mx-auto border border-white/10">
+  <div class="relative w-full h-[85vh] max-w-5xl flex items-center justify-center" onclick="event.stopPropagation()">
+    <img id="modalImage" src="" alt="Enlarged View" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl block mx-auto border border-white/10">
   </div>
 </div>
 
 <!-- ========================================== -->
-<!-- EXACT MATCH JAVASCRIPT LOGIC              -->
+<!-- DIRECT DOM MATCH JS LOGIC                  -->
 <!-- ========================================== -->
 <script>
-  // Function to open gallery popup dynamically
-  function openGalleryModal(element) {
-    const imgTag = element.querySelector('img');
+  function openGalleryModal(cardElement) {
+    // Select the img element inside clicked card
+    const imgElement = cardElement.querySelector('img');
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
 
-    if (imgTag && modal && modalImg) {
-      // Fetch the EXACT rendered image URL directly from browser DOM
-      const activeSrc = imgTag.currentSrc || imgTag.src;
+    if (imgElement && modal && modalImg) {
+      // Get exact image URL currently visible in DOM
+      const targetSrc = imgElement.currentSrc || imgElement.src;
       
-      modalImg.src = activeSrc;
+      // Set to modal popup
+      modalImg.src = targetSrc;
 
+      // Show Modal
       modal.classList.remove('hidden');
       modal.classList.add('flex');
-      document.body.style.overflow = 'hidden'; // Stop background scroll
+      document.body.style.overflow = 'hidden';
     }
   }
 
-  // Function to close gallery popup
   function closeGalleryModal() {
     const modal = document.getElementById('imageModal');
     if (modal) {
       modal.classList.add('hidden');
       modal.classList.remove('flex');
-      document.body.style.overflow = 'auto'; // Restore scroll
+      document.body.style.overflow = 'auto';
     }
   }
 </script>
 
 </body>
 </html>
-     <!-- 8. JOIN IAC -->
+    <!-- 8. JOIN IAC -->
     <section id="join" class="py-20 bg-blue-900 text-white text-center">
         <div class="max-w-3xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-4">Ready to Join IAC?</h2>
