@@ -1277,24 +1277,24 @@ Innovate. Automate. Inspire.</p>
 <!-- ========================================== -->
 <script>
   function openGalleryModal(cardElement) {
-    // Select the img element inside clicked card
-    const imgElement = cardElement.querySelector('img');
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
+  // 1. Clicked card ke andar se <img> tag dhoondho
+  const imgElement = cardElement.querySelector('img');
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
 
-    if (imgElement && modal && modalImg) {
-      // Get exact image URL currently visible in DOM
-      const targetSrc = imgElement.currentSrc || imgElement.src;
-      
-      // Set to modal popup
-      modalImg.src = targetSrc;
+  if (imgElement && modal && modalImg) {
+    // 2. browser mein jo photo ACTUAL me render ho rahi hai (currentSrc) use lo
+    const currentRenderedSrc = imgElement.currentSrc || imgElement.src;
+    
+    // 3. Modal me assign karo
+    modalImg.src = currentRenderedSrc;
 
-      // Show Modal
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden';
-    }
+    // 4. Modal show karo
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
   }
+}
 
   function closeGalleryModal() {
     const modal = document.getElementById('imageModal');
