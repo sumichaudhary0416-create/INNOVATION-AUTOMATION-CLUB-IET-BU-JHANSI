@@ -1212,7 +1212,7 @@ Innovate. Automate. Inspire.</p>
             <p class="text-slate-600 text-sm mt-2">Hands-on microcontrollers and basic electronics session for first-year students.</p>
         </div>
     </section>
-   <!-- Fully Automatic Live Telegram Events Section -->
+   <!-- Live Google Sheets Events Section -->
 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 mt-6">
   <div class="flex items-center justify-between mb-4">
     <h3 class="text-lg font-bold text-slate-800 flex items-center gap-2">
@@ -1223,56 +1223,70 @@ Innovate. Automate. Inspire.</p>
     </span>
   </div>
 
-  <!-- Container jahan Telegram Post dikhega -->
-  <div id="telegram-auto-post" class="w-full flex justify-center items-center min-h-[160px] bg-slate-50 rounded-xl border border-slate-200 p-4">
-    <p class="text-xs text-slate-400">Loading latest announcement...</p>
+  <!-- Events Container -->
+  <div id="sheets-events-container" class="space-y-3">
+    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center text-xs text-slate-400">
+      Loading latest events...
+    </div>
   </div>
 </div>
 
 <script>
-  (function loadLatestTelegramPost() {
-    const channelName = 'iac_club_ietbu';
-    const proxyUrl = 'https://api.allorigins.win/get?url=';
-    const targetUrl = encodeURIComponent(`https://t.me/s/${channelName}`);
+  const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSstlm_a1xg3qtLeLGKv6RHulRPKIUGcS7ZKNjLNvqxTDk5mnQ6CMqF5DziND8qQqXmCxUKkcIQ9FJ-/pub?output=csv';
 
-    fetch(proxyUrl + targetUrl)
-      .then(res => res.json())
-      .then(data => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(data.contents, 'text/html');
-        
-        // Channel ki saari posts me se last post nikalna
-        const posts = doc.querySelectorAll('.tgme_widget_message');
-        if (posts.length > 0) {
-          const lastPost = posts[posts.length - 1];
-          const postPath = lastPost.getAttribute('data-post'); // e.g., iac_club_ietbu/8
+  async function loadEventsFromSheet() {
+    const container = document.getElementById('sheets-events-container');
 
-          if (postPath) {
-            const container = document.getElementById('telegram-auto-post');
-            container.innerHTML = ''; // Loading text hatayen
+    try {
+      const response = await fetch(SHEET_CSV_URL);
+      const csvData = await response.text();
 
-            // Telegram ka official widget script append karen
-            const script = document.createElement('script');
-            script.src = 'https://telegram.org/js/telegram-widget.js?22';
-            script.setAttribute('data-telegram-post', postPath);
-            script.setAttribute('data-width', '100%');
-            script.async = true;
+      // CSV parser logic
+      const rows = csvData.trim().split('\n').map(row => {
+        // Simple CSV splitter handling quotes
+        return row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(cell => cell.replace(/^"|"$/g, '').trim());
+      });
 
-            container.appendChild(script);
-          }
-        }
-      })
-      .catch(err => {
-        console.error('Telegram Fetch Error:', err);
-        // Fallback View agar fetch slow ho
-        document.getElementById('telegram-auto-post').innerHTML = `
-          <script async src="https://telegram.org/js/telegram-widget.js?22" 
-                  data-telegram-post="iac_club_ietbu/7" 
-                  data-width="100%">
-          <\/script>
+      // Remove header row (Date, Title, Description)
+      const events = rows.slice(1).reverse(); // Newest events first
+
+      if (events.length === 0 || (events.length === 1 && !events[0][0])) {
+        container.innerHTML = `
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center text-xs text-slate-500">
+            अभी कोई नया इवेंट उपलब्ध नहीं है।
+          </div>`;
+        return;
+      }
+
+      container.innerHTML = ''; // Clear loading text
+
+      events.forEach(event => {
+        const date = event[0] || 'Recent';
+        const title = event[1] || 'Announcement';
+        const description = event[2] || '';
+
+        container.innerHTML += `
+          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-sm transition text-left">
+            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
+              <span class="bg-blue-50 text-blue-600 font-semibold px-2.5 py-0.5 rounded-md">${title}</span>
+              <span>${date}</span>
+            </div>
+            <p class="text-sm text-slate-800 whitespace-pre-line leading-relaxed font-normal">${description}</p>
+          </div>
         `;
       });
-  })();
+
+    } catch (error) {
+      console.error('Sheet fetch error:', error);
+      container.innerHTML = `
+        <div class="p-4 bg-amber-50 border border-amber-200 text-amber-700 rounded-xl text-center text-xs">
+          इवेंट्स लोड करने में असमर्थ। कृपया बाद में प्रयास करें।
+        </div>`;
+    }
+  }
+
+  // Load events on page load
+  document.addEventListener('DOMContentLoaded', loadEventsFromSheet);
 </script>
 <!-- ========================================== -->
 <!-- PHOTO GALLERY SECTION                      -->
