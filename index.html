@@ -527,108 +527,78 @@ Innovate. Automate. Inspire.</p>
   };
 
   // Open Head Profile & Sub-members List
-  function openHeadModal(key) {
-    currentHeadKey = key;
-    const data = teamData[key];
-    const modal = document.getElementById('teamModal');
-    const content = document.getElementById('modalContent');
-
-    if (!data) return;
-
-    let membersHTML = '';
-    if (data.members && data.members.length > 0) {
-      membersHTML = `
-        <div class="mt-6 pt-6 border-t border-slate-100">
-            <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">Domain Members (Tap to View)</h5>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                ${data.members.map(m => `
-                    <div onclick="openMemberModal('${m.id}')" class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-blue-50/50 hover:border-blue-200 cursor-pointer transition shadow-sm group">
-                        <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200 shrink-0 border-2 border-white shadow-sm flex items-center justify-center relative">
-                            <img src="${m.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                            <span class="text-sm font-bold text-blue-600 absolute">${m.name.charAt(0)}</span>
-                        </div>
-                        <div class="text-left">
-                            <h6 class="text-xs font-bold text-slate-800 leading-tight group-hover:text-blue-600">${m.name}</h6>
-                            <p class="text-[10px] font-semibold text-slate-500 mt-0.5">${m.role}</p>
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-      `;
-    }
-
-    content.innerHTML = `
-        <div class="text-center">
-            <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">${data.title}</span>
-            
-            <div class="w-28 h-28 mx-auto mt-4 mb-3 rounded-full overflow-hidden border-4 border-blue-100 shadow-md bg-slate-100 flex items-center justify-center relative">
-                <img src="${data.head.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                <span class="text-2xl font-bold text-blue-600 absolute">${data.head.name.charAt(0)}</span>
-            </div>
-            
-            <h4 class="text-xl font-black text-slate-900">${data.head.name}</h4>
-            <p class="text-xs font-extrabold text-blue-600 uppercase tracking-wider mt-1">${data.head.role}</p>
-            <p class="text-xs text-slate-500 mt-3 max-w-xs mx-auto leading-relaxed">${data.head.bio}</p>
-            
-            ${membersHTML}
-        </div>
-    `;
-
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    document.body.style.overflow = 'hidden'; // Stop background scroll
+function openHeadModal(key) {
+  console.log("Opening modal for key:", key); // Debugging line
+  
+  if (!teamData || !teamData[key]) {
+    console.error("Data not found for key:", key);
+    return;
   }
 
-  // Open Sub-member Specific Modal View
-  function openMemberModal(memberId) {
-    const data = teamData[currentHeadKey];
-    if (!data) return;
-    
-    const member = data.members.find(m => m.id === memberId);
-    if (!member) return;
+  currentHeadKey = key;
+  const data = teamData[key];
+  const modal = document.getElementById('teamModal');
+  const content = document.getElementById('modalContent');
 
-    const content = document.getElementById('modalContent');
+  if (!modal || !content) {
+    console.error("Modal element missing from HTML");
+    return;
+  }
 
-    content.innerHTML = `
-        <div class="text-center relative pt-2">
-            <!-- Back Button -->
-            <button onclick="openHeadModal('${currentHeadKey}')" class="absolute top-0 left-0 text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full flex items-center gap-1 hover:bg-blue-100 transition">
-                ← Back
-            </button>
-
-            <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full block w-fit mx-auto mt-6">${data.title}</span>
-            
-            <div class="w-28 h-28 mx-auto mt-4 mb-3 rounded-full overflow-hidden border-4 border-blue-100 shadow-md bg-slate-100 flex items-center justify-center relative">
-                <img src="${member.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                <span class="text-2xl font-bold text-blue-600 absolute">${member.name.charAt(0)}</span>
+  let membersHTML = '';
+  if (data.members && data.members.length > 0) {
+    membersHTML = `
+      <div class="mt-6 pt-6 border-t border-slate-100">
+        <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">Domain Members (Tap to View)</h5>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          ${data.members.map(m => `
+            <div onclick="openMemberModal('${m.id}')" class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-blue-50/50 hover:border-blue-200 cursor-pointer transition group">
+              <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200 shrink-0 border-2 border-white shadow-sm flex items-center justify-center relative">
+                <img src="${m.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
+                <span class="text-sm font-bold text-blue-600 absolute">${m.name ? m.name.charAt(0) : 'M'}</span>
+              </div>
+              <div class="text-left">
+                <h6 class="text-xs font-bold text-slate-800 leading-tight group-hover:text-blue-600">${m.name}</h6>
+                <p class="text-[10px] font-semibold text-slate-500 mt-0.5">${m.role}</p>
+              </div>
             </div>
-            
-            <h4 class="text-xl font-black text-slate-900">${member.name}</h4>
-            <p class="text-xs font-extrabold text-blue-600 uppercase tracking-wider mt-1">${member.role}</p>
-            
-            <div class="mt-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 text-xs text-slate-600 leading-relaxed text-center">
-                ${member.bio}
-            </div>
+          `).join('')}
         </div>
+      </div>
     `;
   }
 
-  function closeModal() {
-    const modal = document.getElementById('teamModal');
+  content.innerHTML = `
+    <div class="text-center">
+      <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">${data.title}</span>
+      
+      <div class="w-28 h-28 mx-auto mt-4 mb-3 rounded-full overflow-hidden border-4 border-blue-100 shadow-md bg-slate-100 flex items-center justify-center relative">
+        <img src="${data.head.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
+        <span class="text-2xl font-bold text-blue-600 absolute">${data.head.name ? data.head.name.charAt(0) : 'H'}</span>
+      </div>
+
+      <h4 class="text-xl font-black text-slate-900">${data.head.name}</h4>
+      <p class="text-xs font-extrabold text-blue-600 uppercase tracking-wider mt-1">${data.head.role}</p>
+      <p class="text-xs text-slate-500 mt-3 max-w-xs mx-auto leading-relaxed">${data.head.bio}</p>
+
+      ${membersHTML}
+    </div>
+  `;
+
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  document.body.style.overflow = 'hidden'; 
+}
+
+// Close Modal Function
+function closeModal() {
+  const modal = document.getElementById('teamModal');
+  if (modal) {
     modal.classList.add('hidden');
     modal.classList.remove('flex');
-    document.body.style.overflow = 'auto'; // Restore scroll
+    document.body.style.overflow = 'auto';
   }
-
-  // Close modal when clicking outside background overlay
-  window.addEventListener('click', function(e) {
-    const modal = document.getElementById('teamModal');
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-</script>
+}
 <!-- ================= TEAM SECTION END ================= -->
     <!-- MODERN ALUMNI SECTION WITH PHOTO POP-UP START -->
 <section id="alumni" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); padding: 70px 20px; font-family: 'Inter', sans-serif;">
