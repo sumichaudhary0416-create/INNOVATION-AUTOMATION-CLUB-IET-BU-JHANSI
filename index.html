@@ -1213,57 +1213,84 @@ Innovate. Automate. Inspire.</p>
         </div>
     </section>
 
-    <!-- 7. GALLERY -->
+    <!-- 7. PHOTO GALLERY SECTION -->
 <section id="gallery" class="py-16 bg-slate-100">
   <div class="max-w-7xl mx-auto px-4">
     <h2 class="text-3xl font-bold text-center mb-8 text-slate-900">Photo Gallery</h2>
     
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <!-- Card 1 -->
-      <div onclick="openGalleryModal(this)" class="h-48 overflow-hidden rounded-xl shadow-md bg-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo1.png" alt="Photo 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.src='https://picsum.photos/800/600?random=1'">
-        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-bold text-sm">
-          🔍 Click to View
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      
+      <!-- Photo 1: Student's Achievements -->
+      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
+        <img src="assets/gallery/photo1.png" alt="Student Achievements 2023" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
+          🔍 Zoom View
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div onclick="openGalleryModal(this)" class="h-48 overflow-hidden rounded-xl shadow-md bg-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo2.png" alt="Photo 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.src='https://picsum.photos/800/600?random=2'">
-        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-bold text-sm">
-          🔍 Click to View
+      <!-- Photo 2: Event Street / Venue -->
+      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
+        <img src="assets/gallery/photo2.png" alt="Event Venue View" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
+          🔍 Zoom View
         </div>
       </div>
 
-      <!-- Card 3 -->
-      <div onclick="openGalleryModal(this)" class="h-48 overflow-hidden rounded-xl shadow-md bg-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo3.png" alt="Photo 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.src='https://picsum.photos/800/600?random=3'">
-        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-bold text-sm">
-          🔍 Click to View
+      <!-- Extra Demo Photo 3 (If needed) -->
+      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
+        <img src="assets/gallery/photo3.png" alt="Gallery Photo 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://picsum.photos/800/600?random=3'">
+        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
+          🔍 Zoom View
         </div>
       </div>
 
-      <!-- Card 4 -->
-      <div onclick="openGalleryModal(this)" class="h-48 overflow-hidden rounded-xl shadow-md bg-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo4.png" alt="Photo 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.src='https://picsum.photos/800/600?random=4'">
-        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-bold text-sm">
-          🔍 Click to View
+      <!-- Extra Demo Photo 4 (If needed) -->
+      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
+        <img src="assets/gallery/photo4.png" alt="Gallery Photo 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.src='https://picsum.photos/800/600?random=4'">
+        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
+          🔍 Zoom View
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- GALLERY POPUP MODAL (Add this just below Gallery Section) -->
-<div id="imageModal" onclick="closeGalleryModal()" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[999] hidden items-center justify-center p-4">
-  <div class="relative max-w-4xl max-h-[90vh] overflow-hidden rounded-2xl shadow-2xl" onclick="event.stopPropagation()">
-    <button onclick="closeGalleryModal()" class="absolute top-3 right-3 bg-black/70 hover:bg-black text-white w-9 h-9 rounded-full flex items-center justify-center text-lg z-10 cursor-pointer">
-      ✕
-    </button>
-    <img id="modalImage" src="" class="max-w-full max-h-[85vh] object-contain rounded-2xl mx-auto block">
+<!-- FULLSCREEN GALLERY POPUP MODAL -->
+<div id="imageModal" onclick="closeGalleryModal()" class="fixed inset-0 bg-black/90 backdrop-blur-md z-[9999] hidden items-center justify-center p-3 sm:p-6 transition-all duration-300">
+  <!-- Close Button -->
+  <button onclick="closeGalleryModal()" class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl z-[10000] cursor-pointer border border-white/30 transition">
+    ✕
+  </button>
+
+  <!-- Responsive Container -->
+  <div class="relative w-full h-full max-w-6xl max-h-[90vh] flex items-center justify-center" onclick="event.stopPropagation()">
+    <img id="modalImage" src="" class="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-xl shadow-2xl block mx-auto border border-white/10">
   </div>
 </div>
+    // Function to open gallery popup dynamically
+function openGalleryModal(element) {
+  const imgTag = element.querySelector('img');
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
 
+  if (imgTag && modal && modalImg) {
+    modalImg.src = imgTag.src;
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden'; // Screen scroll stop
+  }
+}
+
+// Function to close gallery popup
+function closeGalleryModal() {
+  const modal = document.getElementById('imageModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = 'auto'; // Screen scroll restore
+  }
+}
     <!-- 8. JOIN IAC -->
     <section id="join" class="py-20 bg-blue-900 text-white text-center">
         <div class="max-w-3xl mx-auto px-4">
