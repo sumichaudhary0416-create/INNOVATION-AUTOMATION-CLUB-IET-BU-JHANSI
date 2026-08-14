@@ -1267,29 +1267,44 @@ Innovate. Automate. Inspire.</p>
     ✕
   </button>
 
-  <!-- Responsive Container -->
-  <div class="relative w-full h-full max-w-6xl max-h-[90vh] flex items-center justify-center" onclick="event.stopPropagation()">
-    <img id="modalImage" src="" class="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-xl shadow-2xl block mx-auto border border-white/10">
+  <!-- Image Container -->
+  <div class="relative w-full h-full max-w-5xl max-h-[90vh] flex items-center justify-center" onclick="event.stopPropagation()">
+    <img id="modalImage" src="" alt="Enlarged View" class="max-w-full max-h-[85vh] w-auto h-auto object-contain rounded-xl shadow-2xl block mx-auto border border-white/10" onerror="this.src='https://picsum.photos/800/600?random=99'">
   </div>
 </div>
-
 <!-- ========================================== -->
 <!-- GALLERY JAVASCRIPT LOGIC                  -->
 <!-- ========================================== -->
 <script>
   // Function to open gallery popup dynamically
   function openGalleryModal(element) {
-    const imgTag = element.querySelector('img');
-    const modal = document.getElementById('imageModal');
-    const modalImg = document.getElementById('modalImage');
+  const imgTag = element.querySelector('img');
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImage');
 
-    if (imgTag && modal && modalImg) {
-      modalImg.src = imgTag.src;
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden'; // Stop background scroll
-    }
+  if (imgTag && modal && modalImg) {
+    // 1. Check if image has loaded src or currentSrc
+    const imageSrc = imgTag.currentSrc || imgTag.src;
+    
+    // 2. Assign source to modal
+    modalImg.src = imageSrc;
+    
+    // 3. Show Modal
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
   }
+}
+
+// Function to close gallery popup
+function closeGalleryModal() {
+  const modal = document.getElementById('imageModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = 'auto';
+  }
+}}
 
   // Function to close gallery popup
   function closeGalleryModal() {
