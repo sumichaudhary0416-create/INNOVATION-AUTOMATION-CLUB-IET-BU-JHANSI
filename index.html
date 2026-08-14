@@ -499,9 +499,8 @@ Innovate. Automate. Inspire.</p>
       title: "Documentation Domain",
       head: { name: "Shubhashini Dwivedi", role: "Documentation Head", img: "assets/team/shubhashini.jpg.jpeg", bio: "Managing official club documentation, reports, and records." },
       members: [
-        { id: "Yogesh Ahirwar", name: "Yogesh Ahirwar", role: "Documentation Member", img: "assets/team/yogesh.jpg.jpeg", bio: "Assisting in drafting official reports, event records, and content archiving." }
-        { id: "Shivam Mishra", name: "Shivam Mishra", role: "Documentation Member", img: "assets/team/shivam.jpg.jpeg", bio: "Assisting in drafting official reports, event records, and content archiving." }
-      ]
+        { id: "yogesh", name: "Yogesh Ahirwar", role: "Documentation Member", img: "assets/team/yogesh.jpg.jpeg", bio: "Assisting in drafting official reports and event records." },
+        { id: "shivam", name: "Shivam Mishra", role: "Documentation Member", img: "assets/team/shivam.jpg.jpeg", bio: "Assisting in drafting official reports and event records." }
       ]
     },
     event: {
@@ -509,7 +508,7 @@ Innovate. Automate. Inspire.</p>
       head: { name: "Event Management", role: "Coordination Lead", img: "assets/team/event/lead.jpg.jpeg", bio: "Planning and scheduling campus events and competitions." },
       members: [
         { id: "divyanshu", name: "Divyanshu Singh", role: "Event Coordinator", img: "assets/team/divyanshu.jpg.jpeg", bio: "Handling logistics, venue coordination, and scheduling." },
-        { id: "anjali", name: "Anjali Kumari", role: "Event Coordinator", img: "assets/team/anjali.jpg.jpeg", bio: "Managing volunteer groups and event registration desks." }
+        { id: "anjali", name: "Anjali Kumari", role: "Event Coordinator", img: "assets/team/anjali.jpg.jpeg", bio: "Managing volunteer groups and registration desks." }
       ]
     },
     gaurav: {
@@ -526,79 +525,100 @@ Innovate. Automate. Inspire.</p>
     }
   };
 
-  // Open Head Profile & Sub-members List
-function openHeadModal(key) {
-  console.log("Opening modal for key:", key); // Debugging line
-  
-  if (!teamData || !teamData[key]) {
-    console.error("Data not found for key:", key);
-    return;
-  }
+  // 1. Open Head Profile & Sub-members List
+  function openHeadModal(key) {
+    currentHeadKey = key;
+    const data = teamData[key];
+    const modal = document.getElementById('teamModal');
+    const content = document.getElementById('modalContent');
 
-  currentHeadKey = key;
-  const data = teamData[key];
-  const modal = document.getElementById('teamModal');
-  const content = document.getElementById('modalContent');
+    if (!data || !modal || !content) return;
 
-  if (!modal || !content) {
-    console.error("Modal element missing from HTML");
-    return;
-  }
-
-  let membersHTML = '';
-  if (data.members && data.members.length > 0) {
-    membersHTML = `
-      <div class="mt-6 pt-6 border-t border-slate-100">
-        <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">Domain Members (Tap to View)</h5>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          ${data.members.map(m => `
-            <div onclick="openMemberModal('${m.id}')" class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-blue-50/50 hover:border-blue-200 cursor-pointer transition group">
-              <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200 shrink-0 border-2 border-white shadow-sm flex items-center justify-center relative">
-                <img src="${m.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                <span class="text-sm font-bold text-blue-600 absolute">${m.name ? m.name.charAt(0) : 'M'}</span>
+    let membersHTML = '';
+    if (data.members && data.members.length > 0) {
+      membersHTML = `
+        <div class="mt-6 pt-6 border-t border-slate-100">
+          <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">Domain Members (Tap to View)</h5>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            ${data.members.map(m => `
+              <div onclick="openMemberModal('${m.id}')" class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-blue-50/50 hover:border-blue-200 cursor-pointer transition group">
+                <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200 shrink-0 border-2 border-white shadow-sm flex items-center justify-center relative">
+                  <img src="${m.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
+                  <span class="text-sm font-bold text-blue-600 absolute">${m.name ? m.name.charAt(0) : 'M'}</span>
+                </div>
+                <div class="text-left">
+                  <h6 class="text-xs font-bold text-slate-800 leading-tight group-hover:text-blue-600">${m.name}</h6>
+                  <p class="text-[10px] font-semibold text-slate-500 mt-0.5">${m.role}</p>
+                </div>
               </div>
-              <div class="text-left">
-                <h6 class="text-xs font-bold text-slate-800 leading-tight group-hover:text-blue-600">${m.name}</h6>
-                <p class="text-[10px] font-semibold text-slate-500 mt-0.5">${m.role}</p>
-              </div>
-            </div>
-          `).join('')}
+            `).join('')}
+          </div>
         </div>
+      `;
+    }
+
+    content.innerHTML = `
+      <div class="text-center">
+        <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">${data.title}</span>
+        
+        <div class="w-28 h-28 mx-auto mt-4 mb-3 rounded-full overflow-hidden border-4 border-blue-100 shadow-md bg-slate-100 flex items-center justify-center relative">
+          <img src="${data.head.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
+          <span class="text-2xl font-bold text-blue-600 absolute">${data.head.name ? data.head.name.charAt(0) : 'H'}</span>
+        </div>
+
+        <h4 class="text-xl font-black text-slate-900">${data.head.name}</h4>
+        <p class="text-xs font-extrabold text-blue-600 uppercase tracking-wider mt-1">${data.head.role}</p>
+        <p class="text-xs text-slate-500 mt-3 max-w-xs mx-auto leading-relaxed">${data.head.bio}</p>
+
+        ${membersHTML}
+      </div>
+    `;
+
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // 2. Open Sub-member Specific Modal View
+  function openMemberModal(memberId) {
+    const data = teamData[currentHeadKey];
+    if (!data) return;
+
+    const member = data.members.find(m => m.id === memberId);
+    if (!member) return;
+
+    const content = document.getElementById('modalContent');
+
+    content.innerHTML = `
+      <div class="text-center relative pt-2">
+        <button onclick="openHeadModal('${currentHeadKey}')" class="absolute top-0 left-0 text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full flex items-center gap-1 hover:bg-blue-100">
+          ← Back
+        </button>
+
+        <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full block w-fit mx-auto mt-6">${data.title}</span>
+
+        <div class="w-28 h-28 mx-auto mt-4 mb-3 rounded-full overflow-hidden border-4 border-blue-100 shadow-md bg-slate-100 flex items-center justify-center relative">
+          <img src="${member.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
+          <span class="text-2xl font-bold text-blue-600 absolute">${member.name ? member.name.charAt(0) : 'M'}</span>
+        </div>
+
+        <h4 class="text-xl font-black text-slate-900">${member.name}</h4>
+        <p class="text-xs font-extrabold text-blue-600 uppercase tracking-wider mt-1">${member.role}</p>
+        <p class="text-xs text-slate-500 mt-3 max-w-xs mx-auto leading-relaxed">${member.bio}</p>
       </div>
     `;
   }
 
-  content.innerHTML = `
-    <div class="text-center">
-      <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">${data.title}</span>
-      
-      <div class="w-28 h-28 mx-auto mt-4 mb-3 rounded-full overflow-hidden border-4 border-blue-100 shadow-md bg-slate-100 flex items-center justify-center relative">
-        <img src="${data.head.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-        <span class="text-2xl font-bold text-blue-600 absolute">${data.head.name ? data.head.name.charAt(0) : 'H'}</span>
-      </div>
-
-      <h4 class="text-xl font-black text-slate-900">${data.head.name}</h4>
-      <p class="text-xs font-extrabold text-blue-600 uppercase tracking-wider mt-1">${data.head.role}</p>
-      <p class="text-xs text-slate-500 mt-3 max-w-xs mx-auto leading-relaxed">${data.head.bio}</p>
-
-      ${membersHTML}
-    </div>
-  `;
-
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
-  document.body.style.overflow = 'hidden'; 
-}
-
-// Close Modal Function
-function closeModal() {
-  const modal = document.getElementById('teamModal');
-  if (modal) {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.body.style.overflow = 'auto';
+  // 3. Close Modal Function
+  function closeModal() {
+    const modal = document.getElementById('teamModal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto';
+    }
   }
-}
+</script>
 <!-- ================= TEAM SECTION END ================= -->
     <!-- MODERN ALUMNI SECTION WITH PHOTO POP-UP START -->
 <section id="alumni" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); padding: 70px 20px; font-family: 'Inter', sans-serif;">
