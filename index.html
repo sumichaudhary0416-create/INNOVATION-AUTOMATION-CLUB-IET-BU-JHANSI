@@ -1213,51 +1213,57 @@ Innovate. Automate. Inspire.</p>
         </div>
     </section>
 <!-- ========================================== -->
-<!-- 7. PHOTO GALLERY SECTION                  -->
+<!-- ALBUM PHOTO GALLERY SECTION                -->
 <!-- ========================================== -->
 <section id="gallery" class="py-16 bg-slate-100">
   <div class="max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-8 text-slate-900">Photo Gallery</h2>
+    <!-- Header -->
+    <div class="text-center mb-10">
+      <h2 class="text-3xl font-bold text-slate-900">Photo Gallery</h2>
+      <p class="text-slate-600 mt-2 text-sm">Tap on any photo to view in high resolution</p>
+    </div>
     
+    <!-- Gallery Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       
-      <!-- Photo Card 1 (Student Achievements) -->
-<div onclick="openGalleryModal(this)" data-fullsrc="assets/gallery/photo1.png" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
-  <!-- Card Header/Banner -->
-  <div class="bg-slate-50 border-b border-slate-200 px-3 py-1">
-    <span class="text-xs font-bold text-blue-700">Student’s Achievements (Year-2023)</span>
-  </div>
-  
-  <!-- Actual Image -->
-  <img src="assets/gallery/photo1.png" alt="Student Achievements 2023" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=1';">
-  
-  <!-- Hover Overlay -->
-  <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
-    🔍 Zoom View
-  </div>
-</div>
-
-      <!-- Photo Card 2 (Event Venue / Auditorium) -->
-      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo2.png" alt="Event Venue View" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=2';">
-        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
-          🔍 Zoom View
+      <!-- Album Card 1 -->
+      <div onclick="openGalleryModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <img src="assets/gallery/photo1.png" alt="Student Achievements" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=1';">
+        <!-- Overlay on Hover/Tap -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+          <span class="text-white text-sm font-semibold flex items-center gap-2">
+            🔍 View Fullsize
+          </span>
         </div>
       </div>
 
-      <!-- Photo Card 3 -->
-      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo3.png" alt="Gallery Photo 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=3';">
-        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
-          🔍 Zoom View
+      <!-- Album Card 2 -->
+      <div onclick="openGalleryModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <img src="assets/gallery/photo2.png" alt="Event Venue" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=2';">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+          <span class="text-white text-sm font-semibold flex items-center gap-2">
+            🔍 View Fullsize
+          </span>
         </div>
       </div>
 
-      <!-- Photo Card 4 -->
-      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo4.png" alt="Gallery Photo 4" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=4';">
-        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
-          🔍 Zoom View
+      <!-- Album Card 3 -->
+      <div onclick="openGalleryModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <img src="assets/gallery/photo3.png" alt="Club Event 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=3';">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+          <span class="text-white text-sm font-semibold flex items-center gap-2">
+            🔍 View Fullsize
+          </span>
+        </div>
+      </div>
+
+      <!-- Album Card 4 -->
+      <div onclick="openGalleryModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+        <img src="assets/gallery/photo4.png" alt="Club Event 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=4';">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+          <span class="text-white text-sm font-semibold flex items-center gap-2">
+            🔍 View Fullsize
+          </span>
         </div>
       </div>
 
@@ -1266,48 +1272,62 @@ Innovate. Automate. Inspire.</p>
 </section>
 
 <!-- ========================================== -->
-<!-- FULLSCREEN GALLERY POPUP MODAL            -->
+<!-- FULLSCREEN ALBUM LIGHTBOX MODAL            -->
 <!-- ========================================== -->
-<div id="imageModal" onclick="closeGalleryModal()" class="fixed inset-0 bg-black/90 backdrop-blur-md z-[9999] hidden items-center justify-center p-4 transition-all duration-300">
+<div id="imageModal" onclick="closeGalleryModal()" class="fixed inset-0 bg-black/95 backdrop-blur-md z-[9999] hidden items-center justify-center p-4 transition-all duration-300">
   <!-- Close Button -->
-  <button onclick="closeGalleryModal()" class="absolute top-4 right-4 bg-white/20 hover:bg-white/40 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl z-[10000] cursor-pointer border border-white/30 transition">
+  <button onclick="closeGalleryModal()" class="absolute top-5 right-5 bg-white/20 hover:bg-white/40 text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl z-[10000] cursor-pointer border border-white/30 transition shadow-lg">
     ✕
   </button>
 
-  <!-- Image Wrapper -->
-  <div class="relative w-full h-[85vh] max-w-5xl flex items-center justify-center" onclick="event.stopPropagation()">
-    <img id="modalImage" src="" alt="Enlarged View" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl block mx-auto border border-white/10">
+  <!-- Large Image Wrapper -->
+  <div class="relative w-full h-[85vh] max-w-6xl flex items-center justify-center" onclick="event.stopPropagation()">
+    <img id="modalImage" src="" alt="Enlarged Photo View" class="max-w-full max-h-full object-contain rounded-xl shadow-2xl block mx-auto border border-white/10" onerror="this.onerror=null; this.src='https://picsum.photos/1200/800?random=10';">
   </div>
 </div>
 
 <!-- ========================================== -->
-<!-- DIRECT DOM MATCH JS LOGIC                  -->
+<!-- JAVASCRIPT BINDING LOGIC                  -->
 <!-- ========================================== -->
 <script>
   function openGalleryModal(cardElement) {
-  const modal = document.getElementById('imageModal');
-  const modalImg = document.getElementById('modalImage');
-  const imgInsideCard = cardElement.querySelector('img');
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
+    const cardImg = cardElement.querySelector('img');
 
-  if (modal && modalImg && imgInsideCard) {
-    // 1. स्क्रीन पर जो फोटो दिख रही है (currentSrc) उसे लें
-    let currentSrc = imgInsideCard.currentSrc || imgInsideCard.src;
+    if (modal && modalImg && cardImg) {
+      // 1. DOM me jo photo render ho rahi hai (original or fallback) uska exact URL lein
+      const renderedUrl = cardImg.currentSrc || cardImg.src;
 
-    // 2. पॉप-अप में असाइन करें
-    modalImg.src = currentSrc;
+      // 2. Large Pop-up Modal me URL assign karein
+      modalImg.src = renderedUrl;
 
-    // 3. अगर पॉप-अप वाली इमेज लोड न हो पाए तो बैकअप इमेज दिखाएं
-    modalImg.onerror = function() {
-      this.onerror = null;
-      this.src = 'https://picsum.photos/1000/700?random=10';
-    };
-
-    // 4. Modal Open करें
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    document.body.style.overflow = 'hidden';
+      // 3. Modal show karein
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.body.style.overflow = 'hidden'; // Page scroll pause
+    }
   }
-}
+
+  function closeGalleryModal() {
+    const modal = document.getElementById('imageModal');
+    if (modal) {
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      document.body.style.overflow = 'auto'; // Page scroll restore
+    }
+  }
+
+  // Keyboard shortcut: ESC Key Dabane par Popup Band Ho Jaega
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeGalleryModal();
+    }
+  });
+</script>
+
+</body>
+</html>
     <!-- 8. JOIN IAC -->
     <section id="join" class="py-20 bg-blue-900 text-white text-center">
         <div class="max-w-3xl mx-auto px-4">
