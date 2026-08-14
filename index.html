@@ -1222,12 +1222,20 @@ Innovate. Automate. Inspire.</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       
       <!-- Photo Card 1 (Student Achievements) -->
-      <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
-        <img src="assets/gallery/photo1.png" alt="Student Achievements 2023" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=1';">
-        <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
-          🔍 Zoom View
-        </div>
-      </div>
+<div onclick="openGalleryModal(this)" data-fullsrc="assets/gallery/photo1.png" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
+  <!-- Card Header/Banner -->
+  <div class="bg-slate-50 border-b border-slate-200 px-3 py-1">
+    <span class="text-xs font-bold text-blue-700">Student’s Achievements (Year-2023)</span>
+  </div>
+  
+  <!-- Actual Image -->
+  <img src="assets/gallery/photo1.png" alt="Student Achievements 2023" class="w-full h-full object-cover group-hover:scale-105 transition duration-300" onerror="this.onerror=null; this.src='https://picsum.photos/800/600?random=1';">
+  
+  <!-- Hover Overlay -->
+  <div class="absolute inset-0 bg-slate-900/40 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-white font-semibold text-sm backdrop-blur-[2px]">
+    🔍 Zoom View
+  </div>
+</div>
 
       <!-- Photo Card 2 (Event Venue / Auditorium) -->
       <div onclick="openGalleryModal(this)" class="h-56 overflow-hidden rounded-2xl shadow-md bg-white border border-slate-200 cursor-pointer group relative">
@@ -1277,37 +1285,32 @@ Innovate. Automate. Inspire.</p>
 <!-- ========================================== -->
 <script>
   function openGalleryModal(cardElement) {
-  // 1. Clicked card ke andar se <img> tag dhoondho
-  const imgElement = cardElement.querySelector('img');
   const modal = document.getElementById('imageModal');
   const modalImg = document.getElementById('modalImage');
+  const imgInsideCard = cardElement.querySelector('img');
 
-  if (imgElement && modal && modalImg) {
-    // 2. browser mein jo photo ACTUAL me render ho rahi hai (currentSrc) use lo
-    const currentRenderedSrc = imgElement.currentSrc || imgElement.src;
-    
-    // 3. Modal me assign karo
-    modalImg.src = currentRenderedSrc;
+  if (modal && modalImg && imgInsideCard) {
+    // 1. Get the actual rendered source from the card's img tag
+    let currentSrc = imgInsideCard.currentSrc || imgInsideCard.src;
 
-    // 4. Modal show karo
+    // 2. Pass it to the popup modal
+    modalImg.src = currentSrc;
+
+    // 3. Display modal
     modal.classList.remove('hidden');
     modal.classList.add('flex');
     document.body.style.overflow = 'hidden';
   }
 }
 
-  function closeGalleryModal() {
-    const modal = document.getElementById('imageModal');
-    if (modal) {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = 'auto';
-    }
+function closeGalleryModal() {
+  const modal = document.getElementById('imageModal');
+  if (modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+    document.body.style.overflow = 'auto';
   }
-</script>
-
-</body>
-</html>
+}
     <!-- 8. JOIN IAC -->
     <section id="join" class="py-20 bg-blue-900 text-white text-center">
         <div class="max-w-3xl mx-auto px-4">
