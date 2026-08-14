@@ -1213,7 +1213,7 @@ Innovate. Automate. Inspire.</p>
         </div>
     </section>
 <!-- ========================================== -->
-<!-- ALBUM PHOTO GALLERY SECTION                -->
+<!-- ALBUM PHOTO GALLERY SECTION (JPEG Format)  -->
 <!-- ========================================== -->
 <section id="gallery" class="py-16 bg-slate-100">
   <div class="max-w-7xl mx-auto px-4">
@@ -1226,9 +1226,9 @@ Innovate. Automate. Inspire.</p>
     <!-- Gallery Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       
-      <!-- Album Card 1 (Fixed Path for Double Extension & Relative Base) -->
+      <!-- Album Card 1 -->
       <div onclick="openGalleryModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="assets/gallery/photo1.png" alt="Student Achievements" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='assets/gallery/photo1.png">
+        <img src="./assets/gallery/photo1.jpeg" alt="Gallery Photo 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=1';">
         <!-- Overlay on Hover/Tap -->
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
           <span class="text-white text-sm font-semibold flex items-center gap-2">
@@ -1239,7 +1239,7 @@ Innovate. Automate. Inspire.</p>
 
       <!-- Album Card 2 -->
       <div onclick="openGalleryModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="./assets/gallery/photo2.png" alt="Event Venue" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=2';">
+        <img src="./assets/gallery/photo2.jpeg" alt="Gallery Photo 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=2';">
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
           <span class="text-white text-sm font-semibold flex items-center gap-2">
             🔍 View Fullsize
@@ -1249,7 +1249,7 @@ Innovate. Automate. Inspire.</p>
 
       <!-- Album Card 3 -->
       <div onclick="openGalleryModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="./assets/gallery/photo3.png" alt="Club Event 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=3';">
+        <img src="./assets/gallery/photo3.jpeg" alt="Gallery Photo 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=3';">
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
           <span class="text-white text-sm font-semibold flex items-center gap-2">
             🔍 View Fullsize
@@ -1259,7 +1259,7 @@ Innovate. Automate. Inspire.</p>
 
       <!-- Album Card 4 -->
       <div onclick="openGalleryModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="./assets/gallery/photo4.png" alt="Club Event 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=4';">
+        <img src="./assets/gallery/photo4.jpeg" alt="Gallery Photo 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" onerror="this.onerror=null; this.src='https://picsum.photos/1000/700?random=4';">
         <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
           <span class="text-white text-sm font-semibold flex items-center gap-2">
             🔍 View Fullsize
@@ -1296,16 +1296,16 @@ Innovate. Automate. Inspire.</p>
     const cardImg = cardElement.querySelector('img');
 
     if (modal && modalImg && cardImg) {
-      // 1. DOM me jo photo render ho rahi hai (original or fallback) uska exact URL lein
+      // Get exact image URL currently rendered on card
       const renderedUrl = cardImg.currentSrc || cardImg.src;
 
-      // 2. Large Pop-up Modal me URL assign karein
+      // Pass URL to Lightbox Modal
       modalImg.src = renderedUrl;
 
-      // 3. Modal show karein
+      // Show Modal
       modal.classList.remove('hidden');
       modal.classList.add('flex');
-      document.body.style.overflow = 'hidden'; // Page scroll pause
+      document.body.style.overflow = 'hidden'; // Stop background scroll
     }
   }
 
@@ -1314,11 +1314,11 @@ Innovate. Automate. Inspire.</p>
     if (modal) {
       modal.classList.add('hidden');
       modal.classList.remove('flex');
-      document.body.style.overflow = 'auto'; // Page scroll restore
+      document.body.style.overflow = 'auto'; // Restore background scroll
     }
   }
 
-  // Keyboard shortcut: ESC Key Dabane par Popup Band Ho Jaega
+  // Close modal when Escape key is pressed
   document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
       closeGalleryModal();
