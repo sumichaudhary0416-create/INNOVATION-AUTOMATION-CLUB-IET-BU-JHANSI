@@ -1290,25 +1290,22 @@ Innovate. Automate. Inspire.</p>
   const imgInsideCard = cardElement.querySelector('img');
 
   if (modal && modalImg && imgInsideCard) {
-    // 1. Get the actual rendered source from the card's img tag
+    // 1. स्क्रीन पर जो फोटो दिख रही है (currentSrc) उसे लें
     let currentSrc = imgInsideCard.currentSrc || imgInsideCard.src;
 
-    // 2. Pass it to the popup modal
+    // 2. पॉप-अप में असाइन करें
     modalImg.src = currentSrc;
 
-    // 3. Display modal
+    // 3. अगर पॉप-अप वाली इमेज लोड न हो पाए तो बैकअप इमेज दिखाएं
+    modalImg.onerror = function() {
+      this.onerror = null;
+      this.src = 'https://picsum.photos/1000/700?random=10';
+    };
+
+    // 4. Modal Open करें
     modal.classList.remove('hidden');
     modal.classList.add('flex');
     document.body.style.overflow = 'hidden';
-  }
-}
-
-function closeGalleryModal() {
-  const modal = document.getElementById('imageModal');
-  if (modal) {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-    document.body.style.overflow = 'auto';
   }
 }
     <!-- 8. JOIN IAC -->
