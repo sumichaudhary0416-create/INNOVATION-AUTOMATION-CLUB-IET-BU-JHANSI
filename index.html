@@ -28,10 +28,10 @@
                 <a href="#about-iac" class="hover:text-blue-600 transition">About IAC</a>
                 <a href="#about-eie" class="hover:text-blue-600 transition">About EIE</a>
                 <a href="#team" class="hover:text-blue-600 transition">Team</a>
+                <a href="#meet-our-alumni" class="hover:text-blue-600 transition">Meet are Alumni</a>
                 <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
                 <a href="#events" class="hover:text-blue-600 transition">Events</a>
                 <a href="#gallery" class="hover:text-blue-600 transition">Gallery</a>
-                <a href="#meet-our-alumni" class="hover:text-blue-600 transition">Meet are Alumni</a>
             </nav>
 
             <a href="#join" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">Join IAC</a>
@@ -628,172 +628,269 @@ Innovate. Automate. Inspire.</p>
   });
 </script>
 <!-- ================= TEAM SECTION END ================= -->
-    <!-- ALUMNI SECTION WITH POP-UP MODAL START -->
-<section id="alumni" style="background-color: #ffffff; padding: 60px 20px; font-family: 'Inter', sans-serif;">
-  <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+    <!-- MODERN ALUMNI SECTION WITH PHOTO POP-UP START -->
+<section id="alumni" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); padding: 70px 20px; font-family: 'Inter', sans-serif;">
+  <div style="max-width: 1100px; margin: 0 auto;">
     
-    <!-- Tagline -->
-    <span style="color: #4f46e5; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; display: block; margin-bottom: 8px;">
-      Our Pride & Legacy
-    </span>
-
-    <!-- Main Heading -->
-    <h2 style="font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 12px; font-family: 'Poppins', sans-serif;">
-      Distinguished Alumni
-    </h2>
-
-    <p style="color: #64748b; font-size: 15px; max-width: 650px; margin: 0 auto 40px auto; line-height: 1.6;">
-      Our graduates from the Department of Electronics & Instrumentation Engineering are leading innovation across top tech giants and core engineering sectors worldwide.
-    </p>
+    <!-- Section Header -->
+    <div style="text-align: center; margin-bottom: 48px;">
+      <span style="background: #e0e7ff; color: #4f46e5; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">
+        Excellence & Legacy
+      </span>
+      <h2 style="font-size: 34px; font-weight: 800; color: #0f172a; margin-bottom: 12px; font-family: 'Poppins', sans-serif;">
+        Our Alumni Spotlight
+      </h2>
+      <p style="color: #64748b; font-size: 15px; max-width: 600px; margin: 0 auto; line-height: 1.6;">
+        Graduates from the Department of Electronics & Instrumentation Engineering driving innovation and research across global industry leaders.
+      </p>
+    </div>
 
     <!-- Alumni Cards Grid -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px;">
       
       <!-- Alumni Card 1 -->
-      <div class="alumni-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 24px; text-align: center; transition: all 0.3s ease;">
-        <div style="width: 90px; height: 90px; margin: 0 auto 16px auto; border-radius: 50%; border: 3px solid #6366f1; background: #e0e7ff; display: flex; align-items: center; justify-content: center; font-size: 32px;">
-          👨‍💼
+      <div class="modern-alumni-card">
+        <div class="card-header-accent"></div>
+        <div class="card-body">
+          <div class="profile-wrapper">
+            <!-- Clickable Profile Photo with Zoom Icon -->
+            <div class="photo-container" onclick="openPhotoModal('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800', 'Amit Sharma - Senior Automation Engineer')">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300" alt="Amit Sharma" class="alumni-img">
+              <div class="photo-overlay">🔍</div>
+            </div>
+            <span class="batch-badge">Batch 2020</span>
+          </div>
+
+          <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Amit Sharma</h3>
+          <p style="color: #4f46e5; font-size: 13.5px; font-weight: 600; margin-bottom: 2px;">Senior Automation Engineer</p>
+          <p style="color: #64748b; font-size: 13px; font-weight: 500; margin-bottom: 16px;">Siemens India</p>
+
+          <div style="background: #f1f5f9; padding: 14px; border-radius: 12px; margin-bottom: 20px; text-align: left;">
+            <p style="color: #475569; font-size: 13px; line-height: 1.5; margin: 0; font-style: italic;">
+              "Hands-on labs in PLC & SCADA during my time at EIE gave me a solid foundation for my automation career."
+            </p>
+          </div>
+
+          <a href="https://linkedin.com/in/" target="_blank" class="linkedin-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
+            LinkedIn Profile
+          </a>
         </div>
-        <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Amit Sharma</h3>
-        <p style="color: #4f46e5; font-size: 13px; font-weight: 600; margin-bottom: 6px;">Senior Automation Engineer</p>
-        <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Siemens India • <span style="background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">Batch 2020</span></p>
-        <p style="color: #475569; font-size: 13px; line-height: 1.5; margin-bottom: 16px;">
-          "IAC gave me practical exposure to PLC & SCADA that helped me land my dream core engineering role."
-        </p>
-        <a href="https://linkedin.com/in/" target="_blank" style="color: #0a66c2; font-size: 13px; font-weight: 600; text-decoration: none;">
-          Connect on LinkedIn →
-        </a>
       </div>
 
       <!-- Alumni Card 2 -->
-      <div class="alumni-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 24px; text-align: center; transition: all 0.3s ease;">
-        <div style="width: 90px; height: 90px; margin: 0 auto 16px auto; border-radius: 50%; border: 3px solid #6366f1; background: #e0e7ff; display: flex; align-items: center; justify-content: center; font-size: 32px;">
-          👩‍💻
+      <div class="modern-alumni-card">
+        <div class="card-header-accent" style="background: linear-gradient(90deg, #ec4899, #8b5cf6);"></div>
+        <div class="card-body">
+          <div class="profile-wrapper">
+            <!-- Clickable Profile Photo -->
+            <div class="photo-container" onclick="openPhotoModal('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800', 'Priya Verma - IoT Systems Architect')">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300" alt="Priya Verma" class="alumni-img" style="border-color: #ec4899;">
+              <div class="photo-overlay">🔍</div>
+            </div>
+            <span class="batch-badge" style="background: #fce7f3; color: #be185d;">Batch 2021</span>
+          </div>
+
+          <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Priya Verma</h3>
+          <p style="color: #db2777; font-size: 13.5px; font-weight: 600; margin-bottom: 2px;">IoT Systems Architect</p>
+          <p style="color: #64748b; font-size: 13px; font-weight: 500; margin-bottom: 16px;">TCS Innovation Labs</p>
+
+          <div style="background: #f1f5f9; padding: 14px; border-radius: 12px; margin-bottom: 20px; text-align: left;">
+            <p style="color: #475569; font-size: 13px; line-height: 1.5; margin: 0; font-style: italic;">
+              "Building IoT hardware prototypes with microcontrollers helped me land core engineering projects early on."
+            </p>
+          </div>
+
+          <a href="https://linkedin.com/in/" target="_blank" class="linkedin-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
+            LinkedIn Profile
+          </a>
         </div>
-        <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Priya Verma</h3>
-        <p style="color: #4f46e5; font-size: 13px; font-weight: 600; margin-bottom: 6px;">IoT Systems Architect</p>
-        <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">TCS Innovation Labs • <span style="background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">Batch 2021</span></p>
-        <p style="color: #475569; font-size: 13px; line-height: 1.5; margin-bottom: 16px;">
-          "Working on microcontrollers during college formed the solid base for my IoT engineering skills."
-        </p>
-        <a href="https://linkedin.com/in/" target="_blank" style="color: #0a66c2; font-size: 13px; font-weight: 600; text-decoration: none;">
-          Connect on LinkedIn →
-        </a>
       </div>
 
       <!-- Alumni Card 3 -->
-      <div class="alumni-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 20px; padding: 24px; text-align: center; transition: all 0.3s ease;">
-        <div style="width: 90px; height: 90px; margin: 0 auto 16px auto; border-radius: 50%; border: 3px solid #6366f1; background: #e0e7ff; display: flex; align-items: center; justify-content: center; font-size: 32px;">
-          👨‍🔬
+      <div class="modern-alumni-card">
+        <div class="card-header-accent" style="background: linear-gradient(90deg, #06b6d4, #3b82f6);"></div>
+        <div class="card-body">
+          <div class="profile-wrapper">
+            <!-- Clickable Profile Photo -->
+            <div class="photo-container" onclick="openPhotoModal('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800', 'Rohan Gupta - Embedded Firmware Engineer')">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300" alt="Rohan Gupta" class="alumni-img" style="border-color: #0284c7;">
+              <div class="photo-overlay">🔍</div>
+            </div>
+            <span class="batch-badge" style="background: #e0f2fe; color: #0369a1;">Batch 2022</span>
+          </div>
+
+          <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Rohan Gupta</h3>
+          <p style="color: #0284c7; font-size: 13.5px; font-weight: 600; margin-bottom: 2px;">Embedded Firmware Engineer</p>
+          <p style="color: #64748b; font-size: 13px; font-weight: 500; margin-bottom: 16px;">Bosch Global</p>
+
+          <div style="background: #f1f5f9; padding: 14px; border-radius: 12px; margin-bottom: 20px; text-align: left;">
+            <p style="color: #475569; font-size: 13px; line-height: 1.5; margin: 0; font-style: italic;">
+              "The practical circuit designing culture at IAC prepared me directly for embedded systems industry demands."
+            </p>
+          </div>
+
+          <a href="https://linkedin.com/in/" target="_blank" class="linkedin-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
+            LinkedIn Profile
+          </a>
         </div>
-        <h3 style="font-size: 18px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Rohan Gupta</h3>
-        <p style="color: #4f46e5; font-size: 13px; font-weight: 600; margin-bottom: 6px;">Embedded Firmware Engineer</p>
-        <p style="color: #64748b; font-size: 13px; margin-bottom: 12px;">Bosch Global • <span style="background: #e0e7ff; color: #4338ca; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 600;">Batch 2022</span></p>
-        <p style="color: #475569; font-size: 13px; line-height: 1.5; margin-bottom: 16px;">
-          "Building hardware prototypes in the EIE lab gave me real debugging experience before entering industry."
-        </p>
-        <a href="https://linkedin.com/in/" target="_blank" style="color: #0a66c2; font-size: 13px; font-weight: 600; text-decoration: none;">
-          Connect on LinkedIn →
-        </a>
       </div>
 
-    </div>
-
-    <!-- Alumni Call to Action Banner -->
-    <div style="margin-top: 40px; background: linear-gradient(135deg, #4f46e5, #3730a3); border-radius: 16px; padding: 24px; color: #ffffff; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; text-align: left;">
-      <div>
-        <h4 style="font-size: 18px; font-weight: 700; margin-bottom: 4px;">Are you an EIE Alumni?</h4>
-        <p style="font-size: 13px; color: #e0e7ff; margin: 0;">Connect with current students, mentor junior projects, or share opportunities.</p>
-      </div>
-      
-      <!-- BUTTON TO TRIGGER POPUP -->
-      <button onclick="openAlumniModal()" style="background: #ffffff; color: #4f46e5; border: none; padding: 12px 24px; border-radius: 10px; font-weight: 700; font-size: 13px; cursor: pointer; transition: all 0.2s;">
-        Join Alumni Network →
-      </button>
     </div>
 
   </div>
 </section>
 
-<!-- POP-UP MODAL OVERLAY -->
-<div id="alumniModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
-  
-  <!-- POP-UP BOX -->
-  <div style="background: #ffffff; width: 100%; max-width: 480px; border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); position: relative; font-family: 'Inter', sans-serif;">
+<!-- PHOTO POP-UP / LIGHTBOX MODAL -->
+<div id="photoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
+  <div style="position: relative; max-width: 500px; width: 100%; text-align: center;">
     
     <!-- Close Button -->
-    <button onclick="closeAlumniModal()" style="position: absolute; top: 16px; right: 16px; background: #f1f5f9; border: none; font-size: 18px; font-weight: bold; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; color: #64748b;">✕</button>
-
-    <h3 style="font-size: 20px; font-weight: 800; color: #0f172a; margin-bottom: 6px;">Join Alumni Network</h3>
-    <p style="color: #64748b; font-size: 13px; margin-bottom: 20px;">Fill in your details to connect with the EIE Department & IAC Club.</p>
-
-    <!-- Form -->
-    <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onsubmit="handleFormSubmit(event)" style="display: flex; flex-direction: column; gap: 14px; text-align: left;">
-      <div>
-        <label style="font-size: 12px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">Full Name *</label>
-        <input type="text" required placeholder="e.g. Rahul Verma" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; outline: none;">
-      </div>
-
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
-        <div>
-          <label style="font-size: 12px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">Passout Year *</label>
-          <input type="text" required placeholder="e.g. 2022" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; outline: none;">
-        </div>
-        <div>
-          <label style="font-size: 12px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">Company / Role</label>
-          <input type="text" placeholder="e.g. TCS / Engineer" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; outline: none;">
-        </div>
-      </div>
-
-      <div>
-        <label style="font-size: 12px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">Email Address *</label>
-        <input type="email" required placeholder="your.email@gmail.com" style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; outline: none;">
-      </div>
-
-      <div>
-        <label style="font-size: 12px; font-weight: 700; color: #334155; display: block; margin-bottom: 4px;">Message / LinkedIn Link</label>
-        <textarea rows="3" placeholder="Share your LinkedIn profile or message..." style="width: 100%; padding: 10px 14px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 14px; outline: none; resize: none;"></textarea>
-      </div>
-
-      <button type="submit" style="background: #4f46e5; color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 700; font-size: 14px; cursor: pointer; margin-top: 6px; transition: background 0.2s;">
-        Submit Details
-      </button>
-    </form>
+    <button onclick="closePhotoModal()" style="position: absolute; top: -40px; right: 0; background: none; border: none; color: #ffffff; font-size: 28px; cursor: pointer; font-weight: bold;">✕</button>
+    
+    <!-- Large Image Container -->
+    <img id="modalImage" src="" alt="Enlarged View" style="width: 100%; max-height: 70vh; object-fit: cover; border-radius: 16px; border: 3px solid #ffffff; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
+    
+    <!-- Photo Caption -->
+    <p id="modalCaption" style="color: #ffffff; font-size: 15px; font-weight: 600; margin-top: 14px;"></p>
   </div>
 </div>
 
-<!-- JAVASCRIPT FOR MODAL -->
+<!-- STYLES -->
+<style>
+  .modern-alumni-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .modern-alumni-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 30px rgba(0,0,0,0.08);
+    border-color: #cbd5e1;
+  }
+
+  .card-header-accent {
+    height: 6px;
+    background: linear-gradient(90deg, #4f46e5, #6366f1);
+    width: 100%;
+  }
+
+  .card-body {
+    padding: 28px 24px 24px 24px;
+    text-align: center;
+  }
+
+  .profile-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  /* Interactive Photo Container */
+  .photo-container {
+    position: relative;
+    width: 84px;
+    height: 84px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  .alumni-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #6366f1;
+    transition: transform 0.3s ease;
+  }
+
+  .photo-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(79, 70, 229, 0.4);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .photo-container:hover .photo-overlay {
+    opacity: 1;
+  }
+
+  .photo-container:hover .alumni-img {
+    transform: scale(1.05);
+  }
+
+  .batch-badge {
+    background: #e0e7ff;
+    color: #4338ca;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+  }
+
+  .linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    background: #ffffff;
+    transition: all 0.2s ease;
+  }
+
+  .linkedin-btn:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    color: #0a66c2;
+  }
+</style>
+
+<!-- JAVASCRIPT FOR PHOTO MODAL -->
 <script>
-  function openAlumniModal() {
-    document.getElementById('alumniModal').style.display = 'flex';
+  function openPhotoModal(imageSrc, caption) {
+    document.getElementById('modalImage').src = imageSrc;
+    document.getElementById('modalCaption').innerText = caption;
+    document.getElementById('photoModal').style.display = 'flex';
   }
 
-  function closeAlumniModal() {
-    document.getElementById('alumniModal').style.display = 'none';
+  function closePhotoModal() {
+    document.getElementById('photoModal').style.display = 'none';
   }
 
-  // Close modal when clicking outside the box
+  // Close modal when clicking outside the image
   window.onclick = function(event) {
-    let modal = document.getElementById('alumniModal');
+    let modal = document.getElementById('photoModal');
     if (event.target == modal) {
       modal.style.display = "none";
     }
   }
-
-  function handleFormSubmit(e) {
-    alert("Thank you! Your details have been submitted successfully.");
-    closeAlumniModal();
-  }
 </script>
-
-<style>
-  .alumni-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(79, 70, 229, 0.1) !important;
-    border-color: #c7d2fe !important;
-  }
-</style>
-<!-- ALUMNI SECTION WITH POP-UP MODAL END -->
+<!-- MODERN ALUMNI SECTION WITH PHOTO POP-UP END -->
  <!-- PROJECTS SECTION START -->
 <section id="projects" style="padding: 60px 20px; background-color: #ffffff; font-family: 'Inter', sans-serif;">
   <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
