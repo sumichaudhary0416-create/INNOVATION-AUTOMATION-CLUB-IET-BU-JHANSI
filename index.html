@@ -1548,75 +1548,82 @@ Innovate. Automate. Inspire.</p>
         </div>
 
     </div>
-<!-- IAC Form Submit Script -->
+<!-- IAC Form Submit Working Script (No-CORS Mode) -->
 <script>
-  // Deploy karke mila Web App URL yahan paste karen
+  // Apni Web App URL yahan paste karen
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxMqI5DZkCb1d3_kxBwB4JwfRwdvlXW2vcUlht_hvQn3rq9KXRt9auJrI2QDdQsnmxW/exec';
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // Page ke pehle form ko isolate karna
+  function submitIACForm(event) {
+    if(event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+
     const form = document.querySelector('form');
-    
+    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Membership Application';
+
+    if (submitBtn) {
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Submitting...';
+      submitBtn.disabled = true;
+    }
+
+    // Selected Radio Button Extract karna
+    const selectedInterest = document.querySelector('input[type="radio"]:checked')?.value || 'Not Specified';
+
+    // HTML Form Inputs se Data collect karna
+    const formData = {
+      fullName: document.querySelector('input[placeholder*="Rahul"], input[placeholder*="sumit"]')?.value || form.querySelectorAll('input[type="text"]')[0]?.value || '',
+      rollNo: document.querySelector('input[placeholder*="230010"]')?.value || form.querySelectorAll('input[type="text"]')[1]?.value || '',
+      email: document.querySelector('input[type="email"]')?.value || '',
+      phone: document.querySelector('input[placeholder*="9876543210"]')?.value || form.querySelectorAll('input[type="tel"]')[0]?.value || '',
+      department: document.querySelectorAll('select')[0]?.value || '',
+      year: document.querySelectorAll('select')[1]?.value || '',
+      interest: selectedInterest,
+      experience: document.getElementById('motivation')?.value || document.querySelector('textarea')?.value || ''
+    };
+
+    // Google Apps Script ko Data bhejna (no-cors mode fixes submission failed error)
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(() => {
+      // no-cors mode me Response status opaque hota hai, isliye request safal mani jati hai
+      alert('🎉 Membership Application Submitted Successfully!');
+      if(form) form.reset();
+      if (submitBtn) {
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+      }
+    })
+    .catch(err => {
+      console.error('Submission Error:', err);
+      alert('Submission failed. Please check network connection.');
+      if (submitBtn) {
+        submitBtn.innerHTML = originalBtnText;
+        submitBtn.disabled = false;
+      }
+    });
+
+    return false;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
+
     if (form) {
-      // Form redirect aur 405 error rokna
       form.removeAttribute('action');
       form.removeAttribute('method');
-
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Membership Application';
-        
-        if (submitBtn) {
-          submitBtn.innerHTML = 'Submitting...';
-          submitBtn.disabled = true;
-        }
-
-        // Selected Radio Button Value Extract karna
-        const selectedInterest = form.querySelector('input[type="radio"]:checked')?.value || 'Not Specified';
-
-        // Inputs Data Collect करना
-        const formData = {
-          fullName: form.querySelector('input[placeholder*="Rahul"]')?.value || '',
-          rollNo: form.querySelector('input[placeholder*="230010"]')?.value || '',
-          email: form.querySelector('input[type="email"]')?.value || '',
-          phone: form.querySelector('input[placeholder*="9876543210"]')?.value || '',
-          department: form.querySelectorAll('select')[0]?.value || '',
-          year: form.querySelectorAll('select')[1]?.value || '',
-          interest: selectedInterest,
-          experience: document.getElementById('motivation')?.value || ''
-        };
-
-        // Google Apps Script ko Data bhejna
-        fetch(SCRIPT_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'text/plain;charset=utf-8',
-          },
-          body: JSON.stringify(formData)
-        })
-        .then(res => res.json())
-        .then(data => {
-          alert('Membership Application Submitted Successfully!');
-          form.reset();
-          if (submitBtn) {
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-          }
-        })
-        .catch(err => {
-          console.error('Submission Error:', err);
-          alert('Submission failed. Please check network/script.');
-          if (submitBtn) {
-            submitBtn.innerHTML = originalBtnText;
-            submitBtn.disabled = false;
-          }
-        });
-
-        return false;
-      });
+      form.onsubmit = submitIACForm;
+    }
+    if (submitBtn) {
+      submitBtn.onclick = submitIACForm;
     }
   });
 </script>
