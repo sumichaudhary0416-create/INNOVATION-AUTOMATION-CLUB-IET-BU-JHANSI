@@ -1432,7 +1432,7 @@ Innovate. Automate. Inspire.</p>
     </section>
     <!-- Form Card -->
         <div class="bg-slate-950/80 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl backdrop-blur-sm">
-            <form action="#" method="POST" class="space-y-6">
+            <form id="iacForm">
                 
                 <!-- Full Name & Roll Number -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -1550,28 +1550,34 @@ Innovate. Automate. Inspire.</p>
     </div>
 <!-- IAC Form Submit Script -->
 <script>
+  // Deploy karke mila Web App URL yahan paste karen
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyUWnuN3wBKYQOzkibkOWu-SrflpdD-L79rj9pazigaLv7rt_pGcvzs7xLcsnQaI0Au/exec';
 
-  // Form submit listener
   document.addEventListener('DOMContentLoaded', () => {
+    // Page ke pehle form ko isolate karna
     const form = document.querySelector('form');
     
     if (form) {
-      form.addEventListener('submit', e => {
+      // Form redirect aur 405 error rokna
+      form.removeAttribute('action');
+      form.removeAttribute('method');
+
+      form.addEventListener('submit', function(e) {
         e.preventDefault();
+        e.stopPropagation();
         
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Membership Application';
         
         if (submitBtn) {
-          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Submitting...';
+          submitBtn.innerHTML = 'Submitting...';
           submitBtn.disabled = true;
         }
 
         // Selected Radio Button Value Extract karna
         const selectedInterest = form.querySelector('input[type="radio"]:checked')?.value || 'Not Specified';
 
-        // HTML Inputs se Data collect karna
+        // Inputs Data Collect करना
         const formData = {
           fullName: form.querySelector('input[placeholder*="Rahul"]')?.value || '',
           rollNo: form.querySelector('input[placeholder*="230010"]')?.value || '',
@@ -1583,7 +1589,7 @@ Innovate. Automate. Inspire.</p>
           experience: document.getElementById('motivation')?.value || ''
         };
 
-        // Google Sheet Apps Script par Data bhejna
+        // Google Apps Script ko Data bhejna
         fetch(SCRIPT_URL, {
           method: 'POST',
           headers: {
@@ -1593,7 +1599,7 @@ Innovate. Automate. Inspire.</p>
         })
         .then(res => res.json())
         .then(data => {
-          alert('🎉 Membership Application Submitted Successfully!');
+          alert('Membership Application Submitted Successfully!');
           form.reset();
           if (submitBtn) {
             submitBtn.innerHTML = originalBtnText;
@@ -1602,12 +1608,14 @@ Innovate. Automate. Inspire.</p>
         })
         .catch(err => {
           console.error('Submission Error:', err);
-          alert('Submission failed. Please check your network and try again.');
+          alert('Submission failed. Please check network/script.');
           if (submitBtn) {
             submitBtn.innerHTML = originalBtnText;
             submitBtn.disabled = false;
           }
         });
+
+        return false;
       });
     }
   });
