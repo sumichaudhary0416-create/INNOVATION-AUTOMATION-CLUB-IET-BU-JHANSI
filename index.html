@@ -1548,7 +1548,70 @@ Innovate. Automate. Inspire.</p>
         </div>
 
     </div>
+<!-- IAC Form Submit Script -->
+<script>
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyUWnuN3wBKYQOzkibkOWu-SrflpdD-L79rj9pazigaLv7rt_pGcvzs7xLcsnQaI0Au/exec';
 
+  // Form submit listener
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+    
+    if (form) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Membership Application';
+        
+        if (submitBtn) {
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Submitting...';
+          submitBtn.disabled = true;
+        }
+
+        // Selected Radio Button Value Extract karna
+        const selectedInterest = form.querySelector('input[type="radio"]:checked')?.value || 'Not Specified';
+
+        // HTML Inputs se Data collect karna
+        const formData = {
+          fullName: form.querySelector('input[placeholder*="Rahul"]')?.value || '',
+          rollNo: form.querySelector('input[placeholder*="230010"]')?.value || '',
+          email: form.querySelector('input[type="email"]')?.value || '',
+          phone: form.querySelector('input[placeholder*="9876543210"]')?.value || '',
+          department: form.querySelectorAll('select')[0]?.value || '',
+          year: form.querySelectorAll('select')[1]?.value || '',
+          interest: selectedInterest,
+          experience: document.getElementById('motivation')?.value || ''
+        };
+
+        // Google Sheet Apps Script par Data bhejna
+        fetch(SCRIPT_URL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: JSON.stringify(formData)
+        })
+        .then(res => res.json())
+        .then(data => {
+          alert('🎉 Membership Application Submitted Successfully!');
+          form.reset();
+          if (submitBtn) {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+          }
+        })
+        .catch(err => {
+          console.error('Submission Error:', err);
+          alert('Submission failed. Please check your network and try again.');
+          if (submitBtn) {
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+          }
+        });
+      });
+    }
+  });
+</script>
     <!-- FOOTER -->
     <footer class="bg-slate-950 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
         <p>© Innovation & Automation Club (IAC) | Department of EIE, Bundelkhand University</p>
