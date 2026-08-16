@@ -37,7 +37,7 @@ The **Innovation & Automation Club (IAC)** serves as a technical hub for student
 
 ## 📬 Contact & Official Links
 
-* **Official Club Email:** [iac.innovators@gmail.com](mailto:iac.innovators@gmail.com)
+* **Official Club Email:** [iac.innovators@gmail.com](mailto:iac.innovatorshub@gmail.com)
 * **HOD Email:** [nehajain488@bujhansi.ac.in](mailto:nehajain488@bujhansi.ac.in)
 * **GitHub Repository:** [sumichaudhary0416-create/iac-website](https://github.com/sumichaudhary0416-create/iac-website)
 
