@@ -1639,7 +1639,7 @@ Innovate. Automate. Inspire.</p>
 <!-- IAC Form Submit Working Script (No-CORS Mode) -->
 <script>
   // Apni Web App URL yahan paste karen
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxMqI5DZkCb1d3_kxBwB4JwfRwdvlXW2vcUlht_hvQn3rq9KXRt9auJrI2QDdQsnmxW/exec';
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwSM6J3qbBwMY24wfR6E2RgmaBNWlpuw_j9nM3cs9V1YThIwygTLCjbYYqSCYsQHzVk/exec';
 
   function submitIACForm(event) {
     if(event) {
@@ -1661,7 +1661,7 @@ Innovate. Automate. Inspire.</p>
 
     // HTML Form Inputs se Data collect karna
     const formData = {
-      fullName: document.querySelector('input[placeholder*="Rahul"], input[placeholder*="sumit"]')?.value || form.querySelectorAll('input[type="text"]')[0]?.value || '',
+      fullName: document.querySelector('input[placeholder*="Rahul"]')?.value || form.querySelectorAll('input[type="text"]')[0]?.value || '',
       rollNo: document.querySelector('input[placeholder*="230010"]')?.value || form.querySelectorAll('input[type="text"]')[1]?.value || '',
       email: document.querySelector('input[type="email"]')?.value || '',
       phone: document.querySelector('input[placeholder*="9876543210"]')?.value || form.querySelectorAll('input[type="tel"]')[0]?.value || '',
