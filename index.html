@@ -1621,68 +1621,105 @@ Innovate. Automate. Inspire.</p>
 
     </div>
 <script>
+  // 1. Single Global Variable Declaration
   const scriptURL = 'https://script.google.com/macros/s/AKfycbzcR1TizmwwOXdyjI9p1KyIa0iOG6K5s4Eqyo5QPziZorS5phRyuX-ToZla7sElAh_R/exec';
-  const form = document.querySelector('form');
-  const submitBtn = document.querySelector('button[type="submit"]');
 
-  if (form) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      
-      // UI Loading State
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'Submitting...';
-      }
-
-      // Safe Element Value Fetching Helper
-      const getValue = (id) => {
-        const el = document.getElementById(id);
-        return el ? el.value.trim() : 'N/A';
-      };
-
-      // Selected Radio Button Value
-      const selectedInterest = document.querySelector('input[name="interest"]:checked')?.value || 'N/A';
-
-      const payload = {
-        fullName: getValue('fullName'),
-        rollNo: getValue('rollNo'),
-        email: getValue('email'),
-        phone: getValue('phone'),
-        department: getValue('department'),
-        year: getValue('year'),
-        interest: selectedInterest,
-        experience: getValue('experience')
-      };
-
-      fetch(scriptURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8' // Prevents CORS preflight issue
-        },
-        body: JSON.stringify(payload)
-      })
+  // 2. Load Events Function
+  function loadEvents() {
+    fetch(scriptURL + '?action=getEvents')
       .then(response => response.json())
       .then(data => {
-        if (data.result === 'success') {
-          alert('🎉 Membership Application Submitted Successfully!');
-          form.reset();
+        const container = document.getElementById('events-container');
+        if (!container) return;
+        
+        if (data.events && data.events.length > 0) {
+          let html = '';
+          data.events.forEach(event => {
+            html += `
+              <div class="bg-slate-50 p-4 mb-3 border-l-4 border-blue-600 rounded-r-lg text-left shadow-xs">
+                <h4 class="m-0 text-slate-800 font-semibold text-base flex justify-between items-center">
+                  <span>${event.title}</span>
+                  <span class="text-xs text-slate-500 font-normal ml-2">${event.date || ''}</span>
+                </h4>
+                <p class="mt-1 text-slate-600 text-sm leading-relaxed">${event.description || ''}</p>
+              </div>
+            `;
+          });
+          container.innerHTML = html;
         } else {
-          alert('❌ Error submitting form: ' + (data.message || 'Unknown error'));
+          container.innerHTML = '<p class="text-center text-slate-500 py-2 text-sm">अभी कोई नया इवेंट उपलब्ध नहीं है।</p>';
         }
       })
-      .catch(error => {
-        alert('❌ Submission failed. Please check internet connection or Script URL.');
-        console.error('Submission Error:', error);
-      })
-      .finally(() => {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerText = 'Join IAC';
-        }
+      .catch(err => {
+        console.error('Error fetching events:', err);
       });
-    });
   }
+
+  // 3. Form Submission Handler
+  document.addEventListener('DOMContentLoaded', () => {
+    loadEvents(); // Load Events on page load
+
+    const form = document.querySelector('form');
+    const submitBtn = document.querySelector('button[type="submit"]');
+
+    if (form) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Submitting...';
+        }
+
+        const getValue = (id) => {
+          const el = document.getElementById(id);
+          return el ? el.value.trim() : 'N/A';
+        };
+
+        const selectedInterest = document.querySelector('input[name="interest"]:checked')?.value || 'N/A';
+
+        const payload = {
+          fullName: getValue('fullName'),
+          rollNo: getValue('rollNo'),
+          email: getValue('email'),
+          phone: getValue('phone'),
+          department: getValue('department'),
+          year: getValue('year'),
+          interest: selectedInterest,
+          experience: getValue('experience')
+        };
+
+        fetch(scriptURL, {
+          method: 'POST',
+          mode: 'cors',
+          redirect: 'follow',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.result === 'success') {
+            alert('🎉 Application Submitted Successfully!');
+            form.reset();
+          } else {
+            alert('❌ Submission failed: ' + (data.message || 'Unknown error'));
+          }
+        })
+        .catch(error => {
+          alert('❌ Connection Error. Please check Script URL or Access Rights.');
+          console.error('Error:', error);
+        })
+        .finally(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Submit Membership Application';
+          }
+        });
+      });
+    }
+  });
 </script>
     <!-- FOOTER -->
     <footer class="bg-slate-950 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
