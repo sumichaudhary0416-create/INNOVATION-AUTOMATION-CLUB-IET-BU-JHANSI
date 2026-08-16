@@ -1293,64 +1293,209 @@ Innovate. Automate. Inspire.</p>
 
 <!-- PROJECTS SECTION END -->
     <!-- 6. EVENTS -->
-    <section id="live-events" class="iac-events-section">
-  <div class="iac-container">
-    <!-- Header -->
-    <div class="iac-header">
-      <h2 class="iac-section-title">Events & Workshops</h2>
-      <p class="iac-section-subtitle">Live updates directly from the IAC team</p>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IAC - Events & Workshops</title>
+  
+  <style>
+    /* Container & Background */
+    .iac-events-section {
+      padding: 60px 20px;
+      background-color: #f8f9fa;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .iac-container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Header Styling */
+    .iac-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .iac-section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 8px;
+    }
+
+    .iac-section-subtitle {
+      font-size: 1rem;
+      color: #64748b;
+      margin: 0;
+    }
+
+    /* Grid Layout */
+    .iac-events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+
+    /* Card Styling */
+    .iac-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .iac-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    }
+
+    .iac-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    /* Badges */
+    .iac-badge {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .iac-badge-upcoming {
+      background-color: #e0e7ff;
+      color: #3730a3;
+    }
+
+    .iac-badge-live {
+      background-color: #fee2e2;
+      color: #991b1b;
+    }
+
+    .iac-date {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    /* Content */
+    .iac-card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #0f172a;
+      margin: 0 0 10px 0;
+    }
+
+    .iac-card-desc {
+      font-size: 0.95rem;
+      color: #475569;
+      line-height: 1.5;
+      margin: 0 0 20px 0;
+      flex-grow: 1;
+    }
+
+    /* Button */
+    .iac-btn {
+      display: inline-block;
+      text-align: center;
+      padding: 10px 18px;
+      background-color: #2563eb;
+      color: #ffffff;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background-color 0.2s ease;
+    }
+
+    .iac-btn:hover {
+      background-color: #1d4ed8;
+      color: #ffffff;
+    }
+
+    /* Fallback States */
+    .iac-loading, .iac-empty {
+      text-align: center;
+      color: #64748b;
+      width: 100%;
+      grid-column: 1 / -1;
+      padding: 40px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Events Section -->
+  <section id="live-events" class="iac-events-section">
+    <div class="iac-container">
+      <div class="iac-header">
+        <h2 class="iac-section-title">Events & Workshops</h2>
+        <p class="iac-section-subtitle">Live updates directly from the IAC team</p>
+      </div>
+
+      <div id="events-container" class="iac-events-grid">
+        <div class="iac-loading">Loading latest updates...</div>
+      </div>
     </div>
+  </section>
 
-    <!-- Dynamic Container -->
-    <div id="events-container" class="iac-events-grid">
-      <div class="iac-loading">Loading latest updates...</div>
-    </div>
-  </div>
-</section>
+  <!-- PapaParse Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
-<!-- PapaParse Library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+  <!-- Script Logic -->
+  <script>
+    // Replace with your published Google Sheets CSV link
+    const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMnns6v3qkZw4-2PxCLoa9qlnsVB72ZjLhGEOgIb8OCADuDQJcYPUqhzsduUOAEctGhcKj39168l3s/pub?output=csv";
 
-<script>
-  const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMnns6v3qkZw4-2PxCLoa9qlnsVB72ZjLhGEOgIb8OCADuDQJcYPUqhzsduUOAEctGhcKj39168l3s/pub?output=csv";
+    function loadEventsFromSheet() {
+      Papa.parse(SHEET_CSV_URL, {
+        download: true,
+        header: true,
+        skipEmptyLines: true,
+        complete: function(results) {
+          const events = results.data;
+          const container = document.getElementById("events-container");
 
-  function loadEventsFromSheet() {
-    Papa.parse(SHEET_CSV_URL, {
-      download: true,
-      header: true,
-      skipEmptyLines: true,
-      complete: function(results) {
-        const events = results.data;
-        const container = document.getElementById("events-container");
+          if (!events || events.length === 0) {
+            container.innerHTML = `<div class="iac-empty">No upcoming events at the moment.</div>`;
+            return;
+          }
 
-        if (!events || events.length === 0) {
-          container.innerHTML = `<div class="iac-empty">No upcoming events at the moment.</div>`;
-          return;
-        }
+          container.innerHTML = events.map(event => {
+            const isLive = event.Status && event.Status.toLowerCase() === 'live';
+            const badgeClass = isLive ? 'iac-badge-live' : 'iac-badge-upcoming';
 
-        container.innerHTML = events.map(event => {
-          const isLive = event.Status && event.Status.toLowerCase() === 'live';
-          const badgeClass = isLive ? 'iac-badge-live' : 'iac-badge-upcoming';
-
-          return `
-            <div class="iac-card">
-              <div class="iac-card-header">
-                <span class="iac-badge ${badgeClass}">${event.Status || 'Update'}</span>
-                ${event.Date ? `<span class="iac-date">${event.Date}</span>` : ''}
+            return `
+              <div class="iac-card">
+                <div class="iac-card-header">
+                  <span class="iac-badge ${badgeClass}">${event.Status || 'Update'}</span>
+                  ${event.Date ? `<span class="iac-date">${event.Date}</span>` : ''}
+                </div>
+                <h3 class="iac-card-title">${event.Title || ''}</h3>
+                <p class="iac-card-desc">${event.Description || ''}</p>
+                ${event.Link ? `<a href="${event.Link}" class="iac-btn" target="_blank">View Details & Register</a>` : ''}
               </div>
-              <h3 class="iac-card-title">${event.Title || ''}</h3>
-              <p class="iac-card-desc">${event.Description || ''}</p>
-              ${event.Link ? `<a href="${event.Link}" class="iac-btn" target="_blank">View Details & Register</a>` : ''}
-            </div>
-          `;
-        }).join('');
-      }
-    });
-  }
+            `;
+          }).join('');
+        }
+      });
+    }
 
-  loadEventsFromSheet();
-</script>
-</script>
+    loadEventsFromSheet();
+  </script>
+
+</body>
+</html>
 <!-- ========================================== -->
 <!-- PHOTO GALLERY SECTION                      -->
 <!-- ========================================== -->
