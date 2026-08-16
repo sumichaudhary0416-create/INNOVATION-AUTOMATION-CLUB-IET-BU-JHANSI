@@ -1622,67 +1622,70 @@ Innovate. Automate. Inspire.</p>
     </div>
 <script>
   const scriptURL = 'https://script.google.com/macros/s/AKfycbwTsWKxg-4jGr3oog2_gjAplmXiTk9i0vs68xa1oZFaxPunhukcL_mG-fcbJAr13PZr/exec';
-  const form = document.querySelector('form');
-  const submitBtn = document.querySelector('button[type="submit"]');
 
-  if (form) {
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      
-      // UI Loading State
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'Submitting...';
-      }
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form');
+    const submitBtn = document.querySelector('button[type="submit"]');
 
-      // Safe Element Value Fetching Helper
-      const getValue = (id) => {
-        const el = document.getElementById(id);
-        return el ? el.value.trim() : 'N/A';
-      };
-
-      // Selected Radio Button Value
-      const selectedInterest = document.querySelector('input[name="interest"]:checked')?.value || 'N/A';
-
-      const payload = {
-        fullName: getValue('fullName'),
-        rollNo: getValue('rollNo'),
-        email: getValue('email'),
-        phone: getValue('phone'),
-        department: getValue('department'),
-        year: getValue('year'),
-        interest: selectedInterest,
-        experience: getValue('experience')
-      };
-
-      fetch(scriptURL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8' // Prevents CORS preflight issue
-        },
-        body: JSON.stringify(payload)
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.result === 'success') {
-          alert('🎉 Membership Application Submitted Successfully!');
-          form.reset();
-        } else {
-          alert('❌ Error submitting form: ' + (data.message || 'Unknown error'));
-        }
-      })
-      .catch(error => {
-        alert('❌ Submission failed. Please check internet connection or Script URL.');
-        console.error('Submission Error:', error);
-      })
-      .finally(() => {
+    if (form) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        
         if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerText = 'Join IAC';
+          submitBtn.disabled = true;
+          submitBtn.innerText = 'Submitting...';
         }
+
+        const getValue = (id) => {
+          const el = document.getElementById(id);
+          return el ? el.value.trim() : 'N/A';
+        };
+
+        const selectedInterest = document.querySelector('input[name="interest"]:checked')?.value || 'N/A';
+
+        const payload = {
+          fullName: getValue('fullName'),
+          rollNo: getValue('rollNo'),
+          email: getValue('email'),
+          phone: getValue('phone'),
+          department: getValue('department'),
+          year: getValue('year'),
+          interest: selectedInterest,
+          experience: getValue('experience')
+        };
+
+        // 🟢 WEBSITE KE FETCH MEIN 'mode' AUR 'redirect' JODA GAYA HAI:
+        fetch(scriptURL, {
+          method: 'POST',
+          mode: 'cors',
+          redirect: 'follow', // 👈 Redirect handling
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8'
+          },
+          body: JSON.stringify(payload)
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.result === 'success') {
+            alert('🎉 Membership Application Submitted Successfully!');
+            form.reset();
+          } else {
+            alert('❌ Error submitting form: ' + (data.message || 'Unknown error'));
+          }
+        })
+        .catch(error => {
+          alert('❌ Submission failed. Please check internet connection or Script URL.');
+          console.error('Submission Error:', error);
+        })
+        .finally(() => {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerText = 'Join IAC';
+          }
+        });
       });
-    });
-  }
+    }
+  });
 </script>
     <!-- FOOTER -->
     <footer class="bg-slate-950 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
