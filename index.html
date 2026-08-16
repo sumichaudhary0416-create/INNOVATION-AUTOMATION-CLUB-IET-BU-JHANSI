@@ -1293,26 +1293,25 @@ Innovate. Automate. Inspire.</p>
 
 <!-- PROJECTS SECTION END -->
     <!-- 6. EVENTS -->
-    </script>
-    <section id="live-events" class="py-5 bg-light">
-  <div class="container">
-    <div class="text-center mb-4">
-      <h2 class="fw-bold">Events & Workshops</h2>
-      <p class="text-muted">Live updates directly from the IAC team</p>
+    <section id="live-events" class="iac-events-section">
+  <div class="iac-container">
+    <!-- Header -->
+    <div class="iac-header">
+      <h2 class="iac-section-title">Events & Workshops</h2>
+      <p class="iac-section-subtitle">Live updates directly from the IAC team</p>
     </div>
 
-    <!-- Dynamic Cards Container -->
-    <div id="events-container" class="row g-4 justify-content-center">
-      <div class="text-center text-muted">Loading latest updates...</div>
+    <!-- Dynamic Container -->
+    <div id="events-container" class="iac-events-grid">
+      <div class="iac-loading">Loading latest updates...</div>
     </div>
   </div>
 </section>
 
-<!-- PapaParse Library for quick CSV parsing -->
+<!-- PapaParse Library -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
 <script>
-  // Replace with your published Google Sheet CSV link
   const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMnns6v3qkZw4-2PxCLoa9qlnsVB72ZjLhGEOgIb8OCADuDQJcYPUqhzsduUOAEctGhcKj39168l3s/pub?output=csv";
 
   function loadEventsFromSheet() {
@@ -1325,25 +1324,23 @@ Innovate. Automate. Inspire.</p>
         const container = document.getElementById("events-container");
 
         if (!events || events.length === 0) {
-          container.innerHTML = `<div class="text-center text-muted">No upcoming events at the moment.</div>`;
+          container.innerHTML = `<div class="iac-empty">No upcoming events at the moment.</div>`;
           return;
         }
 
         container.innerHTML = events.map(event => {
-          const isLive = event.Status.toLowerCase() === 'live';
-          const badgeClass = isLive ? 'bg-danger' : 'bg-primary';
+          const isLive = event.Status && event.Status.toLowerCase() === 'live';
+          const badgeClass = isLive ? 'iac-badge-live' : 'iac-badge-upcoming';
 
           return `
-            <div class="col-md-6">
-              <div class="card border-0 shadow-sm h-100 p-3">
-                <div class="card-body">
-                  <span class="badge ${badgeClass} mb-2">${event.Status}</span>
-                  <h5 class="fw-bold card-title">${event.Title}</h5>
-                  <small class="text-muted d-block mb-2">${event.Date}</small>
-                  <p class="card-text text-muted">${event.Description}</p>
-                  ${event.Link ? `<a href="${event.Link}" class="btn btn-outline-primary btn-sm" target="_blank">View Details & Register</a>` : ''}
-                </div>
+            <div class="iac-card">
+              <div class="iac-card-header">
+                <span class="iac-badge ${badgeClass}">${event.Status || 'Update'}</span>
+                ${event.Date ? `<span class="iac-date">${event.Date}</span>` : ''}
               </div>
+              <h3 class="iac-card-title">${event.Title || ''}</h3>
+              <p class="iac-card-desc">${event.Description || ''}</p>
+              ${event.Link ? `<a href="${event.Link}" class="iac-btn" target="_blank">View Details & Register</a>` : ''}
             </div>
           `;
         }).join('');
@@ -1351,8 +1348,8 @@ Innovate. Automate. Inspire.</p>
     });
   }
 
-  // Load events on page load
   loadEventsFromSheet();
+</script>
 </script>
 <!-- ========================================== -->
 <!-- PHOTO GALLERY SECTION                      -->
