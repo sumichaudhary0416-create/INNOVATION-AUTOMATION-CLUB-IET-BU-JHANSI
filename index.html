@@ -1291,6 +1291,66 @@ Innovate. Automate. Inspire.</p>
     document.getElementById('projectModal').style.display = 'none';
   }
 </script>
+    <section id="live-events" class="py-5 bg-light">
+  <div class="container">
+    <div class="text-center mb-4">
+      <h2 class="fw-bold">Events & Workshops</h2>
+      <p class="text-muted">Live updates directly from the IAC team</p>
+    </div>
+
+    <!-- Dynamic Cards Container -->
+    <div id="events-container" class="row g-4 justify-content-center">
+      <div class="text-center text-muted">Loading latest updates...</div>
+    </div>
+  </div>
+</section>
+
+<!-- PapaParse Library for quick CSV parsing -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+<script>
+  // Replace with your published Google Sheet CSV link
+  const SHEET_CSV_URL = "YOUR_PUBLISHED_CSV_URL_HERE";
+
+  function loadEventsFromSheet() {
+    Papa.parse(SHEET_CSV_URL, {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: function(results) {
+        const events = results.data;
+        const container = document.getElementById("events-container");
+
+        if (!events || events.length === 0) {
+          container.innerHTML = `<div class="text-center text-muted">No upcoming events at the moment.</div>`;
+          return;
+        }
+
+        container.innerHTML = events.map(event => {
+          const isLive = event.Status.toLowerCase() === 'live';
+          const badgeClass = isLive ? 'bg-danger' : 'bg-primary';
+
+          return `
+            <div class="col-md-6">
+              <div class="card border-0 shadow-sm h-100 p-3">
+                <div class="card-body">
+                  <span class="badge ${badgeClass} mb-2">${event.Status}</span>
+                  <h5 class="fw-bold card-title">${event.Title}</h5>
+                  <small class="text-muted d-block mb-2">${event.Date}</small>
+                  <p class="card-text text-muted">${event.Description}</p>
+                  ${event.Link ? `<a href="${event.Link}" class="btn btn-outline-primary btn-sm" target="_blank">View Details & Register</a>` : ''}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
+    });
+  }
+
+  // Load events on page load
+  loadEventsFromSheet();
+</script>
 <!-- PROJECTS SECTION END -->
     <!-- 6. EVENTS -->
     <section id="events" class="py-16 max-w-7xl mx-auto px-4">
