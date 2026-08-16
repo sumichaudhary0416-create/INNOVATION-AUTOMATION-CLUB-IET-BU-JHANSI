@@ -1312,69 +1312,42 @@ Innovate. Automate. Inspire.</p>
   </div>
 
   <!-- Events Container -->
-  <div id="sheets-events-container" class="space-y-3">
-    <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center text-xs text-slate-400">
-      Loading latest events...
-    </div>
-  </div>
+  <!-- HTML Structure Example -->
+<div id="events-container">
+  <p>Loading updates...</p>
 </div>
 
 <script>
-  const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSstlm_a1xg3qtLeLGKv6RHulRPKIUGcS7ZKNjLNvqxTDk5mnQ6CMqF5DziND8qQqXmCxUKkcIQ9FJ-/pub?output=csv';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyYzbPLeDztBAuqJB_MlPdFs8tEkHxQHxSD4q4OAeWKZhZmsshO31zva7H6pTJcl9IfXA/exec';
 
-  async function loadEventsFromSheet() {
-    const container = document.getElementById('sheets-events-container');
-
-    try {
-      const response = await fetch(SHEET_CSV_URL);
-      const csvData = await response.text();
-
-      // CSV parser logic
-      const rows = csvData.trim().split('\n').map(row => {
-        // Simple CSV splitter handling quotes
-        return row.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/).map(cell => cell.replace(/^"|"$/g, '').trim());
+  function loadEvents() {
+    fetch(scriptURL)
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('events-container');
+        
+        if (data.events && data.events.length > 0) {
+          let html = '';
+          data.events.forEach(event => {
+            html += `
+              <div style="background: #f8fafc; padding: 12px 16px; margin-bottom: 10px; border-left: 4px solid #2563eb; border-radius: 6px;">
+                <h4 style="margin: 0; color: #1e293b;">${event.title} <span style="font-size: 12px; color: #64748b; font-weight: normal;">(${event.date || ''})</span></h4>
+                <p style="margin: 4px 0 0 0; color: #475569; font-size: 14px;">${event.description || ''}</p>
+              </div>
+            `;
+          });
+          container.innerHTML = html;
+        } else {
+          container.innerHTML = '<p style="text-align: center; color: #64748b;">अभी कोई नया इवेंट उपलब्ध नहीं है।</p>';
+        }
+      })
+      .catch(err => {
+        console.error('Error fetching events:', err);
       });
-
-      // Remove header row (Date, Title, Description)
-      const events = rows.slice(1).reverse(); // Newest events first
-
-      if (events.length === 0 || (events.length === 1 && !events[0][0])) {
-        container.innerHTML = `
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl text-center text-xs text-slate-500">
-            अभी कोई नया इवेंट उपलब्ध नहीं है।
-          </div>`;
-        return;
-      }
-
-      container.innerHTML = ''; // Clear loading text
-
-      events.forEach(event => {
-        const date = event[0] || 'Recent';
-        const title = event[1] || 'Announcement';
-        const description = event[2] || '';
-
-        container.innerHTML += `
-          <div class="p-4 bg-slate-50 border border-slate-200 rounded-xl hover:shadow-sm transition text-left">
-            <div class="flex items-center justify-between text-xs text-slate-400 mb-2">
-              <span class="bg-blue-50 text-blue-600 font-semibold px-2.5 py-0.5 rounded-md">${title}</span>
-              <span>${date}</span>
-            </div>
-            <p class="text-sm text-slate-800 whitespace-pre-line leading-relaxed font-normal">${description}</p>
-          </div>
-        `;
-      });
-
-    } catch (error) {
-      console.error('Sheet fetch error:', error);
-      container.innerHTML = `
-        <div class="p-4 bg-amber-50 border border-amber-200 text-amber-700 rounded-xl text-center text-xs">
-          इवेंट्स लोड करने में असमर्थ। कृपया बाद में प्रयास करें।
-        </div>`;
-    }
   }
 
-  // Load events on page load
-  document.addEventListener('DOMContentLoaded', loadEventsFromSheet);
+  // Page load hone par events fetch karein
+  document.addEventListener('DOMContentLoaded', loadEvents);
 </script>
 <!-- ========================================== -->
 <!-- PHOTO GALLERY SECTION                      -->
