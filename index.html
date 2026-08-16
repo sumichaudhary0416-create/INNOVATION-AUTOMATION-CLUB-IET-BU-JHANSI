@@ -1636,84 +1636,69 @@ Innovate. Automate. Inspire.</p>
         </div>
 
     </div>
-<!-- IAC Form Submit Working Script (No-CORS Mode) -->
 <script>
-  // Apni Web App URL yahan paste karen
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwSM6J3qbBwMY24wfR6E2RgmaBNWlpuw_j9nM3cs9V1YThIwygTLCjbYYqSCYsQHzVk/exec';
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbwTsWKxg-4jGr3oog2_gjAplmXiTk9i0vs68xa1oZFaxPunhukcL_mG-fcbJAr13PZr/exec';
+  const form = document.querySelector('form');
+  const submitBtn = document.querySelector('button[type="submit"]');
 
-  function submitIACForm(event) {
-    if(event) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
-
-    const form = document.querySelector('form');
-    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
-    const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Membership Application';
-
-    if (submitBtn) {
-      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin text-xs"></i> Submitting...';
-      submitBtn.disabled = true;
-    }
-
-    // Selected Radio Button Extract karna
-    const selectedInterest = document.querySelector('input[type="radio"]:checked')?.value || 'Not Specified';
-
-    // HTML Form Inputs se Data collect karna
-    const formData = {
-      fullName: document.querySelector('input[placeholder*="Rahul"]')?.value || form.querySelectorAll('input[type="text"]')[0]?.value || '',
-      rollNo: document.querySelector('input[placeholder*="230010"]')?.value || form.querySelectorAll('input[type="text"]')[1]?.value || '',
-      email: document.querySelector('input[type="email"]')?.value || '',
-      phone: document.querySelector('input[placeholder*="9876543210"]')?.value || form.querySelectorAll('input[type="tel"]')[0]?.value || '',
-      department: document.querySelectorAll('select')[0]?.value || '',
-      year: document.querySelectorAll('select')[1]?.value || '',
-      interest: selectedInterest,
-      experience: document.getElementById('motivation')?.value || document.querySelector('textarea')?.value || ''
-    };
-
-    // Google Apps Script ko Data bhejna (no-cors mode fixes submission failed error)
-    fetch(SCRIPT_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(() => {
-      // no-cors mode me Response status opaque hota hai, isliye request safal mani jati hai
-      alert('🎉 Membership Application Submitted Successfully!');
-      if(form) form.reset();
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      
+      // UI Loading State
       if (submitBtn) {
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Submitting...';
       }
-    })
-    .catch(err => {
-      console.error('Submission Error:', err);
-      alert('Submission failed. Please check network connection.');
-      if (submitBtn) {
-        submitBtn.innerHTML = originalBtnText;
-        submitBtn.disabled = false;
-      }
+
+      // Safe Element Value Fetching Helper
+      const getValue = (id) => {
+        const el = document.getElementById(id);
+        return el ? el.value.trim() : 'N/A';
+      };
+
+      // Selected Radio Button Value
+      const selectedInterest = document.querySelector('input[name="interest"]:checked')?.value || 'N/A';
+
+      const payload = {
+        fullName: getValue('fullName'),
+        rollNo: getValue('rollNo'),
+        email: getValue('email'),
+        phone: getValue('phone'),
+        department: getValue('department'),
+        year: getValue('year'),
+        interest: selectedInterest,
+        experience: getValue('experience')
+      };
+
+      fetch(scriptURL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain;charset=utf-8' // Prevents CORS preflight issue
+        },
+        body: JSON.stringify(payload)
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.result === 'success') {
+          alert('🎉 Membership Application Submitted Successfully!');
+          form.reset();
+        } else {
+          alert('❌ Error submitting form: ' + (data.message || 'Unknown error'));
+        }
+      })
+      .catch(error => {
+        alert('❌ Submission failed. Please check internet connection or Script URL.');
+        console.error('Submission Error:', error);
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'Join IAC';
+        }
+      });
     });
-
-    return false;
   }
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form');
-    const submitBtn = form ? form.querySelector('button[type="submit"]') : null;
-
-    if (form) {
-      form.removeAttribute('action');
-      form.removeAttribute('method');
-      form.onsubmit = submitIACForm;
-    }
-    if (submitBtn) {
-      submitBtn.onclick = submitIACForm;
-    }
-  });
 </script>
     <!-- FOOTER -->
     <footer class="bg-slate-950 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
