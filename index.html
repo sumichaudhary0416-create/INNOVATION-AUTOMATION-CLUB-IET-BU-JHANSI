@@ -1311,18 +1311,20 @@ Innovate. Automate. Inspire.</p>
     </span>
   </div>
 
- <!-- Events Section Container -->
-<div id="events-container">
-  <p style="text-align: center; color: #64748b;">Loading updates...</p>
+  <!-- Events Section Container -->
+  <div id="events-container">
+    <p class="text-center text-slate-500 py-4 text-sm">Loading updates...</p>
+  </div>
 </div>
 
 <script>
-  // Single Global Script URL Declaration
+  // Global Script URL
   const scriptURL = 'https://script.google.com/macros/s/AKfycbyYzbPLeDztBAuqJB_MlPdFs8tEkHxQHxSD4q4OAeWKZhZmsshO31zva7H6pTJcl9IfXA/exec';
 
-  // 1. Fetch & Display Live Events
+  // Fetch & Display Live Events
   function loadEvents() {
-    fetch(scriptURL)
+    // URL me action parameter pass karein
+    fetch(scriptURL + '?action=getEvents')
       .then(response => response.json())
       .then(data => {
         const container = document.getElementById('events-container');
@@ -1332,21 +1334,32 @@ Innovate. Automate. Inspire.</p>
           let html = '';
           data.events.forEach(event => {
             html += `
-              <div style="background: #f8fafc; padding: 12px 16px; margin-bottom: 10px; border-left: 4px solid #2563eb; border-radius: 6px; text-align: left;">
-                <h4 style="margin: 0; color: #1e293b; font-size: 16px;">${event.title} <span style="font-size: 12px; color: #64748b; font-weight: normal;">(${event.date || ''})</span></h4>
-                <p style="margin: 4px 0 0 0; color: #475569; font-size: 14px;">${event.description || ''}</p>
+              <div class="bg-slate-50 p-4 mb-3 border-l-4 border-blue-600 rounded-r-lg text-left shadow-xs">
+                <h4 class="m-0 text-slate-800 font-semibold text-base flex justify-between items-center">
+                  <span>${event.title}</span>
+                  <span class="text-xs text-slate-500 font-normal ml-2">${event.date || ''}</span>
+                </h4>
+                <p class="mt-1 text-slate-600 text-sm leading-relaxed">${event.description || ''}</p>
               </div>
             `;
           });
           container.innerHTML = html;
         } else {
-          container.innerHTML = '<p style="text-align: center; color: #64748b;">अभी कोई नया इवेंट उपलब्ध नहीं है।</p>';
+          container.innerHTML = '<p class="text-center text-slate-500 py-2 text-sm">अभी कोई नया इवेंट उपलब्ध नहीं है।</p>';
         }
       })
       .catch(err => {
         console.error('Error fetching events:', err);
+        const container = document.getElementById('events-container');
+        if (container) {
+          container.innerHTML = '<p class="text-center text-red-500 py-2 text-sm">इवेंट्स लोड करने में समस्या आई।</p>';
+        }
       });
   }
+
+  // DOM Load hone par call karein
+  document.addEventListener('DOMContentLoaded', loadEvents);
+</script>
 <!-- ========================================== -->
 <!-- PHOTO GALLERY SECTION                      -->
 <!-- ========================================== -->
