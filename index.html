@@ -42,7 +42,7 @@
             <a href="#registration-form" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold px-3 py-1 rounded-md transition">Join IAC</a>
         </div>
     </header>
-    <!-- HERO SECTION START -->
+   <!-- HERO SECTION START -->
 <section id="hero" style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); color: #ffffff; padding: 70px 20px 70px 20px; text-align: center; font-family: 'Inter', sans-serif; position: relative; overflow: hidden;">
   <div style="max-width: 900px; margin: 0 auto; position: relative; z-index: 2;">
     
@@ -66,7 +66,7 @@
       <a href="#registration-form" style="background: #4f46e5; color: #ffffff; padding: 12px 26px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px; box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3); transition: transform 0.2s;">
         Come on board with IAC
       </a>
-      <a href="#about-eie" style="background: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px 26px; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 14px; backdrop-filter: blur(10px);">
+      <a href="#about-eie" style="background: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 12px 26px; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 15px; backdrop-filter: blur(10px);">
         Explore EIE Department
       </a>
     </div>
@@ -96,6 +96,66 @@
   </div>
 </section>
 <!-- HERO SECTION END -->
+
+<!-- PapaParse Library (for sheet CSV reading) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+
+<script>
+  // Apni Certificate wali Google Sheet ka Published CSV Link yahan dalein
+  const CERT_SHEET_CSV_URL = "YOUR_CERTIFICATE_SHEET_CSV_URL_HERE";
+
+  function verifyIACCertificate() {
+    const certVal = document.getElementById('cert-input').value.trim().toUpperCase();
+    const resultDiv = document.getElementById('cert-result');
+
+    if (!certVal) {
+      resultDiv.style.display = 'block';
+      resultDiv.style.color = '#f59e0b';
+      resultDiv.innerHTML = "⚠️ Please enter a Certificate ID.";
+      return;
+    }
+
+    resultDiv.style.display = 'block';
+    resultDiv.style.color = '#38bdf8';
+    resultDiv.innerHTML = "⏳ Searching database for <b>" + certVal + "</b>...";
+
+    // If CSV link is not set yet
+    if (CERT_SHEET_CSV_URL === "YOUR_CERTIFICATE_SHEET_CSV_URL_HERE") {
+      setTimeout(() => {
+        resultDiv.style.color = '#f87171';
+        resultDiv.innerHTML = "❌ No certificates have been issued yet or database is empty.";
+      }, 800);
+      return;
+    }
+
+    Papa.parse(CERT_SHEET_CSV_URL, {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: function(results) {
+        const records = results.data;
+        const match = records.find(row => {
+          const id = row.CertID || row['Certificate ID'] || row.id || '';
+          return id.trim().toUpperCase() === certVal;
+        });
+
+        if (match) {
+          const name = match.Name || match.StudentName || 'Student';
+          const event = match.Event || match.EventName || 'IAC Event';
+          resultDiv.style.color = '#34d399';
+          resultDiv.innerHTML = `✅ <b>Verified Certificate!</b><br>Issued to: <b>${name}</b><br>Event: <b>${event}</b>`;
+        } else {
+          resultDiv.style.color = '#f87171';
+          resultDiv.innerHTML = "❌ Invalid Certificate ID. No matching record found.";
+        }
+      },
+      error: function() {
+        resultDiv.style.color = '#f87171';
+        resultDiv.innerHTML = "❌ Error connecting to database.";
+      }
+    });
+  }
+</script>
 
 <!-- JAVASCRIPT LOGIC -->
 <script>
