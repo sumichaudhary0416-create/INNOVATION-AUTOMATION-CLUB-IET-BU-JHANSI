@@ -10,32 +10,36 @@
 </head>
 <body class="bg-slate-50 text-slate-800 font-sans scroll-smooth">
      
-    <!-- HEADER / NAVIGATION BAR -->
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-slate-200">
-        <!-- Changed max-w-7xl to max-w-5xl to decrease overall navbar width -->
-        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+   <!-- HEADER / NAVIGATION BAR (SLIM VERSION) -->
+    <header class="sticky top-0 z-50 bg-Red/95 backdrop-blur-md shadow-sm border-b border-slate-200">
+        <!-- Width wahi max-w-7xl rakhi hai, sirf vertical padding py-1.5 karke navbar patla kiya hai -->
+        <div class="max-w-7xl mx-auto px-4 py-1.5 flex justify-between items-center">
+            
+            <!-- Logo Section -->
             <div class="flex items-center space-x-3">
-                <img src="assets/bu-logo.png.png" alt="BU Logo" class="h-10 w-auto">
-                <div class="h-6 w-[1px] bg-slate-300"></div>
-                <img src="assets/iac-logo.jpg.jpg" alt="IAC Logo" class="h-10 w-auto rounded-full">
+                <img src="assets/bu-logo.png.png" alt="BU Logo" class="h-8 w-auto">
+                <div class="h-5 w-[1px] bg-slate-300"></div>
+                <img src="assets/iac-logo.jpg.jpg" alt="IAC Logo" class="h-8 w-auto rounded-full">
                 <div>
                     <h1 class="font-bold text-slate-900 leading-none">IAC</h1>
                     <p class="text-[10px] text-slate-500 font-semibold mt-1">EIE Dept. | IET | BU</p>
                 </div>
             </div>
 
+            <!-- Links Section -->
             <nav class="hidden md:flex space-x-4 text-sm font-semibold text-slate-700">
                 <a href="#hero" class="hover:text-blue-600 transition">Home</a>
                 <a href="#about-iac" class="hover:text-blue-600 transition">About IAC</a>
                 <a href="#about-eie" class="hover:text-blue-600 transition">About EIE</a>
                 <a href="#team" class="hover:text-blue-600 transition">Team</a>
-                <a href="#alumni" class="hover:text-blue-600 transition">Meet our Alumni</a>
+                <a href="#alumni" class="hover:text-blue-600 transition">Meet are Alumni</a>
                 <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
                 <a href="#events" class="hover:text-blue-600 transition">Events</a>
                 <a href="#gallery" class="hover:text-blue-600 transition">Gallery</a>
             </nav>
 
-            <a href="#registration-form" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-2 rounded-lg transition">Join IAC</a>
+            <!-- Join Button -->
+            <a href="#registration-form" class="bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold px-4 py-1.5 rounded-lg transition">Join IAC</a>
         </div>
     </header>
     <!-- HERO SECTION START -->
