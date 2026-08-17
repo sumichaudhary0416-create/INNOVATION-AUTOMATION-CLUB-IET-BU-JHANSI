@@ -43,34 +43,58 @@
         </div>
     </header>
 
-   <!-- HERO SECTION WITH TECH CIRCUIT BACKGROUND -->
+  <!-- HERO SECTION WITH REAL CIRCUIT DIAGRAM BACKGROUND -->
 <section id="hero" style="
   min-height: calc(100vh - 60px); 
   display: flex; 
   align-items: center; 
   justify-content: center; 
-  background-color: #0b0f19;
-  background-image: 
-    radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.12) 0%, rgba(15, 23, 42, 0.95) 70%),
-    url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-opacity='0.15' fill='%2#38bdf8'%3E%3Cpath d='M10 10h10v10H10zM40 10h10v10H40zM70 10h10v10H70zM10 40h10v10H10zM10 70h10v10H10zM70 70h10v10H70z'/%3E%3Cpath d='M15 20v20h30v-10h20v20H15v20h50v-10h20' stroke='rgba(56, 189, 248, 0.25)' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='45' cy='30' r='3' fill='%2338bdf8' opacity='0.4'/%3E%3Ccircle cx='65' cy='50' r='3' fill='%23818cf8' opacity='0.4'/%3E%3C/g%3E%3C/svg%3E&quot;);
-  background-size: cover, 120px 120px;
-  color: #ffffff; 
-  padding: 40px 20px; 
-  text-align: center; 
-  font-family: 'Inter', sans-serif; 
+  background-color: #060913;
   position: relative; 
   overflow: hidden; 
+  padding: 40px 20px; 
   box-sizing: border-box;
+  color: #ffffff; 
+  font-family: 'Inter', sans-serif; 
+  text-align: center;
 ">
 
-  <!-- Glowing Circuit Radial Spotlights -->
-  <div style="position: absolute; top: 20%; left: 15%; width: 300px; height: 300px; background: rgba(79, 70, 229, 0.2); filter: blur(90px); border-radius: 50%; pointer-events: none;"></div>
-  <div style="position: absolute; bottom: 20%; right: 15%; width: 300px; height: 300px; background: rgba(56, 189, 248, 0.2); filter: blur(90px); border-radius: 50%; pointer-events: none;"></div>
+  <!-- SVG CIRCUIT DIAGRAM OVERLAY -->
+  <svg style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.25; pointer-events: none;" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <pattern id="circuit-pattern" x="0" y="0" width="160" height="160" patternUnits="userSpaceOnUse">
+        <!-- Circuit Traces & Lines -->
+        <path d="M 10 20 H 70 V 60 H 130" stroke="#38bdf8" stroke-width="1.5" fill="none" stroke-dasharray="0" />
+        <path d="M 40 160 V 110 H 100 V 80" stroke="#818cf8" stroke-width="1.5" fill="none" />
+        <path d="M 140 10 V 50 H 90 V 120 H 160" stroke="#38bdf8" stroke-width="1.5" fill="none" />
+        <path d="M 0 90 H 50 V 140 H 120" stroke="#818cf8" stroke-width="1.5" fill="none" />
+        
+        <!-- Nodes / Junction Points -->
+        <circle cx="10" cy="20" r="3" fill="#38bdf8" />
+        <circle cx="70" cy="60" r="3" fill="#818cf8" />
+        <circle cx="130" cy="60" r="3.5" fill="#38bdf8" />
+        <circle cx="40" cy="110" r="3" fill="#38bdf8" />
+        <circle cx="100" cy="80" r="3.5" fill="#818cf8" />
+        <circle cx="90" cy="50" r="3" fill="#38bdf8" />
+        <circle cx="50" cy="140" r="3" fill="#818cf8" />
 
+        <!-- IC Chip / Component Representations -->
+        <rect x="62" y="52" width="16" height="16" rx="3" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
+        <rect x="122" y="112" width="20" height="12" rx="2" fill="#0f172a" stroke="#818cf8" stroke-width="1.5" />
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#circuit-pattern)" />
+  </svg>
+
+  <!-- Ambient Glow Effects -->
+  <div style="position: absolute; top: 25%; left: 20%; width: 350px; height: 350px; background: rgba(56, 189, 248, 0.15); filter: blur(100px); border-radius: 50%; pointer-events: none;"></div>
+  <div style="position: absolute; bottom: 20%; right: 20%; width: 350px; height: 350px; background: rgba(99, 102, 241, 0.18); filter: blur(100px); border-radius: 50%; pointer-events: none;"></div>
+
+  <!-- Hero Main Content Box -->
   <div style="max-width: 900px; width: 100%; margin: 0 auto; position: relative; z-index: 2;">
     
     <!-- Badge -->
-    <span style="background: rgba(99, 102, 241, 0.2); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.4); font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 30px; display: inline-block; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);">
+    <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.4); font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 30px; display: inline-block; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);">
       INNOVATE • AUTOMATE • INSPIRE
     </span>
 
@@ -89,13 +113,13 @@
       <a href="#registration-form" style="background: #4f46e5; color: #ffffff; padding: 14px 28px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 15px; box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4); transition: transform 0.2s;">
         Come on board with IAC
       </a>
-      <a href="#about-eie" style="background: rgba(255, 255, 255, 0.08); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 14px 28px; border-radius: 12px; font-weight: 600; text-decoration: none; font-size: 15px; backdrop-filter: blur(10px);">
+      <a href="#about-eie" style="background: rgba(255, 255, 255, 0.06); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.15); padding: 14px 28px; border-radius: 12px; font-weight: 600; text-decoration: none; font-size: 15px; backdrop-filter: blur(10px);">
         Explore EIE Department
       </a>
     </div>
 
     <!-- Certificate Verifier Box -->
-    <div style="background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(56, 189, 248, 0.3); padding: 20px; border-radius: 16px; max-width: 500px; margin: 0 auto; backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);">
+    <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); padding: 20px; border-radius: 16px; max-width: 500px; margin: 0 auto; backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);">
       <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #e2e8f0;">
         🛡️ Verify IAC Certificate
       </div>
