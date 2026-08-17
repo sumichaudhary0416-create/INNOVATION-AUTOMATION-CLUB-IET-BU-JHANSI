@@ -43,13 +43,17 @@
         </div>
     </header>
 
-   <!-- HERO SECTION START (FULL WINDOW COVER) -->
+   <!-- HERO SECTION WITH TECH CIRCUIT BACKGROUND -->
 <section id="hero" style="
-  min-height: calc(100vh - 70px); 
+  min-height: calc(100vh - 60px); 
   display: flex; 
   align-items: center; 
   justify-content: center; 
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); 
+  background-color: #0b0f19;
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.12) 0%, rgba(15, 23, 42, 0.95) 70%),
+    url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-opacity='0.15' fill='%2#38bdf8'%3E%3Cpath d='M10 10h10v10H10zM40 10h10v10H40zM70 10h10v10H70zM10 40h10v10H10zM10 70h10v10H10zM70 70h10v10H70z'/%3E%3Cpath d='M15 20v20h30v-10h20v20H15v20h50v-10h20' stroke='rgba(56, 189, 248, 0.25)' stroke-width='1.5' fill='none'/%3E%3Ccircle cx='45' cy='30' r='3' fill='%2338bdf8' opacity='0.4'/%3E%3Ccircle cx='65' cy='50' r='3' fill='%23818cf8' opacity='0.4'/%3E%3C/g%3E%3C/svg%3E&quot;);
+  background-size: cover, 120px 120px;
   color: #ffffff; 
   padding: 40px 20px; 
   text-align: center; 
@@ -58,11 +62,16 @@
   overflow: hidden; 
   box-sizing: border-box;
 ">
+
+  <!-- Glowing Circuit Radial Spotlights -->
+  <div style="position: absolute; top: 20%; left: 15%; width: 300px; height: 300px; background: rgba(79, 70, 229, 0.2); filter: blur(90px); border-radius: 50%; pointer-events: none;"></div>
+  <div style="position: absolute; bottom: 20%; right: 15%; width: 300px; height: 300px; background: rgba(56, 189, 248, 0.2); filter: blur(90px); border-radius: 50%; pointer-events: none;"></div>
+
   <div style="max-width: 900px; width: 100%; margin: 0 auto; position: relative; z-index: 2;">
     
     <!-- Badge -->
-    <span style="background: rgba(99, 102, 241, 0.2); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.4); font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 30px; display: inline-block; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase;">
-      INNOVATE-AUTOMATE-INSPIRE
+    <span style="background: rgba(99, 102, 241, 0.2); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.4); font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 30px; display: inline-block; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);">
+      INNOVATE • AUTOMATE • INSPIRE
     </span>
 
     <!-- Hero Title -->
@@ -77,21 +86,21 @@
 
     <!-- Action Buttons -->
     <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;">
-      <a href="#registration-form" style="background: #4f46e5; color: #ffffff; padding: 14px 28px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 15px; box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3); transition: transform 0.2s;">
+      <a href="#registration-form" style="background: #4f46e5; color: #ffffff; padding: 14px 28px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 15px; box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4); transition: transform 0.2s;">
         Come on board with IAC
       </a>
-      <a href="#about-eie" style="background: rgba(255, 255, 255, 0.1); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 14px 28px; border-radius: 12px; font-weight: 600; text-decoration: none; font-size: 15px; backdrop-filter: blur(10px);">
+      <a href="#about-eie" style="background: rgba(255, 255, 255, 0.08); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.2); padding: 14px 28px; border-radius: 12px; font-weight: 600; text-decoration: none; font-size: 15px; backdrop-filter: blur(10px);">
         Explore EIE Department
       </a>
     </div>
 
-    <!-- Certificate Verifier Card -->
-    <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 16px; max-width: 500px; margin: 0 auto; backdrop-filter: blur(12px);">
+    <!-- Certificate Verifier Box -->
+    <div style="background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(56, 189, 248, 0.3); padding: 20px; border-radius: 16px; max-width: 500px; margin: 0 auto; backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);">
       <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #e2e8f0;">
         🛡️ Verify IAC Certificate
       </div>
       <div style="display: flex; gap: 8px;">
-        <input type="text" id="cert-input" placeholder="e.g. IAC-2026-101" style="flex: 1; background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(255, 255, 255, 0.15); color: #ffffff; padding: 10px 14px; border-radius: 8px; font-size: 14px; outline: none;">
+        <input type="text" id="cert-input" placeholder="e.g. IAC-2026-101" style="flex: 1; background: rgba(30, 41, 59, 0.9); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 10px 14px; border-radius: 8px; font-size: 14px; outline: none;">
         <button onclick="verifyIACCertificate()" style="background: #38bdf8; color: #0f172a; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px;">
           Verify
         </button>
@@ -101,7 +110,6 @@
 
   </div>
 </section>
-<!-- HERO SECTION END -->
 
 <!-- PapaParse Library (for sheet CSV reading) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
