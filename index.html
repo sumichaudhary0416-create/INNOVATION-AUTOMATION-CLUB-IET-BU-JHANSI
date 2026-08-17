@@ -101,13 +101,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
 <script>
-  // Apni Certificate wali Google Sheet ka Published CSV Link yahan dalein
-  const CERT_SHEET_CSV_URL = "https://script.google.com/macros/s/AKfycbyRmmd2zlKDPB6v0ixbaDD40Zih-vgD8DTNiOZVR10KH4Xw8Nd3ncswqtYE3eYltER5bA/exec";
+  // Google Apps Script Web App URL
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyRmmd2zlKDPB6v0ixbaDD40Zih-vgD8DTNiOZVR10KH4Xw8Nd3ncswqtYE3eYltER5bA/exec";
 
   function verifyIACCertificate() {
-    const certVal = document.getElementById('cert-input').value.trim().toUpperCase();
-    const resultDiv = document.getElementById('cert-result');
+    const certInput = document.getElementById('cert-input') || document.getElementById('cert-id');
+    const certVal = certInput ? certInput.value.trim().toUpperCase() : '';
+    const resultDiv = document.getElementById('cert-result') || document.getElementById('cert-status');
 
+    if (!resultDiv) return;
+
+    // 1. Khali Input Check
     if (!certVal) {
       resultDiv.style.display = 'block';
       resultDiv.style.color = '#f59e0b';
@@ -115,70 +119,28 @@
       return;
     }
 
+    // 2. Loading State
     resultDiv.style.display = 'block';
     resultDiv.style.color = '#38bdf8';
     resultDiv.innerHTML = "⏳ Searching database for <b>" + certVal + "</b>...";
 
-    // If CSV link is not set yet
-    if (CERT_SHEET_CSV_URL === "YOUR_CERTIFICATE_SHEET_CSV_URL_HERE") {
-      setTimeout(() => {
-        resultDiv.style.color = '#f87171';
-        resultDiv.innerHTML = "❌ No certificates have been issued yet or database is empty.";
-      }, 800);
-      return;
-    }
-
-    Papa.parse(CERT_SHEET_CSV_URL, {
-      download: true,
-      header: true,
-      skipEmptyLines: true,
-      complete: function(results) {
-        const records = results.data;
-        const match = records.find(row => {
-          const id = row.CertID || row['Certificate ID'] || row.id || '';
-          return id.trim().toUpperCase() === certVal;
-        });
-
-        if (match) {
-          const name = match.Name || match.StudentName || 'Student';
-          const event = match.Event || match.EventName || 'IAC Event';
+    // 3. Real Live Database Fetching
+    fetch(`${SCRIPT_URL}?id=${encodeURIComponent(certVal)}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data && data.found) {
           resultDiv.style.color = '#34d399';
-          resultDiv.innerHTML = `✅ <b>Verified Certificate!</b><br>Issued to: <b>${name}</b><br>Event: <b>${event}</b>`;
+          resultDiv.innerHTML = `✅ <b>Verified Certificate!</b><br>Issued to: <b>${data.name}</b><br>Event: <b>${data.event}</b>`;
         } else {
           resultDiv.style.color = '#f87171';
           resultDiv.innerHTML = "❌ Invalid Certificate ID. No matching record found.";
         }
-      },
-      error: function() {
+      })
+      .catch(error => {
+        console.error("Fetch Error:", error);
         resultDiv.style.color = '#f87171';
-        resultDiv.innerHTML = "❌ Error connecting to database.";
-      }
-    });
-  }
-</script>
-
-<!-- JAVASCRIPT LOGIC -->
-<script>
-  function verifyIACCertificate() {
-    const certVal = document.getElementById('cert-input').value.trim();
-    const resultDiv = document.getElementById('cert-result');
-
-    if (!certVal) {
-      resultDiv.style.display = 'block';
-      resultDiv.style.color = '#f59e0b';
-      resultDiv.innerHTML = "⚠️ Please enter a Certificate ID.";
-      return;
-    }
-
-    resultDiv.style.display = 'block';
-    resultDiv.style.color = '#38bdf8';
-    resultDiv.innerHTML = "⏳ Searching for <b>" + certVal + "</b>...";
-
-    // Example Verification Delay
-    setTimeout(() => {
-      resultDiv.style.color = '#34d399';
-      resultDiv.innerHTML = "✅ Verified Certificate ID: <b>" + certVal + "</b> (Issued by IAC, EIE Dept.)";
-    }, 1000);
+        resultDiv.innerHTML = "❌ Connection error. Please try again.";
+      });
   }
 </script>
 <!-- CLUB MISSION / WHAT WE DO SECTION START -->
