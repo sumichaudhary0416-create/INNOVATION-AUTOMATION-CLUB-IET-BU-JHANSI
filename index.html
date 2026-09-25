@@ -1,1990 +1,770 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IAC - Innovation & Automation Club | EIE, BU</title>
-    <!-- Tailwind CSS CDN for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        IAC | Innovation & Automation Club
+    </title>
+
+    <meta
+        name="description"
+        content="Innovation & Automation Club, Electronics & Instrumentation Engineering, IET Bundelkhand University Jhansi."
+    >
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans scroll-smooth">
-      <!-- HEADER / NAVIGATION BAR (LIGHT TRANSLUCENT) -->
-    <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-slate-200/60 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-[14px] flex justify-between items-center">
-            
-            <!-- Logo Section -->
-            <div class="flex items-center space-x-3">
-                <img src="assets/bu-logo.png.png" alt="BU Logo" class="h-9 w-auto object-contain">
-                <div class="h-6 w-[1px] bg-slate-300 self-center"></div>
-                <img src="assets/iac-logo.jpg.jpg" alt="IAC Logo" class="h-9 w-auto rounded-full object-contain">
-                <div class="flex flex-col justify-center -space-y-0.5 ml-1">
-                    <h1 class="font-bold text-slate-900 text-base leading-tight tracking-wide m-0 p-0">IAC</h1>
-                    <p class="text-[11px] text-slate-500 font-semibold leading-tight m-0 p-0">EIE Dept. | IET | BU</p>
-                </div>
+
+
+<body data-page="home">
+
+
+<div id="site-header"></div>
+
+
+<main>
+
+
+<!-- ==============================
+     HERO
+============================== -->
+
+<section class="hero">
+
+    <div class="hero-container">
+
+
+        <div class="reveal reveal-left">
+
+            <p class="hero-tag">
+                INNOVATE • AUTOMATE • INSPIRE
+            </p>
+
+            <h1>
+
+                INNOVATION &
+                AUTOMATION CLUB
+
+            </h1>
+
+            <p class="hero-description">
+
+                A student-driven technical
+                platform of the Electronics &
+                Instrumentation Engineering
+                Department at IET,
+                Bundelkhand University, Jhansi.
+
+                Learn through hands-on projects,
+                embedded systems, IoT,
+                automation, circuit making,
+                PCB designing and
+                real-world engineering.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="join.html"
+                    class="btn"
+                >
+                    Join IAC
+                </a>
+
+                <a
+                    href="about.html"
+                    class="btn btn-outline"
+                >
+                    Explore IAC
+                </a>
+
             </div>
 
-            <!-- Navigation Links Section -->
-            <nav class="hidden md:flex items-center space-x-6 text-xs font-semibold text-slate-700">
-                <a href="#hero" class="hover:text-blue-600 transition">Home</a>
-                <a href="#about-iac" class="hover:text-blue-600 transition">About IAC</a>
-                <a href="#about-eie" class="hover:text-blue-600 transition">About EIE</a>
-                <a href="#team" class="hover:text-blue-600 transition">Team</a>
-                <a href="#alumni" class="hover:text-blue-600 transition">Meet our Alumni</a>
-                <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
-                <a href="#events" class="hover:text-blue-600 transition">Events</a>
-                <a href="#gallery" class="hover:text-blue-600 transition">Gallery</a>
-            </nav>
-
-            <!-- Action Button -->
-            <a href="#registration-form" class="bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-lg transition shadow-md shadow-blue-600/20">Join IAC</a>
         </div>
-    </header>
-  <!-- HERO SECTION WITH REAL CIRCUIT DIAGRAM BACKGROUND -->
-<section id="hero" style="
-  min-height: calc(100vh - 60px); 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  background-color: #060913;
-  position: relative; 
-  overflow: hidden; 
-  padding: 40px 20px; 
-  box-sizing: border-box;
-  color: #ffffff; 
-  font-family: 'Inter', sans-serif; 
-  text-align: center;
-">
 
-  <!-- SVG CIRCUIT DIAGRAM OVERLAY -->
-  <svg style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.25; pointer-events: none;" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <pattern id="circuit-pattern" x="0" y="0" width="160" height="160" patternUnits="userSpaceOnUse">
-        <!-- Circuit Traces & Lines -->
-        <path d="M 10 20 H 70 V 60 H 130" stroke="#38bdf8" stroke-width="1.5" fill="none" stroke-dasharray="0" />
-        <path d="M 40 160 V 110 H 100 V 80" stroke="#818cf8" stroke-width="1.5" fill="none" />
-        <path d="M 140 10 V 50 H 90 V 120 H 160" stroke="#38bdf8" stroke-width="1.5" fill="none" />
-        <path d="M 0 90 H 50 V 140 H 120" stroke="#818cf8" stroke-width="1.5" fill="none" />
-        
-        <!-- Nodes / Junction Points -->
-        <circle cx="10" cy="20" r="3" fill="#38bdf8" />
-        <circle cx="70" cy="60" r="3" fill="#818cf8" />
-        <circle cx="130" cy="60" r="3.5" fill="#38bdf8" />
-        <circle cx="40" cy="110" r="3" fill="#38bdf8" />
-        <circle cx="100" cy="80" r="3.5" fill="#818cf8" />
-        <circle cx="90" cy="50" r="3" fill="#38bdf8" />
-        <circle cx="50" cy="140" r="3" fill="#818cf8" />
 
-        <!-- IC Chip / Component Representations -->
-        <rect x="62" y="52" width="16" height="16" rx="3" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5" />
-        <rect x="122" y="112" width="20" height="12" rx="2" fill="#0f172a" stroke="#818cf8" stroke-width="1.5" />
-      </pattern>
-    </defs>
-    <rect width="100%" height="100%" fill="url(#circuit-pattern)" />
-  </svg>
+        <div class="hero-card reveal reveal-right">
 
-  <!-- Ambient Glow Effects -->
-  <div style="position: absolute; top: 25%; left: 20%; width: 350px; height: 350px; background: rgba(56, 189, 248, 0.15); filter: blur(100px); border-radius: 50%; pointer-events: none;"></div>
-  <div style="position: absolute; bottom: 20%; right: 20%; width: 350px; height: 350px; background: rgba(99, 102, 241, 0.18); filter: blur(100px); border-radius: 50%; pointer-events: none;"></div>
+            <h3>
+                Engineering Beyond Classrooms
+            </h3>
 
-  <!-- Hero Main Content Box -->
-  <div style="max-width: 900px; width: 100%; margin: 0 auto; position: relative; z-index: 2;">
-    
-    <!-- Badge -->
-    <span style="background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.4); font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 30px; display: inline-block; margin-bottom: 24px; letter-spacing: 1px; text-transform: uppercase; box-shadow: 0 0 20px rgba(99, 102, 241, 0.25);">
-      INNOVATE • AUTOMATE • INSPIRE
-    </span>
+            <p class="hero-description">
 
-    <!-- Hero Title -->
-    <h1 style="font-size: 48px; font-weight: 800; line-height: 1.2; margin-bottom: 20px; font-family: 'Poppins', sans-serif; letter-spacing: -0.5px;">
-      <span style="background: linear-gradient(90deg, #818cf8, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">INNOVATION & AUTOMATION CLUB</span>
-    </h1>
+                Build technical skills,
+                develop working prototypes
+                and connect academic engineering
+                with real industrial applications.
 
-    <!-- Subtitle -->
-    <p style="font-size: 18px; line-height: 1.7; color: #94a3b8; max-width: 750px; margin: 0 auto 32px auto;">
-      The official hub of Electronics & Instrumentation Engineering students. Bridging the gap between theory and industry through hands-on Embedded Systems, IoT, Robotics, and Smart Controls.
-    </p>
+            </p>
 
-    <!-- Action Buttons -->
-    <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;">
-      <a href="#registration-form" style="background: #4f46e5; color: #ffffff; padding: 14px 28px; border-radius: 12px; font-weight: 700; text-decoration: none; font-size: 15px; box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4); transition: transform 0.2s;">
-        Come on board with IAC
-      </a>
-      <a href="#about-eie" style="background: rgba(255, 255, 255, 0.06); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.15); padding: 14px 28px; border-radius: 12px; font-weight: 600; text-decoration: none; font-size: 15px; backdrop-filter: blur(10px);">
-        Explore EIE Department
-      </a>
-    </div>
 
-    <!-- Certificate Verifier Box -->
-    <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid rgba(56, 189, 248, 0.3); padding: 20px; border-radius: 16px; max-width: 500px; margin: 0 auto; backdrop-filter: blur(12px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);">
-      <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 12px; font-size: 14px; font-weight: 600; color: #e2e8f0;">
-        🛡️ Verify IAC Certificate
-      </div>
-      <div style="display: flex; gap: 8px;">
-        <input type="text" id="cert-input" placeholder="e.g. IAC-2026-101" style="flex: 1; background: rgba(30, 41, 59, 0.9); border: 1px solid rgba(255, 255, 255, 0.2); color: #ffffff; padding: 10px 14px; border-radius: 8px; font-size: 14px; outline: none;">
-        <button onclick="verifyIACCertificate()" style="background: #38bdf8; color: #0f172a; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; cursor: pointer; font-size: 14px;">
-          Verify
-        </button>
-      </div>
-      <div id="cert-result" style="margin-top: 10px; font-size: 13px; text-align: left; display: none;"></div>
-    </div>
+            <div class="hero-stat">
 
-  </div>
-</section>
 
-<!-- PapaParse Library (for sheet CSV reading) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+                <div class="stat-box">
 
-<script>
-  // Google Apps Script Web App URL
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyRmmd2zlKDPB6v0ixbaDD40Zih-vgD8DTNiOZVR10KH4Xw8Nd3ncswqtYE3eYltER5bA/exec";
+                    <strong>
+                        IoT
+                    </strong>
 
-  function verifyIACCertificate() {
-    const certInput = document.getElementById('cert-input') || document.getElementById('cert-id');
-    const certVal = certInput ? certInput.value.trim().toUpperCase() : '';
-    const resultDiv = document.getElementById('cert-result') || document.getElementById('cert-status');
+                    <span>
+                        Smart Systems
+                    </span>
 
-    if (!resultDiv) return;
-
-    // 1. Khali Input Check
-    if (!certVal) {
-      resultDiv.style.display = 'block';
-      resultDiv.style.color = '#f59e0b';
-      resultDiv.innerHTML = "⚠️ Please enter a Certificate ID.";
-      return;
-    }
-
-    // 2. Loading State
-    resultDiv.style.display = 'block';
-    resultDiv.style.color = '#38bdf8';
-    resultDiv.innerHTML = "⏳ Searching database for <b>" + certVal + "</b>...";
-
-    // 3. Real Live Database Fetching
-    fetch(`${SCRIPT_URL}?id=${encodeURIComponent(certVal)}`)
-      .then(response => response.json())
-      .then(data => {
-        if (data && data.found) {
-          resultDiv.style.color = '#34d399';
-          resultDiv.innerHTML = `✅ <b>Verified Certificate!</b><br>Issued to: <b>${data.name}</b><br>Event: <b>${data.event}</b>`;
-        } else {
-          resultDiv.style.color = '#f87171';
-          resultDiv.innerHTML = "❌ Invalid Certificate ID. No matching record found.";
-        }
-      })
-      .catch(error => {
-        console.error("Fetch Error:", error);
-        resultDiv.style.color = '#f87171';
-        resultDiv.innerHTML = "❌ Connection error. Please try again.";
-      });
-  }
-</script>
-<!-- CLUB MISSION / WHAT WE DO SECTION START -->
-<section style="padding: 70px 20px; background-color: #f8fafc; font-family: 'Inter', sans-serif;">
-  <div style="max-width: 1100px; margin: 0 auto;">
-    
-    <div style="text-align: center; margin-bottom: 50px;">
-      <span style="color: #4f46e5; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 14px; display: block; margin-bottom: 8px;">
-        Core Pillars
-      </span>
-      <h2 style="font-size: 36px; font-weight: 800; color: #0f172a; font-family: 'Poppins', sans-serif;">
-        What We Do at IAC
-      </h2>
-    </div>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
-      
-      <!-- Card 1 -->
-      <div style="background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-        <div style="width: 50px; height: 50px; background: #e0e7ff; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;">🛠️</div>
-        <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Hardware Workshops</h3>
-        <p style="font-size: 14px; color: #64748b; line-height: 1.6;">
-          Regular hands-on bootcamps on Arduino, ESP32, Microcontrollers, PCB designing, and Sensor interfacing.
-        </p>
-      </div>
-
-      <!-- Card 2 -->
-      <div style="background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-        <div style="width: 50px; height: 50px; background: #e0f2fe; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;">💡</div>
-        <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Project Mentorship</h3>
-        <p style="font-size: 14px; color: #64748b; line-height: 1.6;">
-          Direct guidance from senior faculty members and experienced super-seniors to turn your hardware ideas into real prototypes.
-        </p>
-      </div>
-
-      <!-- Card 3 -->
-      <div style="background: #ffffff; padding: 30px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-        <div style="width: 50px; height: 50px; background: #dcfce7; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 20px;">📜</div>
-        <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 10px;">Research & Innovation</h3>
-        <p style="font-size: 14px; color: #64748b; line-height: 1.6;">
-          Support for academic research, presenting technical seminars, and building competitions-ready engineering models.
-        </p>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-<!-- CLUB MISSION SECTION END -->
-<!-- 2. ABOUT IAC -->
-<section id="about-iac" class="py-16 max-w-7xl mx-auto px-4">
-    <h2 class="text-3xl font-bold text-center mb-4">About IAC</h2>
-    <p class="text-center text-slate-600 max-w-2xl mx-auto mb-10">The Innovation & Automation Club (IAC) is a student-driven platform that encourages innovation, creativity, and practical learning. It brings together students who are curious about technology, problem-solving, and building ideas into meaningful solutions.
-
-IAC provides opportunities to learn beyond the classroom through workshops, technical sessions, hands-on projects, competitions, and collaborative activities. The club focuses on bridging the gap between theoretical knowledge and real-world application while helping students develop technical as well as essential skills such as teamwork, leadership, communication, and problem-solving.
-
-We aim to create a community where students can explore, experiment, collaborate, and innovate—turning ideas into possibilities and possibilities into impact.
-
-Innovate. Automate. Inspire.</p>
-
-    <!-- IAC CLUB LAB GALLERY SECTION -->
-    <div class="mt-12">
-        <h3 class="text-2xl font-bold text-center text-slate-800 mb-2">Inside Our IAC Innovation Lab</h3>
-        <p class="text-center text-slate-500 max-w-xl mx-auto mb-8 text-sm">A glimpse into our hardware setups, testing benches, and collaborative workspace.</p>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- Photo Card 1 -->
-            <div class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-md hover:shadow-xl transition-all duration-300">
-                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80" alt="Hardware & Automation Workstation" class="w-full h-64 object-cover group-hover:scale-105 group-hover:opacity-85 transition-all duration-300">
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
-                    <h4 class="font-semibold text-base">Automation & PLC Workstation</h4>
-                    <p class="text-xs text-slate-300">Industrial controllers & sensor test benches</p>
                 </div>
+
+
+                <div class="stat-box">
+
+                    <strong>
+                        PCB
+                    </strong>
+
+                    <span>
+                        Circuit Design
+                    </span>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <strong>
+                        E&I
+                    </strong>
+
+                    <span>
+                        Instrumentation
+                    </span>
+
+                </div>
+
+
+                <div class="stat-box">
+
+                    <strong>
+                        AUTO
+                    </strong>
+
+                    <span>
+                        Automation
+                    </span>
+
+                </div>
+
+
             </div>
 
-            <!-- Photo Card 2 -->
-            <div class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-md hover:shadow-xl transition-all duration-300">
-                <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80" alt="Embedded Systems Testing" class="w-full h-64 object-cover group-hover:scale-105 group-hover:opacity-85 transition-all duration-300">
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
-                    <h4 class="font-semibold text-base">Embedded Hardware Lab</h4>
-                    <p class="text-xs text-slate-300">Microcontroller & PCB prototyping setup</p>
-                </div>
-            </div>
-
-            <!-- Photo Card 3 -->
-            <div class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 shadow-md hover:shadow-xl transition-all duration-300">
-                <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" alt="Student Collaboration & Coding Area" class="w-full h-64 object-cover group-hover:scale-105 group-hover:opacity-85 transition-all duration-300">
-                <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent text-white">
-                    <h4 class="font-semibold text-base">Project Collaboration Space</h4>
-                    <p class="text-xs text-slate-300">Team brainstorming & coding zone</p>
-                </div>
-            </div>
         </div>
-    </div>
-</section>
-    
-<!-- ABOUT EIE & FACULTY SECTION START -->
-<section id="about-eie" style="padding: 60px 20px; background-color: #f8fafc; font-family: 'Inter', sans-serif;">
-  <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
-    
-    <!-- Subtitle / Tagline -->
-    <span style="color: #4f46e5; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 14px; display: block; margin-bottom: 8px;">
-      Department of Electronics & Instrumentation Engineering
-    </span>
 
-    <!-- Main Heading -->
-    <h2 style="font-size: 38px; font-weight: 800; color: #0f172a; margin-bottom: 20px; font-family: 'Poppins', sans-serif;">
-      About EIE Department
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     WHAT WE DO
+============================== -->
+
+<section class="section section-center">
+
+    <div class="reveal">
+
+        <p class="section-label">
+            CORE PILLARS
+        </p>
+
+        <h2 class="section-title">
+            What We Do at IAC
+        </h2>
+
+        <p class="section-intro">
+
+            Practical learning designed
+            to transform engineering
+            concepts into working solutions.
+
+        </p>
+
+    </div>
+
+
+    <div class="grid">
+
+
+        <article class="card reveal">
+
+            <div class="card-icon">
+                🛠️
+            </div>
+
+            <h3>
+                Hands-on Training
+            </h3>
+
+            <p>
+
+                Practical sessions involving
+                Arduino, sensors,
+                electronics and
+                microcontrollers.
+
+            </p>
+
+        </article>
+
+
+        <article class="card reveal">
+
+            <div class="card-icon">
+                💡
+            </div>
+
+            <h3>
+                Project Development
+            </h3>
+
+            <p>
+
+                Turn ideas into
+                prototypes and
+                practical engineering
+                solutions.
+
+            </p>
+
+        </article>
+
+
+        <article class="card reveal">
+
+            <div class="card-icon">
+                ⚙️
+            </div>
+
+            <h3>
+                Automation & IoT
+            </h3>
+
+            <p>
+
+                Explore sensors,
+                IoT, embedded systems
+                and smart automation.
+
+            </p>
+
+        </article>
+
+
+        <article class="card reveal">
+
+            <div class="card-icon">
+                🔌
+            </div>
+
+            <h3>
+                Circuit Making
+            </h3>
+
+            <p>
+
+                Build and troubleshoot
+                practical electronic
+                circuits.
+
+            </p>
+
+        </article>
+
+
+        <article class="card reveal">
+
+            <div class="card-icon">
+                🧩
+            </div>
+
+            <h3>
+                PCB Designing
+            </h3>
+
+            <p>
+
+                Learn schematic design,
+                PCB layouts and
+                fabrication concepts.
+
+            </p>
+
+        </article>
+
+
+        <article class="card reveal">
+
+            <div class="card-icon">
+                🚀
+            </div>
+
+            <h3>
+                Industry Exposure
+            </h3>
+
+            <p>
+
+                Connect academic learning
+                with industrial practices
+                and opportunities.
+
+            </p>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==============================
+     THINKNEXT COLLABORATION
+============================== -->
+
+<section class="section collaboration-section">
+
+
+    <div class="section-center reveal">
+
+        <p class="section-label">
+            ACADEMIC–INDUSTRY CONNECT
+        </p>
+
+        <h2 class="section-title">
+            Our Collaboration Partner
+        </h2>
+
+        <p class="section-intro">
+
+            IAC collaborates with
+            ThinkNext Technologies
+            to strengthen practical learning,
+            industry exposure and
+            technical skill development.
+
+        </p>
+
+    </div>
+
+
+    <div class="collab-banner reveal zoom-reveal">
+
+        <img
+            src="assets/banners/iac-thinknext-banner.png"
+            alt="IAC Collaboration with ThinkNext Technologies"
+        >
+
+        <div class="banner-shine"></div>
+
+    </div>
+
+
+    <div class="collab-content">
+
+
+        <div class="collab-info reveal reveal-left">
+
+            <span class="partner-badge">
+                COLLABORATION PARTNER
+            </span>
+
+            <h2>
+                IAC × ThinkNext Technologies
+            </h2>
+
+            <p>
+
+                Innovation & Automation Club,
+                Electronics &
+                Instrumentation Engineering
+                Department,
+                IET Bundelkhand University,
+                collaborates with
+                ThinkNext Technologies
+                to connect academic knowledge
+                with practical industry experience.
+
+            </p>
+
+            <p>
+
+                The collaboration focuses on
+                practical technical training,
+                project development,
+                industrial exposure and
+                career-oriented skill building.
+
+            </p>
+
+
+            <div class="collab-features">
+
+
+                <div class="collab-feature">
+                    <span>⚙️</span>
+                    <p>
+                        Hands-on Training
+                    </p>
+                </div>
+
+
+                <div class="collab-feature">
+                    <span>🏭</span>
+                    <p>
+                        Industry Exposure
+                    </p>
+                </div>
+
+
+                <div class="collab-feature">
+                    <span>💻</span>
+                    <p>
+                        Live Projects
+                    </p>
+                </div>
+
+
+                <div class="collab-feature">
+                    <span>📈</span>
+                    <p>
+                        Skill Development
+                    </p>
+                </div>
+
+
+                <div class="collab-feature">
+                    <span>🎓</span>
+                    <p>
+                        Internship Opportunities
+                    </p>
+                </div>
+
+
+                <div class="collab-feature">
+                    <span>🤝</span>
+                    <p>
+                        Academic–Industry Connect
+                    </p>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="collab-tech-card reveal reveal-right">
+
+            <p class="mini-label">
+                KEY TECHNICAL AREAS
+            </p>
+
+            <h3>
+                From Campus to Real World
+            </h3>
+
+
+            <div class="tech-list">
+
+
+                <div class="tech-item">
+                    <span>🔲</span>
+                    Embedded Systems
+                </div>
+
+
+                <div class="tech-item">
+                    <span>🌐</span>
+                    Internet of Things
+                </div>
+
+
+                <div class="tech-item">
+                    <span>🤖</span>
+                    Automation
+                </div>
+
+
+                <div class="tech-item">
+                    <span>🔌</span>
+                    Circuit Making
+                </div>
+
+
+                <div class="tech-item">
+                    <span>🧩</span>
+                    PCB Designing
+                </div>
+
+
+                <div class="tech-item">
+                    <span>💡</span>
+                    Innovation
+                </div>
+
+
+                <div class="tech-item">
+                    <span>🌍</span>
+                    Real-World Solutions
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- ==============================
+     LEAD SPONSOR
+============================== -->
+
+<section class="section">
+
+
+    <div class="section-center reveal">
+
+        <p class="section-label">
+            INDUSTRY LEADERSHIP
+        </p>
+
+        <h2 class="section-title">
+
+            Lead Sponsor &
+            Technical Program In-Charge
+
+        </h2>
+
+        <p class="section-intro">
+
+            Supporting IAC's
+            academic–industry collaboration
+            and student technical
+            development initiatives.
+
+        </p>
+
+    </div>
+
+
+    <div class="sponsor-wrapper reveal zoom-reveal">
+
+
+        <div class="sponsor-icon-area">
+
+
+            <div class="sponsor-avatar">
+
+                <span>
+                    AB
+                </span>
+
+            </div>
+
+
+            <div class="sponsor-company">
+                ThinkNext Technologies
+            </div>
+
+
+        </div>
+
+
+        <div class="sponsor-content">
+
+
+            <span class="partner-badge">
+                TECHNICAL PROGRAM LEAD
+            </span>
+
+
+            <h2>
+                Mr. Ankit Barsaiya
+            </h2>
+
+
+            <h3>
+
+                Regional Head /
+                Technical Program In-Charge
+                (Uttar Pradesh)
+
+            </h3>
+
+
+            <p>
+
+                Lead Sponsor &
+                Technical Program In-Charge
+                supporting the collaboration,
+                technical programs and
+                industry-oriented initiatives
+                between IAC and
+                ThinkNext Technologies.
+
+            </p>
+
+
+            <div class="sponsor-details">
+
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        🏢
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Organization
+                        </small>
+
+                        <strong>
+                            ThinkNext Technologies
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        📍
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Region
+                        </small>
+
+                        <strong>
+                            Uttar Pradesh
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="detail-box">
+
+                    <span class="detail-icon">
+                        📞
+                    </span>
+
+                    <div>
+
+                        <small>
+                            Contact
+                        </small>
+
+                        <strong>
+                            +91 8318196162
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="sponsor-actions">
+
+                <a
+                    href="tel:+918318196162"
+                    class="btn"
+                >
+                    📞 Contact
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- ==============================
+     PROJECT CTA
+============================== -->
+
+<section class="cta reveal">
+
+
+    <h2>
+        Explore Student Innovation
     </h2>
 
-    <!-- Overview Text -->
-    <p style="font-size: 17px; line-height: 1.7; color: #475569; max-width: 900px; margin: 0 auto 50px auto;">
-      The Department of Electronics & Instrumentation Engineering (EIE) at Institute of Engineering & Technology (IET), Bundelkhand University, Jhansi is dedicated to nurturing innovative engineers. The department bridges the gap between hardware electronics, smart sensor technologies, process control, robotics, and industrial automation.
+    <p>
+
+        Discover projects
+        developed by
+        Electronics &
+        Instrumentation Engineering
+        students and IAC members.
+
     </p>
 
-    <!-- Key Department Cards -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; text-align: left; margin-bottom: 60px;">
-      
-      <div style="background: #ffffff; padding: 24px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0;">
-        <div style="font-size: 24px; margin-bottom: 12px;">⚡</div>
-        <h3 style="font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Embedded & IoT</h3>
-        <p style="font-size: 14px; color: #64748b; line-height: 1.5;">Focusing on microcontrollers, edge computing, smart sensors, and IoT solutions.</p>
-      </div>
+    <a
+        href="projects.html"
+        class="btn"
+    >
+        View Projects
+    </a>
 
-      <div style="background: #ffffff; padding: 24px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0;">
-        <div style="font-size: 24px; margin-bottom: 12px;">🤖</div>
-        <h3 style="font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Automation & Robotics</h3>
-        <p style="font-size: 14px; color: #64748b; line-height: 1.5;">Hands-on training in PLCs, process control, robotics, and smart industry systems.</p>
-      </div>
 
-      <div style="background: #ffffff; padding: 24px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0;">
-        <div style="font-size: 24px; margin-bottom: 12px;">📡</div>
-        <h3 style="font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Sensors & Control</h3>
-        <p style="font-size: 14px; color: #64748b; line-height: 1.5;">Mastering precision measurement, instrumentation systems, and signal processing.</p>
-      </div>
-
-      <div style="background: #ffffff; padding: 24px; border-radius: 16px; box-shadow: 0 4px 15px rgba(0,0,0,0.04); border: 1px solid #e2e8f0;">
-        <div style="font-size: 24px; margin-bottom: 12px;">🚀</div>
-        <h3 style="font-size: 18px; font-weight: 700; color: #1e293b; margin-bottom: 8px;">Innovation via IAC</h3>
-        <p style="font-size: 14px; color: #64748b; line-height: 1.5;">Promoting student innovation, hardware prototyping, and industry-ready projects.</p>
-      </div>
-
-    </div>
-
-    <!-- EIE DEPARTMENT PHOTO GALLERY SECTION -->
-    <div style="margin-top: 50px;">
-      <h3 style="font-size: 26px; font-weight: 800; color: #0f172a; margin-bottom: 10px; font-family: 'Poppins', sans-serif;">
-        Department Infrastructure & Campus Life
-      </h3>
-      <p style="font-size: 15px; color: #64748b; max-width: 600px; margin: 0 auto 35px auto;">
-        A glimpse inside the state-of-the-art laboratories, technical workshops, and departmental facilities.
-      </p>
-
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; text-align: left;">
-        
-        <!-- Photo Card 1: Process Control Lab -->
-        <div style="background: #ffffff; border-radius: 18px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 6px 18px rgba(0,0,0,0.04); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
-          <div style="height: 200px; overflow: hidden; position: relative;">
-            <img src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80" alt="Process Control Laboratory" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <div style="padding: 20px;">
-            <h4 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Process Control & Instrumentation Lab</h4>
-            <p style="font-size: 13px; color: #64748b; line-height: 1.5;">Equipped with industrial PLC setups, flow loops, temperature transmitters, and PID controllers.</p>
-          </div>
-        </div>
-
-        <!-- Photo Card 2: Electronics & Sensors Lab -->
-        <div style="background: #ffffff; border-radius: 18px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 6px 18px rgba(0,0,0,0.04); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
-          <div style="height: 200px; overflow: hidden; position: relative;">
-            <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&w=800&q=80" alt="Electronics & Microprocessor Lab" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <div style="padding: 20px;">
-            <h4 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Embedded Systems & Transducer Lab</h4>
-            <p style="font-size: 13px; color: #64748b; line-height: 1.5;">Microcontroller development kits, CROs, signal generators, and sensor characterization benches.</p>
-          </div>
-        </div>
-
-        <!-- Photo Card 3: Department Building / IET Block -->
-        <div style="background: #ffffff; border-radius: 18px; overflow: hidden; border: 1px solid #e2e8f0; box-shadow: 0 6px 18px rgba(0,0,0,0.04); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
-          <div style="height: 200px; overflow: hidden; position: relative;">
-            <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80" alt="IET Department Building" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-          <div style="padding: 20px;">
-            <h4 style="font-size: 17px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">IET Departmental Block & Classrooms</h4>
-            <p style="font-size: 13px; color: #64748b; line-height: 1.5;">Modern lecture halls, smart classrooms, and academic seminar facilities at BU Jhansi.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
-</section>
-<!-- FACULTY DETAILS SECTION HEADER -->
-<div style="padding-top: 60px; text-align: center;">
-
-  <!-- Pill Badge -->
-  <span style="display: inline-block; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); color: #6366f1; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px; padding: 6px 20px; border-radius: 50px; margin-bottom: 16px;">
-    OUR ACADEMIC MENTORS
-  </span>
-
-  <!-- Main Heading (Dark color for high contrast) -->
-  <h2 style="font-size: 36px; font-weight: 800; color: #0f172a; margin: 0 0 16px 0; font-family: 'Poppins', sans-serif;">
-    Department Faculty Members
-  </h2>
-
-  <!-- Gradient Underline Accent -->
-  <div style="width: 60px; height: 4px; background: linear-gradient(90deg, #6366f1, #a855f7); border-radius: 2px; margin: 0 auto 40px auto;"></div>
-
-</div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; text-align: center;">
-
-        <!-- 1. HOD / Coordinator -->
-        <div style="background: #ffffff; padding: 24px; border-radius: 16px; border: 2px solid #6366f1; box-shadow: 0 10px 25px rgba(99, 102, 241, 0.08); position: relative; text-align: center;">
-          <span style="position: absolute; top: 12px; right: 12px; background: #e0e7ff; color: #4338ca; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">Coordinator / HOD</span>
-          
-          <div style="width: 110px; height: 110px; margin: 10px auto 16px auto; border-radius: 50%; overflow: hidden; border: 4px solid #e0e7ff; background-color: #f1f5f9;">
-            <img src="assets/faculty/neha.jpg.jpeg" alt="Er. Neha Jain" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-
-          <h4 style="font-size: 19px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Er. Neha Jain</h4>
-          <p style="font-size: 13px; color: #4f46e5; font-weight: 600; margin-bottom: 16px;">M.Tech. (Communication Control & Networking)</p>
-          
-          <button onclick="openFacultyModal('Er. Neha Jain', 'Coordinator / HOD', 'M.Tech. (Communication Control & Networking)', '19 years', '9453001426', 'nehajain488@bujhansi.ac.in', 'assets/faculty/neha.jpg.jpeg')" style="background-color: #4f46e5; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; transition: background 0.2s;">
-            View Details
-          </button>
-        </div>
-
-        <!-- 2. Er. Ikroop Verma -->
-        <div style="background: #ffffff; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.04); text-align: center;">
-          <span style="background: #f1f5f9; color: #475569; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 10px;">Assistant Professor</span>
-          
-          <div style="width: 110px; height: 110px; margin: 0 auto 16px auto; border-radius: 50%; overflow: hidden; border: 4px solid #f1f5f9; background-color: #f1f5f9;">
-            <img src="assets/faculty/ikroop.jpg.jpeg" alt="Er. Ikroop Verma" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-
-          <h4 style="font-size: 19px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Er. Ikroop Verma</h4>
-          <p style="font-size: 13px; color: #0284c7; font-weight: 600; margin-bottom: 16px;">Ph.D. , M.Tech. (Digital & Communication)</p>
-          
-          <button onclick="openFacultyModal('Er. Ikroop Verma', 'Assistant Professor', 'Ph.D. , M.Tech. (Digital & Communication)', '22 years', '9454806929', 'ikroop09@bujhansi.ac.in', 'assets/faculty/ikroop.jpg.jpeg')" style="background-color: #0f172a; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; transition: background 0.2s;">
-            View Details
-          </button>
-        </div>
-
-        <!-- 3. Dr. Ram Singh Kushwaha -->
-        <div style="background: #ffffff; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.04); text-align: center;">
-          <span style="background: #f1f5f9; color: #475569; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 10px;">Assistant Professor</span>
-          
-          <div style="width: 110px; height: 110px; margin: 0 auto 16px auto; border-radius: 50%; overflow: hidden; border: 4px solid #f1f5f9; background-color: #f1f5f9;">
-            <img src="assets/faculty/ramsingh.jpg.jpeg" alt="Dr. Ram Singh Kushwaha" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-
-          <h4 style="font-size: 19px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Dr. Ram Singh Kushwaha</h4>
-          <p style="font-size: 13px; color: #0284c7; font-weight: 600; margin-bottom: 16px;">Ph.D. (Electronics & Communication)</p>
-          
-          <button onclick="openFacultyModal('Dr. Ram Singh Kushwaha', 'Assistant Professor', 'Ph.D. (Electronics & Communication)', '21 years', '9415113184', 'ramsinghkushwaha634@bujhansi.ac.in', 'assets/faculty/ramsingh.jpg.jpeg')" style="background-color: #0f172a; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; transition: background 0.2s;">
-            View Details
-          </button>
-        </div>
-
-        <!-- 4. Er. Anurag Gupta -->
-        <div style="background: #ffffff; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.04); text-align: center;">
-          <span style="background: #f1f5f9; color: #475569; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 10px;">Teaching Assistant</span>
-          
-          <div style="width: 110px; height: 110px; margin: 0 auto 16px auto; border-radius: 50%; overflow: hidden; border: 4px solid #f1f5f9; background-color: #f1f5f9;">
-            <img src="assets/faculty/anurag.jpg.jpeg" alt="Er. Anurag Gupta" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-
-          <h4 style="font-size: 19px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Er. Anurag Gupta</h4>
-          <p style="font-size: 13px; color: #0284c7; font-weight: 600; margin-bottom: 16px;">M.Tech. (Electronics & Communication)</p>
-          
-          <button onclick="openFacultyModal('Er. Anurag Gupta', 'Teaching Assistant', 'M.Tech. (Electronics & Communication)', '17 years', '8770735820', 'bu.ganurag@bujhansi.ac.in', 'assets/faculty/anurag.jpg.jpeg')" style="background-color: #0f172a; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; transition: background 0.2s;">
-            View Details
-          </button>
-        </div>
-
-        <!-- 5. Er. Ashish Swarnkar -->
-        <div style="background: #ffffff; padding: 24px; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 15px rgba(0,0,0,0.04); text-align: center;">
-          <span style="background: #f1f5f9; color: #475569; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: inline-block; margin-bottom: 10px;">Teaching Assistant</span>
-          
-          <div style="width: 110px; height: 110px; margin: 0 auto 16px auto; border-radius: 50%; overflow: hidden; border: 4px solid #f1f5f9; background-color: #f1f5f9;">
-            <img src="assets/faculty/ashish.jpg.jpeg" alt="Er. Ashish Swarnkar" style="width: 100%; height: 100%; object-fit: cover;">
-          </div>
-
-          <h4 style="font-size: 19px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">Er. Ashish Swarnkar</h4>
-          <p style="font-size: 13px; color: #0284c7; font-weight: 600; margin-bottom: 16px;">M.Tech. (Microelectronics & VLSI)</p>
-          
-          <button onclick="openFacultyModal('Er. Ashish Swarnkar', 'Teaching Assistant', 'M.Tech. ( Microelectronics & VLSI )', '12 years', '9452335450', 'bu.gashish@bujhansi.ac.in', 'assets/faculty/ashish.jpg.jpeg')" style="background-color: #0f172a; color: white; border: none; padding: 8px 18px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; transition: background 0.2s;">
-            View Details
-          </button>
-        </div>
-
-      </div>
-    </div>
-
-  </div>
 </section>
 
-<!-- ==========================================
-     FACULTY POP-UP MODAL (POPUP DIALOG)
-     ========================================== -->
-<div id="facultyModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
-  <div style="background: #ffffff; width: 100%; max-width: 450px; border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); position: relative; text-align: center; animation: modalFadeIn 0.3s ease;">
-    
-    <!-- Close Button -->
-    <button onclick="closeFacultyModal()" style="position: absolute; top: 16px; right: 16px; background: #f1f5f9; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 16px; font-weight: bold; color: #64748b; cursor: pointer;">✕</button>
 
-    <!-- Modal Photo -->
-    <div style="width: 120px; height: 120px; margin: 0 auto 16px auto; border-radius: 50%; overflow: hidden; border: 4px solid #e0e7ff; background-color: #f1f5f9;">
-      <img id="modalImg" src="" alt="Faculty Photo" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
+</main>
 
-    <!-- Modal Name & Designation -->
-    <h3 id="modalName" style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 4px;"></h3>
-    <span id="modalRole" style="background: #e0e7ff; color: #4338ca; font-size: 12px; font-weight: 700; padding: 4px 12px; border-radius: 20px; display: inline-block; margin-bottom: 20px;"></span>
 
-    <!-- Modal Info Box -->
-    <div style="text-align: left; background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; font-size: 14px; color: #334155; line-height: 2;">
-      <p><strong>Qualification:</strong> <span id="modalQual"></span></p>
-      <p><strong>Experience:</strong> <span id="modalExp"></span></p>
-      <p><strong>Contact No.:</strong> <a id="modalPhone" href="#" style="color: #0284c7; text-decoration: none; font-weight: 600;"></a></p>
-      <p><strong>Email ID:</strong> <a id="modalEmail" href="#" style="color: #0284c7; text-decoration: none; font-weight: 600; word-break: break-all;"></a></p>
-    </div>
+<div id="site-footer"></div>
 
-    <button onclick="closeFacultyModal()" style="margin-top: 20px; width: 100%; background: #0f172a; color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 600; cursor: pointer;">
-      Close
-    </button>
-  </div>
-</div>
 
-<!-- POP-UP SCRIPT -->
-<script>
-  function openFacultyModal(name, role, qual, exp, phone, email, imgSrc) {
-    document.getElementById('modalName').innerText = name;
-    document.getElementById('modalRole').innerText = role;
-    document.getElementById('modalQual').innerText = qual;
-    document.getElementById('modalExp').innerText = exp;
-    
-    document.getElementById('modalPhone').innerText = phone;
-    document.getElementById('modalPhone').href = 'tel:' + phone;
-    
-    document.getElementById('modalEmail').innerText = email;
-    document.getElementById('modalEmail').href = 'mailto:' + email;
-    
-    document.getElementById('modalImg').src = imgSrc;
-    
-    document.getElementById('facultyModal').style.display = 'flex';
-  }
+<script src="script.js"></script>
 
-  function closeFacultyModal() {
-    document.getElementById('facultyModal').style.display = 'none';
-  }
 
-  // Close modal when clicking outside
-  window.onclick = function(event) {
-    var modal = document.getElementById('facultyModal');
-    if (event.target == modal) {
-      modal.style.display = 'none';
-    }
-  }
-</script>
-
-<style>
-  @keyframes modalFadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
-  }
-</style>
-<!-- ABOUT EIE & FACULTY SECTION END -->
-    </section>
-    <!-- 4. TEAM -->
-  <!-- ================= TEAM SECTION START ================= -->
-<section id="team" class="py-16 bg-slate-100 border-b border-slate-200">
-    <!-- CSS Fixes for Sharp Images & Smooth Modals -->
-    <style>
-        #team img, #teamModal img {
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-        }
-        .modal-animate-in {
-            animation: modalFadeIn 0.2s ease-out forwards;
-        }
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-    </style>
-
-    <div class="max-w-7xl mx-auto px-4">
-        
-        <!-- Section Header -->
-        <div class="text-center mb-12">
-            <span class="text-blue-600 font-bold text-xs uppercase tracking-widest block mb-1">Our Leadership & Execution</span>
-            <h2 class="text-3xl font-black text-slate-900 tracking-tight">IAC Core Team</h2>
-            <p class="text-xs text-slate-500 mt-1">Tap on any card to view complete team members & details</p>
-        </div>
-
-        <!-- Cards Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            
-            <!-- 1. President -->
-            <div onclick="openHeadModal('shubhra')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-200 cursor-pointer flex flex-col items-center text-center group">
-                <div class="w-24 h-24 mb-4 rounded-full overflow-hidden border-4 border-blue-50 bg-slate-100 flex items-center justify-center relative shadow-sm group-hover:scale-105 transition">
-                    <img src="assets/team/shubhra.jpg.jpeg" alt="Shubhra Yadav" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                    <span class="text-xl font-bold text-blue-600 absolute">SY</span>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">Shubhra Yadav</h3>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 mt-1">President</span>
-                <span class="mt-4 text-[11px] font-semibold text-slate-400 group-hover:text-blue-600 flex items-center gap-1">View Profile <i class="fas fa-chevron-right text-[9px]"></i></span>
-            </div>
-
-            <!-- 2. Vice President -->
-            <div onclick="openHeadModal('aditya')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-200 cursor-pointer flex flex-col items-center text-center group">
-                <div class="w-24 h-24 mb-4 rounded-full overflow-hidden border-4 border-blue-50 bg-slate-100 flex items-center justify-center relative shadow-sm group-hover:scale-105 transition">
-                    <img src="assets/team/aditya.jpg.jpeg" alt="Aditya Kumar Yadav" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                    <span class="text-xl font-bold text-blue-600 absolute">AY</span>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">Aditya Kumar Yadav</h3>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 mt-1">Vice President</span>
-                <span class="mt-4 text-[11px] font-semibold text-slate-400 group-hover:text-blue-600 flex items-center gap-1">View Team (1 Member) <i class="fas fa-chevron-right text-[9px]"></i></span>
-            </div>
-
-            <!-- 3. Technical Head -->
-            <div onclick="openHeadModal('sumit')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-200 cursor-pointer flex flex-col items-center text-center group">
-                <div class="w-24 h-24 mb-4 rounded-full overflow-hidden border-4 border-blue-50 bg-slate-100 flex items-center justify-center relative shadow-sm group-hover:scale-105 transition">
-                    <img src="assets/team/sumit.jpg.jpeg" alt="Sumit" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                    <span class="text-xl font-bold text-blue-600 absolute">S</span>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">Sumit</h3>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 mt-1">Technical Head</span>
-                <span class="mt-4 text-[11px] font-semibold text-slate-400 group-hover:text-blue-600 flex items-center gap-1">View Team (2 Members) <i class="fas fa-chevron-right text-[9px]"></i></span>
-            </div>
-
-            <!-- 4. Documentation Head -->
-            <div onclick="openHeadModal('documentation')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-200 cursor-pointer flex flex-col items-center text-center group">
-                <div class="w-24 h-24 mb-4 rounded-full overflow-hidden border-4 border-blue-50 bg-slate-100 flex items-center justify-center relative shadow-sm group-hover:scale-105 transition">
-                    <img src="assets/team/shubhashini.jpg.jpeg" alt="Shubhashini Dwivedi" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                    <span class="text-xl font-bold text-blue-600 absolute">SD</span>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">Shubhashini Dwivedi</h3>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 mt-1">Documentation Head</span>
-                <span class="mt-4 text-[11px] font-semibold text-slate-400 group-hover:text-blue-600 flex items-center gap-1">View Team (2 Members) <i class="fas fa-chevron-right text-[9px]"></i></span>
-            </div>
-
-            <!-- 5. Event Management -->
-            <div onclick="openHeadModal('event')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-200 cursor-pointer flex flex-col items-center text-center group">
-                <div class="w-24 h-24 mb-4 rounded-full overflow-hidden border-4 border-blue-50 bg-slate-100 flex items-center justify-center relative shadow-sm group-hover:scale-105 transition">
-                    <img src="assets/team/event/lead.jpg.jpeg" alt="Event Management" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                    <span class="text-xl font-bold text-blue-600 absolute">EC</span>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">Event Management</h3>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 mt-1">Coordinators</span>
-                <span class="mt-4 text-[11px] font-semibold text-slate-400 group-hover:text-blue-600 flex items-center gap-1">View Team (2 Members) <i class="fas fa-chevron-right text-[9px]"></i></span>
-            </div>
-
-            <!-- 6. Finance Lead -->
-            <div onclick="openHeadModal('gaurav')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-200 cursor-pointer flex flex-col items-center text-center group">
-                <div class="w-24 h-24 mb-4 rounded-full overflow-hidden border-4 border-blue-50 bg-slate-100 flex items-center justify-center relative shadow-sm group-hover:scale-105 transition">
-                    <img src="assets/team/gaurav.jpg.jpeg" alt="Gaurav yadav" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                    <span class="text-xl font-bold text-blue-600 absolute">G</span>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">Gaurav Yadav</h3>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 mt-1">Finance Lead</span>
-                <span class="mt-4 text-[11px] font-semibold text-slate-400 group-hover:text-blue-600 flex items-center gap-1">View Team (1 Member) <i class="fas fa-chevron-right text-[9px]"></i></span>
-            </div>
-
-            <!-- 7. Design & Media Head -->
-            <div onclick="openHeadModal('kartik')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition border border-slate-200 cursor-pointer flex flex-col items-center text-center group">
-                <div class="w-24 h-24 mb-4 rounded-full overflow-hidden border-4 border-blue-50 bg-slate-100 flex items-center justify-center relative shadow-sm group-hover:scale-105 transition">
-                    <img src="assets/team/kartik.jpg.jpeg" alt="Kartik Yadav" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                    <span class="text-xl font-bold text-blue-600 absolute">KY</span>
-                </div>
-                <h3 class="text-xl font-bold text-slate-900">Kartik Yadav</h3>
-                <span class="text-xs font-extrabold uppercase tracking-wider text-blue-600 mt-1">Design & Media Head</span>
-                <span class="mt-4 text-[11px] font-semibold text-slate-400 group-hover:text-blue-600 flex items-center gap-1">View Profile <i class="fas fa-chevron-right text-[9px]"></i></span>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-<!-- POPUP MODAL CONTAINER -->
-<div id="teamModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
-    <div class="bg-white w-full max-w-lg rounded-3xl p-6 sm:p-8 shadow-2xl relative border border-slate-100 max-h-[90vh] overflow-y-auto modal-animate-in">
-        <button onclick="closeModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center font-bold z-20">✕</button>
-        <div id="modalContent"></div>
-    </div>
-</div>
-
-<!-- JAVASCRIPT LOGIC -->
-<!-- JAVASCRIPT LOGIC WITH LINKEDIN INTEGRATION -->
-<script>
-  let currentHeadKey = null;
-
-  const teamData = {
-    shubhra: {
-      title: "President Domain",
-      head: { 
-        name: "Shubhra Yadav", 
-        role: "President", 
-        img: "assets/team/shubhra.jpg.jpeg", 
-        bio: "Leading overall execution, domain operations, and strategy for IAC.",
-        linkedin: "https://www.linkedin.com/in/shubhra-yadav-846218398?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-      },
-      members: []
-    },
-    aditya: {
-      title: "Vice President Domain",
-      head: { 
-        name: "Aditya Kumar Yadav", 
-        role: "Vice President", 
-        img: "assets/team/aditya.jpg.jpeg", 
-        bio: "Overseeing executive coordination and management operations.",
-        linkedin: "https://www.linkedin.com/in/aditya-kumar-yadav-7181b7390?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-      },
-      members: [
-        { 
-          id: "gautam", 
-          name: "Gautam Rajput", 
-          role: "Team Member", 
-          img: "assets/team/gautam.jpg.jpeg", 
-          bio: "Assisting in club operations and member workflows.",
-          linkedin: "https://www.linkedin.com/in/username" 
-        }
-      ]
-    },
-    sumit: {
-      title: "Technical Domain",
-      head: { 
-        name: "Sumit", 
-        role: "Technical Head", 
-        img: "assets/team/sumit.jpg.jpeg", 
-        bio: "Managing web development, technical projects, and systems.",
-        linkedin: "https://www.linkedin.com/in/sumit-chaudhary-33205a393?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-      },
-      members: [
-        { 
-          id: "vishal", 
-          name: "Vishal Ahirwar", 
-          role: "Technical Member", 
-          img: "assets/team/vishal.jpg.jpeg", 
-          bio: "Core developer handling frontend components and features.",
-          linkedin: "https://www.linkedin.com/in/vishal-ahirwar-5619483a5?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-        },
-        { 
-          id: "satyam", 
-          name: "Satyam Tiwari", 
-          role: "Technical Member", 
-          img: "assets/team/satyam.jpg.jpeg", 
-          bio: "Managing technical support, testing, and implementation.",
-          linkedin: "https://www.linkedin.com/in/username" 
-        }
-      ]
-    },
-    documentation: {
-      title: "Documentation Domain",
-      head: { 
-        name: "Shubhashini Dwivedi", 
-        role: "Documentation Head", 
-        img: "assets/team/shubhashini.jpg.jpeg", 
-        bio: "Managing official club documentation, reports, and records.",
-        linkedin: "https://www.linkedin.com/in/shubhashini-dwivedi-baa38a2b3?utm_source=share_via&utm_content=profile&utm_medium=member_android" 
-      },
-      members: [
-        { 
-          id: "yogesh", 
-          name: "Yogesh Ahirwar", 
-          role: "Documentation Member", 
-          img: "assets/team/yogesh.jpg.jpeg", 
-          bio: "Assisting in drafting official reports and event records.",
-          linkedin: "https://www.linkedin.com/in/username" 
-        },
-        { 
-          id: "shivam", 
-          name: "Shivam Mishra", 
-          role: "Documentation Member", 
-          img: "assets/team/shivam.jpg.jpeg", 
-          bio: "Assisting in drafting official reports and event records.",
-          linkedin: "https://www.linkedin.com/in/username" 
-        }
-      ]
-    },
-    event: {
-      title: "Event Management Domain",
-      head: { 
-        name: "Event Management", 
-        role: "Coordination Lead", 
-        img: "assets/team/event/lead.jpg.jpeg", 
-        bio: "Planning and scheduling campus events and competitions.",
-        linkedin: "https://www.linkedin.com/in/username" 
-      },
-      members: [
-        { 
-          id: "divyanshu", 
-          name: "Divyanshu Singh", 
-          role: "Event Coordinator", 
-          img: "assets/team/divyanshu.jpg.jpeg", 
-          bio: "Handling logistics, venue coordination, and scheduling.",
-          linkedin: "https://www.linkedin.com/in/username" 
-        },
-        { 
-          id: "anjali", 
-          name: "Anjali Kumari", 
-          role: "Event Coordinator", 
-          img: "assets/team/anjali.jpg.jpeg", 
-          bio: "Managing volunteer groups and registration desks.",
-          linkedin: "https://www.linkedin.com/in/username" 
-        }
-      ]
-    },
-    gaurav: {
-      title: "Finance Domain",
-      head: { 
-        name: "Gaurav Yadav", 
-        role: "Finance Lead", 
-        img: "assets/team/gaurav.jpg.jpeg", 
-        bio: "Managing budgets, accounts, and financial allocation.",
-        linkedin: "https://www.linkedin.com/in/username" 
-      },
-      members: [
-        { 
-          id: "deepak", 
-          name: "Deepak Kumar Gupta", 
-          role: "Finance Associate", 
-          img: "assets/team/deepak.jpg.jpeg", 
-          bio: "Handling documentation and expense tracking.",
-          linkedin: "https://www.linkedin.com/in/username" 
-        }
-      ]
-    },
-    kartik: {
-      title: "Design & Media Domain",
-      head: { 
-        name: "Kartik Yadav", 
-        role: "Design & Media Head", 
-        img: "assets/team/kartik.jpg.jpeg", 
-        bio: "Directing visual branding, graphic design, and media strategy.",
-        linkedin: "https://www.linkedin.com/in/username" 
-      },
-      members: []
-    }
-  };
-
-  // 1. Open Head Profile & Sub-members List
-  function openHeadModal(key) {
-    currentHeadKey = key;
-    const data = teamData[key];
-    const modal = document.getElementById('teamModal');
-    const content = document.getElementById('modalContent');
-
-    if (!data || !modal || !content) return;
-
-    let membersHTML = '';
-    if (data.members && data.members.length > 0) {
-      membersHTML = `
-        <div class="mt-6 pt-6 border-t border-slate-100">
-          <h5 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-4 text-center">Domain Members (Tap to View)</h5>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            ${data.members.map(m => `
-              <div onclick="openMemberModal('${m.id}')" class="flex items-center gap-3 p-3 rounded-2xl bg-slate-50 border border-slate-200/80 hover:bg-blue-50/50 hover:border-blue-200 cursor-pointer transition group">
-                <div class="w-12 h-12 rounded-full overflow-hidden bg-slate-200 shrink-0 border-2 border-white shadow-sm flex items-center justify-center relative">
-                  <img src="${m.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-                  <span class="text-sm font-bold text-blue-600 absolute">${m.name ? m.name.charAt(0) : 'M'}</span>
-                </div>
-                <div class="text-left">
-                  <h6 class="text-xs font-bold text-slate-800 leading-tight group-hover:text-blue-600">${m.name}</h6>
-                  <p class="text-[10px] font-semibold text-slate-500 mt-0.5">${m.role}</p>
-                </div>
-              </div>
-            `).join('')}
-          </div>
-        </div>
-      `;
-    }
-
-    // LinkedIn Button Generation for Head
-    const linkedinHTML = data.head.linkedin ? `
-      <div class="mt-4">
-        <a href="${data.head.linkedin}" target="_blank" class="inline-flex items-center gap-2 bg-[#0a66c2] hover:bg-[#084e96] text-white text-xs font-semibold px-4 py-2 rounded-xl transition shadow-sm">
-          <i class="fab fa-linkedin text-sm"></i> Connect on LinkedIn
-        </a>
-      </div>
-    ` : '';
-
-    content.innerHTML = `
-      <div class="text-center">
-        <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">${data.title}</span>
-        
-        <div class="w-28 h-28 mx-auto mt-4 mb-3 rounded-full overflow-hidden border-4 border-blue-100 shadow-md bg-slate-100 flex items-center justify-center relative">
-          <img src="${data.head.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-          <span class="text-2xl font-bold text-blue-600 absolute">${data.head.name ? data.head.name.charAt(0) : 'H'}</span>
-        </div>
-
-        <h4 class="text-xl font-black text-slate-900">${data.head.name}</h4>
-        <p class="text-xs font-extrabold text-blue-600 uppercase tracking-wider mt-1">${data.head.role}</p>
-        <p class="text-xs text-slate-500 mt-3 max-w-xs mx-auto leading-relaxed">${data.head.bio}</p>
-
-        ${linkedinHTML}
-        ${membersHTML}
-      </div>
-    `;
-
-    modal.classList.remove('hidden');
-    modal.classList.add('flex');
-    document.body.style.overflow = 'hidden';
-  }
-
-  // 2. Open Sub-member Specific Modal View
-  function openMemberModal(memberId) {
-    const data = teamData[currentHeadKey];
-    if (!data) return;
-
-    const member = data.members.find(m => m.id === memberId);
-    if (!member) return;
-
-    const content = document.getElementById('modalContent');
-
-    // LinkedIn Button Generation for Member
-    const linkedinHTML = member.linkedin ? `
-      <div class="mt-4">
-        <a href="${member.linkedin}" target="_blank" class="inline-flex items-center gap-2 bg-[#0a66c2] hover:bg-[#084e96] text-white text-xs font-semibold px-4 py-2 rounded-xl transition shadow-sm">
-          <i class="fab fa-linkedin text-sm"></i> Connect on LinkedIn
-        </a>
-      </div>
-    ` : '';
-
-    content.innerHTML = `
-      <div class="text-center relative pt-2">
-        <button onclick="openHeadModal('${currentHeadKey}')" class="absolute top-0 left-0 text-xs font-bold text-blue-600 bg-blue-50 px-3 py-1 rounded-full flex items-center gap-1 hover:bg-blue-100">
-          ← Back
-        </button>
-
-        <span class="text-[10px] font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full block w-fit mx-auto mt-6">${data.title}</span>
-
-        <div class="w-28 h-28 mx-auto mt-4 mb-3 rounded-full overflow-hidden border-4 border-blue-100 shadow-md bg-slate-100 flex items-center justify-center relative">
-          <img src="${member.img}" class="w-full h-full object-cover z-10" onerror="this.style.display='none';">
-          <span class="text-2xl font-bold text-blue-600 absolute">${member.name ? member.name.charAt(0) : 'M'}</span>
-        </div>
-
-        <h4 class="text-xl font-black text-slate-900">${member.name}</h4>
-        <p class="text-xs font-extrabold text-blue-600 uppercase tracking-wider mt-1">${member.role}</p>
-        <p class="text-xs text-slate-500 mt-3 max-w-xs mx-auto leading-relaxed">${member.bio}</p>
-
-        ${linkedinHTML}
-      </div>
-    `;
-  }
-
-  // 3. Close Modal Function
-  function closeModal() {
-    const modal = document.getElementById('teamModal');
-    if (modal) {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = 'auto';
-    }
-  }
-</script>
-<!-- ================= TEAM SECTION END ================= -->
-    <!-- MODERN ALUMNI SECTION WITH PHOTO POP-UP START -->
-<section id="alumni" style="background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); padding: 70px 20px; font-family: 'Inter', sans-serif;">
-  <div style="max-width: 1100px; margin: 0 auto;">
-    
-    <!-- Section Header -->
-    <div style="text-align: center; margin-bottom: 48px;">
-      <span style="background: #e0e7ff; color: #4f46e5; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; display: inline-block; margin-bottom: 12px;">
-        Excellence & Legacy
-      </span>
-      <h2 style="font-size: 34px; font-weight: 800; color: #0f172a; margin-bottom: 12px; font-family: 'Poppins', sans-serif;">
-        Our Alumni Spotlight
-      </h2>
-      <p style="color: #64748b; font-size: 15px; max-width: 600px; margin: 0 auto; line-height: 1.6;">
-        Graduates from the Department of Electronics & Instrumentation Engineering driving innovation and research across global industry leaders.
-      </p>
-    </div>
-
-    <!-- Alumni Cards Grid -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px;">
-      
-      <!-- Alumni Card 1 -->
-      <div class="modern-alumni-card">
-        <div class="card-header-accent"></div>
-        <div class="card-body">
-          <div class="profile-wrapper">
-            <!-- Clickable Profile Photo with Zoom Icon -->
-            <div class="photo-container" onclick="openPhotoModal('https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800', 'NAME1 - Senior Automation Engineer')">
-              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=300" alt="NAME1" class="alumni-img">
-              <div class="photo-overlay">🔍</div>
-            </div>
-            <span class="batch-badge">Batch 2020</span>
-          </div>
-
-          <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">NAME1</h3>
-          <p style="color: #4f46e5; font-size: 13.5px; font-weight: 600; margin-bottom: 2px;">Senior Automation Engineer</p>
-          <p style="color: #64748b; font-size: 13px; font-weight: 500; margin-bottom: 16px;">Siemens India</p>
-
-          <div style="background: #f1f5f9; padding: 14px; border-radius: 12px; margin-bottom: 20px; text-align: left;">
-            <p style="color: #475569; font-size: 13px; line-height: 1.5; margin: 0; font-style: italic;">
-              "Hands-on labs in PLC & SCADA during my time at EIE gave me a solid foundation for my automation career."
-            </p>
-          </div>
-
-          <a href="https://linkedin.com/in/" target="_blank" class="linkedin-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
-            LinkedIn Profile
-          </a>
-        </div>
-      </div>
-
-      <!-- Alumni Card 2 -->
-      <div class="modern-alumni-card">
-        <div class="card-header-accent" style="background: linear-gradient(90deg, #ec4899, #8b5cf6);"></div>
-        <div class="card-body">
-          <div class="profile-wrapper">
-            <!-- Clickable Profile Photo -->
-            <div class="photo-container" onclick="openPhotoModal('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800', 'NAME2 - IoT Systems Architect')">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=300" alt="XYZ" class="alumni-img" style="border-color: #ec4899;">
-              <div class="photo-overlay">🔍</div>
-            </div>
-            <span class="batch-badge" style="background: #fce7f3; color: #be185d;">Batch 2021</span>
-          </div>
-
-          <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">NAME2</h3>
-          <p style="color: #db2777; font-size: 13.5px; font-weight: 600; margin-bottom: 2px;">IoT Systems Architect</p>
-          <p style="color: #64748b; font-size: 13px; font-weight: 500; margin-bottom: 16px;">TCS Innovation Labs</p>
-
-          <div style="background: #f1f5f9; padding: 14px; border-radius: 12px; margin-bottom: 20px; text-align: left;">
-            <p style="color: #475569; font-size: 13px; line-height: 1.5; margin: 0; font-style: italic;">
-              "Building IoT hardware prototypes with microcontrollers helped me land core engineering projects early on."
-            </p>
-          </div>
-
-          <a href="https://linkedin.com/in/" target="_blank" class="linkedin-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
-            LinkedIn Profile
-          </a>
-        </div>
-      </div>
-
-      <!-- Alumni Card 3 -->
-      <div class="modern-alumni-card">
-        <div class="card-header-accent" style="background: linear-gradient(90deg, #06b6d4, #3b82f6);"></div>
-        <div class="card-body">
-          <div class="profile-wrapper">
-            <!-- Clickable Profile Photo -->
-            <div class="photo-container" onclick="openPhotoModal('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800', 'NAME3 - Embedded Firmware Engineer')">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300" alt="NAME3" class="alumni-img" style="border-color: #0284c7;">
-              <div class="photo-overlay">🔍</div>
-            </div>
-            <span class="batch-badge" style="background: #e0f2fe; color: #0369a1;">Batch 2022</span>
-          </div>
-
-          <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 4px;">NAME3</h3>
-          <p style="color: #0284c7; font-size: 13.5px; font-weight: 600; margin-bottom: 2px;">Embedded Firmware Engineer</p>
-          <p style="color: #64748b; font-size: 13px; font-weight: 500; margin-bottom: 16px;">Bosch Global</p>
-
-          <div style="background: #f1f5f9; padding: 14px; border-radius: 12px; margin-bottom: 20px; text-align: left;">
-            <p style="color: #475569; font-size: 13px; line-height: 1.5; margin: 0; font-style: italic;">
-              "The practical circuit designing culture at IAC prepared me directly for embedded systems industry demands."
-            </p>
-          </div>
-
-          <a href="https://linkedin.com/in/" target="_blank" class="linkedin-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0A66C2"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.78a1.62 1.62 0 1 0 0 3.24 1.62 1.62 0 0 0 0-3.24z"/></svg>
-            LinkedIn Profile
-          </a>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- PHOTO POP-UP / LIGHTBOX MODAL -->
-<div id="photoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(6px); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
-  <div style="position: relative; max-width: 500px; width: 100%; text-align: center;">
-    
-    <!-- Close Button -->
-    <button onclick="closePhotoModal()" style="position: absolute; top: -40px; right: 0; background: none; border: none; color: #ffffff; font-size: 28px; cursor: pointer; font-weight: bold;">✕</button>
-    
-    <!-- Large Image Container -->
-    <img id="modalImage" src="" alt="Enlarged View" style="width: 100%; max-height: 70vh; object-fit: cover; border-radius: 16px; border: 3px solid #ffffff; box-shadow: 0 20px 40px rgba(0,0,0,0.5);">
-    
-    <!-- Photo Caption -->
-    <p id="modalCaption" style="color: #ffffff; font-size: 15px; font-weight: 600; margin-top: 14px;"></p>
-  </div>
-</div>
-
-<!-- STYLES -->
-<style>
-  .modern-alumni-card {
-    background: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-radius: 20px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .modern-alumni-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 16px 30px rgba(0,0,0,0.08);
-    border-color: #cbd5e1;
-  }
-
-  .card-header-accent {
-    height: 6px;
-    background: linear-gradient(90deg, #4f46e5, #6366f1);
-    width: 100%;
-  }
-
-  .card-body {
-    padding: 28px 24px 24px 24px;
-    text-align: center;
-  }
-
-  .profile-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 16px;
-  }
-
-  /* Interactive Photo Container */
-  .photo-container {
-    position: relative;
-    width: 84px;
-    height: 84px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    border-radius: 50%;
-  }
-
-  .alumni-img {
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #6366f1;
-    transition: transform 0.3s ease;
-  }
-
-  .photo-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: rgba(79, 70, 229, 0.4);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .photo-container:hover .photo-overlay {
-    opacity: 1;
-  }
-
-  .photo-container:hover .alumni-img {
-    transform: scale(1.05);
-  }
-
-  .batch-badge {
-    background: #e0e7ff;
-    color: #4338ca;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 3px 10px;
-    border-radius: 12px;
-  }
-
-  .linkedin-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    color: #0f172a;
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    background: #ffffff;
-    transition: all 0.2s ease;
-  }
-
-  .linkedin-btn:hover {
-    background: #f8fafc;
-    border-color: #cbd5e1;
-    color: #0a66c2;
-  }
-</style>
-
-<!-- JAVASCRIPT FOR PHOTO MODAL -->
-<script>
-  function openPhotoModal(imageSrc, caption) {
-    document.getElementById('modalImage').src = imageSrc;
-    document.getElementById('modalCaption').innerText = caption;
-    document.getElementById('photoModal').style.display = 'flex';
-  }
-
-  function closePhotoModal() {
-    document.getElementById('photoModal').style.display = 'none';
-  }
-
-  // Close modal when clicking outside the image
-  window.onclick = function(event) {
-    let modal = document.getElementById('photoModal');
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-</script>
-<!-- MODERN ALUMNI SECTION WITH PHOTO POP-UP END -->
- <!-- PROJECTS SECTION START -->
-<section id="projects" style="padding: 60px 20px; background-color: #ffffff; font-family: 'Inter', sans-serif;">
-  <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
-    
-    <!-- Subtitle / Tagline -->
-    <span style="color: #4f46e5; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 14px; display: block; margin-bottom: 8px;">
-      Innovation & Prototyping
-    </span>
-
-    <!-- Main Heading -->
-    <h2 style="font-size: 38px; font-weight: 800; color: #0f172a; margin-bottom: 20px; font-family: 'Poppins', sans-serif;">
-      Departmental & IAC Projects
-    </h2>
-
-    <!-- Section Intro Text -->
-    <p style="font-size: 17px; line-height: 1.7; color: #475569; max-width: 800px; margin: 0 auto 40px auto;">
-      Explore hands-on hardware and software innovations developed by EIE students and members of the Innovation & Automation Club (IAC).
-    </p>
-
-    <!-- Project Filter Buttons -->
-    <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 40px;">
-      <button onclick="filterProjects('all')" class="proj-filter-btn active-btn" id="btn-all">All Projects</button>
-      <button onclick="filterProjects('iot')" class="proj-filter-btn" id="btn-iot">IoT & Automation</button>
-      <button onclick="filterProjects('embedded')" class="proj-filter-btn" id="btn-embedded">Embedded Systems</button>
-      <button onclick="filterProjects('control')" class="proj-filter-btn" id="btn-control">Sensors & Control</button>
-    </div>
-
-    <!-- Projects Grid -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; text-align: left;">
-
-      <!-- Project Card 1 -->
-      <div class="project-card category-iot" style="background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.04); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-        <div style="padding: 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <span style="background: #e0e7ff; color: #4338ca; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">IoT & Automation</span>
-            <span style="background: #dcfce7; color: #15803d; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">Completed</span>
-          </div>
-          <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Smart Industrial PLC Automation</h3>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">
-            A low-cost PLC-based real-time liquid level and temperature monitoring system with remote SCADA logging.
-          </p>
-          <!-- Tech Tags -->
-          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;">
-            <span style="background: #f1f5f9; color: #475569; font-size: 12px; padding: 3px 8px; border-radius: 6px; font-weight: 500;">PLC</span>
-            <span style="background: #f1f5f9; color: #475569; font-size: 12px; padding: 3px 8px; border-radius: 6px; font-weight: 500;">SCADA</span>
-            <span style="background: #f1f5f9; color: #475569; font-size: 12px; padding: 3px 8px; border-radius: 6px; font-weight: 500;">Sensors</span>
-          </div>
-        </div>
-        <div style="padding: 16px 24px; background: #f8fafc; border-top: 1px solid #f1f5f9; text-align: right;">
-          <button onclick="openProjectModal('Smart Industrial PLC Automation', 'IoT & Automation', 'Completed', 'Er. Neha Jain', 'Sumit Chaudhary & Team', 'PLC, SCADA, RS485, Level Sensors', 'Designed to simulate industrial process automation. It automatically controls flow rates, monitors tank pressure, and pushes real-time telemetry data to a local monitoring dashboard.')" style="background: #0f172a; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;">
-            View Details
-          </button>
-        </div>
-      </div>
-
-      <!-- Project Card 2 -->
-      <div class="project-card category-embedded" style="background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.04); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-        <div style="padding: 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <span style="background: #fef3c7; color: #b45309; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">Embedded Systems</span>
-            <span style="background: #e0f2fe; color: #0369a1; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">In Progress</span>
-          </div>
-          <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Microcontroller Metal Detector Robot</h3>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">
-            An autonomous terrain rover equipped with electromagnetic sensing coils for wireless hazardous metal detection.
-          </p>
-          <!-- Tech Tags -->
-          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;">
-            <span style="background: #f1f5f9; color: #475569; font-size: 12px; padding: 3px 8px; border-radius: 6px; font-weight: 500;">Arduino/ESP32</span>
-            <span style="background: #f1f5f9; color: #475569; font-size: 12px; padding: 3px 8px; border-radius: 6px; font-weight: 500;">Inductive Sensing</span>
-            <span style="background: #f1f5f9; color: #475569; font-size: 12px; padding: 3px 8px; border-radius: 6px; font-weight: 500;">Robotics</span>
-          </div>
-        </div>
-        <div style="padding: 16px 24px; background: #f8fafc; border-top: 1px solid #f1f5f9; text-align: right;">
-          <button onclick="openProjectModal('Microcontroller Metal Detector Robot', 'Embedded Systems', 'In Progress', 'Er. Ashish Swarnkar', 'EIE Batch Students', 'ESP32, L298N Driver, LC Oscillator, RF Module', 'Features an LC oscillator circuit that alters frequency when near conductive metals. Transmits alert coordinates to an operator app over Wi-Fi/Bluetooth.')" style="background: #0f172a; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;">
-            View Details
-          </button>
-        </div>
-      </div>
-
-      <!-- Project Card 3 -->
-      <div class="project-card category-control" style="background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 20px rgba(0,0,0,0.04); overflow: hidden; display: flex; flex-direction: column; justify-content: space-between;">
-        <div style="padding: 24px;">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-            <span style="background: #f3e8ff; color: #6b21a8; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">Sensors & Control</span>
-            <span style="background: #dcfce7; color: #15803d; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;">Completed</span>
-          </div>
-          <h3 style="font-size: 20px; font-weight: 700; color: #0f172a; margin-bottom: 8px;">Bio-Signal ECG Acquisition Kit</h3>
-          <p style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 16px;">
-            Precision instrumentation amplifier setup for capturing, filtering, and displaying ECG heart signals digitally.
-          </p>
-          <!-- Tech Tags -->
-          <div style="display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px;">
-            <span style="background: #f1f5f9; color: #475569; font-size: 12px; padding: 3px 8px; border-radius: 6px; font-weight: 500;">Op-Amps</span>
-            <span style="background: #f1f5f9; color: #475569; font-size: 12px; padding: 3px 8px; border-radius: 6px; font-weight: 500;">LabVIEW</span>
-            <span style="background: #f1f5f9; color: #475569; font-size: 12px; padding: 3px 8px; border-radius: 6px; font-weight: 500;">Biomedical</span>
-          </div>
-        </div>
-        <div style="padding: 16px 24px; background: #f8fafc; border-top: 1px solid #f1f5f9; text-align: right;">
-          <button onclick="openProjectModal('Bio-Signal ECG Acquisition Kit', 'Sensors & Control', 'Completed', 'Er. Ikroop Verma', 'Instrumentation Lab Team', 'AD620, Active Filters, DAQ Board, LabVIEW', 'Built using high-CMRR instrumentation amplifiers to record cardiac muscle electric signals while eliminating 50Hz grid noise.')" style="background: #0f172a; color: white; border: none; padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer;">
-            View Details
-          </button>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<!-- PROJECT DETAILS POP-UP MODAL -->
-<div id="projectModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 9999; justify-content: center; align-items: center; padding: 20px;">
-  <div style="background: #ffffff; width: 100%; max-width: 500px; border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); position: relative; text-align: left; animation: modalFadeIn 0.3s ease;">
-    
-    <button onclick="closeProjectModal()" style="position: absolute; top: 16px; right: 16px; background: #f1f5f9; border: none; width: 32px; height: 32px; border-radius: 50%; font-size: 16px; font-weight: bold; color: #64748b; cursor: pointer;">✕</button>
-
-    <div style="display: flex; gap: 8px; margin-bottom: 12px;">
-      <span id="projCategoryModal" style="background: #e0e7ff; color: #4338ca; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;"></span>
-      <span id="projStatusModal" style="background: #dcfce7; color: #15803d; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 20px;"></span>
-    </div>
-
-    <h3 id="projTitleModal" style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 16px;"></h3>
-
-    <div style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; font-size: 14px; color: #334155; line-height: 1.8; margin-bottom: 16px;">
-      <p><strong>Faculty Mentor:</strong> <span id="projMentorModal"></span></p>
-      <p><strong>Team Members:</strong> <span id="projTeamModal"></span></p>
-      <p><strong>Tech Stack:</strong> <span id="projTechModal"></span></p>
-    </div>
-
-    <h4 style="font-size: 15px; font-weight: 700; color: #0f172a; margin-bottom: 6px;">Project Description</h4>
-    <p id="projDescModal" style="font-size: 14px; color: #64748b; line-height: 1.6; margin-bottom: 20px;"></p>
-
-    <button onclick="closeProjectModal()" style="width: 100%; background: #0f172a; color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 600; cursor: pointer;">
-      Close
-    </button>
-  </div>
-</div>
-
-<!-- STYLES & JAVASCRIPT FOR FILTERS & MODAL -->
-<style>
-  .proj-filter-btn {
-    background: #f1f5f9;
-    color: #475569;
-    border: 1px solid #cbd5e1;
-    padding: 8px 18px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  .proj-filter-btn:hover {
-    background: #e2e8f0;
-  }
-  .proj-filter-btn.active-btn {
-    background: #4f46e5;
-    color: #ffffff;
-    border-color: #4f46e5;
-  }
-</style>
-
-<script>
-  // Filter Function
-  function filterProjects(category) {
-    // Update active button state
-    document.querySelectorAll('.proj-filter-btn').forEach(btn => btn.classList.remove('active-btn'));
-    document.getElementById('btn-' + category).classList.add('active-btn');
-
-    // Show/Hide Cards
-    const cards = document.querySelectorAll('.project-card');
-    cards.forEach(card => {
-      if (category === 'all') {
-        card.style.display = 'flex';
-      } else {
-        if (card.classList.contains('category-' + category)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      }
-    });
-  }
-
-  // Modal Functions
-  function openProjectModal(title, category, status, mentor, team, tech, desc) {
-    document.getElementById('projTitleModal').innerText = title;
-    document.getElementById('projCategoryModal').innerText = category;
-    document.getElementById('projStatusModal').innerText = status;
-    document.getElementById('projMentorModal').innerText = mentor;
-    document.getElementById('projTeamModal').innerText = team;
-   document.getElementById('projTechModal').innerText = tech;
-document.getElementById('projDescModal').innerText = desc;
-
-document.getElementById('projectModal').style.display = 'flex';
-}
-
-function closeProjectModal() {
-  document.getElementById('projectModal').style.display = 'none';
-}
-</script>
-
-</div>
-<!-- PROJECTS SECTION END -->
-
-<!-- 6. EVENTS & WORKSHOPS SECTION -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<section id="events" class="py-5 bg-light">
-  <div class="container">
-    <div class="text-center mb-4">
-      <h2 class="fw-bold">Events & Workshops</h2>
-      <p class="text-muted">Live updates directly from the IAC team</p>
-    </div>
-
-    <!-- Dynamic Cards Container -->
-    <div id="events-container" class="row g-4 justify-content-center">
-      <div class="text-center text-muted">Loading latest updates...</div>
-    </div>
-  </div>
-</section>
-
-<!-- PapaParse Library for quick CSV parsing -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-
-<script>
-  const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMnns6v3qkZw4-2PxCLoa9qlnsVB72ZjLhGEOgIb8OCADuDQJcYPUqhzsduUOAEctGhcKj39168l3s/pub?output=csv";
-
-  function loadEventsFromSheet() {
-    const container = document.getElementById("events-container");
-    if (!container) return;
-
-    if (typeof Papa === "undefined") {
-      console.error("PapaParse library standard path break.");
-      return;
-    }
-
-    Papa.parse(SHEET_CSV_URL, {
-      download: true,
-      header: true,
-      skipEmptyLines: true,
-      complete: function(results) {
-        const events = results.data;
-
-        if (!events || events.length === 0) {
-          container.innerHTML = `<div class="text-center text-muted">No upcoming events at the moment.</div>`;
-          return;
-        }
-
-        container.innerHTML = events.map(event => {
-          const rawStatus = event.Status || event.status || 'Upcoming';
-          const title = event.Title || event.title || 'Untitled Event';
-          const date = event.Date || event.date || '';
-          const description = event.Description || event.description || '';
-          const link = event.Link || event.link || '';
-
-          const isLive = String(rawStatus).trim().toLowerCase() === 'live';
-          const badgeClass = isLive ? 'bg-danger' : 'bg-primary';
-
-          return `
-            <div class="col-md-6">
-              <div class="card border-0 shadow-sm h-100 p-3">
-                <div class="card-body">
-                  <span class="badge ${badgeClass} mb-2">${rawStatus}</span>
-                  <h5 class="fw-bold card-title">${title}</h5>
-                  ${date ? `<small class="text-muted d-block mb-2">${date}</small>` : ''}
-                  <p class="card-text text-muted">${description}</p>
-                  ${link ? `<a href="${link}" class="btn btn-outline-primary btn-sm" target="_blank">View Details & Register</a>` : ''}
-                </div>
-              </div>
-            </div>
-          `;
-        }).join('');
-      },
-      error: function(err) {
-        console.error("Fetch Error:", err);
-        container.innerHTML = `<div class="text-center text-danger">Failed to load events.</div>`;
-      }
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", loadEventsFromSheet);
-</script>
-<!-- ========================================== -->
-<!-- PHOTO GALLERY SECTION                      -->
-<!-- ========================================== -->
-<section id="gallery" class="py-16 bg-slate-100">
-  <div class="max-w-7xl mx-auto px-4">
-    <!-- Header -->
-    <div class="text-center mb-10">
-      <h2 class="text-3xl font-bold text-slate-900">Gallery</h2>
-      <p class="text-slate-600 mt-2 text-sm">Tap on any photo to view in high resolution</p>
-    </div>
-    
-    <!-- Gallery Grid (8 Photos) -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      
-      <!-- Photo 1 -->
-      <div onclick="openProfileModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="./assets/gallery/photo1.jpeg" alt="Uploaded Photo 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <span class="text-white text-xs bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">View Photo</span>
-        </div>
-      </div>
-
-      <!-- Photo 2 -->
-      <div onclick="openProfileModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="./assets/gallery/photo2.jpeg" alt="Uploaded Photo 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <span class="text-white text-xs bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">View Photo</span>
-        </div>
-      </div>
-
-      <!-- Photo 3 -->
-      <div onclick="openProfileModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="./assets/gallery/photo3.jpeg" alt="Uploaded Photo 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <span class="text-white text-xs bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">View Photo</span>
-        </div>
-      </div>
-
-      <!-- Photo 4 -->
-      <div onclick="openProfileModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="./assets/gallery/photo4.jpeg" alt="Uploaded Photo 4" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <span class="text-white text-xs bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">View Photo</span>
-        </div>
-      </div>
-
-      <!-- Photo 5 -->
-      <div onclick="openProfileModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="./assets/gallery/photo5.jpeg" alt="Uploaded Photo 5" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <span class="text-white text-xs bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">View Photo</span>
-        </div>
-      </div>
-
-      <!-- Photo 6 -->
-      <div onclick="openProfileModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="./assets/gallery/photo6.jpeg" alt="Uploaded Photo 6" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <span class="text-white text-xs bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">View Photo</span>
-        </div>
-      </div>
-
-      <!-- Photo 7 -->
-      <div onclick="openProfileModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="./assets/gallery/photo7.jpeg" alt="Uploaded Photo 7" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <span class="text-white text-xs bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">View Photo</span>
-        </div>
-      </div>
-
-      <!-- Photo 8 -->
-      <div onclick="openProfileModal(this)" class="group relative h-64 rounded-2xl overflow-hidden shadow-md bg-white border border-slate-200 cursor-pointer transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-        <img src="./assets/gallery/photo8.jpeg" alt="Uploaded Photo 8" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <span class="text-white text-xs bg-black/60 px-3 py-1.5 rounded-full backdrop-blur-sm">View Photo</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ========================================== -->
-<!-- PROFILE-STYLE POPUP MODAL                  -->
-<!-- ========================================== -->
-<div id="profilePhotoModal" onclick="closeProfileModal()" class="fixed inset-0 bg-black/80 backdrop-blur-md z-[9999] hidden items-center justify-center p-4 transition-opacity duration-300">
-  
-  <!-- Close Button -->
-  <button onclick="closeProfileModal()" class="absolute top-5 right-5 bg-white/10 hover:bg-white/20 text-white w-10 h-10 rounded-full flex items-center justify-center text-xl z-[10000] cursor-pointer border border-white/20 transition shadow-lg">
-    ✕
-  </button>
-
-  <!-- Profile Image Container -->
-  <div class="relative max-w-4xl max-h-[85vh] p-2 bg-slate-900/40 rounded-3xl border border-white/10 shadow-2xl flex items-center justify-center overflow-hidden" onclick="event.stopPropagation()">
-    <img id="popupImage" src="" alt="Profile Full View" class="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-xl">
-  </div>
-</div>
-
-<!-- ========================================== -->
-<!-- JAVASCRIPT LOGIC                          -->
-<!-- ========================================== -->
-<script>
-  function openProfileModal(cardElement) {
-    const modal = document.getElementById('profilePhotoModal');
-    const popupImg = document.getElementById('popupImage');
-    const cardImg = cardElement.querySelector('img');
-
-    if (modal && popupImg && cardImg) {
-      // Direct selected photo SRC pass
-      popupImg.src = cardImg.src;
-
-      // Display Modal with animation
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      document.body.style.overflow = 'hidden'; // Freeze background scroll
-    }
-  }
-
-  function closeProfileModal() {
-    const modal = document.getElementById('profilePhotoModal');
-    if (modal) {
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-      document.body.style.overflow = 'auto'; // Restore scroll
-    }
-  }
-
-  // Close modal on Escape key
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape') {
-      closeProfileModal();
-    }
-  });
-</script>
-    <!-- 8. JOIN IAC -->
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IAC Registration Form</title>
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-slate-900 text-slate-100 min-h-screen py-10 px-7">
-
-  <div id="registration-form" class="max-w-7xl mx-auto scroll-mt-24">
-    
-    <!-- REGISTRATION FORM SECTION -->
-  <div id="registration-form" class="bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl border border-slate-700 scroll-mt-24">
-        <div class="bg-slate-800 p-6 md:p-8 rounded-2xl shadow-xl border border-slate-700">
-      <h2 class="text-2xl font-bold text-white mb-6 text-center">IAC Membership Registration</h2>
-      
-      <form id="iacForm" class="space-y-6">
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Full Name -->
-          <div>
-            <label for="fullName" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">FULL NAME *</label>
-            <input type="text" id="fullName" required placeholder="e.g. Rahul Sharma" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 text-slate-100">
-          </div>
-
-          <!-- University Roll No -->
-          <div>
-            <label for="rollNo" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">UNIVERSITY ROLL NO. / ENROLLMENT NO. *</label>
-            <input type="text" id="rollNo" required placeholder="e.g. 230010..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 text-slate-100">
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Email Address -->
-          <div>
-            <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">EMAIL ADDRESS *</label>
-            <input type="email" id="email" required placeholder="student@example.com" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 text-slate-100">
-          </div>
-
-          <!-- WhatsApp Phone No -->
-          <div>
-            <label for="phone" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">WHATSAPP PHONE NO. *</label>
-            <input type="tel" id="phone" required placeholder="+91 9876543210" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 text-slate-100">
-          </div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <!-- Department -->
-          <div>
-            <label for="department" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">DEPARTMENT *</label>
-            <select id="department" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 text-slate-100">
-              <option value="Electronics & Instrumentation Engineering (EIE)">Electronics & Instrumentation Engineering (EIE)</option>
-              <option value="Computer Science Engineering (CSE)">Computer Science Engineering (CSE)</option>
-              <option value="Mechanical Engineering (ME)">Mechanical Engineering (ME)</option>
-              <option value="Biotech Engineering (BE)">Biotech Engineering (BE)</option>
-              <option value="Foodtech Engineering (FE)">Foodtech Engineering (FE)</option>
-              <option value="Electronics & Communication Engineering (ECE)">Electronics & Communication Engineering (ECE)</option>
-              <option value="Biomedical Engineering (BME)">Biomedical Engineering (BME)</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-
-          <!-- Year of Study -->
-          <div>
-            <label for="year" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">YEAR OF STUDY *</label>
-            <select id="year" required class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 text-slate-100">
-              <option value="1st Year (Session 2026–27)">1st Year (Session 2026–27)</option>
-              <option value="2nd Year">2nd Year</option>
-              <option value="3rd Year">3rd Year</option>
-              <option value="4th Year">4th Year</option>
-            </select>
-          </div>
-        </div>
-
-        <!-- Primary Technical Interest -->
-<div>
-  <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-3">
-    PRIMARY TECHNICAL INTEREST *
-  </label>
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-    
-    <label class="flex items-center space-x-3 bg-slate-900 p-3.5 rounded-lg border border-slate-700 cursor-pointer hover:border-blue-500">
-      <input type="radio" name="interest" value="IoT & Microcontrollers" checked class="text-blue-600 focus:ring-blue-500">
-      <span class="text-sm font-medium text-white">IoT & Microcontrollers</span>
-    </label>
-
-    <label class="flex items-center space-x-3 bg-slate-900 p-3.5 rounded-lg border border-slate-700 cursor-pointer hover:border-blue-500">
-      <input type="radio" name="interest" value="Robotics & Automation" class="text-blue-600 focus:ring-blue-500">
-      <span class="text-sm font-medium text-white">Robotics & Automation</span>
-    </label>
-
-    <label class="flex items-center space-x-3 bg-slate-900 p-3.5 rounded-lg border border-slate-700 cursor-pointer hover:border-blue-500">
-      <input type="radio" name="interest" value="PCB & Circuit Design" class="text-blue-600 focus:ring-blue-500">
-      <span class="text-sm font-medium text-white">PCB & Circuit Design</span>
-    </label>
-
-    <label class="flex items-center space-x-3 bg-slate-900 p-3.5 rounded-lg border border-slate-700 cursor-pointer hover:border-blue-500">
-      <input type="radio" name="interest" value="Embedded Systems" class="text-blue-600 focus:ring-blue-500">
-      <span class="text-sm font-medium text-white">Embedded Systems</span>
-    </label>
-
-  </div>
-</div>
-        <!-- Prior Experience -->
-        <div>
-          <label for="experience" class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-2">WHY DO YOU WANT TO JOIN IAC? / PRIOR EXPERIENCE (OPTIONAL)</label>
-          <textarea id="experience" rows="3" placeholder="Mention any past projects, skills, or what you hope to learn..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-blue-500 text-slate-100"></textarea>
-        </div>
-
-        <!-- Submit Button -->
-        <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3.5 rounded-lg shadow-lg transition duration-200 flex items-center justify-center gap-2">
-          ✈ Submit Membership Application
-        </button>
-
-      </form>
-    </div>
-
-  </div>
-
-  <!-- SCRIPT FOR FORM SUBMISSION -->
-  <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzcR1TizmwwOXdyjI9p1KyIa0iOG6K5s4Eqyo5QPziZorS5phRyuX-ToZla7sElAh_R/exec';
-
-    document.addEventListener('DOMContentLoaded', () => {
-      const form = document.getElementById('iacForm');
-      const submitBtn = document.getElementById('submitBtn');
-
-      if (form) {
-        form.addEventListener('submit', e => {
-          e.preventDefault();
-
-          if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.innerText = 'Submitting...';
-          }
-
-          const getValue = (id) => {
-            const el = document.getElementById(id);
-            return el ? el.value.trim() : 'N/A';
-          };
-
-          const selectedInterest = document.querySelector('input[name="interest"]:checked')?.value || 'N/A';
-
-          const payload = {
-            fullName: getValue('fullName'),
-            rollNo: getValue('rollNo'),
-            email: getValue('email'),
-            phone: getValue('phone'),
-            department: getValue('department'),
-            year: getValue('year'),
-            interest: selectedInterest,
-            experience: getValue('experience')
-          };
-
-          fetch(scriptURL, {
-            method: 'POST',
-            mode: 'cors',
-            redirect: 'follow',
-            headers: {
-              'Content-Type': 'text/plain;charset=utf-8'
-            },
-            body: JSON.stringify(payload)
-          })
-          .then(response => response.json())
-          .then(data => {
-            if (data.result === 'success') {
-              alert('🎉 Application Submitted Successfully!');
-              form.reset();
-            } else {
-              alert('❌ Error: ' + (data.message || 'Submission failed'));
-            }
-          })
-          .catch(error => {
-            alert('❌ Connection Error. Please check Script URL or Access Rights.');
-            console.error('Error:', error);
-          })
-          .finally(() => {
-            if (submitBtn) {
-              submitBtn.disabled = false;
-              submitBtn.innerText = '✈ Submit Membership Application';
-            }
-          });
-        });
-      }
-    });
-  </script>
 </body>
+
 </html>
-    <!-- FOOTER -->
-    <footer class="bg-slate-950 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
-        <p>© Innovation & Automation Club (IAC) | Department of EIE, Bundelkhand University</p>
-    </footer>
-</body>
-</html>
-<!-- COMMUNITY & LOCATION SECTION START -->
-<section id="community-location" style="background-color: #f8fafc; padding: 60px 20px 40px 20px; font-family: 'Inter', sans-serif;">
-  <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
-    
-    <!-- Tagline -->
-    <span style="color: #4f46e5; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 13px; display: block; margin-bottom: 8px;">
-      Stay Connected
-    </span>
-
-    <!-- Main Heading (Fixed Dark Color) -->
-    <h2 style="font-size: 32px; font-weight: 800; color: #0f172a; margin-bottom: 12px; font-family: 'Poppins', sans-serif;">
-      Join the IAC Community
-    </h2>
-
-    <p style="color: #64748b; font-size: 15px; max-width: 600px; margin: 0 auto 36px auto; line-height: 1.6;">
-      Get updates on upcoming workshops, project collaborations, and departmental announcements across our channels.
-    </p>
-
-    <!-- Social Cards Grid -->
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 50px;">
-      
-      <!-- WhatsApp Channel -->
-      <a href="https://whatsapp.com/channel/0029Vb8HuoT545upvtF8JE3w" target="_blank" class="social-card" style="background: #ffffff; border: 1px solid #bbf7d0; text-decoration: none; padding: 20px; border-radius: 16px; display: flex; align-items: center; gap: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s ease;">
-        <div style="width: 44px; height: 44px; background: #25D366; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px;">💬</div>
-        <div style="text-align: left;">
-          <h4 style="color: #0f172a; font-size: 15px; font-weight: 700; margin-bottom: 2px;">WhatsApp Channel</h4>
-          <span style="color: #16a34a; font-size: 12px; font-weight: 600;">Join for Updates →</span>
-        </div>
-      </a>
-
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/iac_innovators_hub?igsh=MTg0bjJlOHU3bmh0Yg==" target="blank" class="social-card" style="background: #ffffff; border: 1px solid #fbcfe8; text-decoration: none; padding: 20px; border-radius: 16px; display: flex; align-items: center; gap: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s ease;">
-        <div style="width: 44px; height: 44px; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px;">📸</div>
-        <div style="text-align: left;">
-          <h4 style="color: #0f172a; font-size: 15px; font-weight: 700; margin-bottom: 2px;">Instagram</h4>
-          <span style="color: #db2777; font-size: 12px; font-weight: 600;">Follow Reels & Posts →</span>
-        </div>
-      </a>
-
-      <!-- YouTube -->
-      <a href="https://youtube.com/@iac_iet?si=5mIVM3graShr-PYP" target="_blank" class="social-card" style="background: #ffffff; border: 1px solid #fecaca; text-decoration: none; padding: 20px; border-radius: 16px; display: flex; align-items: center; gap: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s ease;">
-        <div style="width: 44px; height: 44px; background: #FF0000; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px;">▶️</div>
-        <div style="text-align: left;">
-          <h4 style="color: #0f172a; font-size: 15px; font-weight: 700; margin-bottom: 2px;">YouTube</h4>
-          <span style="color: #dc2626; font-size: 12px; font-weight: 600;">Watch Project Demos →</span>
-        </div>
-      </a>
-
-      <!-- LinkedIn -->
-      <a href="https://linkedin.com/in/YOUR_PROFILE" target="_blank" class="social-card" style="background: #ffffff; border: 1px solid #bfdbfe; text-decoration: none; padding: 20px; border-radius: 16px; display: flex; align-items: center; gap: 14px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); transition: all 0.3s ease;">
-        <div style="width: 44px; height: 44px; background: #0A66C2; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 22px;">💼</div>
-        <div style="text-align: left;">
-          <h4 style="color: #0f172a; font-size: 15px; font-weight: 700; margin-bottom: 2px;">LinkedIn</h4>
-          <span style="color: #0284c7; font-size: 12px; font-weight: 600;">Connect Professionally →</span>
-        </div>
-      </a>
-
-    </div>
-
-    <!-- LOCATION & CONTACT BOX -->
-    <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.03); display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: center; text-align: left;">
-      
-      <!-- Address & Email Info -->
-      <div>
-        <span style="color: #4f46e5; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px; display: block; margin-bottom: 8px;">
-          Find Us Here
-        </span>
-        <h3 style="font-size: 22px; font-weight: 800; color: #0f172a; margin-bottom: 20px;">
-          Department & Club Contact
-        </h3>
-        
-        <!-- Address -->
-        <div style="display: flex; gap: 14px; align-items: flex-start; margin-bottom: 20px;">
-          <div style="width: 40px; height: 40px; background: #e0e7ff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #4f46e5; flex-shrink: 0;">
-            📍
-          </div>
-          <div>
-            <p style="color: #0f172a; font-weight: 700; font-size: 14px; margin-bottom: 2px;">
-              Institute of Engineering & Technology Building
-            </p>
-            <p style="color: #475569; font-size: 13px; line-height: 1.5;">
-              First Floor, Electronics & Instrumentation Department,<br>
-              Bundelkhand University, Jhansi, Uttar Pradesh - 284128
-            </p>
-          </div>
-        </div>
-
-        <!-- Official Club Email -->
-        <div style="display: flex; gap: 14px; align-items: center;">
-          <div style="width: 40px; height: 40px; background: #e0e7ff; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #4f46e5; flex-shrink: 0;">
-            ✉️
-          </div>
-          <div>
-            <p style="color: #0f172a; font-weight: 700; font-size: 14px; margin-bottom: 2px;">
-              Official Club Email
-            </p>
-            <a href="mailto:iac.innovators@gmail.com" style="color: #4f46e5; font-size: 14px; font-weight: 600; text-decoration: none;">
-              iac.innovators@gmail.com
-            </a>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Google Map -->
-      <div style="border-radius: 14px; overflow: hidden; border: 1px solid #e2e8f0; height: 200px; background: #f1f5f9;">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3602.834789524584!2d78.6012!3d25.4431!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39777123456789ab%3A0x123456789abcdef!2sBundelkhand%20University!5e0!3m2!1sen!2sin!4v1600000000000!5m2!1sen!2sin" 
-          width="100%" 
-          height="100%" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy">
-        </iframe>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-<style>
-  .social-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08) !important;
-  }
-</style>
-<!-- COMMUNITY, LOCATION & CONTACT SECTION END -->
- <!-- MAIN FOOTER START -->
-<footer id="footer" style="background: #0f172a; color: #94a3b8; padding: 60px 20px 30px 20px; font-family: 'Inter', sans-serif;">
-  <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 40px; margin-bottom: 40px;">
-    
-    <!-- About Club -->
-    <div>
-      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-        <div style="background: #4f46e5; color: white; font-weight: 800; width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px;">IAC</div>
-        <span style="font-size: 18px; font-weight: 800; color: #ffffff;">IAC Club</span>
-      </div>
-      <p style="font-size: 14px; line-height: 1.6; color: #94a3b8;">
-        Innovation & Automation Club (IAC)<br>
-        Department of Electronics & Instrumentation Engineering,<br>
-        Bundelkhand University, Jhansi (U.P.)
-      </p>
-    </div>
-
-    <!-- Quick Navigation -->
-    <div>
-      <h4 style="color: #ffffff; font-size: 16px; font-weight: 700; margin-bottom: 16px;">Quick Links</h4>
-      <ul style="list-style: none; padding: 0; margin: 0; font-size: 14px; line-height: 2.2;">
-        <li><a href="#hero" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;">Home</a></li>
-        <li><a href="#team" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;">Explore Team</a></li>
-        <li><a href="#projects" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;">Student Projects</a></li>
-        <li><a href="#community-location" style="color: #94a3b8; text-decoration: none; transition: color 0.2s;">Contact & Location</a></li>
-      </ul>
-    </div>
-
-    <!-- Official Contacts -->
-    <div>
-      <h4 style="color: #ffffff; font-size: 16px; font-weight: 700; margin-bottom: 16px;">Direct Contact</h4>
-      <p style="font-size: 14px; line-height: 1.8; color: #94a3b8;">
-        <strong style="color: #cbd5e1;">Club Email:</strong><br>
-        <a href="mailto:iac.innovators@gmail.com" style="color: #38bdf8; text-decoration: none;">iac.innovators@gmail.com</a>
-      </p>
-      <p style="font-size: 14px; line-height: 1.8; color: #94a3b8; margin-top: 10px;">
-        <strong style="color: #cbd5e1;">HOD Email:</strong><br>
-        <a href="mailto:nehajain488@bujhansi.ac.in" style="color: #38bdf8; text-decoration: none;">nehajain488@bujhansi.ac.in</a>
-      </p>
-    </div>
-
-  </div>
-
-  <!-- Copyright Strip -->
-  <div style="max-width: 1100px; margin: 0 auto; border-top: 1px solid #1e293b; padding-top: 20px; text-align: center; font-size: 13px; color: #64748b;">
-    © 2026 Innovation & Automation Club (IAC). All Rights Reserved. Built for EIE Department, BU Jhansi.
-  </div>
-</footer>
-<!-- MAIN FOOTER END -->
