@@ -120,7 +120,7 @@ function loadHeader() {
 
 
                         <img
-                            src="assets/logos/iac-logo.png"
+                            src="assets/logos/iac-logo.jpeg"
                             alt="Innovation and Automation Club Logo"
                             class="header-logo iac-logo"
                         >
@@ -132,7 +132,7 @@ function loadHeader() {
 
 
                         <img
-                            src="assets/logos/thinknext-logo.png"
+                            src="assets/logos/thinknext-logo.jpg"
                             alt="ThinkNext Technologies Logo"
                             class="header-logo thinknext-logo"
                         >
@@ -222,13 +222,13 @@ function loadFooter() {
                         >
 
                         <img
-                            src="assets/logos/iac-logo.png"
+                            src="assets/logos/iac-logo.jpeg"
                             alt="IAC"
                             class="footer-iac"
                         >
 
                         <img
-                            src="assets/logos/thinknext-logo.png"
+                            src="assets/logos/thinknext-logo.jpg"
                             alt="ThinkNext Technologies"
                             class="footer-thinknext"
                         >
