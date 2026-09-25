@@ -242,58 +242,85 @@ textarea {
 
 .hero {
     position: relative;
-
-    min-height:
-        calc(100vh - 76px);
-
+    min-height: calc(100vh - 76px);
     display: flex;
     align-items: center;
-
     overflow: hidden;
 
     background:
-        radial-gradient(
-            circle at 85% 20%,
-            rgba(24, 215, 255, 0.14),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 10% 80%,
-            rgba(8, 124, 255, 0.13),
-            transparent 30%
-        );
+        radial-gradient(circle at 15% 85%, rgba(8,124,255,0.18), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(24,215,255,0.16), transparent 30%),
+        linear-gradient(120deg, #020b18 0%, #041329 45%, #071a35 100%);
 }
 
+/* left glow */
 .hero::before {
     content: "";
-
     position: absolute;
-
-    right: -180px;
-    top: -180px;
-
-    width: 500px;
-    height: 500px;
-
+    left: -180px;
+    bottom: -180px;
+    width: 450px;
+    height: 450px;
     border-radius: 50%;
+    background: rgba(8,124,255,0.18);
+    filter: blur(100px);
+    animation: heroGlowLeft 8s ease-in-out infinite alternate;
+}
+
+/* right glow + pattern layer */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
 
     background:
-        rgba(8, 124, 255, 0.18);
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px),
+        radial-gradient(circle at 78% 28%, rgba(24,215,255,0.15), transparent 18%),
+        radial-gradient(circle at 30% 75%, rgba(8,124,255,0.10), transparent 16%);
 
-    filter: blur(100px);
+    background-size:
+        60px 60px,
+        60px 60px,
+        100% 100%,
+        100% 100%;
 
-    animation:
-        heroGlow 8s ease-in-out infinite alternate;
+    opacity: 0.45;
 }
 
-@keyframes heroGlow {
+/* extra pattern overlay */
+.hero-pattern {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.22;
+
+    background-image:
+        radial-gradient(circle, rgba(24,215,255,0.65) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(24,215,255,0.08) 1px, transparent 1px),
+        linear-gradient(rgba(24,215,255,0.08) 1px, transparent 1px);
+
+    background-size:
+        26px 26px,
+        120px 120px,
+        120px 120px;
+
+    background-position:
+        0 0,
+        0 0,
+        0 0;
+}
+
+@keyframes heroGlowLeft {
+    from {
+        transform: translate(0, 0) scale(1);
+    }
     to {
-        transform:
-            translate(-70px, 60px)
-            scale(1.15);
+        transform: translate(40px, -20px) scale(1.12);
     }
 }
-
 .hero-container {
     position: relative;
 
