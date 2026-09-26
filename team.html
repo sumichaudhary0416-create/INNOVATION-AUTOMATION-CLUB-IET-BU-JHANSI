@@ -21,7 +21,7 @@
 
 
     <!-- =====================================================
-         TEAM PAGE SPECIFIC STYLE
+         TEAM PAGE DESIGN
     ====================================================== -->
 
     <style>
@@ -30,7 +30,7 @@
            TEAM PAGE
         ====================================================== */
 
-        .team-page {
+        .iac-team-page {
             position: relative;
             overflow: hidden;
         }
@@ -40,16 +40,16 @@
            HERO
         ====================================================== */
 
-        .team-hero {
+        .iac-team-hero {
             position: relative;
 
-            min-height: 420px;
+            min-height: 410px;
+
+            padding: 90px 20px;
 
             display: flex;
             align-items: center;
             justify-content: center;
-
-            padding: 90px 20px;
 
             text-align: center;
 
@@ -57,15 +57,15 @@
         }
 
 
-        .team-hero::before {
+        .iac-team-hero::before {
             content: "";
 
             position: absolute;
 
-            width: 450px;
-            height: 450px;
+            width: 440px;
+            height: 440px;
 
-            top: -180px;
+            top: -230px;
             left: 50%;
 
             transform: translateX(-50%);
@@ -73,28 +73,26 @@
             border-radius: 50%;
 
             background:
-                rgba(40, 217, 255, 0.08);
+                rgba(40, 217, 255, 0.09);
 
-            filter: blur(10px);
+            filter: blur(12px);
 
             pointer-events: none;
         }
 
 
-        .team-hero-content {
+        .iac-team-hero-content {
             position: relative;
-
             z-index: 2;
 
-            max-width: 900px;
+            width: min(900px, 100%);
         }
 
 
-        .team-eyebrow {
+        .iac-team-label {
             color: #8cecff;
 
-            font-size: 0.72rem;
-
+            font-size: 0.7rem;
             font-weight: 800;
 
             letter-spacing: 3px;
@@ -103,7 +101,7 @@
         }
 
 
-        .team-hero h1 {
+        .iac-team-hero h1 {
             margin-top: 12px;
 
             color: #fff1d7;
@@ -121,29 +119,31 @@
         }
 
 
-        .team-hero h1 span {
+        .iac-team-hero h1 span {
             color: #28d9ff;
         }
 
 
-        .team-hero p {
-            max-width: 700px;
+        .iac-team-hero p {
+            max-width: 720px;
 
             margin: 18px auto 0;
 
             color: #aab9cd;
 
             font-size: 1rem;
+
+            line-height: 1.8;
         }
 
 
-        .team-hero-line {
-            width: 90px;
+        .iac-team-hero-line {
+            width: 85px;
             height: 3px;
 
-            margin: 25px auto 0;
+            margin: 26px auto 0;
 
-            border-radius: 30px;
+            border-radius: 50px;
 
             background:
                 linear-gradient(
@@ -153,32 +153,32 @@
                 );
 
             box-shadow:
-                0 0 20px
+                0 0 18px
                 rgba(40, 217, 255, 0.55);
 
             animation:
-                teamLinePulse 2.5s ease-in-out infinite;
+                teamLineGlow 2.5s ease-in-out infinite;
         }
 
 
-        @keyframes teamLinePulse {
+        @keyframes teamLineGlow {
 
             50% {
                 width: 145px;
 
                 box-shadow:
-                    0 0 30px
-                    rgba(40, 217, 255, 0.8);
+                    0 0 28px
+                    rgba(40, 217, 255, 0.80);
             }
 
         }
 
 
         /* =====================================================
-           SECTIONS
+           SECTION
         ====================================================== */
 
-        .team-section {
+        .iac-team-section {
             position: relative;
 
             width: 100%;
@@ -188,8 +188,8 @@
         }
 
 
-        .team-section-heading {
-            max-width: 800px;
+        .iac-team-section-heading {
+            width: min(800px, 100%);
 
             margin: auto;
 
@@ -197,20 +197,7 @@
         }
 
 
-        .team-section-label {
-            color: #8cecff;
-
-            font-size: 0.67rem;
-
-            font-weight: 800;
-
-            letter-spacing: 2.5px;
-
-            text-transform: uppercase;
-        }
-
-
-        .team-section-heading h2 {
+        .iac-team-section-heading h2 {
             margin-top: 8px;
 
             color: #fff1d7;
@@ -219,15 +206,21 @@
                 clamp(
                     2rem,
                     5vw,
-                    3.4rem
+                    3.3rem
                 );
+
+            line-height: 1.1;
         }
 
 
-        .team-section-heading p {
-            margin-top: 10px;
+        .iac-team-section-heading p {
+            max-width: 650px;
+
+            margin: 12px auto 0;
 
             color: #aab9cd;
+
+            line-height: 1.8;
         }
 
 
@@ -235,15 +228,10 @@
            LEADERSHIP
         ====================================================== */
 
-        .leadership-grid {
-            width:
-                min(
-                    1080px,
-                    100%
-                );
+        .iac-leadership-grid {
+            width: min(1080px, 100%);
 
-            margin:
-                45px auto 0;
+            margin: 45px auto 0;
 
             display: grid;
 
@@ -257,7 +245,7 @@
         }
 
 
-        .leadership-card {
+        .iac-leadership-card {
             position: relative;
 
             min-width: 0;
@@ -265,20 +253,20 @@
             display: grid;
 
             grid-template-columns:
-                185px 1fr;
+                190px minmax(0, 1fr);
 
             overflow: hidden;
 
             border:
                 1px solid
-                rgba(40, 217, 255, 0.17);
+                rgba(40, 217, 255, 0.18);
 
             border-radius: 24px;
 
             background:
                 linear-gradient(
                     145deg,
-                    rgba(11, 43, 75, 0.94),
+                    rgba(11, 43, 75, 0.95),
                     rgba(3, 17, 33, 0.98)
                 );
 
@@ -293,7 +281,7 @@
         }
 
 
-        .leadership-card::before {
+        .iac-leadership-card::before {
             content: "";
 
             position: absolute;
@@ -304,23 +292,40 @@
             width: 100%;
             height: 3px;
 
+            z-index: 2;
+
             background:
                 linear-gradient(
                     90deg,
-                    transparent,
                     #147cff,
                     #28d9ff,
-                    transparent
+                    #147cff
                 );
+
+            background-size:
+                200% 100%;
+
+            animation:
+                teamCardLine 4s linear infinite;
         }
 
 
-        .leadership-card:hover {
+        @keyframes teamCardLine {
+
+            to {
+                background-position:
+                    -200% 0;
+            }
+
+        }
+
+
+        .iac-leadership-card:hover {
             transform:
                 translateY(-8px);
 
             border-color:
-                rgba(40, 217, 255, 0.38);
+                rgba(40, 217, 255, 0.40);
 
             box-shadow:
                 0 28px 70px
@@ -328,41 +333,38 @@
         }
 
 
-        .leadership-photo-box {
+        .iac-leadership-photo-box {
             width: 100%;
             height: 300px;
 
             overflow: hidden;
 
-            background:
-                #07182b;
+            background: #07182b;
         }
 
 
-        .leadership-photo {
+        .iac-leadership-photo {
             width: 100%;
             height: 100%;
 
             display: block;
 
             object-fit: cover;
-
-            object-position:
-                center top;
+            object-position: center top;
 
             transition:
-                transform 0.5s ease;
+                transform 0.55s ease;
         }
 
 
-        .leadership-card:hover
-        .leadership-photo {
+        .iac-leadership-card:hover
+        .iac-leadership-photo {
             transform:
                 scale(1.05);
         }
 
 
-        .leadership-info {
+        .iac-leadership-info {
             padding:
                 28px 24px;
 
@@ -375,25 +377,28 @@
         }
 
 
-        .role-pill {
+        /* =====================================================
+           ROLE BADGE
+        ====================================================== */
+
+        .iac-role-badge {
             display: inline-flex;
 
             padding:
-                6px 10px;
+                6px 11px;
 
             border:
                 1px solid
-                rgba(40, 217, 255, 0.18);
+                rgba(40, 217, 255, 0.20);
 
-            border-radius: 40px;
+            border-radius: 30px;
 
             background:
                 rgba(40, 217, 255, 0.06);
 
             color: #8cecff;
 
-            font-size: 0.63rem;
-
+            font-size: 0.62rem;
             font-weight: 800;
 
             letter-spacing: 1px;
@@ -402,38 +407,35 @@
         }
 
 
-        .leadership-info h3 {
-            margin-top: 13px;
+        .iac-leadership-info h3 {
+            margin-top: 14px;
 
             color: #fff1d7;
 
-            font-size: 1.6rem;
+            font-size: 1.55rem;
         }
 
 
-        .leadership-info p {
+        .iac-leadership-info p {
             margin:
-                8px 0 18px;
+                9px 0 18px;
 
             color: #aab9cd;
 
-            font-size: 0.86rem;
+            font-size: 0.85rem;
+
+            line-height: 1.7;
         }
 
 
         /* =====================================================
-           STANDARD TEAM CARDS
+           STANDARD TEAM GRID
         ====================================================== */
 
-        .team-card-grid {
-            width:
-                min(
-                    1050px,
-                    100%
-                );
+        .iac-team-grid {
+            width: min(1050px, 100%);
 
-            margin:
-                45px auto 0;
+            margin: 45px auto 0;
 
             display: grid;
 
@@ -441,8 +443,8 @@
         }
 
 
-        .core-team-grid {
-            max-width: 760px;
+        .iac-core-grid {
+            width: min(760px, 100%);
 
             grid-template-columns:
                 repeat(
@@ -452,7 +454,7 @@
         }
 
 
-        .functional-team-grid {
+        .iac-functional-grid {
             grid-template-columns:
                 repeat(
                     3,
@@ -461,7 +463,22 @@
         }
 
 
-        .team-member-card {
+        .iac-event-grid {
+            width: min(760px, 100%);
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+        }
+
+
+        /* =====================================================
+           NORMAL MEMBER CARD
+        ====================================================== */
+
+        .iac-member-card {
             position: relative;
 
             min-width: 0;
@@ -477,7 +494,7 @@
             background:
                 linear-gradient(
                     145deg,
-                    rgba(11, 43, 75, 0.91),
+                    rgba(11, 43, 75, 0.92),
                     rgba(3, 17, 33, 0.98)
                 );
 
@@ -492,7 +509,7 @@
         }
 
 
-        .team-member-card:hover {
+        .iac-member-card:hover {
             transform:
                 translateY(-8px);
 
@@ -500,23 +517,22 @@
                 rgba(40, 217, 255, 0.35);
 
             box-shadow:
-                0 26px 60px
+                0 26px 62px
                 rgba(0, 0, 0, 0.32);
         }
 
 
-        .team-member-photo-box {
+        .iac-member-photo-box {
             width: 100%;
             height: 310px;
 
             overflow: hidden;
 
-            background:
-                #07182b;
+            background: #07182b;
         }
 
 
-        .team-member-photo {
+        .iac-member-photo {
             width: 100%;
             height: 100%;
 
@@ -532,24 +548,22 @@
         }
 
 
-        .team-member-card:hover
-        .team-member-photo {
+        .iac-member-card:hover
+        .iac-member-photo {
             transform:
-                scale(1.045);
+                scale(1.05);
         }
 
 
-        .team-member-info {
-            padding:
-                21px;
+        .iac-member-info {
+            padding: 22px;
         }
 
 
-        .team-member-role {
+        .iac-member-role {
             color: #8cecff;
 
             font-size: 0.66rem;
-
             font-weight: 800;
 
             letter-spacing: 1px;
@@ -558,8 +572,8 @@
         }
 
 
-        .team-member-info h3 {
-            margin-top: 5px;
+        .iac-member-info h3 {
+            margin-top: 6px;
 
             color: #fff1d7;
 
@@ -567,16 +581,27 @@
         }
 
 
-        .team-member-social {
-            margin-top: 14px;
+        .iac-member-info p {
+            margin-top: 9px;
+
+            color: #aab9cd;
+
+            font-size: 0.83rem;
+
+            line-height: 1.65;
+        }
+
+
+        .iac-member-social {
+            margin-top: 15px;
         }
 
 
         /* =====================================================
-           LINKEDIN
+           LINKEDIN BUTTON
         ====================================================== */
 
-        .team-linkedin {
+        .iac-linkedin-btn {
             display: inline-flex;
 
             align-items: center;
@@ -599,29 +624,33 @@
             color: #8ed7ff;
 
             font-size: 0.77rem;
-
             font-weight: 700;
 
             transition:
                 transform 0.3s ease,
                 background 0.3s ease,
-                border-color 0.3s ease;
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
 
-        .team-linkedin:hover {
+        .iac-linkedin-btn:hover {
             transform:
                 translateY(-3px);
+
+            border-color:
+                rgba(55, 160, 255, 0.55);
 
             background:
                 rgba(10, 102, 194, 0.25);
 
-            border-color:
-                rgba(55, 160, 255, 0.50);
+            box-shadow:
+                0 8px 20px
+                rgba(10, 102, 194, 0.15);
         }
 
 
-        .team-linkedin.disabled {
+        .iac-linkedin-btn.disabled {
             opacity: 0.45;
 
             cursor: default;
@@ -631,503 +660,52 @@
 
 
         /* =====================================================
-           EVENT COORDINATION
+           EVENT COORDINATOR CARDS
         ====================================================== */
 
-        .event-team-section {
-            padding-top:
-                70px;
-        }
-
-
-        .event-team-card {
+        .iac-event-section {
             position: relative;
+        }
 
-            width:
-                min(
-                    980px,
-                    100%
-                );
 
-            margin:
-                42px auto 0;
-
-            padding:
-                28px;
-
-            display: grid;
-
-            grid-template-columns:
-                auto 1fr auto auto;
-
-            align-items: center;
-
-            gap: 22px;
-
-            text-align: left;
-
+        .iac-event-card {
             border:
                 1px solid
-                rgba(40, 217, 255, 0.21);
-
-            border-radius: 24px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(20, 124, 255, 0.13),
-                    rgba(40, 217, 255, 0.06),
-                    rgba(3, 17, 33, 0.97)
-                );
-
-            color: inherit;
-
-            font-family: inherit;
-
-            cursor: pointer;
-
-            box-shadow:
-                0 22px 65px
-                rgba(0, 0, 0, 0.28);
-
-            transition:
-                transform 0.4s ease,
-                border-color 0.4s ease,
-                box-shadow 0.4s ease;
+                rgba(40, 217, 255, 0.16);
         }
 
 
-        .event-team-card:hover {
-            transform:
-                translateY(-7px);
+        .iac-event-card::before {
+            content: "";
 
-            border-color:
-                rgba(40, 217, 255, 0.48);
-
-            box-shadow:
-                0 30px 80px
-                rgba(0, 0, 0, 0.38);
-        }
-
-
-        .event-team-icon {
-            width: 76px;
-            height: 76px;
-
-            display: grid;
-
-            place-items: center;
-
-            border:
-                1px solid
-                rgba(40, 217, 255, 0.20);
-
-            border-radius: 20px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    rgba(20, 124, 255, 0.23),
-                    rgba(40, 217, 255, 0.10)
-                );
-
-            font-size: 2rem;
-        }
-
-
-        .event-team-info span {
-            color: #8cecff;
-
-            font-size: 0.62rem;
-
-            font-weight: 800;
-
-            letter-spacing: 1.2px;
-
-            text-transform: uppercase;
-        }
-
-
-        .event-team-info h3 {
-            margin-top: 4px;
-
-            color: #fff1d7;
-
-            font-size: 1.6rem;
-        }
-
-
-        .event-team-info p {
-            margin-top: 4px;
-
-            color: #aab9cd;
-        }
-
-
-        .event-team-count {
-            min-width: 80px;
-
-            text-align: center;
-        }
-
-
-        .event-team-count strong {
-            display: block;
-
-            color: #28d9ff;
-
-            font-size: 1.9rem;
-
-            line-height: 1;
-        }
-
-
-        .event-team-count small {
-            color: #8294aa;
-
-            font-size: 0.56rem;
-
-            font-weight: 800;
-
-            letter-spacing: 1px;
-        }
-
-
-        .event-team-arrow {
-            width: 45px;
-            height: 45px;
-
-            display: grid;
-
-            place-items: center;
-
-            border:
-                1px solid
-                rgba(40, 217, 255, 0.20);
-
-            border-radius: 50%;
-
-            color: #8cecff;
-
-            font-size: 1.3rem;
-
-            transition:
-                transform 0.3s ease,
-                background 0.3s ease;
-        }
-
-
-        .event-team-card:hover
-        .event-team-arrow {
-            transform:
-                translateX(5px);
-
-            background:
-                rgba(40, 217, 255, 0.08);
-        }
-
-
-        /* =====================================================
-           MODAL
-        ====================================================== */
-
-        .team-modal {
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 30000;
-
-            display: none;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 22px;
-        }
-
-
-        .team-modal.open {
-            display: flex;
-        }
-
-
-        .team-modal-backdrop {
             position: absolute;
 
-            inset: 0;
-
-            background:
-                rgba(1, 7, 16, 0.84);
-
-            backdrop-filter:
-                blur(10px);
-
-            -webkit-backdrop-filter:
-                blur(10px);
-        }
-
-
-        .team-modal-dialog {
-            position: relative;
+            top: 0;
+            left: 0;
 
             z-index: 2;
 
-            width:
-                min(
-                    930px,
-                    100%
-                );
-
-            max-height: 90vh;
-
-            overflow-y: auto;
-
-            padding:
-                30px;
-
-            border:
-                1px solid
-                rgba(40, 217, 255, 0.20);
-
-            border-radius: 28px;
+            width: 100%;
+            height: 3px;
 
             background:
                 linear-gradient(
-                    145deg,
-                    rgba(9, 36, 64, 0.99),
-                    rgba(2, 13, 27, 0.99)
+                    90deg,
+                    #147cff,
+                    #28d9ff
                 );
-
-            box-shadow:
-                0 40px 110px
-                rgba(0, 0, 0, 0.60);
-
-            animation:
-                modalEnter 0.3s ease;
-        }
-
-
-        @keyframes modalEnter {
-
-            from {
-                opacity: 0;
-
-                transform:
-                    translateY(20px)
-                    scale(0.96);
-            }
-
-            to {
-                opacity: 1;
-
-                transform:
-                    translateY(0)
-                    scale(1);
-            }
-
-        }
-
-
-        .team-modal-header {
-            display: flex;
-
-            align-items: flex-start;
-            justify-content: space-between;
-
-            gap: 20px;
-
-            padding-bottom: 21px;
-
-            border-bottom:
-                1px solid
-                rgba(255, 255, 255, 0.08);
-        }
-
-
-        .team-modal-header h2 {
-            margin-top: 5px;
-
-            color: #fff1d7;
-
-            font-size:
-                clamp(
-                    2rem,
-                    5vw,
-                    2.8rem
-                );
-        }
-
-
-        .team-modal-header p:last-child {
-            margin-top: 6px;
-
-            color: #aab9cd;
-        }
-
-
-        .modal-close {
-            width: 44px;
-            height: 44px;
-
-            flex-shrink: 0;
-
-            display: grid;
-
-            place-items: center;
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.12);
-
-            border-radius: 12px;
-
-            background:
-                rgba(255, 255, 255, 0.05);
-
-            color: #ffffff;
-
-            font-size: 1.7rem;
-
-            cursor: pointer;
-
-            transition:
-                transform 0.3s ease,
-                background 0.3s ease;
-        }
-
-
-        .modal-close:hover {
-            transform:
-                rotate(90deg);
-
-            background:
-                rgba(255, 255, 255, 0.10);
         }
 
 
         /* =====================================================
-           EVENT MEMBERS
+           SCROLL REVEAL
         ====================================================== */
 
-        .event-members-grid {
-            margin-top: 25px;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    2,
-                    minmax(0, 1fr)
-                );
-
-            gap: 20px;
-        }
-
-
-        .event-member-card {
-            overflow: hidden;
-
-            border:
-                1px solid
-                rgba(255, 255, 255, 0.08);
-
-            border-radius: 22px;
-
-            background:
-                rgba(255, 255, 255, 0.035);
-
-            transition:
-                transform 0.35s ease,
-                border-color 0.35s ease;
-        }
-
-
-        .event-member-card:hover {
-            transform:
-                translateY(-6px);
-
-            border-color:
-                rgba(40, 217, 255, 0.30);
-        }
-
-
-        .event-member-photo-box {
-            width: 100%;
-            height: 290px;
-
-            overflow: hidden;
-
-            background:
-                #07182b;
-        }
-
-
-        .event-member-photo {
-            width: 100%;
-            height: 100%;
-
-            display: block;
-
-            object-fit: cover;
-
-            object-position:
-                center top;
-        }
-
-
-        .event-member-info {
-            padding:
-                22px;
-        }
-
-
-        .event-member-role {
-            color: #8cecff;
-
-            font-size: 0.64rem;
-
-            font-weight: 800;
-
-            letter-spacing: 1px;
-
-            text-transform: uppercase;
-        }
-
-
-        .event-member-info h3 {
-            margin-top: 6px;
-
-            color: #fff1d7;
-
-            font-size: 1.4rem;
-        }
-
-
-        .event-member-info p {
-            margin:
-                6px 0 15px;
-
-            color: #aab9cd;
-
-            font-size: 0.84rem;
-        }
-
-
-        body.team-modal-open {
-            overflow: hidden;
-        }
-
-
-        /* =====================================================
-           REVEAL ANIMATION
-        ====================================================== */
-
-        .team-reveal {
+        .iac-team-reveal {
             opacity: 0;
 
             transform:
-                translateY(28px);
+                translateY(30px);
 
             transition:
                 opacity 0.75s ease,
@@ -1135,7 +713,7 @@
         }
 
 
-        .team-reveal.team-visible {
+        .iac-team-reveal.visible {
             opacity: 1;
 
             transform:
@@ -1143,24 +721,38 @@
         }
 
 
+        /* stagger effect */
+
+        .iac-team-grid
+        .iac-team-reveal:nth-child(2) {
+            transition-delay: 0.10s;
+        }
+
+
+        .iac-team-grid
+        .iac-team-reveal:nth-child(3) {
+            transition-delay: 0.20s;
+        }
+
+
         /* =====================================================
-           RESPONSIVE
+           TABLET
         ====================================================== */
 
         @media (max-width: 900px) {
 
-            .leadership-grid {
+            .iac-leadership-grid {
                 grid-template-columns: 1fr;
             }
 
 
-            .leadership-card {
+            .iac-leadership-card {
                 grid-template-columns:
-                    220px 1fr;
+                    220px minmax(0, 1fr);
             }
 
 
-            .functional-team-grid {
+            .iac-functional-grid {
                 grid-template-columns:
                     repeat(
                         2,
@@ -1171,130 +763,111 @@
         }
 
 
+        /* =====================================================
+           MOBILE
+        ====================================================== */
+
         @media (max-width: 700px) {
 
-            .team-section {
+            .iac-team-section {
                 padding:
                     65px 15px;
             }
 
 
-            .leadership-card {
+            .iac-leadership-card {
                 grid-template-columns: 1fr;
             }
 
 
-            .leadership-photo-box {
-                height: 380px;
+            .iac-leadership-photo-box {
+                height: 390px;
             }
 
 
-            .leadership-info {
+            .iac-leadership-info {
                 align-items: center;
 
                 text-align: center;
             }
 
 
-            .core-team-grid,
-            .functional-team-grid {
-                width:
-                    min(
-                        430px,
-                        100%
-                    );
+            .iac-core-grid,
+            .iac-functional-grid,
+            .iac-event-grid {
+                width: min(430px, 100%);
 
                 grid-template-columns: 1fr;
             }
 
 
-            .team-member-photo-box {
+            .iac-member-photo-box {
                 height: 360px;
             }
 
+        }
 
-            .event-team-card {
-                grid-template-columns:
-                    auto 1fr auto;
 
-                padding: 20px;
+        /* =====================================================
+           SMALL PHONE
+        ====================================================== */
 
-                gap: 14px;
+        @media (max-width: 430px) {
+
+            .iac-team-hero {
+                min-height: 340px;
+
+                padding:
+                    65px 14px;
             }
 
 
-            .event-team-count {
-                display: none;
+            .iac-team-hero h1 {
+                font-size:
+                    clamp(
+                        2.7rem,
+                        14vw,
+                        3.7rem
+                    );
             }
 
 
-            .event-members-grid {
-                grid-template-columns: 1fr;
+            .iac-leadership-photo-box {
+                height: 340px;
             }
 
 
-            .event-member-photo-box {
-                height: 330px;
+            .iac-member-photo-box {
+                height: 320px;
+            }
+
+
+            .iac-leadership-info,
+            .iac-member-info {
+                padding:
+                    20px 17px;
             }
 
         }
 
 
-        @media (max-width: 480px) {
-
-            .team-hero {
-                min-height: 350px;
-
-                padding:
-                    70px 14px;
-            }
-
-
-            .event-team-card {
-                grid-template-columns: 1fr;
-
-                text-align: center;
-            }
-
-
-            .event-team-icon,
-            .event-team-arrow {
-                margin: auto;
-            }
-
-
-            .team-modal {
-                padding: 9px;
-            }
-
-
-            .team-modal-dialog {
-                max-height: 94vh;
-
-                padding:
-                    21px 14px;
-
-                border-radius: 21px;
-            }
-
-
-            .event-member-photo-box {
-                height: 275px;
-            }
-
-        }
-
+        /* =====================================================
+           REDUCED MOTION
+        ====================================================== */
 
         @media (prefers-reduced-motion: reduce) {
 
-            .team-reveal {
+            .iac-team-reveal {
                 opacity: 1;
 
                 transform: none;
+
+                transition: none;
             }
 
 
-            .team-hero-line {
+            .iac-team-hero-line,
+            .iac-leadership-card::before {
                 animation: none;
             }
 
@@ -1315,32 +888,36 @@
 <div id="site-header"></div>
 
 
-<main class="team-page">
+<main class="iac-team-page">
 
 
 <!-- =====================================================
-     TEAM HERO
+     HERO
 ===================================================== -->
 
-<section class="team-hero">
+<section class="iac-team-hero">
 
-    <div class="team-hero-content team-reveal">
+    <div class="iac-team-hero-content iac-team-reveal">
 
-        <p class="team-eyebrow">
+        <span class="iac-team-label">
             PEOPLE BEHIND IAC
-        </p>
+        </span>
+
 
         <h1>
             Meet Our
             <span>Team</span>
         </h1>
 
+
         <p>
-            A team driven by innovation, technical learning,
-            collaboration and real-world engineering.
+            A team committed to innovation,
+            technical learning, collaboration
+            and real-world engineering.
         </p>
 
-        <div class="team-hero-line"></div>
+
+        <div class="iac-team-hero-line"></div>
 
     </div>
 
@@ -1349,56 +926,62 @@
 
 
 <!-- =====================================================
-     LEADERSHIP
+     1. LEADERSHIP
 ===================================================== -->
 
-<section class="team-section">
+<section class="iac-team-section">
 
-    <div class="team-section-heading team-reveal">
+    <div class="iac-team-section-heading iac-team-reveal">
 
-        <span class="team-section-label">
+        <span class="iac-team-label">
             LEADING IAC
         </span>
+
 
         <h2>
             Leadership
         </h2>
 
+
         <p>
-            Guiding club management, technical direction
-            and student initiatives.
+            Guiding club management,
+            technical direction and student initiatives.
         </p>
 
     </div>
 
 
-    <div class="leadership-grid">
+
+    <div class="iac-leadership-grid">
 
 
-        <!-- PRESIDENT -->
+        <!-- SHUBHRA YADAV -->
 
-        <article class="leadership-card team-reveal">
+        <article class="iac-leadership-card iac-team-reveal">
 
-            <div class="leadership-photo-box">
+
+            <div class="iac-leadership-photo-box">
 
                 <img
                     src="assets/team/shubhra.jpeg"
                     alt="Shubhra Yadav"
-                    class="leadership-photo"
+                    class="iac-leadership-photo"
                 >
 
             </div>
 
 
-            <div class="leadership-info">
+            <div class="iac-leadership-info">
 
-                <span class="role-pill">
+                <span class="iac-role-badge">
                     President
                 </span>
+
 
                 <h3>
                     Shubhra Yadav
                 </h3>
+
 
                 <p>
                     Leading club coordination,
@@ -1410,41 +993,45 @@
                     href="https://www.linkedin.com/in/shubhra-yadav-846218398"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="team-linkedin"
+                    class="iac-linkedin-btn"
                 >
                     in&nbsp; LinkedIn
                 </a>
 
             </div>
 
+
         </article>
 
 
 
-        <!-- FOUNDER -->
+        <!-- SUMIT -->
 
-        <article class="leadership-card team-reveal">
+        <article class="iac-leadership-card iac-team-reveal">
 
-            <div class="leadership-photo-box">
+
+            <div class="iac-leadership-photo-box">
 
                 <img
                     src="assets/team/sumit.jpeg"
                     alt="Sumit"
-                    class="leadership-photo"
+                    class="iac-leadership-photo"
                 >
 
             </div>
 
 
-            <div class="leadership-info">
+            <div class="iac-leadership-info">
 
-                <span class="role-pill">
+                <span class="iac-role-badge">
                     Founder &amp; Technical Head
                 </span>
+
 
                 <h3>
                     Sumit
                 </h3>
+
 
                 <p>
                     Technical planning, innovation,
@@ -1456,12 +1043,13 @@
                     href="https://www.linkedin.com/in/sumit-chaudhary-33205a393"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="team-linkedin"
+                    class="iac-linkedin-btn"
                 >
                     in&nbsp; LinkedIn
                 </a>
 
             </div>
+
 
         </article>
 
@@ -1473,65 +1061,70 @@
 
 
 <!-- =====================================================
-     CORE COMMITTEE
+     2. CORE COMMITTEE
 ===================================================== -->
 
-<section class="team-section">
+<section class="iac-team-section">
 
-    <div class="team-section-heading team-reveal">
+    <div class="iac-team-section-heading iac-team-reveal">
 
-        <span class="team-section-label">
+        <span class="iac-team-label">
             CLUB MANAGEMENT
         </span>
+
 
         <h2>
             Core Committee
         </h2>
 
+
         <p>
-            Supporting leadership, coordination
-            and smooth functioning of IAC.
+            Supporting leadership,
+            coordination and smooth functioning of IAC.
         </p>
 
     </div>
 
 
-    <div class="team-card-grid core-team-grid">
+
+    <div class="iac-team-grid iac-core-grid">
 
 
         <!-- ADITYA -->
 
-        <article class="team-member-card team-reveal">
+        <article class="iac-member-card iac-team-reveal">
 
-            <div class="team-member-photo-box">
+
+            <div class="iac-member-photo-box">
 
                 <img
                     src="assets/team/aditya.jpeg"
                     alt="Aditya Kumar Yadav"
-                    class="team-member-photo"
+                    class="iac-member-photo"
                 >
 
             </div>
 
 
-            <div class="team-member-info">
+            <div class="iac-member-info">
 
-                <span class="team-member-role">
+                <span class="iac-member-role">
                     Vice President
                 </span>
+
 
                 <h3>
                     Aditya Kumar Yadav
                 </h3>
 
 
-                <div class="team-member-social">
+                <div class="iac-member-social">
 
                     <a
                         href="https://www.linkedin.com/in/aditya-kumar-yadav-7181b7390"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="team-linkedin"
+                        class="iac-linkedin-btn"
                     >
                         in&nbsp; LinkedIn
                     </a>
@@ -1540,47 +1133,51 @@
 
             </div>
 
+
         </article>
 
 
 
         <!-- GAUTAM -->
 
-        <article class="team-member-card team-reveal">
+        <article class="iac-member-card iac-team-reveal">
 
-            <div class="team-member-photo-box">
+
+            <div class="iac-member-photo-box">
 
                 <img
                     src="assets/team/gautam.jpeg"
                     alt="Gautam Rajput"
-                    class="team-member-photo"
+                    class="iac-member-photo"
                 >
 
             </div>
 
 
-            <div class="team-member-info">
+            <div class="iac-member-info">
 
-                <span class="team-member-role">
+                <span class="iac-member-role">
                     Secretary
                 </span>
+
 
                 <h3>
                     Gautam Rajput
                 </h3>
 
 
-                <div class="team-member-social">
+                <div class="iac-member-social">
 
                     <span
-                        class="team-linkedin disabled"
+                        class="iac-linkedin-btn disabled"
                     >
-                        in&nbsp; LinkedIn
+                        in&nbsp; LinkedIn Not Added
                     </span>
 
                 </div>
 
             </div>
+
 
         </article>
 
@@ -1592,20 +1189,22 @@
 
 
 <!-- =====================================================
-     FUNCTIONAL TEAM
+     3. FUNCTIONAL TEAM
 ===================================================== -->
 
-<section class="team-section">
+<section class="iac-team-section">
 
-    <div class="team-section-heading team-reveal">
+    <div class="iac-team-section-heading iac-team-reveal">
 
-        <span class="team-section-label">
+        <span class="iac-team-label">
             OPERATIONS & CREATIVE TEAM
         </span>
+
 
         <h2>
             Functional Team
         </h2>
+
 
         <p>
             Managing finance, documentation
@@ -1615,42 +1214,45 @@
     </div>
 
 
-    <div class="team-card-grid functional-team-grid">
+
+    <div class="iac-team-grid iac-functional-grid">
 
 
         <!-- DEEPAK -->
 
-        <article class="team-member-card team-reveal">
+        <article class="iac-member-card iac-team-reveal">
 
-            <div class="team-member-photo-box">
+
+            <div class="iac-member-photo-box">
 
                 <img
                     src="assets/team/deepak.jpeg"
                     alt="Deepak Gupta"
-                    class="team-member-photo"
+                    class="iac-member-photo"
                 >
 
             </div>
 
 
-            <div class="team-member-info">
+            <div class="iac-member-info">
 
-                <span class="team-member-role">
+                <span class="iac-member-role">
                     Finance Lead
                 </span>
+
 
                 <h3>
                     Deepak Gupta
                 </h3>
 
 
-                <div class="team-member-social">
+                <div class="iac-member-social">
 
                     <a
                         href="https://www.linkedin.com/in/deepak-gupta-19a98b2b0"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="team-linkedin"
+                        class="iac-linkedin-btn"
                     >
                         in&nbsp; LinkedIn
                     </a>
@@ -1658,6 +1260,7 @@
                 </div>
 
             </div>
+
 
         </article>
 
@@ -1665,37 +1268,39 @@
 
         <!-- SHUBHASHINI -->
 
-        <article class="team-member-card team-reveal">
+        <article class="iac-member-card iac-team-reveal">
 
-            <div class="team-member-photo-box">
+
+            <div class="iac-member-photo-box">
 
                 <img
                     src="assets/team/shubhashini.jpeg"
                     alt="Shubhashini Dwivedi"
-                    class="team-member-photo"
+                    class="iac-member-photo"
                 >
 
             </div>
 
 
-            <div class="team-member-info">
+            <div class="iac-member-info">
 
-                <span class="team-member-role">
+                <span class="iac-member-role">
                     Documentation Team
                 </span>
+
 
                 <h3>
                     Shubhashini Dwivedi
                 </h3>
 
 
-                <div class="team-member-social">
+                <div class="iac-member-social">
 
                     <a
                         href="https://www.linkedin.com/in/shubhashini-dwivedi-baa38a2b3"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="team-linkedin"
+                        class="iac-linkedin-btn"
                     >
                         in&nbsp; LinkedIn
                     </a>
@@ -1703,6 +1308,7 @@
                 </div>
 
             </div>
+
 
         </article>
 
@@ -1710,41 +1316,44 @@
 
         <!-- KARTIK -->
 
-        <article class="team-member-card team-reveal">
+        <article class="iac-member-card iac-team-reveal">
 
-            <div class="team-member-photo-box">
+
+            <div class="iac-member-photo-box">
 
                 <img
                     src="assets/team/kartik.jpeg"
                     alt="Kartik Yadav"
-                    class="team-member-photo"
+                    class="iac-member-photo"
                 >
 
             </div>
 
 
-            <div class="team-member-info">
+            <div class="iac-member-info">
 
-                <span class="team-member-role">
+                <span class="iac-member-role">
                     Media Team
                 </span>
+
 
                 <h3>
                     Kartik Yadav
                 </h3>
 
 
-                <div class="team-member-social">
+                <div class="iac-member-social">
 
                     <span
-                        class="team-linkedin disabled"
+                        class="iac-linkedin-btn disabled"
                     >
-                        in&nbsp; LinkedIn
+                        in&nbsp; LinkedIn Not Added
                     </span>
 
                 </div>
 
             </div>
+
 
         </article>
 
@@ -1756,247 +1365,170 @@
 
 
 <!-- =====================================================
-     EVENT COORDINATION
+     4. EVENT COORDINATORS
 ===================================================== -->
 
-<section class="team-section event-team-section">
+<section class="iac-team-section iac-event-section">
 
-    <div class="team-section-heading team-reveal">
+    <div class="iac-team-section-heading iac-team-reveal">
 
-        <span class="team-section-label">
+        <span class="iac-team-label">
             EVENT MANAGEMENT
         </span>
 
+
         <h2>
-            Event Coordination
+            Event Coordinators
         </h2>
 
+
         <p>
-            Planning and executing IAC events,
-            activities and student engagement.
+            Planning, coordinating and executing
+            IAC events and student activities.
         </p>
 
     </div>
 
 
-    <button
-        type="button"
-        class="event-team-card team-reveal"
-        id="eventCoordinatorOpen"
-        aria-haspopup="dialog"
-        aria-controls="eventCoordinatorModal"
-    >
 
-        <div class="event-team-icon">
-            📅
-        </div>
+    <div class="iac-team-grid iac-event-grid">
 
 
-        <div class="event-team-info">
+        <!-- DIVYANSHU -->
 
-            <span>
-                Event Management Team
-            </span>
-
-            <h3>
-                Event Coordinators
-            </h3>
-
-            <p>
-                Divyanshu Singh • Anjali Singh
-            </p>
-
-        </div>
+        <article
+            class="iac-member-card iac-event-card iac-team-reveal"
+        >
 
 
-        <div class="event-team-count">
+            <div class="iac-member-photo-box">
 
-            <strong>
-                02
-            </strong>
-
-            <small>
-                MEMBERS
-            </small>
-
-        </div>
-
-
-        <div class="event-team-arrow">
-            →
-        </div>
-
-    </button>
-
-</section>
-
-
-
-<!-- =====================================================
-     EVENT COORDINATOR MODAL
-===================================================== -->
-
-<div
-    class="team-modal"
-    id="eventCoordinatorModal"
-    aria-hidden="true"
->
-
-    <div
-        class="team-modal-backdrop"
-        data-modal-close
-    ></div>
-
-
-    <div
-        class="team-modal-dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="eventCoordinatorTitle"
-    >
-
-
-        <div class="team-modal-header">
-
-            <div>
-
-                <span class="team-section-label">
-                    IAC EVENT MANAGEMENT
-                </span>
-
-                <h2 id="eventCoordinatorTitle">
-                    Event Coordinators
-                </h2>
-
-                <p>
-                    Meet the team coordinating and
-                    executing IAC events.
-                </p>
+                <img
+                    src="assets/team/divyanshu.jpeg"
+                    alt="Divyanshu Singh"
+                    class="iac-member-photo"
+                >
 
             </div>
 
 
-            <button
-                type="button"
-                class="modal-close"
-                id="eventCoordinatorClose"
-                aria-label="Close Event Coordinators"
-            >
-                ×
-            </button>
+            <div class="iac-member-info">
 
-        </div>
+                <span class="iac-member-role">
+                    Event Coordinator
+                </span>
 
 
-
-        <div class="event-members-grid">
-
-
-            <!-- DIVYANSHU -->
-
-            <article class="event-member-card">
-
-                <div class="event-member-photo-box">
-
-                    <img
-                        src="assets/team/divyanshu.jpeg"
-                        alt="Divyanshu Singh"
-                        class="event-member-photo"
-                    >
-
-                </div>
+                <h3>
+                    Divyanshu Singh
+                </h3>
 
 
-                <div class="event-member-info">
+                <p>
+                    Event planning, coordination
+                    and execution of IAC activities.
+                </p>
 
-                    <span class="event-member-role">
-                        Event Coordinator
-                    </span>
 
-                    <h3>
-                        Divyanshu Singh
-                    </h3>
-
-                    <p>
-                        Innovation & Automation Club
-                    </p>
-
+                <div class="iac-member-social">
 
                     <a
                         href="https://www.linkedin.com/in/divyanshu-singh-08291543a"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="team-linkedin"
+                        class="iac-linkedin-btn"
                     >
                         in&nbsp; LinkedIn
                     </a>
 
                 </div>
 
-            </article>
+            </div>
+
+
+        </article>
 
 
 
-            <!-- ANJALI -->
+        <!-- ANJALI -->
 
-            <article class="event-member-card">
-
-                <div class="event-member-photo-box">
-
-                    <img
-                        src="assets/team/anjali.jpeg"
-                        alt="Anjali Singh"
-                        class="event-member-photo"
-                    >
-
-                </div>
+        <article
+            class="iac-member-card iac-event-card iac-team-reveal"
+        >
 
 
-                <div class="event-member-info">
+            <div class="iac-member-photo-box">
 
-                    <span class="event-member-role">
-                        Event Coordinator
-                    </span>
+                <img
+                    src="assets/team/anjali.jpeg"
+                    alt="Anjali Singh"
+                    class="iac-member-photo"
+                >
 
-                    <h3>
-                        Anjali Singh
-                    </h3>
+            </div>
 
-                    <p>
-                        Innovation & Automation Club
-                    </p>
 
+            <div class="iac-member-info">
+
+                <span class="iac-member-role">
+                    Event Coordinator
+                </span>
+
+
+                <h3>
+                    Anjali Singh
+                </h3>
+
+
+                <p>
+                    Supporting event management,
+                    coordination and club activities.
+                </p>
+
+
+                <div class="iac-member-social">
 
                     <span
-                        class="team-linkedin disabled"
+                        class="iac-linkedin-btn disabled"
                     >
                         in&nbsp; LinkedIn Not Added
                     </span>
 
                 </div>
 
-            </article>
+            </div>
 
 
-        </div>
+        </article>
 
 
     </div>
 
-</div>
+</section>
 
 
 </main>
 
 
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <div id="site-footer"></div>
 
+
+
+<!-- =====================================================
+     MAIN WEBSITE JS
+===================================================== -->
 
 <script src="script.js"></script>
 
 
+
 <!-- =====================================================
-     TEAM PAGE JS
+     TEAM PAGE ANIMATION
 ===================================================== -->
 
 <script>
@@ -2005,196 +1537,77 @@ document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-
-        /* ================================================
-           REVEAL ANIMATION
-        ================================================= */
-
-        const revealItems =
+        const items =
             document.querySelectorAll(
-                ".team-reveal"
-            );
-
-
-        const observer =
-            new IntersectionObserver(
-
-                entries => {
-
-                    entries.forEach(
-                        entry => {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target
-                                    .classList
-                                    .add(
-                                        "team-visible"
-                                    );
-
-
-                                observer
-                                    .unobserve(
-                                        entry.target
-                                    );
-
-                            }
-
-                        }
-                    );
-
-                },
-
-                {
-                    threshold: 0.12
-                }
-
-            );
-
-
-        revealItems.forEach(
-            item => {
-
-                observer.observe(
-                    item
-                );
-
-            }
-        );
-
-
-
-        /* ================================================
-           EVENT COORDINATOR POPUP
-        ================================================= */
-
-        const openButton =
-            document.getElementById(
-                "eventCoordinatorOpen"
-            );
-
-
-        const modal =
-            document.getElementById(
-                "eventCoordinatorModal"
-            );
-
-
-        const closeButton =
-            document.getElementById(
-                "eventCoordinatorClose"
+                ".iac-team-reveal"
             );
 
 
         if (
-            openButton
-            &&
-            modal
-            &&
-            closeButton
+            "IntersectionObserver"
+            in window
         ) {
 
+            const observer =
+                new IntersectionObserver(
 
-            function openModal() {
+                    entries => {
 
-                modal.classList.add(
-                    "open"
+                        entries.forEach(
+                            entry => {
+
+                                if (
+                                    entry.isIntersecting
+                                ) {
+
+                                    entry.target
+                                        .classList
+                                        .add(
+                                            "visible"
+                                        );
+
+
+                                    observer
+                                        .unobserve(
+                                            entry.target
+                                        );
+
+                                }
+
+                            }
+                        );
+
+                    },
+
+                    {
+                        threshold: 0.12
+                    }
+
                 );
 
 
-                modal.setAttribute(
-                    "aria-hidden",
-                    "false"
-                );
+            items.forEach(
+                item => {
 
-
-                document.body
-                    .classList
-                    .add(
-                        "team-modal-open"
+                    observer.observe(
+                        item
                     );
 
-
-                closeButton.focus();
-
-            }
-
-
-
-            function closeModal() {
-
-                modal.classList.remove(
-                    "open"
-                );
-
-
-                modal.setAttribute(
-                    "aria-hidden",
-                    "true"
-                );
-
-
-                document.body
-                    .classList
-                    .remove(
-                        "team-modal-open"
-                    );
-
-
-                openButton.focus();
-
-            }
-
-
-
-            openButton.addEventListener(
-                "click",
-                openModal
+                }
             );
 
+        }
 
-            closeButton.addEventListener(
-                "click",
-                closeModal
-            );
+        else {
 
+            items.forEach(
+                item => {
 
-            modal
-                .querySelectorAll(
-                    "[data-modal-close]"
-                )
-                .forEach(
-                    element => {
-
-                        element
-                            .addEventListener(
-                                "click",
-                                closeModal
-                            );
-
-                    }
-                );
-
-
-            document.addEventListener(
-                "keydown",
-                event => {
-
-                    if (
-                        event.key === "Escape"
-                        &&
-                        modal
-                            .classList
-                            .contains(
-                                "open"
-                            )
-                    ) {
-
-                        closeModal();
-
-                    }
+                    item
+                        .classList
+                        .add(
+                            "visible"
+                        );
 
                 }
             );
