@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -11,20 +9,20 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        IAC Events
-    </title>
+    <title>IAC Events</title>
 
     <link
         rel="stylesheet"
         href="style.css"
     >
-
 </head>
 
 
 <body data-page="events">
 
+<canvas id="techCircuitCanvas"></canvas>
+
+<div id="scrollProgress"></div>
 
 <div id="site-header"></div>
 
@@ -37,16 +35,19 @@
     <div class="page-hero-content reveal">
 
         <p class="section-label">
-            ACTIVITIES
+            INNOVATE • BUILD • COMPETE
         </p>
 
         <h1>
-            Events & Workshops
+            Events & Activities
         </h1>
 
         <p>
-            Learning through practical
-            technical activities.
+
+            Workshops, competitions,
+            technical sessions and
+            innovation activities.
+
         </p>
 
     </div>
@@ -56,138 +57,62 @@
 
 <section class="section">
 
+    <div class="section-center reveal">
 
-    <div class="timeline">
+        <p class="section-label">
+            WHAT'S NEXT
+        </p>
 
+        <h2 class="section-title">
+            Upcoming Events
+        </h2>
 
-        <article class="event-card reveal">
-
-            <div class="event-icon">
-                🛠️
-            </div>
-
-            <div>
-
-                <h3>
-                    Hands-On Workshops
-                </h3>
-
-                <p>
-
-                    Practical sessions
-                    on electronics,
-                    Arduino, sensors
-                    and embedded systems.
-
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <article class="event-card reveal">
-
-            <div class="event-icon">
-                🔌
-            </div>
-
-            <div>
-
-                <h3>
-                    Circuit Making
-                </h3>
-
-                <p>
-
-                    Circuit design,
-                    testing and
-                    technical competitions.
-
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <article class="event-card reveal">
-
-            <div class="event-icon">
-                🧩
-            </div>
-
-            <div>
-
-                <h3>
-                    PCB Designing
-                </h3>
-
-                <p>
-
-                    Learn schematic
-                    development and
-                    PCB design.
-
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <article class="event-card reveal">
-
-            <div class="event-icon">
-                🏭
-            </div>
-
-            <div>
-
-                <h3>
-                    Industry Exposure
-                </h3>
-
-                <p>
-
-                    Industry interaction,
-                    industrial visits
-                    and technical training.
-
-                </p>
-
-            </div>
-
-        </article>
-
-
-        <article class="event-card reveal">
-
-            <div class="event-icon">
-                🚀
-            </div>
-
-            <div>
-
-                <h3>
-                    Project Showcase
-                </h3>
-
-                <p>
-
-                    Students demonstrate
-                    working projects
-                    and prototypes.
-
-                </p>
-
-            </div>
-
-        </article>
-
+        <p class="section-intro">
+            Updated automatically from the IAC event database.
+        </p>
 
     </div>
 
+
+    <div
+        id="upcomingEvents"
+        class="events-grid"
+    >
+
+        <div class="events-loading">
+
+            <span class="loading-spinner"></span>
+
+            <p>
+                Loading upcoming events...
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-center reveal">
+
+        <p class="section-label">
+            IAC JOURNEY
+        </p>
+
+        <h2 class="section-title">
+            Past Events
+        </h2>
+
+    </div>
+
+
+    <div
+        id="pastEvents"
+        class="events-grid"
+    ></div>
 
 </section>
 
@@ -197,10 +122,7 @@
 
 <div id="site-footer"></div>
 
-
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
