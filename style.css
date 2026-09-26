@@ -150,128 +150,271 @@ main,
     box-shadow:
         0 0 15px rgba(40, 217, 255, 0.85);
 }
-
-
 /* =========================================================
-   NAVIGATION
+   CLEAN PROFESSIONAL NAVBAR
 ========================================================= */
 
-.site-header {
+#site-header {
     position: sticky;
-
     top: 0;
+    z-index: 9999;
+}
 
-    z-index: 1000;
-
-    border-bottom:
-        1px solid var(--border);
+.site-header {
+    width: 100%;
 
     background:
-        rgba(2, 9, 20, 0.90);
+        rgba(2, 9, 20, 0.97);
+
+    border-bottom:
+        1px solid rgba(255,255,255,0.08);
 
     backdrop-filter:
-        blur(20px);
+        blur(18px);
 
     -webkit-backdrop-filter:
-        blur(20px);
+        blur(18px);
 }
+
 .navbar {
     position: relative;
 
     width: 100%;
-    max-width: 100%;
 
-    min-height: 100px;
+    min-height: 95px;
 
-    margin: 0 auto;
-
-    padding: 0 18px;
+    padding:
+        0 20px;
 
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 
-    gap: 14px;
+    align-items: center;
+
+    gap: 16px;
 }
+
+
+/* =========================================================
+   LOGOS
+========================================================= */
+
 .brand {
     flex-shrink: 0;
 }
 
 .brand-logos {
     display: flex;
+
     align-items: center;
+
     gap: 10px;
 }
 
-.bu-logo {
-    width: 76px;
-    height: 76px;
+.header-logo {
+    display: block;
+
     object-fit: contain;
+
+    object-position: center;
 }
+
+
+/* University logo bigger */
+
+.bu-logo {
+    width: 72px;
+    height: 72px;
+}
+
+
+/* IAC + ThinkNEXT same visual size */
 
 .iac-logo,
 .thinknext-logo {
-    width: 135px;
-    height: 62px;
+    width: 120px;
+    height: 58px;
+
     object-fit: contain;
 }
 
 .logo-divider {
     width: 1px;
-    height: 42px;
+    height: 40px;
 
     flex-shrink: 0;
 
     background:
-        rgba(255,255,255,0.20);
+        rgba(255,255,255,0.18);
 }
+
+
+/* =========================================================
+   MAIN NAVIGATION
+========================================================= */
+
 .nav-links {
+    min-width: 0;
+
+    margin-left: auto;
+
     display: flex;
 
     align-items: center;
 
+    justify-content: flex-end;
+
     gap: 2px;
 }
 
+.nav-links > a {
+    position: relative;
 
-.nav-links a {
     padding:
-        9px 8px;
+        10px 8px;
 
-    color: var(--muted);
+    white-space: nowrap;
 
     border-radius: 9px;
 
-    font-size: 0.78rem;
+    color:
+        #c0cada;
+
+    font-size:
+        0.78rem;
+
+    font-weight: 700;
 
     transition:
-        color 0.3s ease,
-        background 0.3s ease;
+        background 0.3s ease,
+        color 0.3s ease;
 }
 
-
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links > a:hover {
     color: white;
 
     background:
-        rgba(255, 255, 255, 0.07);
+        rgba(255,255,255,0.07);
+}
+
+.nav-links > a.active {
+    color: white;
+
+    background:
+        rgba(255,255,255,0.08);
+}
+
+.nav-links > a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 25%;
+    right: 25%;
+
+    bottom: 3px;
+
+    height: 2px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #147cff,
+            #28d9ff
+        );
 }
 
 
-.join-nav {
+/* =========================================================
+   RIGHT ACTION BUTTONS
+========================================================= */
+
+.navbar-right {
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.nav-actions {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.nav-action-btn {
+    min-height: 42px;
+
+    padding:
+        8px 13px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    white-space: nowrap;
+
+    border-radius: 11px;
+
+    font-size:
+        0.78rem;
+
+    font-weight: 800;
+}
+
+
+/* Verify */
+
+.verify-nav-btn {
+    color:
+        #9eeaff;
+
+    border:
+        1px solid rgba(40,217,255,0.28);
+
+    background:
+        rgba(40,217,255,0.06);
+}
+
+.verify-nav-btn:hover {
+    background:
+        rgba(40,217,255,0.12);
+}
+
+
+/* Join */
+
+.join-action-btn {
+    color: white;
+
     background:
         linear-gradient(
             135deg,
-            var(--blue),
-            var(--cyan)
-        ) !important;
+            #147cff,
+            #29c8ff
+        );
 
-    color: white !important;
+    border:
+        1px solid rgba(255,255,255,0.10);
 
-    font-weight: 700;
+    box-shadow:
+        0 8px 20px rgba(20,124,255,0.20);
 }
 
+
+/* =========================================================
+   MENU BUTTON
+========================================================= */
 
 .menu-btn {
     display: none;
@@ -279,25 +422,60 @@ main,
     width: 44px;
     height: 44px;
 
-    align-items: center;
-    justify-content: center;
-
     flex-shrink: 0;
 
-    border:
-        1px solid var(--border);
+    align-items: center;
 
-    border-radius: 11px;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 0;
+
+    border:
+        1px solid rgba(255,255,255,0.12);
+
+    border-radius: 12px;
 
     background:
-        rgba(255, 255, 255, 0.05);
-
-    color: white;
+        rgba(255,255,255,0.04);
 
     cursor: pointer;
 }
 
+.menu-line {
+    width: 19px;
+    height: 2px;
 
+    border-radius: 20px;
+
+    background: white;
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease;
+}
+
+.menu-btn.active
+.menu-line:nth-child(1) {
+    transform:
+        translateY(7px)
+        rotate(45deg);
+}
+
+.menu-btn.active
+.menu-line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-btn.active
+.menu-line:nth-child(3) {
+    transform:
+        translateY(-7px)
+        rotate(-45deg);
+}
 /* =========================================================
    TOP BANNER
 ========================================================= */
