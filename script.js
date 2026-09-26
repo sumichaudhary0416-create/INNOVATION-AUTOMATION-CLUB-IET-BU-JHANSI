@@ -53,24 +53,19 @@ function loadHeader() {
     }
 
 
-    const current =
+    const currentPage =
         document.body.dataset.page
-        || "home";
+        ||
+        "home";
 
+
+    /* Main navigation only */
 
     const links = [
 
-        [
-            "home",
-            "index.html",
-            "Home"
-        ],
+        ["home", "index.html", "Home"],
 
-        [
-            "about",
-            "about.html",
-            "About IAC"
-        ],
+        ["about", "about.html", "About IAC"],
 
         [
             "collaboration",
@@ -78,79 +73,32 @@ function loadHeader() {
             "Collaboration"
         ],
 
-        [
-            "eie",
-            "eie.html",
-            "About EIE"
-        ],
+        ["eie", "eie.html", "About EIE"],
 
-        [
-            "team",
-            "team.html",
-            "Team"
-        ],
+        ["team", "team.html", "Team"],
 
-        [
-            "alumni",
-            "alumni.html",
-            "Alumni"
-        ],
+        ["alumni", "alumni.html", "Alumni"],
 
-        [
-            "projects",
-            "projects.html",
-            "Projects"
-        ],
+        ["projects", "projects.html", "Projects"],
 
-        [
-            "events",
-            "events.html",
-            "Events"
-        ],
+        ["events", "events.html", "Events"],
 
-        [
-            "gallery",
-            "gallery.html",
-            "Gallery"
-        ],
+        ["gallery", "gallery.html", "Gallery"],
 
-        [
-            "verify",
-            "verify.html",
-            "Verify"
-        ],
-
-        [
-            "contact",
-            "contact.html",
-            "Contact"
-        ],
-
-        [
-            "join",
-            "join.html",
-            "Join IAC"
-        ]
+        ["contact", "contact.html", "Contact"]
 
     ];
 
 
-    let navHTML =
-        "";
+    let navHTML = "";
 
 
     links.forEach(
         ([page, url, label]) => {
 
             const active =
-                current === page
+                page === currentPage
                     ? "active"
-                    : "";
-
-
-            const join =
-                page === "join"
-                    ? "join-nav"
                     : "";
 
 
@@ -158,7 +106,7 @@ function loadHeader() {
 
                 <a
                     href="${url}"
-                    class="${active} ${join}"
+                    class="${active}"
                 >
                     ${label}
                 </a>
@@ -175,6 +123,10 @@ function loadHeader() {
 
             <nav class="navbar">
 
+
+                <!-- =====================================
+                     LOGOS
+                ====================================== -->
 
                 <a
                     href="index.html"
@@ -221,21 +173,112 @@ function loadHeader() {
                 </a>
 
 
-                <button
-                    id="menuBtn"
-                    class="menu-btn"
-                    aria-label="Open navigation menu"
-                    aria-expanded="false"
-                >
-                    ☰
-                </button>
 
+                <!-- =====================================
+                     DESKTOP NAVIGATION
+                ====================================== -->
 
                 <div
-                    id="navLinks"
                     class="nav-links"
+                    id="navLinks"
                 >
+
                     ${navHTML}
+
+
+                    <!-- Mobile menu also contains
+                         Verify + Join -->
+
+                    <div class="mobile-menu-actions">
+
+                        <a
+                            href="verify.html"
+                            class="mobile-action-link"
+                        >
+                            ✓ Verify Certificate
+                        </a>
+
+
+                        <a
+                            href="join.html"
+                            class="mobile-action-link mobile-join-link"
+                        >
+                            Join IAC →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =====================================
+                     RIGHT SIDE ACTION BUTTONS
+                ====================================== -->
+
+                <div class="navbar-right">
+
+
+                    <div class="nav-actions">
+
+
+                        <a
+                            href="verify.html"
+                            class="
+                                nav-action-btn
+                                verify-nav-btn
+                            "
+                        >
+
+                            <span class="nav-action-icon">
+                                ✓
+                            </span>
+
+                            <span class="nav-action-text">
+                                Verify
+                            </span>
+
+                        </a>
+
+
+                        <a
+                            href="join.html"
+                            class="
+                                nav-action-btn
+                                join-action-btn
+                            "
+                        >
+
+                            <span class="nav-action-text">
+                                Join IAC
+                            </span>
+
+                            <span>
+                                →
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+
+
+                    <button
+                        id="menuBtn"
+                        class="menu-btn"
+                        type="button"
+                        aria-label="Open navigation menu"
+                        aria-expanded="false"
+                    >
+
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+                        <span class="menu-line"></span>
+
+                    </button>
+
+
                 </div>
 
 
@@ -246,8 +289,6 @@ function loadHeader() {
     `;
 
 }
-
-
 /* =========================================================
    FOOTER
 ========================================================= */
@@ -435,17 +476,31 @@ function setupMobileMenu() {
         );
 
 
-    if (!button || !navigation) {
+    if (
+        !button
+        ||
+        !navigation
+    ) {
+
         return;
+
     }
 
 
     button.addEventListener(
         "click",
-        () => {
+        event => {
+
+            event.stopPropagation();
+
 
             navigation.classList.toggle(
                 "show"
+            );
+
+
+            button.classList.toggle(
+                "active"
             );
 
 
@@ -453,12 +508,6 @@ function setupMobileMenu() {
                 navigation.classList.contains(
                     "show"
                 );
-
-
-            button.textContent =
-                opened
-                    ? "✕"
-                    : "☰";
 
 
             button.setAttribute(
@@ -470,35 +519,115 @@ function setupMobileMenu() {
     );
 
 
+
+    /* Close after link click */
+
     navigation
         .querySelectorAll("a")
-        .forEach(link => {
+        .forEach(
+            link => {
 
-            link.addEventListener(
-                "click",
-                () => {
+                link.addEventListener(
+                    "click",
+                    () => {
 
-                    navigation.classList.remove(
-                        "show"
-                    );
+                        closeMobileMenu();
+
+                    }
+                );
+
+            }
+        );
 
 
-                    button.textContent =
-                        "☰";
+
+    /* Click outside closes menu */
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            if (
+                !navigation.contains(
+                    event.target
+                )
+                &&
+                !button.contains(
+                    event.target
+                )
+            ) {
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
 
 
-                    button.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
 
-                }
-            );
+    /* Escape closes menu */
 
-        });
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key
+                ===
+                "Escape"
+            ) {
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
+
+
+
+    /* Desktop resize */
+
+    window.addEventListener(
+        "resize",
+        () => {
+
+            if (
+                window.innerWidth
+                >
+                1180
+            ) {
+
+                closeMobileMenu();
+
+            }
+
+        }
+    );
+
+
+
+    function closeMobileMenu() {
+
+        navigation.classList.remove(
+            "show"
+        );
+
+
+        button.classList.remove(
+            "active"
+        );
+
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    }
 
 }
-
 
 /* =========================================================
    PLACEHOLDER LINKS
