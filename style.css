@@ -4385,462 +4385,394 @@ and
 
 }
 /* =========================================================
-   TEAM PAGE - OPTION 4
-   FOUNDER + CORE COMMITTEE + SUPPORT TEAM
+   NEW TEAM PAGE DESIGN
 ========================================================= */
 
-.team-founder-section {
-    position: relative;
+.team-soft-section {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20,124,255,0.025),
+            rgba(40,217,255,0.015)
+        );
 }
 
 
 /* =========================================================
-   FOUNDER FEATURE CARD
+   LEADERSHIP
 ========================================================= */
 
-.team-founder-card {
-    position: relative;
+.leadership-grid {
+    width: min(1120px, 100%);
 
-    width:
-        min(
-            1050px,
-            100%
-        );
-
-    margin:
-        45px auto 0;
+    margin: 45px auto 0;
 
     display: grid;
 
     grid-template-columns:
-        360px 1fr;
+        repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+}
+
+
+.leadership-card {
+    display: grid;
+
+    grid-template-columns:
+        190px 1fr;
+
+    min-height: 290px;
 
     overflow: hidden;
 
     border:
-        1px solid rgba(40,217,255,0.22);
+        1px solid rgba(40,217,255,0.18);
 
-    border-radius: 28px;
+    border-radius: 24px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(13,46,79,0.96),
-            rgba(3,17,33,0.99)
+            rgba(12,44,76,0.96),
+            rgba(3,17,33,0.98)
         );
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,0.35);
+        0 22px 55px rgba(0,0,0,0.24);
 }
 
 
-.team-founder-card::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 3px;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #147cff,
-            #28d9ff,
-            #147cff,
-            transparent
-        );
-
-    background-size:
-        200% 100%;
-
-    animation:
-        teamFounderLine 5s linear infinite;
-}
-
-
-@keyframes teamFounderLine {
-
-    to {
-        background-position:
-            -200% 0;
-    }
-
-}
-
-
-.team-founder-image-box {
-    position: relative;
-
-    min-height: 470px;
+.leadership-image-box {
+    min-height: 290px;
 
     overflow: hidden;
 
-    background:
-        #07182b;
+    background: #07182b;
 }
 
 
-.team-founder-image {
+.leadership-image {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 
-    object-position:
-        center top;
-
-    transition:
-        transform 0.6s ease;
+    object-position: center top;
 }
 
 
-.team-founder-card:hover
-.team-founder-image {
-    transform:
-        scale(1.04);
+.leadership-content {
+    padding: 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-start;
 }
 
 
-.team-founder-content {
-    position: relative;
+.leadership-badge {
+    padding: 6px 10px;
 
-    padding:
-        48px;
-
-    align-self: center;
-}
-
-
-.team-founder-badge {
-    display: inline-flex;
-
-    padding:
-        6px 12px;
+    color: #8cecff;
 
     border:
-        1px solid rgba(40,217,255,0.24);
+        1px solid rgba(40,217,255,0.20);
 
-    border-radius: 40px;
+    border-radius: 30px;
 
     background:
-        rgba(40,217,255,0.07);
+        rgba(40,217,255,0.06);
 
-    color:
-        #8cecff;
-
-    font-size:
-        0.65rem;
+    font-size: 0.62rem;
 
     font-weight: 800;
 
-    letter-spacing:
-        1.2px;
+    letter-spacing: 1px;
 }
 
 
-.team-founder-content h2 {
-    margin-top:
-        13px;
+.leadership-content h2 {
+    margin-top: 13px;
 
-    color:
-        #fff1d7;
+    color: #fff1d7;
 
-    font-size:
-        clamp(
-            2.3rem,
-            5vw,
-            3.7rem
-        );
-
-    line-height:
-        1;
+    font-size: 1.8rem;
 }
 
 
-.team-founder-content h3 {
-    margin-top:
-        9px;
+.leadership-content p {
+    margin: 10px 0 17px;
 
-    color:
-        #8cecff;
+    color: #aab9cd;
 
-    font-size:
-        1rem;
-}
-
-
-.team-founder-content > p {
-    max-width:
-        620px;
-
-    margin-top:
-        19px;
-
-    color:
-        #aab9cd;
-
-    line-height:
-        1.8;
+    font-size: 0.86rem;
 }
 
 
 /* =========================================================
-   FOUNDER TECH FOCUS
+   CORE COMMITTEE
 ========================================================= */
 
-.team-founder-focus {
-    display: flex;
+.core-committee-grid {
+    width: min(760px, 100%);
 
-    flex-wrap: wrap;
+    margin: 45px auto 0;
 
-    gap: 8px;
+    display: grid;
 
-    margin-top:
-        22px;
+    grid-template-columns:
+        repeat(2, minmax(0,1fr));
+
+    gap: 22px;
 }
 
 
-.team-founder-focus span {
-    padding:
-        7px 10px;
+/* =========================================================
+   EVENT WIDE CARD
+========================================================= */
+
+.event-team-wide-card {
+    width: min(1000px, 100%);
+
+    margin: 42px auto 0;
+
+    padding: 24px 28px;
+
+    display: grid;
+
+    grid-template-columns:
+        auto 1fr auto auto;
+
+    align-items: center;
+
+    gap: 22px;
+
+    text-align: left;
+
+    font-family: inherit;
+
+    color: inherit;
 
     border:
-        1px solid rgba(255,255,255,0.08);
+        1px solid rgba(40,217,255,0.22);
 
-    border-radius:
-        9px;
+    border-radius: 22px;
 
     background:
-        rgba(255,255,255,0.035);
+        linear-gradient(
+            135deg,
+            rgba(20,124,255,0.13),
+            rgba(40,217,255,0.05),
+            rgba(3,17,33,0.96)
+        );
 
-    color:
-        #c8d9e9;
+    box-shadow:
+        0 22px 60px rgba(0,0,0,0.25);
 
-    font-size:
-        0.75rem;
+    cursor: pointer;
 
     transition:
         transform 0.3s ease,
         border-color 0.3s ease,
-        background 0.3s ease;
+        box-shadow 0.3s ease;
 }
 
 
-.team-founder-focus span:hover {
-    transform:
-        translateY(-3px);
+.event-team-wide-card:hover {
+    transform: translateY(-5px);
 
     border-color:
-        rgba(40,217,255,0.30);
+        rgba(40,217,255,0.45);
+
+    box-shadow:
+        0 28px 70px rgba(0,0,0,0.32);
+}
+
+
+.event-team-main-icon {
+    width: 72px;
+    height: 72px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 18px;
 
     background:
-        rgba(40,217,255,0.06);
+        linear-gradient(
+            135deg,
+            rgba(20,124,255,0.25),
+            rgba(40,217,255,0.12)
+        );
+
+    font-size: 2rem;
+}
+
+
+.event-team-wide-info span {
+    color: #8cecff;
+
+    font-size: 0.62rem;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+}
+
+
+.event-team-wide-info h3 {
+    margin-top: 3px;
+
+    color: #fff1d7;
+
+    font-size: 1.5rem;
+}
+
+
+.event-team-wide-info p {
+    margin-top: 3px;
+
+    color: #aab9cd;
+
+    font-size: 0.84rem;
+}
+
+
+.event-team-count {
+    min-width: 72px;
+
+    text-align: center;
+}
+
+
+.event-team-count strong {
+    display: block;
+
+    color: #28d9ff;
+
+    font-size: 1.7rem;
+
+    line-height: 1;
+}
+
+
+.event-team-count small {
+    color: #8395aa;
+
+    font-size: 0.56rem;
+
+    font-weight: 800;
+}
+
+
+.event-team-arrow {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    border:
+        1px solid rgba(40,217,255,0.18);
+
+    border-radius: 50%;
+
+    color: #8cecff;
+
+    font-size: 1.3rem;
 }
 
 
 /* =========================================================
-   TEAM GROUP SECTIONS
-========================================================= */
-
-.team-group-section {
-    position: relative;
-}
-
-
-.support-team-section {
-    padding-top:
-        60px;
-}
-
-
-.core-team-grid,
-.support-team-grid {
-    max-width:
-        1080px;
-}
-
-
-/* subtle role accent */
-
-.core-team-grid
-.person-card {
-    border-top:
-        2px solid
-        rgba(40,217,255,0.45);
-}
-
-
-.support-team-grid
-.person-card {
-    border-top:
-        2px solid
-        rgba(20,124,255,0.40);
-}
-
-
-/* =========================================================
-   LINKEDIN BUTTON
-========================================================= */
-
-.team-founder-card
-.linkedin-profile-btn {
-    margin-top:
-        5px;
-}
-
-
-.linkedin-profile-btn {
-    cursor: pointer;
-}
-
-
-.linkedin-profile-btn.is-placeholder {
-    cursor: default;
-
-    opacity: 0.55;
-}
-
-
-/* =========================================================
-   TABLET
+   RESPONSIVE TEAM DESIGN
 ========================================================= */
 
 @media (max-width: 900px) {
 
-    .team-founder-card {
+    .leadership-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .leadership-card {
         grid-template-columns:
-            300px 1fr;
-    }
-
-
-    .team-founder-image-box {
-        min-height:
-            430px;
-    }
-
-
-    .team-founder-content {
-        padding:
-            36px 30px;
+            220px 1fr;
     }
 
 }
 
-
-/* =========================================================
-   PHONE
-========================================================= */
 
 @media (max-width: 700px) {
 
-    .team-founder-card {
+    .leadership-card {
+        grid-template-columns: 1fr;
+    }
+
+
+    .leadership-image-box {
+        height: 390px;
+
+        min-height: 0;
+    }
+
+
+    .leadership-content {
+        padding: 25px 20px;
+
+        align-items: center;
+
+        text-align: center;
+    }
+
+
+    .core-committee-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .event-team-wide-card {
         grid-template-columns:
-            1fr;
+            auto 1fr auto;
 
-        border-radius:
-            22px;
+        padding: 20px;
+
+        gap: 14px;
     }
 
 
-    .team-founder-image-box {
-        width:
-            100%;
-
-        height:
-            430px;
-
-        min-height:
-            0;
-    }
-
-
-    .team-founder-content {
-        padding:
-            30px 20px;
-
-        text-align:
-            center;
-    }
-
-
-    .team-founder-content > p {
-        margin-left:
-            auto;
-
-        margin-right:
-            auto;
-    }
-
-
-    .team-founder-focus {
-        justify-content:
-            center;
-    }
-
-
-    .team-founder-card
-    .member-socials {
-        justify-content:
-            center;
-    }
-
-
-    .team-founder-card
-    .linkedin-profile-btn {
-        width:
-            100%;
-    }
-
-
-    .support-team-section {
-        padding-top:
-            40px;
+    .event-team-count {
+        display: none;
     }
 
 }
 
 
-/* =========================================================
-   SMALL PHONE
-========================================================= */
+@media (max-width: 480px) {
 
-@media (max-width: 430px) {
-
-    .team-founder-image-box {
-        height:
-            380px;
-    }
-
-
-    .team-founder-content {
-        padding:
-            26px 16px;
-    }
-
-
-    .team-founder-focus {
-        display:
-            grid;
-
+    .event-team-wide-card {
         grid-template-columns:
-            repeat(
-                2,
-                minmax(0,1fr)
-            );
+            1fr;
 
-        width:
-            100%;
+        text-align: center;
     }
 
 
-    .team-founder-focus span {
-        text-align:
-            center;
+    .event-team-main-icon,
+    .event-team-arrow {
+        margin: auto;
+    }
+
+
+    .event-team-main-icon {
+        width: 65px;
+        height: 65px;
     }
 
 }
