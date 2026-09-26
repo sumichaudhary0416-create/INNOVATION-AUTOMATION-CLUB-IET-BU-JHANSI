@@ -21,13 +21,13 @@
 
 
     <!-- =====================================================
-         TEAM PAGE DESIGN
+         TEAM PAGE ONLY CSS
     ====================================================== -->
 
     <style>
 
         /* =====================================================
-           TEAM PAGE
+           PAGE
         ====================================================== */
 
         .iac-team-page {
@@ -43,7 +43,7 @@
         .iac-team-hero {
             position: relative;
 
-            min-height: 410px;
+            min-height: 420px;
 
             padding: 90px 20px;
 
@@ -62,8 +62,8 @@
 
             position: absolute;
 
-            width: 440px;
-            height: 440px;
+            width: 460px;
+            height: 460px;
 
             top: -230px;
             left: 50%;
@@ -73,11 +73,62 @@
             border-radius: 50%;
 
             background:
-                rgba(40, 217, 255, 0.09);
+                rgba(40, 217, 255, 0.10);
 
-            filter: blur(12px);
+            filter: blur(25px);
 
             pointer-events: none;
+
+            animation:
+                heroGlowMove 6s ease-in-out infinite alternate;
+        }
+
+
+        .iac-team-hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 300px;
+            height: 300px;
+
+            bottom: -160px;
+            right: 5%;
+
+            border-radius: 50%;
+
+            background:
+                rgba(20, 124, 255, 0.09);
+
+            filter: blur(20px);
+
+            pointer-events: none;
+
+            animation:
+                heroGlowMoveTwo 7s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes heroGlowMove {
+
+            to {
+                transform:
+                    translateX(-50%)
+                    translateY(45px)
+                    scale(1.15);
+            }
+
+        }
+
+
+        @keyframes heroGlowMoveTwo {
+
+            to {
+                transform:
+                    translate(-60px, -40px)
+                    scale(1.15);
+            }
+
         }
 
 
@@ -92,7 +143,7 @@
         .iac-team-label {
             color: #8cecff;
 
-            font-size: 0.7rem;
+            font-size: 0.70rem;
             font-weight: 800;
 
             letter-spacing: 3px;
@@ -102,7 +153,7 @@
 
 
         .iac-team-hero h1 {
-            margin-top: 12px;
+            margin-top: 13px;
 
             color: #fff1d7;
 
@@ -110,7 +161,7 @@
                 clamp(
                     3rem,
                     7vw,
-                    5.5rem
+                    5.6rem
                 );
 
             line-height: 1;
@@ -121,6 +172,10 @@
 
         .iac-team-hero h1 span {
             color: #28d9ff;
+
+            text-shadow:
+                0 0 28px
+                rgba(40, 217, 255, 0.22);
         }
 
 
@@ -138,12 +193,12 @@
 
 
         .iac-team-hero-line {
-            width: 85px;
+            width: 90px;
             height: 3px;
 
             margin: 26px auto 0;
 
-            border-radius: 50px;
+            border-radius: 30px;
 
             background:
                 linear-gradient(
@@ -157,25 +212,30 @@
                 rgba(40, 217, 255, 0.55);
 
             animation:
-                teamLineGlow 2.5s ease-in-out infinite;
+                teamLineGlow 2.6s ease-in-out infinite;
         }
 
 
         @keyframes teamLineGlow {
+
+            0%,
+            100% {
+                width: 90px;
+            }
 
             50% {
                 width: 145px;
 
                 box-shadow:
                     0 0 28px
-                    rgba(40, 217, 255, 0.80);
+                    rgba(40, 217, 255, 0.78);
             }
 
         }
 
 
         /* =====================================================
-           SECTION
+           SECTIONS
         ====================================================== */
 
         .iac-team-section {
@@ -184,12 +244,22 @@
             width: 100%;
 
             padding:
-                80px 22px;
+                82px 22px;
+        }
+
+
+        .iac-team-section:nth-of-type(even) {
+            background:
+                linear-gradient(
+                    180deg,
+                    rgba(20, 124, 255, 0.018),
+                    rgba(40, 217, 255, 0.012)
+                );
         }
 
 
         .iac-team-section-heading {
-            width: min(800px, 100%);
+            width: min(820px, 100%);
 
             margin: auto;
 
@@ -198,6 +268,10 @@
 
 
         .iac-team-section-heading h2 {
+            position: relative;
+
+            display: inline-block;
+
             margin-top: 8px;
 
             color: #fff1d7;
@@ -213,10 +287,44 @@
         }
 
 
-        .iac-team-section-heading p {
-            max-width: 650px;
+        .iac-team-section-heading h2::after {
+            content: "";
 
-            margin: 12px auto 0;
+            position: absolute;
+
+            left: 50%;
+            bottom: -11px;
+
+            width: 0;
+            height: 3px;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #147cff,
+                    #28d9ff
+                );
+
+            transition:
+                width 0.8s ease;
+        }
+
+
+        .iac-team-section-heading.visible h2::after {
+            width: 82px;
+        }
+
+
+        .iac-team-section-heading p {
+            max-width: 670px;
+
+            margin:
+                22px auto 0;
 
             color: #aab9cd;
 
@@ -231,7 +339,7 @@
         .iac-leadership-grid {
             width: min(1080px, 100%);
 
-            margin: 45px auto 0;
+            margin: 48px auto 0;
 
             display: grid;
 
@@ -241,11 +349,14 @@
                     minmax(0, 1fr)
                 );
 
-            gap: 24px;
+            gap: 25px;
         }
 
 
         .iac-leadership-card {
+            --mx: 50%;
+            --my: 30%;
+
             position: relative;
 
             min-width: 0;
@@ -261,7 +372,7 @@
                 1px solid
                 rgba(40, 217, 255, 0.18);
 
-            border-radius: 24px;
+            border-radius: 25px;
 
             background:
                 linear-gradient(
@@ -274,10 +385,12 @@
                 0 20px 55px
                 rgba(0, 0, 0, 0.25);
 
+            transform-style: preserve-3d;
+
             transition:
-                transform 0.4s ease,
-                border-color 0.4s ease,
-                box-shadow 0.4s ease;
+                transform 0.25s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
         }
 
 
@@ -286,31 +399,63 @@
 
             position: absolute;
 
+            inset: 0;
+
+            z-index: 4;
+
+            pointer-events: none;
+
+            opacity: 0;
+
+            background:
+                radial-gradient(
+                    340px circle at var(--mx) var(--my),
+                    rgba(40, 217, 255, 0.13),
+                    transparent 50%
+                );
+
+            transition:
+                opacity 0.35s ease;
+        }
+
+
+        .iac-leadership-card:hover::before {
+            opacity: 1;
+        }
+
+
+        .iac-leadership-card::after {
+            content: "";
+
+            position: absolute;
+
             top: 0;
             left: 0;
+
+            z-index: 5;
 
             width: 100%;
             height: 3px;
 
-            z-index: 2;
-
             background:
                 linear-gradient(
                     90deg,
+                    transparent,
                     #147cff,
                     #28d9ff,
-                    #147cff
+                    #147cff,
+                    transparent
                 );
 
             background-size:
                 200% 100%;
 
             animation:
-                teamCardLine 4s linear infinite;
+                movingCardLine 4.5s linear infinite;
         }
 
 
-        @keyframes teamCardLine {
+        @keyframes movingCardLine {
 
             to {
                 background-position:
@@ -321,25 +466,23 @@
 
 
         .iac-leadership-card:hover {
-            transform:
-                translateY(-8px);
-
             border-color:
-                rgba(40, 217, 255, 0.40);
+                rgba(40, 217, 255, 0.42);
 
             box-shadow:
-                0 28px 70px
-                rgba(0, 0, 0, 0.35);
+                0 30px 75px
+                rgba(0, 0, 0, 0.36);
         }
 
 
         .iac-leadership-photo-box {
             width: 100%;
-            height: 300px;
+            height: 310px;
 
             overflow: hidden;
 
-            background: #07182b;
+            background:
+                #07182b;
         }
 
 
@@ -353,20 +496,28 @@
             object-position: center top;
 
             transition:
-                transform 0.55s ease;
+                transform 0.55s ease,
+                filter 0.55s ease;
         }
 
 
         .iac-leadership-card:hover
         .iac-leadership-photo {
             transform:
-                scale(1.05);
+                scale(1.06);
+
+            filter:
+                brightness(1.04)
+                saturate(1.05);
         }
 
 
         .iac-leadership-info {
+            position: relative;
+            z-index: 2;
+
             padding:
-                28px 24px;
+                29px 24px;
 
             display: flex;
 
@@ -404,6 +555,27 @@
             letter-spacing: 1px;
 
             text-transform: uppercase;
+
+            animation:
+                roleSoftGlow 3.2s ease-in-out infinite;
+        }
+
+
+        @keyframes roleSoftGlow {
+
+            0%,
+            100% {
+                text-shadow:
+                    0 0 0
+                    rgba(40, 217, 255, 0);
+            }
+
+            50% {
+                text-shadow:
+                    0 0 12px
+                    rgba(40, 217, 255, 0.40);
+            }
+
         }
 
 
@@ -429,17 +601,17 @@
 
 
         /* =====================================================
-           STANDARD TEAM GRID
+           TEAM GRID
         ====================================================== */
 
         .iac-team-grid {
             width: min(1050px, 100%);
 
-            margin: 45px auto 0;
+            margin: 48px auto 0;
 
             display: grid;
 
-            gap: 22px;
+            gap: 23px;
         }
 
 
@@ -475,10 +647,13 @@
 
 
         /* =====================================================
-           NORMAL MEMBER CARD
+           MEMBER CARD
         ====================================================== */
 
         .iac-member-card {
+            --mx: 50%;
+            --my: 30%;
+
             position: relative;
 
             min-width: 0;
@@ -489,7 +664,7 @@
                 1px solid
                 rgba(255, 255, 255, 0.09);
 
-            border-radius: 22px;
+            border-radius: 23px;
 
             background:
                 linear-gradient(
@@ -502,33 +677,63 @@
                 0 18px 45px
                 rgba(0, 0, 0, 0.22);
 
+            transform-style: preserve-3d;
+
             transition:
-                transform 0.4s ease,
-                border-color 0.4s ease,
-                box-shadow 0.4s ease;
+                transform 0.25s ease,
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+
+        .iac-member-card::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 5;
+
+            pointer-events: none;
+
+            opacity: 0;
+
+            background:
+                radial-gradient(
+                    300px circle at var(--mx) var(--my),
+                    rgba(40, 217, 255, 0.13),
+                    transparent 52%
+                );
+
+            transition:
+                opacity 0.35s ease;
+        }
+
+
+        .iac-member-card:hover::after {
+            opacity: 1;
         }
 
 
         .iac-member-card:hover {
-            transform:
-                translateY(-8px);
-
             border-color:
-                rgba(40, 217, 255, 0.35);
+                rgba(40, 217, 255, 0.36);
 
             box-shadow:
-                0 26px 62px
-                rgba(0, 0, 0, 0.32);
+                0 28px 65px
+                rgba(0, 0, 0, 0.34);
         }
 
 
         .iac-member-photo-box {
             width: 100%;
-            height: 310px;
+            height: 315px;
 
             overflow: hidden;
 
-            background: #07182b;
+            background:
+                #07182b;
         }
 
 
@@ -544,19 +749,28 @@
                 center top;
 
             transition:
-                transform 0.5s ease;
+                transform 0.55s ease,
+                filter 0.55s ease;
         }
 
 
         .iac-member-card:hover
         .iac-member-photo {
             transform:
-                scale(1.05);
+                scale(1.06);
+
+            filter:
+                brightness(1.04)
+                saturate(1.04);
         }
 
 
         .iac-member-info {
-            padding: 22px;
+            position: relative;
+            z-index: 2;
+
+            padding:
+                22px;
         }
 
 
@@ -569,6 +783,9 @@
             letter-spacing: 1px;
 
             text-transform: uppercase;
+
+            animation:
+                roleSoftGlow 3.2s ease-in-out infinite;
         }
 
 
@@ -598,10 +815,14 @@
 
 
         /* =====================================================
-           LINKEDIN BUTTON
+           LINKEDIN
         ====================================================== */
 
         .iac-linkedin-btn {
+            position: relative;
+
+            overflow: hidden;
+
             display: inline-flex;
 
             align-items: center;
@@ -634,6 +855,34 @@
         }
 
 
+        .iac-linkedin-btn::before {
+            content: "";
+
+            position: absolute;
+
+            top: -30%;
+            left: -60px;
+
+            width: 30px;
+            height: 160%;
+
+            transform:
+                rotate(20deg);
+
+            background:
+                rgba(255, 255, 255, 0.20);
+
+            transition:
+                left 0.5s ease;
+        }
+
+
+        .iac-linkedin-btn:hover::before {
+            left:
+                calc(100% + 60px);
+        }
+
+
         .iac-linkedin-btn:hover {
             transform:
                 translateY(-3px);
@@ -660,18 +909,16 @@
 
 
         /* =====================================================
-           EVENT COORDINATOR CARDS
+           EVENT COORDINATORS
         ====================================================== */
-
-        .iac-event-section {
-            position: relative;
-        }
-
 
         .iac-event-card {
             border:
                 1px solid
-                rgba(40, 217, 255, 0.16);
+                rgba(40, 217, 255, 0.17);
+
+            animation:
+                eventCardBreath 4s ease-in-out infinite;
         }
 
 
@@ -683,7 +930,7 @@
             top: 0;
             left: 0;
 
-            z-index: 2;
+            z-index: 7;
 
             width: 100%;
             height: 3px;
@@ -692,8 +939,33 @@
                 linear-gradient(
                     90deg,
                     #147cff,
-                    #28d9ff
+                    #28d9ff,
+                    #147cff
                 );
+
+            background-size:
+                200% 100%;
+
+            animation:
+                movingCardLine 4s linear infinite;
+        }
+
+
+        @keyframes eventCardBreath {
+
+            0%,
+            100% {
+                box-shadow:
+                    0 18px 45px
+                    rgba(0, 0, 0, 0.22);
+            }
+
+            50% {
+                box-shadow:
+                    0 22px 58px
+                    rgba(20, 124, 255, 0.16);
+            }
+
         }
 
 
@@ -705,7 +977,7 @@
             opacity: 0;
 
             transform:
-                translateY(30px);
+                translateY(32px);
 
             transition:
                 opacity 0.75s ease,
@@ -721,8 +993,6 @@
         }
 
 
-        /* stagger effect */
-
         .iac-team-grid
         .iac-team-reveal:nth-child(2) {
             transition-delay: 0.10s;
@@ -732,6 +1002,12 @@
         .iac-team-grid
         .iac-team-reveal:nth-child(3) {
             transition-delay: 0.20s;
+        }
+
+
+        .iac-leadership-grid
+        .iac-team-reveal:nth-child(2) {
+            transition-delay: 0.12s;
         }
 
 
@@ -809,13 +1085,13 @@
 
 
         /* =====================================================
-           SMALL PHONE
+           SMALL MOBILE
         ====================================================== */
 
         @media (max-width: 430px) {
 
             .iac-team-hero {
-                min-height: 340px;
+                min-height: 350px;
 
                 padding:
                     65px 14px;
@@ -827,7 +1103,7 @@
                     clamp(
                         2.7rem,
                         14vw,
-                        3.7rem
+                        3.8rem
                     );
             }
 
@@ -848,6 +1124,11 @@
                     20px 17px;
             }
 
+
+            .iac-linkedin-btn {
+                width: 100%;
+            }
+
         }
 
 
@@ -866,9 +1147,15 @@
             }
 
 
+            .iac-team-hero::before,
+            .iac-team-hero::after,
             .iac-team-hero-line,
-            .iac-leadership-card::before {
-                animation: none;
+            .iac-role-badge,
+            .iac-member-role,
+            .iac-leadership-card::after,
+            .iac-event-card,
+            .iac-event-card::before {
+                animation: none !important;
             }
 
         }
@@ -955,10 +1242,11 @@
     <div class="iac-leadership-grid">
 
 
-        <!-- SHUBHRA YADAV -->
+        <!-- SHUBHRA -->
 
-        <article class="iac-leadership-card iac-team-reveal">
-
+        <article
+            class="iac-leadership-card iac-team-reveal iac-tilt-card"
+        >
 
             <div class="iac-leadership-photo-box">
 
@@ -1000,15 +1288,15 @@
 
             </div>
 
-
         </article>
 
 
 
         <!-- SUMIT -->
 
-        <article class="iac-leadership-card iac-team-reveal">
-
+        <article
+            class="iac-leadership-card iac-team-reveal iac-tilt-card"
+        >
 
             <div class="iac-leadership-photo-box">
 
@@ -1049,7 +1337,6 @@
                 </a>
 
             </div>
-
 
         </article>
 
@@ -1092,8 +1379,9 @@
 
         <!-- ADITYA -->
 
-        <article class="iac-member-card iac-team-reveal">
-
+        <article
+            class="iac-member-card iac-team-reveal iac-tilt-card"
+        >
 
             <div class="iac-member-photo-box">
 
@@ -1133,15 +1421,15 @@
 
             </div>
 
-
         </article>
 
 
 
         <!-- GAUTAM -->
 
-        <article class="iac-member-card iac-team-reveal">
-
+        <article
+            class="iac-member-card iac-team-reveal iac-tilt-card"
+        >
 
             <div class="iac-member-photo-box">
 
@@ -1177,7 +1465,6 @@
                 </div>
 
             </div>
-
 
         </article>
 
@@ -1220,8 +1507,9 @@
 
         <!-- DEEPAK -->
 
-        <article class="iac-member-card iac-team-reveal">
-
+        <article
+            class="iac-member-card iac-team-reveal iac-tilt-card"
+        >
 
             <div class="iac-member-photo-box">
 
@@ -1261,15 +1549,15 @@
 
             </div>
 
-
         </article>
 
 
 
         <!-- SHUBHASHINI -->
 
-        <article class="iac-member-card iac-team-reveal">
-
+        <article
+            class="iac-member-card iac-team-reveal iac-tilt-card"
+        >
 
             <div class="iac-member-photo-box">
 
@@ -1309,15 +1597,15 @@
 
             </div>
 
-
         </article>
 
 
 
         <!-- KARTIK -->
 
-        <article class="iac-member-card iac-team-reveal">
-
+        <article
+            class="iac-member-card iac-team-reveal iac-tilt-card"
+        >
 
             <div class="iac-member-photo-box">
 
@@ -1354,7 +1642,6 @@
 
             </div>
 
-
         </article>
 
 
@@ -1368,7 +1655,7 @@
      4. EVENT COORDINATORS
 ===================================================== -->
 
-<section class="iac-team-section iac-event-section">
+<section class="iac-team-section">
 
     <div class="iac-team-section-heading iac-team-reveal">
 
@@ -1397,9 +1684,8 @@
         <!-- DIVYANSHU -->
 
         <article
-            class="iac-member-card iac-event-card iac-team-reveal"
+            class="iac-member-card iac-event-card iac-team-reveal iac-tilt-card"
         >
-
 
             <div class="iac-member-photo-box">
 
@@ -1445,7 +1731,6 @@
 
             </div>
 
-
         </article>
 
 
@@ -1453,9 +1738,8 @@
         <!-- ANJALI -->
 
         <article
-            class="iac-member-card iac-event-card iac-team-reveal"
+            class="iac-member-card iac-event-card iac-team-reveal iac-tilt-card"
         >
-
 
             <div class="iac-member-photo-box">
 
@@ -1498,7 +1782,6 @@
 
             </div>
 
-
         </article>
 
 
@@ -1520,7 +1803,7 @@
 
 
 <!-- =====================================================
-     MAIN WEBSITE JS
+     MAIN WEBSITE JAVASCRIPT
 ===================================================== -->
 
 <script src="script.js"></script>
@@ -1528,7 +1811,7 @@
 
 
 <!-- =====================================================
-     TEAM PAGE ANIMATION
+     TEAM PAGE ANIMATIONS
 ===================================================== -->
 
 <script>
@@ -1537,7 +1820,12 @@ document.addEventListener(
     "DOMContentLoaded",
     function () {
 
-        const items =
+
+        /* =================================================
+           SCROLL REVEAL
+        ================================================= */
+
+        const revealItems =
             document.querySelectorAll(
                 ".iac-team-reveal"
             );
@@ -1548,7 +1836,7 @@ document.addEventListener(
             in window
         ) {
 
-            const observer =
+            const revealObserver =
                 new IntersectionObserver(
 
                     entries => {
@@ -1567,7 +1855,7 @@ document.addEventListener(
                                         );
 
 
-                                    observer
+                                    revealObserver
                                         .unobserve(
                                             entry.target
                                         );
@@ -1586,10 +1874,10 @@ document.addEventListener(
                 );
 
 
-            items.forEach(
+            revealItems.forEach(
                 item => {
 
-                    observer.observe(
+                    revealObserver.observe(
                         item
                     );
 
@@ -1600,19 +1888,151 @@ document.addEventListener(
 
         else {
 
-            items.forEach(
+            revealItems.forEach(
                 item => {
 
-                    item
-                        .classList
-                        .add(
-                            "visible"
-                        );
+                    item.classList.add(
+                        "visible"
+                    );
 
                 }
             );
 
         }
+
+
+
+        /* =================================================
+           3D CARD TILT + CURSOR GLOW
+           Desktop mouse devices only
+        ================================================= */
+
+        const canHover =
+            window.matchMedia(
+                "(hover: hover) and (pointer: fine)"
+            ).matches;
+
+
+        const reduceMotion =
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
+
+
+        if (
+            canHover
+            &&
+            !reduceMotion
+        ) {
+
+            const cards =
+                document.querySelectorAll(
+                    ".iac-tilt-card"
+                );
+
+
+            cards.forEach(
+                card => {
+
+
+                    card.addEventListener(
+                        "mousemove",
+                        event => {
+
+                            const rect =
+                                card.getBoundingClientRect();
+
+
+                            const x =
+                                event.clientX
+                                -
+                                rect.left;
+
+
+                            const y =
+                                event.clientY
+                                -
+                                rect.top;
+
+
+                            const centerX =
+                                rect.width / 2;
+
+
+                            const centerY =
+                                rect.height / 2;
+
+
+                            const rotateY =
+                                (
+                                    x - centerX
+                                )
+                                /
+                                centerX
+                                *
+                                3.5;
+
+
+                            const rotateX =
+                                (
+                                    centerY - y
+                                )
+                                /
+                                centerY
+                                *
+                                3.5;
+
+
+                            card.style.setProperty(
+                                "--mx",
+                                `${x}px`
+                            );
+
+
+                            card.style.setProperty(
+                                "--my",
+                                `${y}px`
+                            );
+
+
+                            card.style.transform =
+                                `
+                                perspective(1000px)
+                                rotateX(${rotateX}deg)
+                                rotateY(${rotateY}deg)
+                                translateY(-7px)
+                                `;
+
+                        }
+                    );
+
+
+                    card.addEventListener(
+                        "mouseleave",
+                        () => {
+
+                            card.style.transform =
+                                "";
+
+                            card.style.setProperty(
+                                "--mx",
+                                "50%"
+                            );
+
+                            card.style.setProperty(
+                                "--my",
+                                "30%"
+                            );
+
+                        }
+                    );
+
+
+                }
+            );
+
+        }
+
 
     }
 );
