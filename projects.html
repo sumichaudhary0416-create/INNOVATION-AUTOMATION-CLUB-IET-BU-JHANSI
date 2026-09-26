@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -11,20 +9,20 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        IAC Projects
-    </title>
+    <title>IAC Projects</title>
 
     <link
         rel="stylesheet"
         href="style.css"
     >
-
 </head>
 
 
 <body data-page="projects">
 
+<canvas id="techCircuitCanvas"></canvas>
+
+<div id="scrollProgress"></div>
 
 <div id="site-header"></div>
 
@@ -37,7 +35,7 @@
     <div class="page-hero-content reveal">
 
         <p class="section-label">
-            INNOVATION & PROTOTYPING
+            BUILD • TEST • IMPROVE
         </p>
 
         <h1>
@@ -45,8 +43,7 @@
         </h1>
 
         <p>
-            Projects developed by
-            EIE and IAC students.
+            Practical engineering and innovation projects.
         </p>
 
     </div>
@@ -54,129 +51,58 @@
 </section>
 
 
-<section class="section section-center">
+<section class="section">
+
+    <div class="project-grid">
 
 
-    <div class="filter-buttons">
+        <article class="project-card tilt-card reveal">
 
-        <button
-            class="filter-btn active"
-            data-filter="all"
-        >
-            All Projects
-        </button>
-
-        <button
-            class="filter-btn"
-            data-filter="iot"
-        >
-            IoT & Automation
-        </button>
-
-        <button
-            class="filter-btn"
-            data-filter="embedded"
-        >
-            Embedded
-        </button>
-
-        <button
-            class="filter-btn"
-            data-filter="circuit"
-        >
-            Circuit Design
-        </button>
-
-    </div>
-
-
-    <div class="grid">
-
-
-        <article
-            class="card project-card reveal"
-            data-category="iot"
-        >
-
-            <span class="project-category">
-                IoT & Automation
+            <span class="project-tag">
+                CIRCUIT DESIGN
             </span>
 
             <h3>
-                Smart Industrial Automation
+                Over Voltage & Under Voltage
+                Protection Circuit
             </h3>
 
             <p>
 
-                Sensor-based monitoring
-                and automation system.
+                A practical protection circuit developed
+                for the IET Circuit Making Competition.
 
             </p>
 
-            <span class="project-status">
-                Completed
-            </span>
+            <div class="project-result">
+                🏆 2nd Position
+            </div>
 
         </article>
 
 
-        <article
-            class="card project-card reveal"
-            data-category="embedded"
-        >
+        <article class="project-card tilt-card reveal">
 
-            <span class="project-category">
-                Embedded Systems
+            <span class="project-tag">
+                IAC PROJECTS
             </span>
 
             <h3>
-                Microcontroller Based System
+                More Projects Coming Soon
             </h3>
 
             <p>
 
-                Embedded hardware
-                and sensor integration.
+                Student mini projects, major projects
+                and innovation prototypes will be
+                added here.
 
             </p>
-
-            <span class="project-status">
-                In Progress
-            </span>
-
-        </article>
-
-
-        <article
-            class="card project-card reveal"
-            data-category="circuit"
-        >
-
-            <span class="project-category">
-                Circuit Design
-            </span>
-
-            <h3>
-                Over & Under Voltage Protection
-            </h3>
-
-            <p>
-
-                Protection circuit designed
-                to disconnect loads during
-                unsafe voltage conditions.
-
-            </p>
-
-            <span class="project-status">
-                Completed
-            </span>
 
         </article>
 
 
     </div>
-
 
 </section>
 
@@ -186,10 +112,7 @@
 
 <div id="site-footer"></div>
 
-
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
