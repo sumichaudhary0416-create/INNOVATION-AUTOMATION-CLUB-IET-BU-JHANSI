@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -11,20 +9,20 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        Join IAC
-    </title>
+    <title>Join IAC</title>
 
     <link
         rel="stylesheet"
         href="style.css"
     >
-
 </head>
 
 
 <body data-page="join">
 
+<canvas id="techCircuitCanvas"></canvas>
+
+<div id="scrollProgress"></div>
 
 <div id="site-header"></div>
 
@@ -37,15 +35,15 @@
     <div class="page-hero-content reveal">
 
         <p class="section-label">
-            BECOME A MEMBER
+            BE A PART OF IAC
         </p>
 
         <h1>
-            Join IAC
+            Join Innovation & Automation Club
         </h1>
 
         <p>
-            Learn • Build • Collaborate • Innovate
+            Learn • Build • Innovate
         </p>
 
     </div>
@@ -55,11 +53,53 @@
 
 <section class="section">
 
+    <div class="section-center reveal">
 
-    <div class="form-box reveal">
+        <p class="section-label">
+            MEMBERSHIP
+        </p>
+
+        <h2 class="section-title">
+            Join IAC
+        </h2>
+
+        <p class="section-intro">
+
+            Submit your details. Your registration will
+            be saved and a confirmation email will be
+            sent to you.
+
+        </p>
+
+    </div>
 
 
-        <form id="membershipForm">
+    <div class="join-form-card reveal">
+
+
+        <form
+            id="membershipForm"
+            method="POST"
+            target="joinSubmitFrame"
+        >
+
+
+            <input
+                type="hidden"
+                name="action"
+                value="join"
+            >
+
+
+            <!-- Spam honeypot -->
+
+            <input
+                type="text"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+                class="honeypot"
+            >
 
 
             <div class="form-grid">
@@ -67,13 +107,16 @@
 
                 <div class="form-group">
 
-                    <label>
+                    <label for="fullName">
                         Full Name *
                     </label>
 
                     <input
+                        id="fullName"
+                        name="fullName"
                         type="text"
-                        class="form-control"
+                        maxlength="100"
+                        autocomplete="name"
                         required
                     >
 
@@ -82,28 +125,16 @@
 
                 <div class="form-group">
 
-                    <label>
-                        Enrollment Number *
-                    </label>
-
-                    <input
-                        type="text"
-                        class="form-control"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label>
+                    <label for="email">
                         Email *
                     </label>
 
                     <input
+                        id="email"
+                        name="email"
                         type="email"
-                        class="form-control"
+                        maxlength="150"
+                        autocomplete="email"
                         required
                     >
 
@@ -112,14 +143,16 @@
 
                 <div class="form-group">
 
-                    <label>
-                        WhatsApp Number *
+                    <label for="phone">
+                        Contact Number
                     </label>
 
                     <input
+                        id="phone"
+                        name="phone"
                         type="tel"
-                        class="form-control"
-                        required
+                        maxlength="20"
+                        autocomplete="tel"
                     >
 
                 </div>
@@ -127,26 +160,42 @@
 
                 <div class="form-group">
 
-                    <label>
-                        Department
+                    <label for="department">
+                        Engineering Branch *
                     </label>
 
-                    <select class="form-control">
+                    <select
+                        id="department"
+                        name="department"
+                        required
+                    >
 
-                        <option>
-                            Electronics & Instrumentation
+                        <option value="">
+                            Select Engineering Branch
                         </option>
 
-                        <option>
-                            Electronics & Communication
+                        <option value="Electronics & Instrumentation Engineering">
+                            Electronics & Instrumentation Engineering
                         </option>
 
-                        <option>
-                            Computer Science
+                        <option value="Computer Science Engineering">
+                            Computer Science Engineering
                         </option>
 
-                        <option>
-                            Other
+                        <option value="Electronics & Communication Engineering">
+                            Electronics & Communication Engineering
+                        </option>
+
+                        <option value="Food Technology">
+                            Food Technology
+                        </option>
+
+                        <option value="Biotechnology">
+                            Biotechnology
+                        </option>
+
+                        <option value="Mechanical Engineering">
+                            Mechanical Engineering
                         </option>
 
                     </select>
@@ -156,25 +205,33 @@
 
                 <div class="form-group">
 
-                    <label>
-                        Year
+                    <label for="year">
+                        Year *
                     </label>
 
-                    <select class="form-control">
+                    <select
+                        id="year"
+                        name="year"
+                        required
+                    >
 
-                        <option>
+                        <option value="">
+                            Select Year
+                        </option>
+
+                        <option value="1st Year">
                             1st Year
                         </option>
 
-                        <option>
+                        <option value="2nd Year">
                             2nd Year
                         </option>
 
-                        <option>
+                        <option value="3rd Year">
                             3rd Year
                         </option>
 
-                        <option>
+                        <option value="4th Year">
                             4th Year
                         </option>
 
@@ -183,46 +240,62 @@
                 </div>
 
 
-                <div class="form-group full">
+                <div class="form-group">
 
-                    <label>
-                        Technical Interest
+                    <label for="interest">
+                        Area of Interest
                     </label>
 
-                    <textarea
-                        class="form-control"
-                        placeholder="IoT, Embedded Systems, Automation, PCB, Circuit Making..."
-                    ></textarea>
-
-                </div>
-
-
-                <div class="form-group full">
-
-                    <label>
-                        Why do you want to join IAC?
-                    </label>
-
-                    <textarea
-                        class="form-control"
-                    ></textarea>
-
-                </div>
-
-
-                <div class="form-group full">
-
-                    <button
-                        type="submit"
-                        class="btn"
+                    <select
+                        id="interest"
+                        name="interest"
                     >
-                        Submit
-                    </button>
 
-                    <p
-                        id="formMessage"
-                        class="form-message"
-                    ></p>
+                        <option value="">
+                            Select Interest
+                        </option>
+
+                        <option value="Embedded Systems">
+                            Embedded Systems
+                        </option>
+
+                        <option value="Internet of Things">
+                            Internet of Things
+                        </option>
+
+                        <option value="Automation">
+                            Automation
+                        </option>
+
+                        <option value="Robotics">
+                            Robotics
+                        </option>
+
+                        <option value="Circuit Making">
+                            Circuit Making
+                        </option>
+
+                        <option value="PCB Designing">
+                            PCB Designing
+                        </option>
+
+                        <option value="Programming">
+                            Programming
+                        </option>
+
+                        <option value="Media">
+                            Media
+                        </option>
+
+                        <option value="Documentation">
+                            Documentation
+                        </option>
+
+                        <option value="Event Management">
+                            Event Management
+                        </option>
+
+                    </select>
 
                 </div>
 
@@ -230,11 +303,59 @@
             </div>
 
 
+            <div class="form-group">
+
+                <label for="message">
+                    Why do you want to join IAC?
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    maxlength="1000"
+                    placeholder="Tell us briefly..."
+                ></textarea>
+
+            </div>
+
+
+            <p class="form-privacy">
+
+                Your information will be used for
+                IAC membership and club communication.
+
+            </p>
+
+
+            <button
+                id="membershipSubmitButton"
+                type="submit"
+                class="btn join-submit-btn"
+            >
+                Submit Registration →
+            </button>
+
+
+            <div
+                id="formMessage"
+                class="form-message"
+                aria-live="polite"
+            ></div>
+
+
         </form>
 
 
-    </div>
+        <iframe
+            id="joinSubmitFrame"
+            name="joinSubmitFrame"
+            title="IAC registration submission"
+            class="hidden-frame"
+        ></iframe>
 
+
+    </div>
 
 </section>
 
@@ -244,10 +365,7 @@
 
 <div id="site-footer"></div>
 
-
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
