@@ -4384,3 +4384,463 @@ and
     }
 
 }
+/* =========================================================
+   TEAM PAGE - OPTION 4
+   FOUNDER + CORE COMMITTEE + SUPPORT TEAM
+========================================================= */
+
+.team-founder-section {
+    position: relative;
+}
+
+
+/* =========================================================
+   FOUNDER FEATURE CARD
+========================================================= */
+
+.team-founder-card {
+    position: relative;
+
+    width:
+        min(
+            1050px,
+            100%
+        );
+
+    margin:
+        45px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        360px 1fr;
+
+    overflow: hidden;
+
+    border:
+        1px solid rgba(40,217,255,0.22);
+
+    border-radius: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(13,46,79,0.96),
+            rgba(3,17,33,0.99)
+        );
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.35);
+}
+
+
+.team-founder-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #147cff,
+            #28d9ff,
+            #147cff,
+            transparent
+        );
+
+    background-size:
+        200% 100%;
+
+    animation:
+        teamFounderLine 5s linear infinite;
+}
+
+
+@keyframes teamFounderLine {
+
+    to {
+        background-position:
+            -200% 0;
+    }
+
+}
+
+
+.team-founder-image-box {
+    position: relative;
+
+    min-height: 470px;
+
+    overflow: hidden;
+
+    background:
+        #07182b;
+}
+
+
+.team-founder-image {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position:
+        center top;
+
+    transition:
+        transform 0.6s ease;
+}
+
+
+.team-founder-card:hover
+.team-founder-image {
+    transform:
+        scale(1.04);
+}
+
+
+.team-founder-content {
+    position: relative;
+
+    padding:
+        48px;
+
+    align-self: center;
+}
+
+
+.team-founder-badge {
+    display: inline-flex;
+
+    padding:
+        6px 12px;
+
+    border:
+        1px solid rgba(40,217,255,0.24);
+
+    border-radius: 40px;
+
+    background:
+        rgba(40,217,255,0.07);
+
+    color:
+        #8cecff;
+
+    font-size:
+        0.65rem;
+
+    font-weight: 800;
+
+    letter-spacing:
+        1.2px;
+}
+
+
+.team-founder-content h2 {
+    margin-top:
+        13px;
+
+    color:
+        #fff1d7;
+
+    font-size:
+        clamp(
+            2.3rem,
+            5vw,
+            3.7rem
+        );
+
+    line-height:
+        1;
+}
+
+
+.team-founder-content h3 {
+    margin-top:
+        9px;
+
+    color:
+        #8cecff;
+
+    font-size:
+        1rem;
+}
+
+
+.team-founder-content > p {
+    max-width:
+        620px;
+
+    margin-top:
+        19px;
+
+    color:
+        #aab9cd;
+
+    line-height:
+        1.8;
+}
+
+
+/* =========================================================
+   FOUNDER TECH FOCUS
+========================================================= */
+
+.team-founder-focus {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-top:
+        22px;
+}
+
+
+.team-founder-focus span {
+    padding:
+        7px 10px;
+
+    border:
+        1px solid rgba(255,255,255,0.08);
+
+    border-radius:
+        9px;
+
+    background:
+        rgba(255,255,255,0.035);
+
+    color:
+        #c8d9e9;
+
+    font-size:
+        0.75rem;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+
+.team-founder-focus span:hover {
+    transform:
+        translateY(-3px);
+
+    border-color:
+        rgba(40,217,255,0.30);
+
+    background:
+        rgba(40,217,255,0.06);
+}
+
+
+/* =========================================================
+   TEAM GROUP SECTIONS
+========================================================= */
+
+.team-group-section {
+    position: relative;
+}
+
+
+.support-team-section {
+    padding-top:
+        60px;
+}
+
+
+.core-team-grid,
+.support-team-grid {
+    max-width:
+        1080px;
+}
+
+
+/* subtle role accent */
+
+.core-team-grid
+.person-card {
+    border-top:
+        2px solid
+        rgba(40,217,255,0.45);
+}
+
+
+.support-team-grid
+.person-card {
+    border-top:
+        2px solid
+        rgba(20,124,255,0.40);
+}
+
+
+/* =========================================================
+   LINKEDIN BUTTON
+========================================================= */
+
+.team-founder-card
+.linkedin-profile-btn {
+    margin-top:
+        5px;
+}
+
+
+.linkedin-profile-btn {
+    cursor: pointer;
+}
+
+
+.linkedin-profile-btn.is-placeholder {
+    cursor: default;
+
+    opacity: 0.55;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .team-founder-card {
+        grid-template-columns:
+            300px 1fr;
+    }
+
+
+    .team-founder-image-box {
+        min-height:
+            430px;
+    }
+
+
+    .team-founder-content {
+        padding:
+            36px 30px;
+    }
+
+}
+
+
+/* =========================================================
+   PHONE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .team-founder-card {
+        grid-template-columns:
+            1fr;
+
+        border-radius:
+            22px;
+    }
+
+
+    .team-founder-image-box {
+        width:
+            100%;
+
+        height:
+            430px;
+
+        min-height:
+            0;
+    }
+
+
+    .team-founder-content {
+        padding:
+            30px 20px;
+
+        text-align:
+            center;
+    }
+
+
+    .team-founder-content > p {
+        margin-left:
+            auto;
+
+        margin-right:
+            auto;
+    }
+
+
+    .team-founder-focus {
+        justify-content:
+            center;
+    }
+
+
+    .team-founder-card
+    .member-socials {
+        justify-content:
+            center;
+    }
+
+
+    .team-founder-card
+    .linkedin-profile-btn {
+        width:
+            100%;
+    }
+
+
+    .support-team-section {
+        padding-top:
+            40px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 430px) {
+
+    .team-founder-image-box {
+        height:
+            380px;
+    }
+
+
+    .team-founder-content {
+        padding:
+            26px 16px;
+    }
+
+
+    .team-founder-focus {
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(
+                2,
+                minmax(0,1fr)
+            );
+
+        width:
+            100%;
+    }
+
+
+    .team-founder-focus span {
+        text-align:
+            center;
+    }
+
+}
