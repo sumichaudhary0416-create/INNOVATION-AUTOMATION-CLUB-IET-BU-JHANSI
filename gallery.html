@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -11,20 +9,20 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        IAC Gallery
-    </title>
+    <title>IAC Gallery</title>
 
     <link
         rel="stylesheet"
         href="style.css"
     >
-
 </head>
 
 
 <body data-page="gallery">
 
+<canvas id="techCircuitCanvas"></canvas>
+
+<div id="scrollProgress"></div>
 
 <div id="site-header"></div>
 
@@ -37,18 +35,15 @@
     <div class="page-hero-content reveal">
 
         <p class="section-label">
-            MEMORIES
+            MOMENTS OF IAC
         </p>
 
         <h1>
-            IAC Gallery
+            Gallery
         </h1>
 
         <p>
-
-            Workshops, projects,
-            events and activities.
-
+            Activities, projects, events and collaboration.
         </p>
 
     </div>
@@ -58,98 +53,38 @@
 
 <section class="section">
 
-
     <div class="gallery-grid">
 
-
-        <div class="gallery-card reveal">
-
-            <img
-                src="assets/gallery/gallery1.jpg"
-                alt="IAC Gallery Photo"
-            >
-
-        </div>
-
-
-        <div class="gallery-card reveal">
+        <article class="gallery-item reveal">
 
             <img
-                src="assets/gallery/gallery2.jpg"
-                alt="IAC Gallery Photo"
+                src="assets/banners/iac-thinknext-banner.png"
+                alt="IAC and ThinkNEXT Collaboration"
             >
 
-        </div>
+            <div class="gallery-caption">
+                IAC × ThinkNEXT Collaboration
+            </div>
 
-
-        <div class="gallery-card reveal">
-
-            <img
-                src="assets/gallery/gallery3.jpg"
-                alt="IAC Gallery Photo"
-            >
-
-        </div>
-
-
-        <div class="gallery-card reveal">
-
-            <img
-                src="assets/gallery/gallery4.jpg"
-                alt="IAC Gallery Photo"
-            >
-
-        </div>
-
-
-        <div class="gallery-card reveal">
-
-            <img
-                src="assets/gallery/gallery5.jpg"
-                alt="IAC Gallery Photo"
-            >
-
-        </div>
-
-
-        <div class="gallery-card reveal">
-
-            <img
-                src="assets/gallery/gallery6.jpg"
-                alt="IAC Gallery Photo"
-            >
-
-        </div>
-
+        </article>
 
     </div>
 
+
+    <div class="empty-state reveal">
+
+        <h3>
+            More Photos Coming Soon
+        </h3>
+
+        <p>
+            Workshop, competition and project photos
+            will be added here.
+        </p>
+
+    </div>
 
 </section>
-
-
-<div
-    class="modal"
-    id="galleryModal"
->
-
-    <div class="modal-content">
-
-        <button
-            class="modal-close"
-            id="galleryClose"
-        >
-            ✕
-        </button>
-
-        <img
-            id="galleryModalImage"
-            alt="Gallery Preview"
-        >
-
-    </div>
-
-</div>
 
 
 </main>
@@ -157,10 +92,7 @@
 
 <div id="site-footer"></div>
 
-
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
