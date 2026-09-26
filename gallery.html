@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -9,16 +10,1136 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>IAC Gallery</title>
+    <title>
+        IAC Gallery | Innovation & Automation Club
+    </title>
 
     <link
         rel="stylesheet"
         href="style.css"
     >
+
+
+    <style>
+
+        /* =====================================================
+           GALLERY PAGE
+        ====================================================== */
+
+        .auto-gallery-page {
+            position: relative;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .gallery-hero {
+            position: relative;
+
+            min-height: 390px;
+
+            padding:
+                90px 20px 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            overflow: hidden;
+        }
+
+
+        .gallery-hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 470px;
+            height: 470px;
+
+            top: -260px;
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            border-radius: 50%;
+
+            background:
+                rgba(40, 217, 255, 0.10);
+
+            filter:
+                blur(30px);
+
+            pointer-events: none;
+
+            animation:
+                galleryHeroGlow 6s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes galleryHeroGlow {
+
+            to {
+                transform:
+                    translateX(-50%)
+                    translateY(60px)
+                    scale(1.2);
+            }
+
+        }
+
+
+        .gallery-hero-content {
+            position: relative;
+            z-index: 2;
+
+            width:
+                min(900px, 100%);
+        }
+
+
+        .gallery-small-label {
+            color: #8cecff;
+
+            font-size: 0.70rem;
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        .gallery-hero h1 {
+            margin-top: 12px;
+
+            color: #fff1d7;
+
+            font-size:
+                clamp(
+                    3rem,
+                    7vw,
+                    5.6rem
+                );
+
+            line-height: 1;
+
+            letter-spacing: -2px;
+        }
+
+
+        .gallery-hero h1 span {
+            color: #28d9ff;
+
+            text-shadow:
+                0 0 28px
+                rgba(40,217,255,.25);
+        }
+
+
+        .gallery-hero p {
+            max-width: 690px;
+
+            margin:
+                18px auto 0;
+
+            color: #aab9cd;
+
+            line-height: 1.8;
+
+            font-size: 1rem;
+        }
+
+
+        .gallery-hero-line {
+            width: 90px;
+            height: 3px;
+
+            margin:
+                25px auto 0;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #147cff,
+                    #28d9ff
+                );
+
+            box-shadow:
+                0 0 20px
+                rgba(40,217,255,.50);
+
+            animation:
+                galleryHeroLine 2.5s ease-in-out infinite;
+        }
+
+
+        @keyframes galleryHeroLine {
+
+            50% {
+                width: 145px;
+            }
+
+        }
+
+
+        /* =====================================================
+           MAIN AREA
+        ====================================================== */
+
+        .gallery-main-section {
+            position: relative;
+
+            width:
+                min(1280px, 100%);
+
+            margin: auto;
+
+            padding:
+                20px 22px 100px;
+        }
+
+
+        /* =====================================================
+           TOP TOOLBAR
+        ====================================================== */
+
+        .gallery-toolbar {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 25px;
+
+            padding:
+                17px 20px;
+
+            border:
+                1px solid
+                rgba(40,217,255,.13);
+
+            border-radius: 18px;
+
+            background:
+                rgba(4,22,40,.70);
+
+            backdrop-filter:
+                blur(10px);
+
+            -webkit-backdrop-filter:
+                blur(10px);
+        }
+
+
+        .gallery-count {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #aab9cd;
+
+            font-size: .85rem;
+        }
+
+
+        .gallery-count strong {
+            color: #28d9ff;
+
+            font-size: 1.05rem;
+        }
+
+
+        .gallery-refresh-btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+
+            min-height: 40px;
+
+            padding:
+                8px 14px;
+
+            border:
+                1px solid
+                rgba(40,217,255,.20);
+
+            border-radius: 10px;
+
+            background:
+                rgba(40,217,255,.06);
+
+            color: #8cecff;
+
+            font-family: inherit;
+
+            font-size: .76rem;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            transition:
+                transform .3s ease,
+                background .3s ease,
+                border-color .3s ease;
+        }
+
+
+        .gallery-refresh-btn:hover {
+            transform:
+                translateY(-2px);
+
+            background:
+                rgba(40,217,255,.12);
+
+            border-color:
+                rgba(40,217,255,.40);
+        }
+
+
+        .gallery-refresh-btn.loading
+        .refresh-icon {
+            animation:
+                rotateRefresh .8s linear infinite;
+        }
+
+
+        @keyframes rotateRefresh {
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+
+        }
+
+
+        /* =====================================================
+           CATEGORY FILTERS
+        ====================================================== */
+
+        .gallery-filters {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            justify-content: center;
+
+            gap: 9px;
+
+            margin:
+                0 auto 32px;
+        }
+
+
+        .gallery-filter-btn {
+            padding:
+                9px 15px;
+
+            border:
+                1px solid
+                rgba(255,255,255,.09);
+
+            border-radius: 30px;
+
+            background:
+                rgba(255,255,255,.035);
+
+            color: #aab9cd;
+
+            font-family: inherit;
+
+            font-size: .75rem;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform .3s ease,
+                color .3s ease,
+                background .3s ease,
+                border-color .3s ease,
+                box-shadow .3s ease;
+        }
+
+
+        .gallery-filter-btn:hover {
+            transform:
+                translateY(-2px);
+
+            color: #ffffff;
+
+            border-color:
+                rgba(40,217,255,.28);
+        }
+
+
+        .gallery-filter-btn.active {
+            color: #04101d;
+
+            border-color:
+                transparent;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #28d9ff,
+                    #73e8ff
+                );
+
+            box-shadow:
+                0 8px 25px
+                rgba(40,217,255,.18);
+        }
+
+
+        /* =====================================================
+           GALLERY GRID
+        ====================================================== */
+
+        .auto-gallery-grid {
+            columns: 4;
+            column-gap: 17px;
+        }
+
+
+        .auto-gallery-item {
+            --mx: 50%;
+            --my: 50%;
+
+            position: relative;
+
+            width: 100%;
+
+            margin:
+                0 0 17px;
+
+            display: inline-block;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255,255,255,.08);
+
+            border-radius: 18px;
+
+            background:
+                #07182b;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0,0,0,.20);
+
+            cursor:
+                zoom-in;
+
+            break-inside: avoid;
+
+            opacity: 0;
+
+            transform:
+                translateY(25px);
+
+            transition:
+                opacity .6s ease,
+                transform .6s ease,
+                border-color .35s ease,
+                box-shadow .35s ease;
+        }
+
+
+        .auto-gallery-item.show {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .auto-gallery-item:hover {
+            transform:
+                translateY(-5px);
+
+            border-color:
+                rgba(40,217,255,.36);
+
+            box-shadow:
+                0 24px 60px
+                rgba(0,0,0,.33);
+        }
+
+
+        .auto-gallery-item::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            pointer-events: none;
+
+            opacity: 0;
+
+            background:
+                radial-gradient(
+                    300px circle
+                    at var(--mx) var(--my),
+                    rgba(40,217,255,.16),
+                    transparent 45%
+                );
+
+            transition:
+                opacity .35s ease;
+        }
+
+
+        .auto-gallery-item:hover::after {
+            opacity: 1;
+        }
+
+
+        .auto-gallery-image {
+            width: 100%;
+            height: auto;
+
+            display: block;
+
+            transition:
+                transform .55s ease,
+                filter .55s ease;
+        }
+
+
+        .auto-gallery-item:hover
+        .auto-gallery-image {
+            transform:
+                scale(1.045);
+
+            filter:
+                brightness(.86);
+        }
+
+
+        /* =====================================================
+           PHOTO OVERLAY
+        ====================================================== */
+
+        .gallery-photo-overlay {
+            position: absolute;
+
+            z-index: 3;
+
+            inset:
+                auto 0 0 0;
+
+            padding:
+                55px 16px 16px;
+
+            opacity: 0;
+
+            transform:
+                translateY(10px);
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(1,8,17,.92),
+                    rgba(1,8,17,.28),
+                    transparent
+                );
+
+            transition:
+                opacity .35s ease,
+                transform .35s ease;
+        }
+
+
+        .auto-gallery-item:hover
+        .gallery-photo-overlay {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .gallery-photo-category {
+            color: #8cecff;
+
+            font-size: .60rem;
+            font-weight: 800;
+
+            letter-spacing: 1.4px;
+
+            text-transform: uppercase;
+        }
+
+
+        .gallery-photo-overlay h3 {
+            margin-top: 4px;
+
+            color: #fff1d7;
+
+            font-size: .95rem;
+
+            line-height: 1.35;
+        }
+
+
+        .gallery-view-icon {
+            position: absolute;
+
+            z-index: 4;
+
+            top: 13px;
+            right: 13px;
+
+            width: 38px;
+            height: 38px;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,.15);
+
+            border-radius: 50%;
+
+            background:
+                rgba(2,12,25,.60);
+
+            color: #ffffff;
+
+            opacity: 0;
+
+            transform:
+                scale(.85);
+
+            transition:
+                opacity .3s ease,
+                transform .3s ease;
+        }
+
+
+        .auto-gallery-item:hover
+        .gallery-view-icon {
+            opacity: 1;
+
+            transform:
+                scale(1);
+        }
+
+
+        /* =====================================================
+           LOADING
+        ====================================================== */
+
+        .gallery-loading {
+            min-height: 330px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 15px;
+
+            color: #aab9cd;
+
+            text-align: center;
+        }
+
+
+        .gallery-loader {
+            width: 50px;
+            height: 50px;
+
+            border:
+                3px solid
+                rgba(40,217,255,.12);
+
+            border-top-color:
+                #28d9ff;
+
+            border-radius: 50%;
+
+            animation:
+                galleryLoaderSpin .8s linear infinite;
+        }
+
+
+        @keyframes galleryLoaderSpin {
+
+            to {
+                transform:
+                    rotate(360deg);
+            }
+
+        }
+
+
+        /* =====================================================
+           EMPTY / ERROR
+        ====================================================== */
+
+        .gallery-message {
+            width:
+                min(600px,100%);
+
+            margin:
+                50px auto;
+
+            padding:
+                35px 25px;
+
+            text-align: center;
+
+            border:
+                1px solid
+                rgba(40,217,255,.14);
+
+            border-radius: 20px;
+
+            background:
+                rgba(4,22,40,.70);
+        }
+
+
+        .gallery-message-icon {
+            font-size: 2.3rem;
+        }
+
+
+        .gallery-message h3 {
+            margin-top: 12px;
+
+            color: #fff1d7;
+        }
+
+
+        .gallery-message p {
+            margin-top: 7px;
+
+            color: #aab9cd;
+
+            line-height: 1.7;
+        }
+
+
+        /* =====================================================
+           LIGHTBOX
+        ====================================================== */
+
+        .gallery-lightbox {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 40000;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                25px 80px;
+
+            background:
+                rgba(0,5,13,.94);
+
+            backdrop-filter:
+                blur(12px);
+
+            -webkit-backdrop-filter:
+                blur(12px);
+        }
+
+
+        .gallery-lightbox.open {
+            display: flex;
+
+            animation:
+                lightboxFade .25s ease;
+        }
+
+
+        @keyframes lightboxFade {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        .lightbox-content {
+            position: relative;
+
+            max-width: 100%;
+            max-height: 100%;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 78vh;
+
+            object-fit: contain;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 25px 80px
+                rgba(0,0,0,.55);
+
+            animation:
+                lightboxImageEnter .3s ease;
+        }
+
+
+        @keyframes lightboxImageEnter {
+
+            from {
+                transform:
+                    scale(.96);
+
+                opacity: 0;
+            }
+
+            to {
+                transform:
+                    scale(1);
+
+                opacity: 1;
+            }
+
+        }
+
+
+        .lightbox-info {
+            width: 100%;
+
+            padding:
+                15px 5px 0;
+
+            text-align: center;
+        }
+
+
+        .lightbox-category {
+            color: #8cecff;
+
+            font-size: .63rem;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+
+        .lightbox-title {
+            margin-top: 4px;
+
+            color: #fff1d7;
+
+            font-size: 1.05rem;
+        }
+
+
+        .lightbox-counter {
+            margin-top: 5px;
+
+            color: #7f91a7;
+
+            font-size: .72rem;
+        }
+
+
+        /* =====================================================
+           LIGHTBOX BUTTONS
+        ====================================================== */
+
+        .lightbox-close,
+        .lightbox-nav {
+            position: absolute;
+
+            display: grid;
+            place-items: center;
+
+            border:
+                1px solid
+                rgba(255,255,255,.13);
+
+            background:
+                rgba(7,24,43,.78);
+
+            color: #ffffff;
+
+            cursor: pointer;
+
+            transition:
+                background .3s ease,
+                transform .3s ease,
+                border-color .3s ease;
+        }
+
+
+        .lightbox-close {
+            top: 18px;
+            right: 18px;
+
+            width: 48px;
+            height: 48px;
+
+            z-index: 10;
+
+            border-radius: 13px;
+
+            font-size: 1.7rem;
+        }
+
+
+        .lightbox-close:hover {
+            transform:
+                rotate(90deg);
+
+            background:
+                rgba(255,255,255,.10);
+
+            border-color:
+                rgba(40,217,255,.35);
+        }
+
+
+        .lightbox-nav {
+            top: 50%;
+
+            width: 52px;
+            height: 52px;
+
+            transform:
+                translateY(-50%);
+
+            border-radius: 50%;
+
+            font-size: 1.5rem;
+
+            z-index: 10;
+        }
+
+
+        .lightbox-prev {
+            left: 18px;
+        }
+
+
+        .lightbox-next {
+            right: 18px;
+        }
+
+
+        .lightbox-nav:hover {
+            background:
+                rgba(40,217,255,.13);
+
+            border-color:
+                rgba(40,217,255,.40);
+        }
+
+
+        .lightbox-prev:hover {
+            transform:
+                translateY(-50%)
+                translateX(-4px);
+        }
+
+
+        .lightbox-next:hover {
+            transform:
+                translateY(-50%)
+                translateX(4px);
+        }
+
+
+        body.gallery-lightbox-open {
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 1100px) {
+
+            .auto-gallery-grid {
+                columns: 3;
+            }
+
+        }
+
+
+        @media (max-width: 780px) {
+
+            .auto-gallery-grid {
+                columns: 2;
+            }
+
+
+            .gallery-lightbox {
+                padding:
+                    60px 15px 90px;
+            }
+
+
+            .lightbox-nav {
+                top: auto;
+                bottom: 20px;
+
+                transform: none;
+            }
+
+
+            .lightbox-prev {
+                left:
+                    calc(50% - 65px);
+            }
+
+
+            .lightbox-next {
+                right:
+                    calc(50% - 65px);
+            }
+
+
+            .lightbox-prev:hover,
+            .lightbox-next:hover {
+                transform: none;
+            }
+
+        }
+
+
+        @media (max-width: 560px) {
+
+            .gallery-hero {
+                min-height: 340px;
+
+                padding:
+                    70px 15px 55px;
+            }
+
+
+            .gallery-main-section {
+                padding:
+                    15px 12px 80px;
+            }
+
+
+            .auto-gallery-grid {
+                columns: 1;
+            }
+
+
+            .gallery-toolbar {
+                padding:
+                    14px;
+
+                gap: 10px;
+            }
+
+
+            .gallery-count {
+                font-size: .75rem;
+            }
+
+
+            .gallery-filter-btn {
+                padding:
+                    8px 12px;
+
+                font-size: .68rem;
+            }
+
+
+            .gallery-photo-overlay {
+                opacity: 1;
+
+                transform: none;
+
+                padding:
+                    45px 14px 13px;
+            }
+
+
+            .gallery-view-icon {
+                opacity: 1;
+
+                transform: scale(1);
+            }
+
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .gallery-hero::before,
+            .gallery-hero-line,
+            .gallery-loader {
+                animation: none;
+            }
+
+
+            .auto-gallery-item {
+                opacity: 1;
+
+                transform: none;
+
+                transition: none;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
 <body data-page="gallery">
+
 
 <canvas id="techCircuitCanvas"></canvas>
 
@@ -27,62 +1148,119 @@
 <div id="site-header"></div>
 
 
-<main>
+
+<main class="auto-gallery-page">
 
 
-<section class="page-hero">
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-    <div class="page-hero-content reveal">
+<section class="gallery-hero">
 
-        <p class="section-label">
-            MOMENTS OF IAC
-        </p>
+    <div class="gallery-hero-content">
+
+        <span class="gallery-small-label">
+            MOMENTS • PROJECTS • INNOVATION
+        </span>
+
 
         <h1>
-            Gallery
+            IAC
+            <span>Gallery</span>
         </h1>
 
+
         <p>
-            Activities, projects, events and collaboration.
+            Explore moments from IAC events,
+            workshops, projects, competitions
+            and student activities.
         </p>
+
+
+        <div class="gallery-hero-line"></div>
 
     </div>
 
 </section>
 
 
-<section class="section">
 
-    <div class="gallery-grid">
+<!-- =====================================================
+     GALLERY
+===================================================== -->
 
-        <article class="gallery-item reveal">
+<section class="gallery-main-section">
 
-            <img
-                src="assets/banners/iac-thinknext-banner.png"
-                alt="IAC and ThinkNEXT Collaboration"
-            >
 
-            <div class="gallery-caption">
-                IAC × ThinkNEXT Collaboration
-            </div>
+    <!-- TOOLBAR -->
 
-        </article>
+    <div class="gallery-toolbar">
+
+        <div class="gallery-count">
+
+            <span>
+                Gallery Photos
+            </span>
+
+            <strong id="galleryPhotoCount">
+                0
+            </strong>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="gallery-refresh-btn"
+            id="galleryRefreshBtn"
+        >
+
+            <span class="refresh-icon">
+                ↻
+            </span>
+
+            Refresh
+
+        </button>
 
     </div>
 
 
-    <div class="empty-state reveal">
 
-        <h3>
-            More Photos Coming Soon
-        </h3>
+    <!-- AUTOMATIC CATEGORY FILTERS -->
+
+    <div
+        class="gallery-filters"
+        id="galleryFilters"
+    ></div>
+
+
+
+    <!-- LOADING -->
+
+    <div
+        class="gallery-loading"
+        id="galleryLoading"
+    >
+
+        <div class="gallery-loader"></div>
 
         <p>
-            Workshop, competition and project photos
-            will be added here.
+            Loading IAC Gallery...
         </p>
 
     </div>
+
+
+
+    <!-- AUTO GALLERY -->
+
+    <div
+        class="auto-gallery-grid"
+        id="galleryGrid"
+    ></div>
+
 
 </section>
 
@@ -90,9 +1268,1206 @@
 </main>
 
 
+
+<!-- =====================================================
+     LIGHTBOX
+===================================================== -->
+
+<div
+    class="gallery-lightbox"
+    id="galleryLightbox"
+    aria-hidden="true"
+>
+
+
+    <button
+        type="button"
+        class="lightbox-close"
+        id="lightboxClose"
+        aria-label="Close image"
+    >
+        ×
+    </button>
+
+
+    <button
+        type="button"
+        class="lightbox-nav lightbox-prev"
+        id="lightboxPrev"
+        aria-label="Previous image"
+    >
+        ←
+    </button>
+
+
+    <div class="lightbox-content">
+
+        <img
+            src=""
+            alt=""
+            class="lightbox-image"
+            id="lightboxImage"
+        >
+
+
+        <div class="lightbox-info">
+
+            <div
+                class="lightbox-category"
+                id="lightboxCategory"
+            ></div>
+
+
+            <div
+                class="lightbox-title"
+                id="lightboxTitle"
+            ></div>
+
+
+            <div
+                class="lightbox-counter"
+                id="lightboxCounter"
+            ></div>
+
+        </div>
+
+    </div>
+
+
+    <button
+        type="button"
+        class="lightbox-nav lightbox-next"
+        id="lightboxNext"
+        aria-label="Next image"
+    >
+        →
+    </button>
+
+
+</div>
+
+
+
 <div id="site-footer"></div>
+
+
 
 <script src="script.js"></script>
 
+
+
+<script>
+
+/* =========================================================
+   IAC AUTOMATIC GALLERY
+
+   Future:
+   Just upload photos inside:
+
+   assets/gallery/
+
+   No HTML changes needed.
+========================================================= */
+
+
+/* =========================================================
+   GITHUB SETTINGS
+========================================================= */
+
+const GALLERY_REPO_OWNER =
+    "sumichaudhary0416-create";
+
+
+const GALLERY_REPO_NAME =
+    "INNOVATION-AUTOMATION-CLUB-IET-BU-JHANSI";
+
+
+const GALLERY_BRANCH =
+    "main";
+
+
+const GALLERY_FOLDER =
+    "assets/gallery";
+
+
+const GALLERY_API_URL =
+    `https://api.github.com/repos/${GALLERY_REPO_OWNER}/${GALLERY_REPO_NAME}/contents/${GALLERY_FOLDER}?ref=${GALLERY_BRANCH}`;
+
+
+
+/* =========================================================
+   GLOBAL DATA
+========================================================= */
+
+let allGalleryImages = [];
+
+let visibleGalleryImages = [];
+
+let currentImageIndex = 0;
+
+
+
+/* =========================================================
+   DOM
+========================================================= */
+
+const galleryGrid =
+    document.getElementById(
+        "galleryGrid"
+    );
+
+
+const galleryFilters =
+    document.getElementById(
+        "galleryFilters"
+    );
+
+
+const galleryLoading =
+    document.getElementById(
+        "galleryLoading"
+    );
+
+
+const galleryPhotoCount =
+    document.getElementById(
+        "galleryPhotoCount"
+    );
+
+
+const galleryRefreshBtn =
+    document.getElementById(
+        "galleryRefreshBtn"
+    );
+
+
+const lightbox =
+    document.getElementById(
+        "galleryLightbox"
+    );
+
+
+const lightboxImage =
+    document.getElementById(
+        "lightboxImage"
+    );
+
+
+const lightboxTitle =
+    document.getElementById(
+        "lightboxTitle"
+    );
+
+
+const lightboxCategory =
+    document.getElementById(
+        "lightboxCategory"
+    );
+
+
+const lightboxCounter =
+    document.getElementById(
+        "lightboxCounter"
+    );
+
+
+const lightboxClose =
+    document.getElementById(
+        "lightboxClose"
+    );
+
+
+const lightboxPrev =
+    document.getElementById(
+        "lightboxPrev"
+    );
+
+
+const lightboxNext =
+    document.getElementById(
+        "lightboxNext"
+    );
+
+
+
+/* =========================================================
+   CHECK IMAGE FILE
+========================================================= */
+
+function isGalleryImage(filename) {
+
+    return /\.(jpg|jpeg|png|webp|gif)$/i
+        .test(filename);
+
+}
+
+
+
+/* =========================================================
+   CLEAN TEXT
+========================================================= */
+
+function cleanGalleryText(text) {
+
+    if (!text) {
+        return "";
+    }
+
+
+    return text
+        .replace(
+            /[-_]+/g,
+            " "
+        )
+        .replace(
+            /\s+/g,
+            " "
+        )
+        .trim()
+        .replace(
+            /\b\w/g,
+            character =>
+                character.toUpperCase()
+        );
+
+}
+
+
+
+/* =========================================================
+   PARSE FILENAME
+
+   Recommended filename:
+
+   events__engineers-day-2026__01.jpeg
+
+   category = Events
+   title    = Engineers Day 2026
+
+   Another example:
+
+   projects__voltage-protection__01.jpeg
+========================================================= */
+
+function parseGalleryFilename(filename) {
+
+    const withoutExtension =
+        filename.replace(
+            /\.[^/.]+$/,
+            ""
+        );
+
+
+    const parts =
+        withoutExtension.split("__");
+
+
+    let category =
+        "Gallery";
+
+
+    let title =
+        withoutExtension;
+
+
+    if (
+        parts.length >= 2
+    ) {
+
+        category =
+            cleanGalleryText(
+                parts[0]
+            );
+
+
+        title =
+            cleanGalleryText(
+                parts[1]
+            );
+
+    }
+
+    else {
+
+        title =
+            cleanGalleryText(
+                withoutExtension
+            );
+
+    }
+
+
+    return {
+        category,
+        title
+    };
+
+}
+
+
+
+/* =========================================================
+   LOAD GALLERY FROM GITHUB
+========================================================= */
+
+async function loadGallery() {
+
+    galleryRefreshBtn
+        .classList
+        .add(
+            "loading"
+        );
+
+
+    galleryLoading.style.display =
+        "flex";
+
+
+    galleryGrid.innerHTML =
+        "";
+
+
+    galleryFilters.innerHTML =
+        "";
+
+
+    try {
+
+        const response =
+            await fetch(
+                GALLERY_API_URL,
+                {
+                    headers: {
+                        "Accept":
+                            "application/vnd.github+json"
+                    },
+                    cache:
+                        "no-store"
+                }
+            );
+
+
+        if (
+            !response.ok
+        ) {
+
+            throw new Error(
+                `GitHub API error: ${response.status}`
+            );
+
+        }
+
+
+        const files =
+            await response.json();
+
+
+        if (
+            !Array.isArray(files)
+        ) {
+
+            throw new Error(
+                "Gallery folder could not be read."
+            );
+
+        }
+
+
+        const imageFiles =
+            files
+                .filter(
+                    file =>
+                        file.type === "file"
+                        &&
+                        isGalleryImage(
+                            file.name
+                        )
+                )
+                .sort(
+                    (a, b) =>
+                        b.name.localeCompare(
+                            a.name,
+                            undefined,
+                            {
+                                numeric: true,
+                                sensitivity: "base"
+                            }
+                        )
+                );
+
+
+        allGalleryImages =
+            imageFiles.map(
+                file => {
+
+                    const info =
+                        parseGalleryFilename(
+                            file.name
+                        );
+
+
+                    return {
+
+                        name:
+                            file.name,
+
+                        url:
+                            file.download_url,
+
+                        category:
+                            info.category,
+
+                        title:
+                            info.title
+
+                    };
+
+                }
+            );
+
+
+        galleryLoading.style.display =
+            "none";
+
+
+        if (
+            allGalleryImages.length === 0
+        ) {
+
+            showGalleryMessage(
+                "📷",
+                "Gallery is empty",
+                "Upload photos inside assets/gallery and they will automatically appear here."
+            );
+
+
+            galleryPhotoCount.textContent =
+                "0";
+
+
+            return;
+
+        }
+
+
+        createGalleryFilters();
+
+
+        filterGallery(
+            "All"
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Gallery load error:",
+            error
+        );
+
+
+        galleryLoading.style.display =
+            "none";
+
+
+        galleryPhotoCount.textContent =
+            "0";
+
+
+        showGalleryMessage(
+            "⚠️",
+            "Gallery couldn't load",
+            "Please check the GitHub repository, gallery folder or internet connection."
+        );
+
+    }
+
+    finally {
+
+        galleryRefreshBtn
+            .classList
+            .remove(
+                "loading"
+            );
+
+    }
+
+}
+
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+function showGalleryMessage(
+    icon,
+    heading,
+    message
+) {
+
+    galleryGrid.innerHTML =
+        `
+        <div class="gallery-message">
+
+            <div class="gallery-message-icon">
+                ${icon}
+            </div>
+
+            <h3>
+                ${heading}
+            </h3>
+
+            <p>
+                ${message}
+            </p>
+
+        </div>
+        `;
+
+}
+
+
+
+/* =========================================================
+   CREATE CATEGORY BUTTONS
+========================================================= */
+
+function createGalleryFilters() {
+
+    const categories =
+        [
+            ...new Set(
+                allGalleryImages
+                    .map(
+                        image =>
+                            image.category
+                    )
+            )
+        ];
+
+
+    const allCategories =
+        [
+            "All",
+            ...categories
+        ];
+
+
+    galleryFilters.innerHTML =
+        "";
+
+
+    allCategories.forEach(
+        category => {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type =
+                "button";
+
+
+            button.className =
+                "gallery-filter-btn";
+
+
+            if (
+                category === "All"
+            ) {
+
+                button.classList.add(
+                    "active"
+                );
+
+            }
+
+
+            button.textContent =
+                category;
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    document
+                        .querySelectorAll(
+                            ".gallery-filter-btn"
+                        )
+                        .forEach(
+                            item =>
+                                item
+                                    .classList
+                                    .remove(
+                                        "active"
+                                    )
+                        );
+
+
+                    button
+                        .classList
+                        .add(
+                            "active"
+                        );
+
+
+                    filterGallery(
+                        category
+                    );
+
+                }
+            );
+
+
+            galleryFilters
+                .appendChild(
+                    button
+                );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+function filterGallery(category) {
+
+    if (
+        category === "All"
+    ) {
+
+        visibleGalleryImages =
+            [...allGalleryImages];
+
+    }
+
+    else {
+
+        visibleGalleryImages =
+            allGalleryImages.filter(
+                image =>
+                    image.category
+                    ===
+                    category
+            );
+
+    }
+
+
+    galleryPhotoCount.textContent =
+        visibleGalleryImages.length;
+
+
+    renderGallery();
+
+}
+
+
+
+/* =========================================================
+   RENDER
+========================================================= */
+
+function renderGallery() {
+
+    galleryGrid.innerHTML =
+        "";
+
+
+    visibleGalleryImages.forEach(
+        (
+            image,
+            index
+        ) => {
+
+
+            const item =
+                document.createElement(
+                    "article"
+                );
+
+
+            item.className =
+                "auto-gallery-item";
+
+
+            item.tabIndex =
+                0;
+
+
+            item.setAttribute(
+                "role",
+                "button"
+            );
+
+
+            item.setAttribute(
+                "aria-label",
+                `View ${image.title}`
+            );
+
+
+            item.innerHTML =
+                `
+
+                <img
+                    src="${image.url}"
+                    alt="${image.title}"
+                    class="auto-gallery-image"
+                    loading="lazy"
+                >
+
+
+                <div class="gallery-view-icon">
+                    ↗
+                </div>
+
+
+                <div class="gallery-photo-overlay">
+
+                    <span class="gallery-photo-category">
+                        ${image.category}
+                    </span>
+
+                    <h3>
+                        ${image.title}
+                    </h3>
+
+                </div>
+
+                `;
+
+
+            item.addEventListener(
+                "click",
+                () => {
+
+                    openLightbox(
+                        index
+                    );
+
+                }
+            );
+
+
+            item.addEventListener(
+                "keydown",
+                event => {
+
+                    if (
+                        event.key === "Enter"
+                        ||
+                        event.key === " "
+                    ) {
+
+                        event.preventDefault();
+
+
+                        openLightbox(
+                            index
+                        );
+
+                    }
+
+                }
+            );
+
+
+            item.addEventListener(
+                "mousemove",
+                event => {
+
+                    const rect =
+                        item.getBoundingClientRect();
+
+
+                    item.style.setProperty(
+                        "--mx",
+                        `${event.clientX - rect.left}px`
+                    );
+
+
+                    item.style.setProperty(
+                        "--my",
+                        `${event.clientY - rect.top}px`
+                    );
+
+                }
+            );
+
+
+            galleryGrid
+                .appendChild(
+                    item
+                );
+
+
+            setTimeout(
+                () => {
+
+                    item.classList.add(
+                        "show"
+                    );
+
+                },
+
+                Math.min(
+                    index * 70,
+                    700
+                )
+            );
+
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+function openLightbox(index) {
+
+    if (
+        !visibleGalleryImages.length
+    ) {
+
+        return;
+
+    }
+
+
+    currentImageIndex =
+        index;
+
+
+    updateLightbox();
+
+
+    lightbox
+        .classList
+        .add(
+            "open"
+        );
+
+
+    lightbox.setAttribute(
+        "aria-hidden",
+        "false"
+    );
+
+
+    document.body
+        .classList
+        .add(
+            "gallery-lightbox-open"
+        );
+
+
+    lightboxClose.focus();
+
+}
+
+
+
+function closeLightbox() {
+
+    lightbox
+        .classList
+        .remove(
+            "open"
+        );
+
+
+    lightbox.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    document.body
+        .classList
+        .remove(
+            "gallery-lightbox-open"
+        );
+
+}
+
+
+
+function updateLightbox() {
+
+    const image =
+        visibleGalleryImages[
+            currentImageIndex
+        ];
+
+
+    if (!image) {
+        return;
+    }
+
+
+    lightboxImage.src =
+        image.url;
+
+
+    lightboxImage.alt =
+        image.title;
+
+
+    lightboxTitle.textContent =
+        image.title;
+
+
+    lightboxCategory.textContent =
+        image.category;
+
+
+    lightboxCounter.textContent =
+        `${currentImageIndex + 1} / ${visibleGalleryImages.length}`;
+
+}
+
+
+
+function nextLightboxImage() {
+
+    currentImageIndex =
+        (
+            currentImageIndex + 1
+        )
+        %
+        visibleGalleryImages.length;
+
+
+    updateLightbox();
+
+}
+
+
+
+function previousLightboxImage() {
+
+    currentImageIndex =
+        (
+            currentImageIndex
+            -
+            1
+            +
+            visibleGalleryImages.length
+        )
+        %
+        visibleGalleryImages.length;
+
+
+    updateLightbox();
+
+}
+
+
+
+/* =========================================================
+   LIGHTBOX EVENTS
+========================================================= */
+
+lightboxClose.addEventListener(
+    "click",
+    closeLightbox
+);
+
+
+lightboxNext.addEventListener(
+    "click",
+    nextLightboxImage
+);
+
+
+lightboxPrev.addEventListener(
+    "click",
+    previousLightboxImage
+);
+
+
+lightbox.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target === lightbox
+        ) {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            !lightbox
+                .classList
+                .contains(
+                    "open"
+                )
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeLightbox();
+
+        }
+
+
+        else if (
+            event.key === "ArrowRight"
+        ) {
+
+            nextLightboxImage();
+
+        }
+
+
+        else if (
+            event.key === "ArrowLeft"
+        ) {
+
+            previousLightboxImage();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================================
+   MOBILE SWIPE
+========================================================= */
+
+let touchStartX = 0;
+
+let touchEndX = 0;
+
+
+lightbox.addEventListener(
+    "touchstart",
+    event => {
+
+        touchStartX =
+            event.changedTouches[0]
+                .screenX;
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+lightbox.addEventListener(
+    "touchend",
+    event => {
+
+        touchEndX =
+            event.changedTouches[0]
+                .screenX;
+
+
+        const difference =
+            touchStartX
+            -
+            touchEndX;
+
+
+        if (
+            Math.abs(
+                difference
+            )
+            <
+            50
+        ) {
+
+            return;
+
+        }
+
+
+        if (
+            difference > 0
+        ) {
+
+            nextLightboxImage();
+
+        }
+
+        else {
+
+            previousLightboxImage();
+
+        }
+
+    },
+    {
+        passive: true
+    }
+);
+
+
+
+/* =========================================================
+   REFRESH
+========================================================= */
+
+galleryRefreshBtn.addEventListener(
+    "click",
+    loadGallery
+);
+
+
+
+/* =========================================================
+   START
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    loadGallery
+);
+
+</script>
+
+
 </body>
+
 </html>
