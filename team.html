@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -9,16 +10,1303 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>IAC Team</title>
+    <title>
+        IAC Team | Innovation & Automation Club
+    </title>
 
     <link
         rel="stylesheet"
         href="style.css"
     >
+
+
+    <!-- =====================================================
+         TEAM PAGE SPECIFIC STYLE
+    ====================================================== -->
+
+    <style>
+
+        /* =====================================================
+           TEAM PAGE
+        ====================================================== */
+
+        .team-page {
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           HERO
+        ====================================================== */
+
+        .team-hero {
+            position: relative;
+
+            min-height: 420px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 90px 20px;
+
+            text-align: center;
+
+            overflow: hidden;
+        }
+
+
+        .team-hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 450px;
+            height: 450px;
+
+            top: -180px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            border-radius: 50%;
+
+            background:
+                rgba(40, 217, 255, 0.08);
+
+            filter: blur(10px);
+
+            pointer-events: none;
+        }
+
+
+        .team-hero-content {
+            position: relative;
+
+            z-index: 2;
+
+            max-width: 900px;
+        }
+
+
+        .team-eyebrow {
+            color: #8cecff;
+
+            font-size: 0.72rem;
+
+            font-weight: 800;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        .team-hero h1 {
+            margin-top: 12px;
+
+            color: #fff1d7;
+
+            font-size:
+                clamp(
+                    3rem,
+                    7vw,
+                    5.5rem
+                );
+
+            line-height: 1;
+
+            letter-spacing: -2px;
+        }
+
+
+        .team-hero h1 span {
+            color: #28d9ff;
+        }
+
+
+        .team-hero p {
+            max-width: 700px;
+
+            margin: 18px auto 0;
+
+            color: #aab9cd;
+
+            font-size: 1rem;
+        }
+
+
+        .team-hero-line {
+            width: 90px;
+            height: 3px;
+
+            margin: 25px auto 0;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #147cff,
+                    #28d9ff
+                );
+
+            box-shadow:
+                0 0 20px
+                rgba(40, 217, 255, 0.55);
+
+            animation:
+                teamLinePulse 2.5s ease-in-out infinite;
+        }
+
+
+        @keyframes teamLinePulse {
+
+            50% {
+                width: 145px;
+
+                box-shadow:
+                    0 0 30px
+                    rgba(40, 217, 255, 0.8);
+            }
+
+        }
+
+
+        /* =====================================================
+           SECTIONS
+        ====================================================== */
+
+        .team-section {
+            position: relative;
+
+            width: 100%;
+
+            padding:
+                80px 22px;
+        }
+
+
+        .team-section-heading {
+            max-width: 800px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+
+        .team-section-label {
+            color: #8cecff;
+
+            font-size: 0.67rem;
+
+            font-weight: 800;
+
+            letter-spacing: 2.5px;
+
+            text-transform: uppercase;
+        }
+
+
+        .team-section-heading h2 {
+            margin-top: 8px;
+
+            color: #fff1d7;
+
+            font-size:
+                clamp(
+                    2rem,
+                    5vw,
+                    3.4rem
+                );
+        }
+
+
+        .team-section-heading p {
+            margin-top: 10px;
+
+            color: #aab9cd;
+        }
+
+
+        /* =====================================================
+           LEADERSHIP
+        ====================================================== */
+
+        .leadership-grid {
+            width:
+                min(
+                    1080px,
+                    100%
+                );
+
+            margin:
+                45px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap: 24px;
+        }
+
+
+        .leadership-card {
+            position: relative;
+
+            min-width: 0;
+
+            display: grid;
+
+            grid-template-columns:
+                185px 1fr;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(40, 217, 255, 0.17);
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(11, 43, 75, 0.94),
+                    rgba(3, 17, 33, 0.98)
+                );
+
+            box-shadow:
+                0 20px 55px
+                rgba(0, 0, 0, 0.25);
+
+            transition:
+                transform 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+
+        .leadership-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 3px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    #147cff,
+                    #28d9ff,
+                    transparent
+                );
+        }
+
+
+        .leadership-card:hover {
+            transform:
+                translateY(-8px);
+
+            border-color:
+                rgba(40, 217, 255, 0.38);
+
+            box-shadow:
+                0 28px 70px
+                rgba(0, 0, 0, 0.35);
+        }
+
+
+        .leadership-photo-box {
+            width: 100%;
+            height: 300px;
+
+            overflow: hidden;
+
+            background:
+                #07182b;
+        }
+
+
+        .leadership-photo {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            object-position:
+                center top;
+
+            transition:
+                transform 0.5s ease;
+        }
+
+
+        .leadership-card:hover
+        .leadership-photo {
+            transform:
+                scale(1.05);
+        }
+
+
+        .leadership-info {
+            padding:
+                28px 24px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+
+        .role-pill {
+            display: inline-flex;
+
+            padding:
+                6px 10px;
+
+            border:
+                1px solid
+                rgba(40, 217, 255, 0.18);
+
+            border-radius: 40px;
+
+            background:
+                rgba(40, 217, 255, 0.06);
+
+            color: #8cecff;
+
+            font-size: 0.63rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        .leadership-info h3 {
+            margin-top: 13px;
+
+            color: #fff1d7;
+
+            font-size: 1.6rem;
+        }
+
+
+        .leadership-info p {
+            margin:
+                8px 0 18px;
+
+            color: #aab9cd;
+
+            font-size: 0.86rem;
+        }
+
+
+        /* =====================================================
+           STANDARD TEAM CARDS
+        ====================================================== */
+
+        .team-card-grid {
+            width:
+                min(
+                    1050px,
+                    100%
+                );
+
+            margin:
+                45px auto 0;
+
+            display: grid;
+
+            gap: 22px;
+        }
+
+
+        .core-team-grid {
+            max-width: 760px;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+        }
+
+
+        .functional-team-grid {
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
+        }
+
+
+        .team-member-card {
+            position: relative;
+
+            min-width: 0;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.09);
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(11, 43, 75, 0.91),
+                    rgba(3, 17, 33, 0.98)
+                );
+
+            box-shadow:
+                0 18px 45px
+                rgba(0, 0, 0, 0.22);
+
+            transition:
+                transform 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+
+        .team-member-card:hover {
+            transform:
+                translateY(-8px);
+
+            border-color:
+                rgba(40, 217, 255, 0.35);
+
+            box-shadow:
+                0 26px 60px
+                rgba(0, 0, 0, 0.32);
+        }
+
+
+        .team-member-photo-box {
+            width: 100%;
+            height: 310px;
+
+            overflow: hidden;
+
+            background:
+                #07182b;
+        }
+
+
+        .team-member-photo {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            object-position:
+                center top;
+
+            transition:
+                transform 0.5s ease;
+        }
+
+
+        .team-member-card:hover
+        .team-member-photo {
+            transform:
+                scale(1.045);
+        }
+
+
+        .team-member-info {
+            padding:
+                21px;
+        }
+
+
+        .team-member-role {
+            color: #8cecff;
+
+            font-size: 0.66rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        .team-member-info h3 {
+            margin-top: 5px;
+
+            color: #fff1d7;
+
+            font-size: 1.3rem;
+        }
+
+
+        .team-member-social {
+            margin-top: 14px;
+        }
+
+
+        /* =====================================================
+           LINKEDIN
+        ====================================================== */
+
+        .team-linkedin {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 6px;
+
+            padding:
+                8px 13px;
+
+            border:
+                1px solid
+                rgba(55, 160, 255, 0.30);
+
+            border-radius: 9px;
+
+            background:
+                rgba(10, 102, 194, 0.13);
+
+            color: #8ed7ff;
+
+            font-size: 0.77rem;
+
+            font-weight: 700;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+
+        .team-linkedin:hover {
+            transform:
+                translateY(-3px);
+
+            background:
+                rgba(10, 102, 194, 0.25);
+
+            border-color:
+                rgba(55, 160, 255, 0.50);
+        }
+
+
+        .team-linkedin.disabled {
+            opacity: 0.45;
+
+            cursor: default;
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           EVENT COORDINATION
+        ====================================================== */
+
+        .event-team-section {
+            padding-top:
+                70px;
+        }
+
+
+        .event-team-card {
+            position: relative;
+
+            width:
+                min(
+                    980px,
+                    100%
+                );
+
+            margin:
+                42px auto 0;
+
+            padding:
+                28px;
+
+            display: grid;
+
+            grid-template-columns:
+                auto 1fr auto auto;
+
+            align-items: center;
+
+            gap: 22px;
+
+            text-align: left;
+
+            border:
+                1px solid
+                rgba(40, 217, 255, 0.21);
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(20, 124, 255, 0.13),
+                    rgba(40, 217, 255, 0.06),
+                    rgba(3, 17, 33, 0.97)
+                );
+
+            color: inherit;
+
+            font-family: inherit;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 22px 65px
+                rgba(0, 0, 0, 0.28);
+
+            transition:
+                transform 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+
+        .event-team-card:hover {
+            transform:
+                translateY(-7px);
+
+            border-color:
+                rgba(40, 217, 255, 0.48);
+
+            box-shadow:
+                0 30px 80px
+                rgba(0, 0, 0, 0.38);
+        }
+
+
+        .event-team-icon {
+            width: 76px;
+            height: 76px;
+
+            display: grid;
+
+            place-items: center;
+
+            border:
+                1px solid
+                rgba(40, 217, 255, 0.20);
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(20, 124, 255, 0.23),
+                    rgba(40, 217, 255, 0.10)
+                );
+
+            font-size: 2rem;
+        }
+
+
+        .event-team-info span {
+            color: #8cecff;
+
+            font-size: 0.62rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1.2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .event-team-info h3 {
+            margin-top: 4px;
+
+            color: #fff1d7;
+
+            font-size: 1.6rem;
+        }
+
+
+        .event-team-info p {
+            margin-top: 4px;
+
+            color: #aab9cd;
+        }
+
+
+        .event-team-count {
+            min-width: 80px;
+
+            text-align: center;
+        }
+
+
+        .event-team-count strong {
+            display: block;
+
+            color: #28d9ff;
+
+            font-size: 1.9rem;
+
+            line-height: 1;
+        }
+
+
+        .event-team-count small {
+            color: #8294aa;
+
+            font-size: 0.56rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+
+        .event-team-arrow {
+            width: 45px;
+            height: 45px;
+
+            display: grid;
+
+            place-items: center;
+
+            border:
+                1px solid
+                rgba(40, 217, 255, 0.20);
+
+            border-radius: 50%;
+
+            color: #8cecff;
+
+            font-size: 1.3rem;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease;
+        }
+
+
+        .event-team-card:hover
+        .event-team-arrow {
+            transform:
+                translateX(5px);
+
+            background:
+                rgba(40, 217, 255, 0.08);
+        }
+
+
+        /* =====================================================
+           MODAL
+        ====================================================== */
+
+        .team-modal {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 30000;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 22px;
+        }
+
+
+        .team-modal.open {
+            display: flex;
+        }
+
+
+        .team-modal-backdrop {
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                rgba(1, 7, 16, 0.84);
+
+            backdrop-filter:
+                blur(10px);
+
+            -webkit-backdrop-filter:
+                blur(10px);
+        }
+
+
+        .team-modal-dialog {
+            position: relative;
+
+            z-index: 2;
+
+            width:
+                min(
+                    930px,
+                    100%
+                );
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            padding:
+                30px;
+
+            border:
+                1px solid
+                rgba(40, 217, 255, 0.20);
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(9, 36, 64, 0.99),
+                    rgba(2, 13, 27, 0.99)
+                );
+
+            box-shadow:
+                0 40px 110px
+                rgba(0, 0, 0, 0.60);
+
+            animation:
+                modalEnter 0.3s ease;
+        }
+
+
+        @keyframes modalEnter {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateY(20px)
+                    scale(0.96);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+
+        }
+
+
+        .team-modal-header {
+            display: flex;
+
+            align-items: flex-start;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding-bottom: 21px;
+
+            border-bottom:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+        }
+
+
+        .team-modal-header h2 {
+            margin-top: 5px;
+
+            color: #fff1d7;
+
+            font-size:
+                clamp(
+                    2rem,
+                    5vw,
+                    2.8rem
+                );
+        }
+
+
+        .team-modal-header p:last-child {
+            margin-top: 6px;
+
+            color: #aab9cd;
+        }
+
+
+        .modal-close {
+            width: 44px;
+            height: 44px;
+
+            flex-shrink: 0;
+
+            display: grid;
+
+            place-items: center;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.12);
+
+            border-radius: 12px;
+
+            background:
+                rgba(255, 255, 255, 0.05);
+
+            color: #ffffff;
+
+            font-size: 1.7rem;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease;
+        }
+
+
+        .modal-close:hover {
+            transform:
+                rotate(90deg);
+
+            background:
+                rgba(255, 255, 255, 0.10);
+        }
+
+
+        /* =====================================================
+           EVENT MEMBERS
+        ====================================================== */
+
+        .event-members-grid {
+            margin-top: 25px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap: 20px;
+        }
+
+
+        .event-member-card {
+            overflow: hidden;
+
+            border:
+                1px solid
+                rgba(255, 255, 255, 0.08);
+
+            border-radius: 22px;
+
+            background:
+                rgba(255, 255, 255, 0.035);
+
+            transition:
+                transform 0.35s ease,
+                border-color 0.35s ease;
+        }
+
+
+        .event-member-card:hover {
+            transform:
+                translateY(-6px);
+
+            border-color:
+                rgba(40, 217, 255, 0.30);
+        }
+
+
+        .event-member-photo-box {
+            width: 100%;
+            height: 290px;
+
+            overflow: hidden;
+
+            background:
+                #07182b;
+        }
+
+
+        .event-member-photo {
+            width: 100%;
+            height: 100%;
+
+            display: block;
+
+            object-fit: cover;
+
+            object-position:
+                center top;
+        }
+
+
+        .event-member-info {
+            padding:
+                22px;
+        }
+
+
+        .event-member-role {
+            color: #8cecff;
+
+            font-size: 0.64rem;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        .event-member-info h3 {
+            margin-top: 6px;
+
+            color: #fff1d7;
+
+            font-size: 1.4rem;
+        }
+
+
+        .event-member-info p {
+            margin:
+                6px 0 15px;
+
+            color: #aab9cd;
+
+            font-size: 0.84rem;
+        }
+
+
+        body.team-modal-open {
+            overflow: hidden;
+        }
+
+
+        /* =====================================================
+           REVEAL ANIMATION
+        ====================================================== */
+
+        .team-reveal {
+            opacity: 0;
+
+            transform:
+                translateY(28px);
+
+            transition:
+                opacity 0.75s ease,
+                transform 0.75s ease;
+        }
+
+
+        .team-reveal.team-visible {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ====================================================== */
+
+        @media (max-width: 900px) {
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .leadership-card {
+                grid-template-columns:
+                    220px 1fr;
+            }
+
+
+            .functional-team-grid {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .team-section {
+                padding:
+                    65px 15px;
+            }
+
+
+            .leadership-card {
+                grid-template-columns: 1fr;
+            }
+
+
+            .leadership-photo-box {
+                height: 380px;
+            }
+
+
+            .leadership-info {
+                align-items: center;
+
+                text-align: center;
+            }
+
+
+            .core-team-grid,
+            .functional-team-grid {
+                width:
+                    min(
+                        430px,
+                        100%
+                    );
+
+                grid-template-columns: 1fr;
+            }
+
+
+            .team-member-photo-box {
+                height: 360px;
+            }
+
+
+            .event-team-card {
+                grid-template-columns:
+                    auto 1fr auto;
+
+                padding: 20px;
+
+                gap: 14px;
+            }
+
+
+            .event-team-count {
+                display: none;
+            }
+
+
+            .event-members-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .event-member-photo-box {
+                height: 330px;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .team-hero {
+                min-height: 350px;
+
+                padding:
+                    70px 14px;
+            }
+
+
+            .event-team-card {
+                grid-template-columns: 1fr;
+
+                text-align: center;
+            }
+
+
+            .event-team-icon,
+            .event-team-arrow {
+                margin: auto;
+            }
+
+
+            .team-modal {
+                padding: 9px;
+            }
+
+
+            .team-modal-dialog {
+                max-height: 94vh;
+
+                padding:
+                    21px 14px;
+
+                border-radius: 21px;
+            }
+
+
+            .event-member-photo-box {
+                height: 275px;
+            }
+
+        }
+
+
+        @media (prefers-reduced-motion: reduce) {
+
+            .team-reveal {
+                opacity: 1;
+
+                transform: none;
+            }
+
+
+            .team-hero-line {
+                animation: none;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
 <body data-page="team">
+
 
 <canvas id="techCircuitCanvas"></canvas>
 
@@ -27,28 +1315,32 @@
 <div id="site-header"></div>
 
 
-<main>
+<main class="team-page">
 
 
 <!-- =====================================================
-     PAGE HERO
+     TEAM HERO
 ===================================================== -->
 
-<section class="page-hero">
+<section class="team-hero">
 
-    <div class="page-hero-content reveal">
+    <div class="team-hero-content team-reveal">
 
-        <p class="section-label">
+        <p class="team-eyebrow">
             PEOPLE BEHIND IAC
         </p>
 
         <h1>
-            Meet Our Team
+            Meet Our
+            <span>Team</span>
         </h1>
 
         <p>
-            Leadership • Innovation • Collaboration • Execution
+            A team driven by innovation, technical learning,
+            collaboration and real-world engineering.
         </p>
+
+        <div class="team-hero-line"></div>
 
     </div>
 
@@ -60,20 +1352,20 @@
      LEADERSHIP
 ===================================================== -->
 
-<section class="section">
+<section class="team-section">
 
-    <div class="section-center reveal">
+    <div class="team-section-heading team-reveal">
 
-        <p class="section-label">
+        <span class="team-section-label">
             LEADING IAC
-        </p>
+        </span>
 
-        <h2 class="section-title">
+        <h2>
             Leadership
         </h2>
 
-        <p class="section-intro">
-            Guiding the club's vision, technical direction
+        <p>
+            Guiding club management, technical direction
             and student initiatives.
         </p>
 
@@ -85,28 +1377,28 @@
 
         <!-- PRESIDENT -->
 
-        <article class="leadership-card tilt-card reveal">
+        <article class="leadership-card team-reveal">
 
-            <div class="leadership-image-box">
+            <div class="leadership-photo-box">
 
                 <img
                     src="assets/team/shubhra.jpeg"
                     alt="Shubhra Yadav"
-                    class="leadership-image"
+                    class="leadership-photo"
                 >
 
             </div>
 
 
-            <div class="leadership-content">
+            <div class="leadership-info">
 
-                <span class="leadership-badge">
-                    PRESIDENT
+                <span class="role-pill">
+                    President
                 </span>
 
-                <h2>
+                <h3>
                     Shubhra Yadav
-                </h2>
+                </h3>
 
                 <p>
                     Leading club coordination,
@@ -118,7 +1410,7 @@
                     href="https://www.linkedin.com/in/shubhra-yadav-846218398"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="linkedin-profile-btn"
+                    class="team-linkedin"
                 >
                     in&nbsp; LinkedIn
                 </a>
@@ -131,28 +1423,28 @@
 
         <!-- FOUNDER -->
 
-        <article class="leadership-card tilt-card reveal">
+        <article class="leadership-card team-reveal">
 
-            <div class="leadership-image-box">
+            <div class="leadership-photo-box">
 
                 <img
                     src="assets/team/sumit.jpeg"
                     alt="Sumit"
-                    class="leadership-image"
+                    class="leadership-photo"
                 >
 
             </div>
 
 
-            <div class="leadership-content">
+            <div class="leadership-info">
 
-                <span class="leadership-badge">
-                    FOUNDER &amp; TECHNICAL HEAD
+                <span class="role-pill">
+                    Founder &amp; Technical Head
                 </span>
 
-                <h2>
+                <h3>
                     Sumit
-                </h2>
+                </h3>
 
                 <p>
                     Technical planning, innovation,
@@ -164,7 +1456,7 @@
                     href="https://www.linkedin.com/in/sumit-chaudhary-33205a393"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="linkedin-profile-btn"
+                    class="team-linkedin"
                 >
                     in&nbsp; LinkedIn
                 </a>
@@ -184,42 +1476,47 @@
      CORE COMMITTEE
 ===================================================== -->
 
-<section class="section team-soft-section">
+<section class="team-section">
 
-    <div class="section-center reveal">
+    <div class="team-section-heading team-reveal">
 
-        <p class="section-label">
+        <span class="team-section-label">
             CLUB MANAGEMENT
-        </p>
+        </span>
 
-        <h2 class="section-title">
+        <h2>
             Core Committee
         </h2>
+
+        <p>
+            Supporting leadership, coordination
+            and smooth functioning of IAC.
+        </p>
 
     </div>
 
 
-    <div class="core-committee-grid">
+    <div class="team-card-grid core-team-grid">
 
 
         <!-- ADITYA -->
 
-        <article class="person-card tilt-card reveal">
+        <article class="team-member-card team-reveal">
 
-            <div class="person-image-box">
+            <div class="team-member-photo-box">
 
                 <img
                     src="assets/team/aditya.jpeg"
-                    class="person-image"
                     alt="Aditya Kumar Yadav"
+                    class="team-member-photo"
                 >
 
             </div>
 
 
-            <div class="person-info">
+            <div class="team-member-info">
 
-                <span class="person-role">
+                <span class="team-member-role">
                     Vice President
                 </span>
 
@@ -228,13 +1525,13 @@
                 </h3>
 
 
-                <div class="member-socials">
+                <div class="team-member-social">
 
                     <a
                         href="https://www.linkedin.com/in/aditya-kumar-yadav-7181b7390"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="linkedin-profile-btn"
+                        class="team-linkedin"
                     >
                         in&nbsp; LinkedIn
                     </a>
@@ -249,22 +1546,22 @@
 
         <!-- GAUTAM -->
 
-        <article class="person-card tilt-card reveal">
+        <article class="team-member-card team-reveal">
 
-            <div class="person-image-box">
+            <div class="team-member-photo-box">
 
                 <img
                     src="assets/team/gautam.jpeg"
-                    class="person-image"
                     alt="Gautam Rajput"
+                    class="team-member-photo"
                 >
 
             </div>
 
 
-            <div class="person-info">
+            <div class="team-member-info">
 
-                <span class="person-role">
+                <span class="team-member-role">
                     Secretary
                 </span>
 
@@ -273,10 +1570,10 @@
                 </h3>
 
 
-                <div class="member-socials">
+                <div class="team-member-social">
 
                     <span
-                        class="linkedin-profile-btn is-placeholder"
+                        class="team-linkedin disabled"
                     >
                         in&nbsp; LinkedIn
                     </span>
@@ -298,47 +1595,47 @@
      FUNCTIONAL TEAM
 ===================================================== -->
 
-<section class="section">
+<section class="team-section">
 
-    <div class="section-center reveal">
+    <div class="team-section-heading team-reveal">
 
-        <p class="section-label">
+        <span class="team-section-label">
             OPERATIONS & CREATIVE TEAM
-        </p>
+        </span>
 
-        <h2 class="section-title">
+        <h2>
             Functional Team
         </h2>
 
-        <p class="section-intro">
-            Supporting IAC through finance,
-            documentation and media.
+        <p>
+            Managing finance, documentation
+            and media activities for IAC.
         </p>
 
     </div>
 
 
-    <div class="people-grid">
+    <div class="team-card-grid functional-team-grid">
 
 
         <!-- DEEPAK -->
 
-        <article class="person-card tilt-card reveal">
+        <article class="team-member-card team-reveal">
 
-            <div class="person-image-box">
+            <div class="team-member-photo-box">
 
                 <img
                     src="assets/team/deepak.jpeg"
-                    class="person-image"
                     alt="Deepak Gupta"
+                    class="team-member-photo"
                 >
 
             </div>
 
 
-            <div class="person-info">
+            <div class="team-member-info">
 
-                <span class="person-role">
+                <span class="team-member-role">
                     Finance Lead
                 </span>
 
@@ -347,13 +1644,13 @@
                 </h3>
 
 
-                <div class="member-socials">
+                <div class="team-member-social">
 
                     <a
                         href="https://www.linkedin.com/in/deepak-gupta-19a98b2b0"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="linkedin-profile-btn"
+                        class="team-linkedin"
                     >
                         in&nbsp; LinkedIn
                     </a>
@@ -368,22 +1665,22 @@
 
         <!-- SHUBHASHINI -->
 
-        <article class="person-card tilt-card reveal">
+        <article class="team-member-card team-reveal">
 
-            <div class="person-image-box">
+            <div class="team-member-photo-box">
 
                 <img
                     src="assets/team/shubhashini.jpeg"
-                    class="person-image"
                     alt="Shubhashini Dwivedi"
+                    class="team-member-photo"
                 >
 
             </div>
 
 
-            <div class="person-info">
+            <div class="team-member-info">
 
-                <span class="person-role">
+                <span class="team-member-role">
                     Documentation Team
                 </span>
 
@@ -392,13 +1689,13 @@
                 </h3>
 
 
-                <div class="member-socials">
+                <div class="team-member-social">
 
                     <a
                         href="https://www.linkedin.com/in/shubhashini-dwivedi-baa38a2b3"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="linkedin-profile-btn"
+                        class="team-linkedin"
                     >
                         in&nbsp; LinkedIn
                     </a>
@@ -413,22 +1710,22 @@
 
         <!-- KARTIK -->
 
-        <article class="person-card tilt-card reveal">
+        <article class="team-member-card team-reveal">
 
-            <div class="person-image-box">
+            <div class="team-member-photo-box">
 
                 <img
                     src="assets/team/kartik.jpeg"
-                    class="person-image"
                     alt="Kartik Yadav"
+                    class="team-member-photo"
                 >
 
             </div>
 
 
-            <div class="person-info">
+            <div class="team-member-info">
 
-                <span class="person-role">
+                <span class="team-member-role">
                     Media Team
                 </span>
 
@@ -437,10 +1734,10 @@
                 </h3>
 
 
-                <div class="member-socials">
+                <div class="team-member-social">
 
                     <span
-                        class="linkedin-profile-btn is-placeholder"
+                        class="team-linkedin disabled"
                     >
                         in&nbsp; LinkedIn
                     </span>
@@ -462,39 +1759,43 @@
      EVENT COORDINATION
 ===================================================== -->
 
-<section class="section event-team-section">
+<section class="team-section event-team-section">
 
-    <div class="section-center reveal">
+    <div class="team-section-heading team-reveal">
 
-        <p class="section-label">
+        <span class="team-section-label">
             EVENT MANAGEMENT
-        </p>
+        </span>
 
-        <h2 class="section-title">
+        <h2>
             Event Coordination
         </h2>
+
+        <p>
+            Planning and executing IAC events,
+            activities and student engagement.
+        </p>
 
     </div>
 
 
     <button
         type="button"
-        class="event-team-wide-card tilt-card reveal"
+        class="event-team-card team-reveal"
         id="eventCoordinatorOpen"
         aria-haspopup="dialog"
         aria-controls="eventCoordinatorModal"
     >
 
-
-        <div class="event-team-main-icon">
+        <div class="event-team-icon">
             📅
         </div>
 
 
-        <div class="event-team-wide-info">
+        <div class="event-team-info">
 
             <span>
-                EVENT MANAGEMENT TEAM
+                Event Management Team
             </span>
 
             <h3>
@@ -525,7 +1826,6 @@
             →
         </div>
 
-
     </button>
 
 </section>
@@ -542,10 +1842,9 @@
     aria-hidden="true"
 >
 
-
     <div
         class="team-modal-backdrop"
-        data-close-event-modal
+        data-modal-close
     ></div>
 
 
@@ -559,20 +1858,19 @@
 
         <div class="team-modal-header">
 
-
             <div>
 
-                <p class="section-label">
+                <span class="team-section-label">
                     IAC EVENT MANAGEMENT
-                </p>
+                </span>
 
                 <h2 id="eventCoordinatorTitle">
                     Event Coordinators
                 </h2>
 
                 <p>
-                    Team responsible for coordination
-                    and execution of IAC events.
+                    Meet the team coordinating and
+                    executing IAC events.
                 </p>
 
             </div>
@@ -580,32 +1878,36 @@
 
             <button
                 type="button"
-                class="team-modal-close"
+                class="modal-close"
                 id="eventCoordinatorClose"
-                aria-label="Close popup"
+                aria-label="Close Event Coordinators"
             >
                 ×
             </button>
-
 
         </div>
 
 
 
-        <div class="event-coordinator-members">
+        <div class="event-members-grid">
 
 
             <!-- DIVYANSHU -->
 
-            <article class="event-member-profile">
+            <article class="event-member-card">
 
+                <div class="event-member-photo-box">
 
-                <div class="event-member-avatar">
-                    DS
+                    <img
+                        src="assets/team/divyanshu.jpeg"
+                        alt="Divyanshu Singh"
+                        class="event-member-photo"
+                    >
+
                 </div>
 
 
-                <div class="event-member-details">
+                <div class="event-member-info">
 
                     <span class="event-member-role">
                         Event Coordinator
@@ -624,13 +1926,12 @@
                         href="https://www.linkedin.com/in/divyanshu-singh-08291543a"
                         target="_blank"
                         rel="noopener noreferrer"
-                        class="linkedin-profile-btn"
+                        class="team-linkedin"
                     >
                         in&nbsp; LinkedIn
                     </a>
 
                 </div>
-
 
             </article>
 
@@ -638,15 +1939,20 @@
 
             <!-- ANJALI -->
 
-            <article class="event-member-profile">
+            <article class="event-member-card">
 
+                <div class="event-member-photo-box">
 
-                <div class="event-member-avatar">
-                    AS
+                    <img
+                        src="assets/team/anjali.jpeg"
+                        alt="Anjali Singh"
+                        class="event-member-photo"
+                    >
+
                 </div>
 
 
-                <div class="event-member-details">
+                <div class="event-member-info">
 
                     <span class="event-member-role">
                         Event Coordinator
@@ -662,13 +1968,12 @@
 
 
                     <span
-                        class="linkedin-profile-btn linkedin-disabled"
+                        class="team-linkedin disabled"
                     >
                         in&nbsp; LinkedIn Not Added
                     </span>
 
                 </div>
-
 
             </article>
 
@@ -690,5 +1995,218 @@
 <script src="script.js"></script>
 
 
+<!-- =====================================================
+     TEAM PAGE JS
+===================================================== -->
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+
+        /* ================================================
+           REVEAL ANIMATION
+        ================================================= */
+
+        const revealItems =
+            document.querySelectorAll(
+                ".team-reveal"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (
+                                entry.isIntersecting
+                            ) {
+
+                                entry.target
+                                    .classList
+                                    .add(
+                                        "team-visible"
+                                    );
+
+
+                                observer
+                                    .unobserve(
+                                        entry.target
+                                    );
+
+                            }
+
+                        }
+                    );
+
+                },
+
+                {
+                    threshold: 0.12
+                }
+
+            );
+
+
+        revealItems.forEach(
+            item => {
+
+                observer.observe(
+                    item
+                );
+
+            }
+        );
+
+
+
+        /* ================================================
+           EVENT COORDINATOR POPUP
+        ================================================= */
+
+        const openButton =
+            document.getElementById(
+                "eventCoordinatorOpen"
+            );
+
+
+        const modal =
+            document.getElementById(
+                "eventCoordinatorModal"
+            );
+
+
+        const closeButton =
+            document.getElementById(
+                "eventCoordinatorClose"
+            );
+
+
+        if (
+            openButton
+            &&
+            modal
+            &&
+            closeButton
+        ) {
+
+
+            function openModal() {
+
+                modal.classList.add(
+                    "open"
+                );
+
+
+                modal.setAttribute(
+                    "aria-hidden",
+                    "false"
+                );
+
+
+                document.body
+                    .classList
+                    .add(
+                        "team-modal-open"
+                    );
+
+
+                closeButton.focus();
+
+            }
+
+
+
+            function closeModal() {
+
+                modal.classList.remove(
+                    "open"
+                );
+
+
+                modal.setAttribute(
+                    "aria-hidden",
+                    "true"
+                );
+
+
+                document.body
+                    .classList
+                    .remove(
+                        "team-modal-open"
+                    );
+
+
+                openButton.focus();
+
+            }
+
+
+
+            openButton.addEventListener(
+                "click",
+                openModal
+            );
+
+
+            closeButton.addEventListener(
+                "click",
+                closeModal
+            );
+
+
+            modal
+                .querySelectorAll(
+                    "[data-modal-close]"
+                )
+                .forEach(
+                    element => {
+
+                        element
+                            .addEventListener(
+                                "click",
+                                closeModal
+                            );
+
+                    }
+                );
+
+
+            document.addEventListener(
+                "keydown",
+                event => {
+
+                    if (
+                        event.key === "Escape"
+                        &&
+                        modal
+                            .classList
+                            .contains(
+                                "open"
+                            )
+                    ) {
+
+                        closeModal();
+
+                    }
+
+                }
+            );
+
+        }
+
+    }
+);
+
+</script>
+
+
 </body>
+
 </html>
