@@ -3286,6 +3286,18 @@ and
         );
 }
 
+.iac-logo:hover,
+.thinknext-logo:hover {
+    transform:
+        translateY(-2px)
+        scale(1.02);
+
+    box-shadow:
+        0 11px 26px rgba(40, 217, 255, 0.16);
+
+    filter: none;
+}
+
 /* Bundelkhand University logo stays visually larger */
 
 .bu-logo {
@@ -3293,14 +3305,33 @@ and
     height: 72px;
 }
 
-/* IAC and ThinkNEXT use the same visual box */
-
+/* IAC and ThinkNEXT: same white rounded box */
 .iac-logo,
 .thinknext-logo {
-    width: 118px;
-    height: 58px;
+    width: 132px;
+    height: 66px;
+
+    padding: 7px 9px;
 
     object-fit: contain;
+    object-position: center;
+
+    background: #ffffff;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.16);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.20);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        filter 0.3s ease;
 }
 
 .logo-divider {
@@ -3666,8 +3697,12 @@ and
 
     .iac-logo,
     .thinknext-logo {
-        width: 88px;
-        height: 44px;
+        width: 92px;
+        height: 48px;
+
+        padding: 5px 7px;
+
+        border-radius: 11px;
     }
 
     .logo-divider {
@@ -3718,8 +3753,12 @@ and
 
     .iac-logo,
     .thinknext-logo {
-        width: 62px;
-        height: 36px;
+        width: 68px;
+        height: 40px;
+
+        padding: 4px 6px;
+
+        border-radius: 9px;
     }
 
     .logo-divider {
@@ -3777,8 +3816,12 @@ and
 
     .iac-logo,
     .thinknext-logo {
-        width: 54px;
-        height: 32px;
+        width: 58px;
+        height: 35px;
+
+        padding: 3px 5px;
+
+        border-radius: 8px;
     }
 
     .logo-divider {
@@ -3826,8 +3869,12 @@ and
 
     .iac-logo,
     .thinknext-logo {
-        width: 50px;
-        height: 30px;
+        width: 52px;
+        height: 32px;
+
+        padding: 3px 4px;
+
+        border-radius: 7px;
     }
 
     .logo-divider {
@@ -3902,8 +3949,12 @@ and
 
     .iac-logo,
     .thinknext-logo {
-        width: 45px;
-        height: 28px;
+        width: 47px;
+        height: 29px;
+
+        padding: 2px 4px;
+
+        border-radius: 7px;
     }
 
     .join-action-btn .nav-action-text {
