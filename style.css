@@ -175,96 +175,56 @@ main,
     -webkit-backdrop-filter:
         blur(20px);
 }
-
-
 .navbar {
     position: relative;
 
     width: 100%;
-    max-width: 1600px;
+    max-width: 100%;
 
-    min-height: 94px;
+    min-height: 100px;
 
-    margin: auto;
+    margin: 0 auto;
 
-    padding:
-        0 22px;
+    padding: 0 18px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: space-between;
 
-    gap: 18px;
+    gap: 14px;
 }
-
-
 .brand {
     flex-shrink: 0;
 }
 
-
 .brand-logos {
     display: flex;
-
     align-items: center;
-
     gap: 10px;
 }
 
-
-.header-logo {
-    display: block;
-
-    object-fit: contain;
-
-    object-position: center;
-
-    transition:
-        transform 0.3s ease,
-        filter 0.3s ease;
-}
-
-
-.header-logo:hover {
-    transform:
-        translateY(-3px)
-        scale(1.05);
-
-    filter:
-        drop-shadow(
-            0 7px 14px rgba(40, 217, 255, 0.30)
-        );
-}
-
-
-/* BU logo BIG */
-
 .bu-logo {
-    width: 78px;
-    height: 78px;
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
 }
-
-
-/* IAC + ThinkNEXT equal */
 
 .iac-logo,
 .thinknext-logo {
-    width: 108px;
-    height: 60px;
+    width: 135px;
+    height: 62px;
+    object-fit: contain;
 }
-
 
 .logo-divider {
     width: 1px;
     height: 42px;
 
+    flex-shrink: 0;
+
     background:
-        rgba(255, 255, 255, 0.20);
+        rgba(255,255,255,0.20);
 }
-
-
 .nav-links {
     display: flex;
 
