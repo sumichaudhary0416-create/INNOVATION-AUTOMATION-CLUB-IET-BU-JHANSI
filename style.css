@@ -151,332 +151,6 @@ main,
         0 0 15px rgba(40, 217, 255, 0.85);
 }
 /* =========================================================
-   CLEAN PROFESSIONAL NAVBAR
-========================================================= */
-
-#site-header {
-    position: sticky;
-    top: 0;
-    z-index: 9999;
-}
-
-.site-header {
-    width: 100%;
-
-    background:
-        rgba(2, 9, 20, 0.97);
-
-    border-bottom:
-        1px solid rgba(255,255,255,0.08);
-
-    backdrop-filter:
-        blur(18px);
-
-    -webkit-backdrop-filter:
-        blur(18px);
-}
-
-.navbar {
-    position: relative;
-
-    width: 100%;
-
-    min-height: 95px;
-
-    padding:
-        0 20px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 16px;
-}
-
-
-/* =========================================================
-   LOGOS
-========================================================= */
-
-.brand {
-    flex-shrink: 0;
-}
-
-.brand-logos {
-    display: flex;
-
-    align-items: center;
-
-    gap: 10px;
-}
-
-.header-logo {
-    display: block;
-
-    object-fit: contain;
-
-    object-position: center;
-}
-
-
-/* University logo bigger */
-
-.bu-logo {
-    width: 72px;
-    height: 72px;
-}
-
-
-/* IAC + ThinkNEXT same visual size */
-
-.iac-logo,
-.thinknext-logo {
-    width: 120px;
-    height: 58px;
-
-    object-fit: contain;
-}
-
-.logo-divider {
-    width: 1px;
-    height: 40px;
-
-    flex-shrink: 0;
-
-    background:
-        rgba(255,255,255,0.18);
-}
-
-
-/* =========================================================
-   MAIN NAVIGATION
-========================================================= */
-
-.nav-links {
-    min-width: 0;
-
-    margin-left: auto;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: flex-end;
-
-    gap: 2px;
-}
-
-.nav-links > a {
-    position: relative;
-
-    padding:
-        10px 8px;
-
-    white-space: nowrap;
-
-    border-radius: 9px;
-
-    color:
-        #c0cada;
-
-    font-size:
-        0.78rem;
-
-    font-weight: 700;
-
-    transition:
-        background 0.3s ease,
-        color 0.3s ease;
-}
-
-.nav-links > a:hover {
-    color: white;
-
-    background:
-        rgba(255,255,255,0.07);
-}
-
-.nav-links > a.active {
-    color: white;
-
-    background:
-        rgba(255,255,255,0.08);
-}
-
-.nav-links > a.active::after {
-    content: "";
-
-    position: absolute;
-
-    left: 25%;
-    right: 25%;
-
-    bottom: 3px;
-
-    height: 2px;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #147cff,
-            #28d9ff
-        );
-}
-
-
-/* =========================================================
-   RIGHT ACTION BUTTONS
-========================================================= */
-
-.navbar-right {
-    flex-shrink: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 8px;
-}
-
-.nav-actions {
-    display: flex;
-
-    align-items: center;
-
-    gap: 7px;
-}
-
-.nav-action-btn {
-    min-height: 42px;
-
-    padding:
-        8px 13px;
-
-    display: inline-flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 6px;
-
-    white-space: nowrap;
-
-    border-radius: 11px;
-
-    font-size:
-        0.78rem;
-
-    font-weight: 800;
-}
-
-
-/* Verify */
-
-.verify-nav-btn {
-    color:
-        #9eeaff;
-
-    border:
-        1px solid rgba(40,217,255,0.28);
-
-    background:
-        rgba(40,217,255,0.06);
-}
-
-.verify-nav-btn:hover {
-    background:
-        rgba(40,217,255,0.12);
-}
-
-
-/* Join */
-
-.join-action-btn {
-    color: white;
-
-    background:
-        linear-gradient(
-            135deg,
-            #147cff,
-            #29c8ff
-        );
-
-    border:
-        1px solid rgba(255,255,255,0.10);
-
-    box-shadow:
-        0 8px 20px rgba(20,124,255,0.20);
-}
-
-
-/* =========================================================
-   MENU BUTTON
-========================================================= */
-
-.menu-btn {
-    display: none;
-
-    width: 44px;
-    height: 44px;
-
-    flex-shrink: 0;
-
-    align-items: center;
-
-    justify-content: center;
-
-    flex-direction: column;
-
-    gap: 5px;
-
-    padding: 0;
-
-    border:
-        1px solid rgba(255,255,255,0.12);
-
-    border-radius: 12px;
-
-    background:
-        rgba(255,255,255,0.04);
-
-    cursor: pointer;
-}
-
-.menu-line {
-    width: 19px;
-    height: 2px;
-
-    border-radius: 20px;
-
-    background: white;
-
-    transition:
-        transform 0.3s ease,
-        opacity 0.3s ease;
-}
-
-.menu-btn.active
-.menu-line:nth-child(1) {
-    transform:
-        translateY(7px)
-        rotate(45deg);
-}
-
-.menu-btn.active
-.menu-line:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-btn.active
-.menu-line:nth-child(3) {
-    transform:
-        translateY(-7px)
-        rotate(-45deg);
-}
-/* =========================================================
    TOP BANNER
 ========================================================= */
 
@@ -3522,225 +3196,174 @@ and
     }
 
 }
-/* =========================================================
-   FINAL PROFESSIONAL NAVBAR
-========================================================= */
 
-/*
-   IMPORTANT FIX:
-   Header must always stay above collaboration banner.
-*/
+/* =========================================================
+   FINAL NAVBAR - CLEAN, RESPONSIVE, NO CLIPPING
+   This block is intentionally last so it overrides older
+   mobile sizing rules elsewhere in the stylesheet.
+========================================================= */
 
 #site-header {
     position: sticky;
-
     top: 0;
-
     z-index: 9999;
+    width: 100%;
 }
-
 
 .site-header {
     position: relative;
-
+    z-index: 9999;
     width: 100%;
 
-    z-index: 9999;
-
     background:
-        rgba(2, 9, 20, 0.96);
+        rgba(2, 9, 20, 0.97);
 
     border-bottom:
-        1px solid
-        rgba(255,255,255,0.08);
+        1px solid rgba(255, 255, 255, 0.08);
 
-    backdrop-filter:
-        blur(20px);
-
-    -webkit-backdrop-filter:
-        blur(20px);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 }
-
 
 .top-collab-banner {
     position: relative;
-
     z-index: 1;
 }
 
-
+/* ---------- Main navbar ---------- */
 
 .navbar {
-
     position: relative;
 
     width: 100%;
+    max-width: 100%;
 
-    max-width: 1800px;
+    min-height: 94px;
 
-    min-height: 100px;
-
-    margin: auto;
-
-    padding:
-        0 22px;
+    margin: 0 auto;
+    padding: 0 16px;
 
     display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    gap: 16px;
-
-}
-
-
-
-/* =========================================================
-   BRAND LOGOS
-========================================================= */
-
-.brand {
-    flex-shrink: 0;
-}
-
-
-.brand-logos {
-
-    display: flex;
-
     align-items: center;
 
     gap: 12px;
-
 }
 
+/* ---------- Logo group ---------- */
+
+.brand {
+    flex: 0 0 auto;
+}
+
+.brand-logos {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    white-space: nowrap;
+}
 
 .header-logo {
-
     display: block;
 
     object-fit: contain;
-
     object-position: center;
 
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
 }
 
+.header-logo:hover {
+    transform:
+        translateY(-2px)
+        scale(1.03);
 
+    filter:
+        drop-shadow(
+            0 7px 14px rgba(40, 217, 255, 0.25)
+        );
+}
 
-/* University logo BIG */
+/* Bundelkhand University logo stays visually larger */
 
 .bu-logo {
-
-    width: 82px;
-
-    height: 82px;
-
+    width: 72px;
+    height: 72px;
 }
 
-
-
-/* IAC + ThinkNEXT equal visual box */
+/* IAC and ThinkNEXT use the same visual box */
 
 .iac-logo,
 .thinknext-logo {
-
-    width: 165px;
-
-    height: 70px;
+    width: 118px;
+    height: 58px;
 
     object-fit: contain;
-
 }
-
-
 
 .logo-divider {
-
     width: 1px;
+    height: 40px;
 
-    height: 47px;
-
-    flex-shrink: 0;
+    flex: 0 0 auto;
 
     background:
-        rgba(255,255,255,0.20);
-
+        rgba(255, 255, 255, 0.18);
 }
 
-
-
-/* =========================================================
-   NORMAL NAVIGATION
-========================================================= */
+/* ---------- Desktop navigation ---------- */
 
 .nav-links {
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    gap: 2px;
+    min-width: 0;
+    flex: 1 1 auto;
 
     margin-left: auto;
 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 0;
 }
 
-
 .nav-links > a {
-
     position: relative;
+
+    flex: 0 0 auto;
+
+    padding: 10px 7px;
 
     white-space: nowrap;
 
-    padding:
-        9px 8px;
-
     border-radius: 9px;
 
-    color:
-        #aab9cd;
+    color: #c0cada;
 
-    font-size:
-        0.75rem;
-
-    font-weight:
-        600;
+    font-size: 0.78rem;
+    font-weight: 700;
 
     transition:
         color 0.3s ease,
         background 0.3s ease;
-
 }
-
 
 .nav-links > a:hover,
 .nav-links > a.active {
-
-    color: white;
+    color: #ffffff;
 
     background:
-        rgba(255,255,255,0.07);
-
+        rgba(255, 255, 255, 0.07);
 }
 
-
-
-/* Active line */
-
 .nav-links > a.active::after {
-
     content: "";
 
     position: absolute;
 
     left: 25%;
-
     right: 25%;
-
     bottom: 3px;
 
     height: 2px;
@@ -3753,121 +3376,79 @@ and
             #147cff,
             #28d9ff
         );
-
 }
 
-
-
-/* =========================================================
-   RIGHT ACTION AREA
-========================================================= */
+/* ---------- Right action buttons ---------- */
 
 .navbar-right {
+    flex: 0 0 auto;
 
     display: flex;
-
     align-items: center;
 
-    gap: 9px;
-
-    flex-shrink: 0;
-
+    gap: 7px;
 }
-
 
 .nav-actions {
-
     display: flex;
-
     align-items: center;
 
-    gap: 8px;
-
+    gap: 7px;
 }
 
-
-
-/* Common action */
-
 .nav-action-btn {
-
     min-height: 42px;
 
     display: inline-flex;
-
     align-items: center;
-
     justify-content: center;
 
-    gap: 7px;
+    gap: 6px;
 
-    padding:
-        8px 13px;
-
-    border-radius: 11px;
+    padding: 8px 12px;
 
     white-space: nowrap;
 
-    font-size:
-        0.78rem;
+    border-radius: 11px;
 
-    font-weight:
-        800;
+    font-size: 0.76rem;
+    font-weight: 800;
 
     transition:
         transform 0.3s ease,
         border-color 0.3s ease,
         background 0.3s ease,
         box-shadow 0.3s ease;
-
 }
-
-
-
-/* Verify */
 
 .verify-nav-btn {
-
-    color:
-        #8cecff;
+    color: #9eeaff;
 
     border:
-        1px solid
-        rgba(40,217,255,0.25);
+        1px solid rgba(40, 217, 255, 0.28);
 
     background:
-        rgba(40,217,255,0.06);
-
+        rgba(40, 217, 255, 0.06);
 }
 
-
 .verify-nav-btn:hover {
-
     transform:
         translateY(-2px);
 
     border-color:
-        rgba(40,217,255,0.55);
+        rgba(40, 217, 255, 0.50);
 
     background:
-        rgba(40,217,255,0.12);
-
+        rgba(40, 217, 255, 0.12);
 }
 
-
-
-/* Join */
-
 .join-action-btn {
-
-    color: white;
+    color: #ffffff;
 
     border:
-        1px solid
-        rgba(255,255,255,0.10);
+        1px solid rgba(255, 255, 255, 0.10);
 
     background:
-
         linear-gradient(
             135deg,
             #147cff,
@@ -3875,278 +3456,191 @@ and
         );
 
     box-shadow:
-        0 8px 22px
-        rgba(20,124,255,0.20);
-
+        0 8px 22px rgba(20, 124, 255, 0.22);
 }
 
-
 .join-action-btn:hover {
-
     transform:
         translateY(-2px);
 
     box-shadow:
-        0 12px 30px
-        rgba(20,124,255,0.32);
-
+        0 12px 30px rgba(20, 124, 255, 0.32);
 }
 
-
-
-/* =========================================================
-   HAMBURGER
-========================================================= */
+/* ---------- Hamburger ---------- */
 
 .menu-btn {
-
     display: none;
 
     position: relative;
 
-    width: 46px;
-
-    height: 46px;
+    width: 44px;
+    height: 44px;
 
     padding: 0;
 
-    flex-shrink: 0;
+    flex: 0 0 auto;
 
     align-items: center;
-
     justify-content: center;
-
     flex-direction: column;
 
     gap: 5px;
 
     border:
-        1px solid
-        rgba(255,255,255,0.12);
+        1px solid rgba(255, 255, 255, 0.12);
 
-    border-radius: 13px;
+    border-radius: 12px;
 
     background:
-        rgba(255,255,255,0.045);
+        rgba(255, 255, 255, 0.045);
+
+    color: #ffffff;
 
     cursor: pointer;
 
     transition:
         background 0.3s ease,
         border-color 0.3s ease;
-
 }
-
 
 .menu-btn:hover {
-
     background:
-        rgba(255,255,255,0.08);
+        rgba(255, 255, 255, 0.08);
 
     border-color:
-        rgba(40,217,255,0.30);
-
+        rgba(40, 217, 255, 0.30);
 }
 
-
 .menu-line {
-
     display: block;
 
-    width: 20px;
-
+    width: 19px;
     height: 2px;
 
     border-radius: 20px;
 
-    background: white;
+    background: #ffffff;
 
     transition:
         transform 0.3s ease,
         opacity 0.3s ease;
-
 }
 
-
-
-/* Hamburger → X */
-
-.menu-btn.active
-.menu-line:nth-child(1) {
-
+.menu-btn.active .menu-line:nth-child(1) {
     transform:
         translateY(7px)
         rotate(45deg);
-
 }
 
-
-.menu-btn.active
-.menu-line:nth-child(2) {
-
+.menu-btn.active .menu-line:nth-child(2) {
     opacity: 0;
-
 }
 
-
-.menu-btn.active
-.menu-line:nth-child(3) {
-
+.menu-btn.active .menu-line:nth-child(3) {
     transform:
         translateY(-7px)
         rotate(-45deg);
-
 }
 
-
-
-/* Not visible on desktop */
+/* Extra Verify/Join links inside mobile menu remain hidden
+   while the top action buttons have enough room. */
 
 .mobile-menu-actions {
-
     display: none;
-
 }
 
-
-
 /* =========================================================
-   TABLET / SMALL DESKTOP
+   COLLAPSE NAVIGATION BEFORE IT CAN CLIP
 ========================================================= */
 
-@media (max-width: 1180px) {
-
+@media (max-width: 1380px) {
 
     .navbar {
-
-        min-height: 92px;
-
+        min-height: 88px;
     }
 
-
-    /*
-       Main links become dropdown.
-       Verify + Join remain visible.
-    */
-
     .nav-links {
-
         position: absolute;
 
-        top:
-            calc(100% + 8px);
+        top: calc(100% + 7px);
+        left: 16px;
+        right: 16px;
 
-        left: 18px;
-
-        right: 18px;
-
-        z-index: 10000;
+        z-index: 10001;
 
         display: none;
 
         max-height:
-            calc(100vh - 120px);
+            calc(100vh - 115px);
 
         overflow-y: auto;
+        overscroll-behavior: contain;
 
+        margin: 0;
         padding: 12px;
 
         flex-direction: column;
-
         align-items: stretch;
 
         gap: 3px;
 
-        margin: 0;
-
         border:
-            1px solid
-            rgba(255,255,255,0.10);
+            1px solid rgba(255, 255, 255, 0.10);
 
-        border-radius: 18px;
+        border-radius: 16px;
 
         background:
-            rgba(3, 13, 27, 0.985);
+            rgba(3, 13, 27, 0.99);
 
-        backdrop-filter:
-            blur(24px);
-
-        -webkit-backdrop-filter:
-            blur(24px);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
 
         box-shadow:
-            0 25px 70px
-            rgba(0,0,0,0.50);
-
+            0 25px 70px rgba(0, 0, 0, 0.50);
     }
 
-
     .nav-links.show {
-
         display: flex;
 
         animation:
-            menuOpen
-            0.25s ease;
-
+            iacMenuOpen 0.24s ease;
     }
 
-
-    @keyframes menuOpen {
-
+    @keyframes iacMenuOpen {
         from {
-
             opacity: 0;
 
             transform:
-                translateY(-8px);
-
+                translateY(-7px);
         }
 
         to {
-
             opacity: 1;
 
             transform:
                 translateY(0);
-
         }
-
     }
 
-
     .nav-links > a {
-
         width: 100%;
 
-        padding:
-            12px 14px;
+        padding: 12px 14px;
 
         border-radius: 10px;
 
-        font-size:
-            0.84rem;
-
+        font-size: 0.86rem;
     }
-
 
     .nav-links > a.active::after {
-
         display: none;
-
     }
-
 
     .menu-btn {
-
         display: flex;
-
     }
-
-
 }
-
-
 
 /* =========================================================
    TABLET
@@ -4154,377 +3648,274 @@ and
 
 @media (max-width: 900px) {
 
+    .navbar {
+        min-height: 78px;
+        padding: 0 11px;
 
-    .bu-logo {
-
-        width: 68px;
-
-        height: 68px;
-
+        gap: 8px;
     }
 
+    .brand-logos {
+        gap: 6px;
+    }
+
+    .bu-logo {
+        width: 56px;
+        height: 56px;
+    }
 
     .iac-logo,
     .thinknext-logo {
-
-        width: 120px;
-
-        height: 56px;
-
+        width: 88px;
+        height: 44px;
     }
-
 
     .logo-divider {
-
-        height: 38px;
-
+        height: 31px;
     }
 
+    .nav-action-btn {
+        min-height: 40px;
 
+        padding: 7px 10px;
+
+        font-size: 0.72rem;
+    }
+
+    .menu-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .nav-links {
+        left: 11px;
+        right: 11px;
+    }
 }
 
-
-
 /* =========================================================
-   MOBILE
+   PHONE
 ========================================================= */
 
 @media (max-width: 700px) {
 
-
     .navbar {
+        min-height: 70px;
 
-        min-height: 72px;
-
-        padding:
-            0 9px;
-
-        gap: 6px;
-
-    }
-
-
-    .brand-logos {
+        padding: 0 8px;
 
         gap: 5px;
-
     }
 
+    .brand-logos {
+        gap: 4px;
+    }
 
     .bu-logo {
-
-        width: 47px;
-
-        height: 47px;
-
+        width: 44px;
+        height: 44px;
     }
-
 
     .iac-logo,
     .thinknext-logo {
-
-        width: 68px;
-
-        height: 39px;
-
+        width: 62px;
+        height: 36px;
     }
-
 
     .logo-divider {
-
-        height: 27px;
-
+        height: 25px;
     }
 
-
-    .navbar-right {
-
-        gap: 5px;
-
-    }
-
-
+    .navbar-right,
     .nav-actions {
-
         gap: 5px;
-
     }
-
 
     .nav-action-btn {
+        min-height: 37px;
 
-        min-height: 38px;
+        padding: 6px 8px;
 
-        padding:
-            7px 9px;
-
-        font-size:
-            0.68rem;
-
+        font-size: 0.66rem;
     }
-
-
-    .nav-action-icon {
-
-        font-size:
-            0.75rem;
-
-    }
-
 
     .menu-btn {
+        width: 39px;
+        height: 39px;
 
-        width: 40px;
-
-        height: 40px;
-
-        border-radius: 11px;
-
+        border-radius: 10px;
     }
-
 
     .menu-line {
-
-        width: 18px;
-
+        width: 17px;
     }
-
 
     .nav-links {
+        top: calc(100% + 5px);
+        left: 8px;
+        right: 8px;
 
-        left: 9px;
-
-        right: 9px;
-
-        top:
-            calc(100% + 6px);
-
+        max-height:
+            calc(100vh - 90px);
     }
-
 }
 
-
-
 /* =========================================================
-   SMALL MOBILE
+   SMALL PHONE
 ========================================================= */
 
 @media (max-width: 520px) {
 
-
-    /*
-       Logos still visible.
-       Action buttons become compact.
-    */
-
-    .bu-logo {
-
-        width: 42px;
-
-        height: 42px;
-
-    }
-
-
-    .iac-logo,
-    .thinknext-logo {
-
-        width: 57px;
-
-        height: 34px;
-
-    }
-
-
-    .logo-divider {
-
-        height: 24px;
-
-    }
-
-
-    .verify-nav-btn
-    .nav-action-text {
-
-        display: none;
-
-    }
-
-
-    .verify-nav-btn {
-
-        width: 36px;
-
-        padding:
-            6px;
-
-    }
-
-
-    .join-action-btn {
-
-        padding:
-            7px 8px;
-
-    }
-
-
-    .join-action-btn
-    .nav-action-text {
-
-        font-size:
-            0.64rem;
-
-    }
-
-}
-
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-========================================================= */
-
-@media (max-width: 390px) {
-
-
     .brand-logos {
-
         gap: 3px;
-
     }
-
 
     .bu-logo {
-
-        width: 38px;
-
-        height: 38px;
-
+        width: 40px;
+        height: 40px;
     }
-
 
     .iac-logo,
     .thinknext-logo {
-
-        width: 49px;
-
-        height: 30px;
-
+        width: 54px;
+        height: 32px;
     }
-
 
     .logo-divider {
-
-        display: none;
-
+        height: 23px;
     }
 
-
-    /*
-       Keep Join + hamburger;
-       Verify still available inside dropdown.
-    */
+    .verify-nav-btn .nav-action-text {
+        display: none;
+    }
 
     .verify-nav-btn {
+        width: 35px;
 
-        display: none;
-
+        padding: 5px;
     }
-
 
     .join-action-btn {
-
-        min-height: 36px;
-
-        padding:
-            6px 8px;
-
+        padding: 6px 7px;
     }
 
+    .join-action-btn .nav-action-text {
+        font-size: 0.62rem;
+    }
 
     .menu-btn {
-
         width: 38px;
-
         height: 38px;
-
     }
-
 }
-
-
 
 /* =========================================================
-   MOBILE MENU ACTIONS
+   VERY SMALL PHONE
 ========================================================= */
 
-@media (max-width: 1180px) {
+@media (max-width: 430px) {
 
-
-    .mobile-menu-actions {
-
-        display: none;
-
+    .navbar {
+        padding: 0 6px;
     }
 
-}
+    .bu-logo {
+        width: 38px;
+        height: 38px;
+    }
 
+    .iac-logo,
+    .thinknext-logo {
+        width: 50px;
+        height: 30px;
+    }
 
-/* Very small phone gets Verify inside menu */
+    .logo-divider {
+        display: none;
+    }
 
-@media (max-width: 390px) {
+    /* Verify moves inside the hamburger menu to preserve space. */
 
+    .verify-nav-btn {
+        display: none;
+    }
+
+    .join-action-btn {
+        min-height: 35px;
+
+        padding: 5px 7px;
+    }
+
+    .menu-btn {
+        width: 37px;
+        height: 37px;
+    }
 
     .mobile-menu-actions {
-
         display: grid;
 
         gap: 7px;
 
         margin-top: 8px;
-
         padding-top: 10px;
 
         border-top:
-            1px solid
-            rgba(255,255,255,0.08);
-
+            1px solid rgba(255, 255, 255, 0.08);
     }
 
-
     .mobile-action-link {
-
-        padding:
-            11px 13px;
+        padding: 11px 13px;
 
         border:
-            1px solid
-            rgba(40,217,255,0.18);
+            1px solid rgba(40, 217, 255, 0.18);
 
         border-radius: 10px;
 
-        color:
-            #8cecff;
+        color: #8cecff;
 
         background:
-            rgba(40,217,255,0.05);
-
+            rgba(40, 217, 255, 0.05);
     }
 
-
     .mobile-join-link {
-
-        color: white;
+        color: #ffffff;
 
         background:
-
             linear-gradient(
                 135deg,
                 #147cff,
                 #28bfff
             );
+    }
+}
 
+/* =========================================================
+   EXTRA SMALL PHONE
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .bu-logo {
+        width: 35px;
+        height: 35px;
     }
 
+    .iac-logo,
+    .thinknext-logo {
+        width: 45px;
+        height: 28px;
+    }
+
+    .join-action-btn .nav-action-text {
+        font-size: 0.58rem;
+    }
+
+    .join-action-btn {
+        padding: 5px 6px;
+    }
+
+    .menu-btn {
+        width: 35px;
+        height: 35px;
+    }
 }
