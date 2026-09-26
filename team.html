@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -15,10 +16,12 @@
         rel="stylesheet"
         href="style.css"
     >
+
 </head>
 
 
 <body data-page="team">
+
 
 <canvas id="techCircuitCanvas"></canvas>
 
@@ -73,11 +76,9 @@
         </h2>
 
         <p class="section-intro">
-
             Driving technical planning,
             practical learning and innovation
             initiatives within IAC.
-
         </p>
 
     </div>
@@ -115,11 +116,9 @@
 
 
             <p>
-
                 Technical planning, innovation,
                 practical training and project
                 development for IAC.
-
             </p>
 
 
@@ -175,10 +174,8 @@
         </h2>
 
         <p class="section-intro">
-
             Leading the club's coordination,
             planning and student activities.
-
         </p>
 
     </div>
@@ -343,10 +340,8 @@
         </h2>
 
         <p class="section-intro">
-
             Supporting finance, documentation,
-            media and club operations.
-
+            media and event coordination.
         </p>
 
     </div>
@@ -488,9 +483,200 @@
         </article>
 
 
+
+        <!-- EVENT COORDINATORS -->
+
+        <button
+            type="button"
+            class="event-coordinator-card tilt-card reveal"
+            id="eventCoordinatorOpen"
+            aria-haspopup="dialog"
+            aria-controls="eventCoordinatorModal"
+        >
+
+            <div class="event-team-icon">
+                📅
+            </div>
+
+
+            <span class="event-team-label">
+                EVENT MANAGEMENT
+            </span>
+
+
+            <h3>
+                Event Coordinators
+            </h3>
+
+
+            <p>
+                2 Member Team
+            </p>
+
+
+            <span class="event-team-open">
+                View Team →
+            </span>
+
+        </button>
+
+
     </div>
 
 </section>
+
+
+
+<!-- =====================================================
+     EVENT COORDINATORS POPUP
+===================================================== -->
+
+<div
+    class="team-modal"
+    id="eventCoordinatorModal"
+    aria-hidden="true"
+>
+
+    <div
+        class="team-modal-backdrop"
+        data-close-event-modal
+    ></div>
+
+
+    <div
+        class="team-modal-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="eventCoordinatorTitle"
+    >
+
+
+        <div class="team-modal-header">
+
+            <div>
+
+                <p class="section-label">
+                    EVENT MANAGEMENT TEAM
+                </p>
+
+
+                <h2 id="eventCoordinatorTitle">
+                    Event Coordinators
+                </h2>
+
+
+                <p>
+                    Meet the team coordinating
+                    IAC events and activities.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="team-modal-close"
+                id="eventCoordinatorClose"
+                aria-label="Close Event Coordinators popup"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+
+        <div class="event-coordinator-members">
+
+
+            <!-- DIVYANSHU -->
+
+            <article class="event-member-profile">
+
+
+                <div class="event-member-avatar">
+                    DS
+                </div>
+
+
+                <div class="event-member-details">
+
+                    <span class="event-member-role">
+                        Event Coordinator
+                    </span>
+
+
+                    <h3>
+                        Divyanshu Singh
+                    </h3>
+
+
+                    <p>
+                        Innovation & Automation Club
+                    </p>
+
+
+                    <a
+                        href="https://www.linkedin.com/in/divyanshu-singh-08291543a"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="linkedin-profile-btn"
+                    >
+                        in&nbsp; View LinkedIn Profile
+                    </a>
+
+                </div>
+
+
+            </article>
+
+
+
+            <!-- ANJALI -->
+
+            <article class="event-member-profile">
+
+
+                <div class="event-member-avatar">
+                    AS
+                </div>
+
+
+                <div class="event-member-details">
+
+                    <span class="event-member-role">
+                        Event Coordinator
+                    </span>
+
+
+                    <h3>
+                        Anjali Singh
+                    </h3>
+
+
+                    <p>
+                        Innovation & Automation Club
+                    </p>
+
+
+                    <span
+                        class="linkedin-profile-btn linkedin-disabled"
+                    >
+                        in&nbsp; LinkedIn Not Added
+                    </span>
+
+                </div>
+
+
+            </article>
+
+
+        </div>
+
+
+    </div>
+
+</div>
 
 
 </main>
@@ -501,5 +687,7 @@
 
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
