@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -11,20 +9,20 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        Certificate Verification | IAC
-    </title>
+    <title>Verify IAC Certificate</title>
 
     <link
         rel="stylesheet"
         href="style.css"
     >
-
 </head>
 
 
 <body data-page="verify">
 
+<canvas id="techCircuitCanvas"></canvas>
+
+<div id="scrollProgress"></div>
 
 <div id="site-header"></div>
 
@@ -37,7 +35,7 @@
     <div class="page-hero-content reveal">
 
         <p class="section-label">
-            OFFICIAL VERIFICATION
+            OFFICIAL IAC RECORD
         </p>
 
         <h1>
@@ -45,11 +43,7 @@
         </h1>
 
         <p>
-
-            Verify certificates issued
-            by Innovation &
-            Automation Club.
-
+            Verify certificates issued by IAC.
         </p>
 
     </div>
@@ -57,54 +51,38 @@
 </section>
 
 
-
 <section class="section">
-
 
     <div class="verify-card reveal">
 
-
         <div class="verify-icon">
-            🛡️
+            ✓
         </div>
 
-
-        <h2 class="section-title">
-            Verify Your Certificate
+        <h2>
+            Verify Certificate
         </h2>
 
+        <form id="certificateForm">
 
-        <p class="section-intro">
+            <div class="verify-form">
 
-            Enter the unique certificate ID
-            printed on your certificate.
+                <input
+                    id="certificateId"
+                    type="text"
+                    placeholder="Enter Certificate ID"
+                    autocomplete="off"
+                    required
+                >
 
-        </p>
+                <button
+                    type="submit"
+                    class="btn"
+                >
+                    Verify Certificate
+                </button>
 
-
-        <form
-            id="certificateForm"
-            class="verify-form"
-        >
-
-            <input
-                id="certificateId"
-                class="verify-input"
-                type="text"
-                placeholder="Example: IAC-2026-001"
-                required
-            >
-
-
-            <button
-                type="submit"
-                class="btn"
-            >
-
-                Verify Certificate
-
-            </button>
-
+            </div>
 
         </form>
 
@@ -112,11 +90,10 @@
         <div
             id="certificateResult"
             class="verify-result"
+            aria-live="polite"
         ></div>
 
-
     </div>
-
 
 </section>
 
@@ -126,10 +103,7 @@
 
 <div id="site-footer"></div>
 
-
 <script src="script.js"></script>
 
-
 </body>
-
 </html>
