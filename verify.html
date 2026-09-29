@@ -30,72 +30,107 @@
 <main>
 
 
-<section class="page-hero">
+    <!-- =============================================
+         PAGE HERO
+    ============================================== -->
 
-    <div class="page-hero-content reveal">
+    <section class="page-hero">
 
-        <p class="section-label">
-            OFFICIAL IAC RECORD
-        </p>
+        <div class="page-hero-content reveal">
 
-        <h1>
-            Certificate Verification
-        </h1>
+            <p class="section-label">
+                OFFICIAL IAC RECORD
+            </p>
 
-        <p>
-            Verify certificates issued by IAC.
-        </p>
+            <h1>
+                Certificate Verification
+            </h1>
 
-    </div>
+            <p>
+                Verify certificates issued by IAC.
+            </p>
 
-</section>
-
-
-<section class="section">
-
-    <div class="verify-card reveal">
-
-        <div class="verify-icon">
-            ✓
         </div>
 
-        <h2>
-            Verify Certificate
-        </h2>
+    </section>
 
-        <form id="certificateForm">
 
-            <div class="verify-form">
 
-                <input
-                    id="certificateId"
-                    type="text"
-                    placeholder="Enter Certificate ID"
-                    autocomplete="off"
-                    required
-                >
+    <!-- =============================================
+         CERTIFICATE VERIFICATION
+    ============================================== -->
 
-                <button
-                    type="submit"
-                    class="btn"
-                >
-                    Verify Certificate
-                </button>
+    <section class="section">
 
+        <div class="verify-card reveal">
+
+
+            <div class="verify-icon">
+                ✓
             </div>
 
-        </form>
+
+            <h2>
+                Verify Certificate
+            </h2>
 
 
-        <div
-            id="certificateResult"
-            class="verify-result"
-            aria-live="polite"
-        ></div>
+            <p class="section-intro">
+                Enter the Certificate ID exactly as printed
+                on the certificate.
+            </p>
 
-    </div>
 
-</section>
+
+            <!-- =====================================
+                 VERIFY FORM
+            ====================================== -->
+
+            <form id="verifyForm">
+
+
+                <div class="verify-form">
+
+
+                    <input
+                        id="certificateId"
+                        name="certificateId"
+                        type="text"
+                        placeholder="Enter Certificate ID"
+                        autocomplete="off"
+                        required
+                    >
+
+
+                    <button
+                        type="submit"
+                        class="btn"
+                    >
+                        Verify Certificate
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+
+            <!-- =====================================
+                 RESULT
+            ====================================== -->
+
+            <div
+                id="verifyResult"
+                class="verify-result"
+                aria-live="polite"
+            ></div>
+
+
+        </div>
+
+    </section>
 
 
 </main>
@@ -103,7 +138,10 @@
 
 <div id="site-footer"></div>
 
+
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
