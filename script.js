@@ -3,7 +3,7 @@
 ========================================================= */
 
 const GOOGLE_SCRIPT_URL =
-    "PASTE_YOUR_GOOGLE_APPS_SCRIPT_EXEC_URL_HERE";
+    "https://script.google.com/macros/s/AKfycbxCblleE62rgrvTIcHouxCKrnFstH4AhXTjOkBWTxXrC2e1WJLbbUiscrKwleuXdIdXDA/exec";
 
 
 document.addEventListener(
