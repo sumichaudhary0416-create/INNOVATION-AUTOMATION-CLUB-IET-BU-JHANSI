@@ -2220,51 +2220,72 @@ function showVerificationError(
 
 
 /* =========================================================
-   DYNAMIC EVENTS
+   DYNAMIC EVENTS FROM GOOGLE SHEETS
 ========================================================= */
 
 function setupDynamicEvents() {
 
-    const upcomingContainer =
+    const upcoming =
         document.getElementById(
             "upcomingEvents"
         );
 
 
-    const pastContainer =
+    const past =
         document.getElementById(
             "pastEvents"
         );
 
 
     if (
-        !upcomingContainer
+        !upcoming
         &&
-        !pastContainer
+        !past
     ) {
+
         return;
+
     }
 
 
-    loadDynamicEvents(
-        upcomingContainer,
-        pastContainer
+    if (
+        !GOOGLE_SCRIPT_URL
+        ||
+        GOOGLE_SCRIPT_URL.includes(
+            "PASTE_"
+        )
+    ) {
+
+        showEventsError(
+            upcoming
+        );
+
+        return;
+
+    }
+
+
+    loadEventsFromDatabase(
+        upcoming,
+        past
     );
 
 }
 
 
 /* =========================================================
-   LOAD EVENTS
+   LOAD EVENTS FROM GOOGLE SHEETS
 ========================================================= */
 
-function loadDynamicEvents(
+function loadEventsFromDatabase(
     upcomingContainer,
     pastContainer
 ) {
 
-    const callbackName =
-        "iacEvents_" + Date.now();
+    const callback =
+        "iacEventsCallback_"
+        +
+        Date.now();
 
 
     const script =
@@ -2275,9 +2296,10 @@ function loadDynamicEvents(
 
     const timeout =
         setTimeout(
-            function () {
+            () => {
 
                 cleanup();
+
 
                 showEventsError(
                     upcomingContainer
@@ -2307,7 +2329,7 @@ function loadDynamicEvents(
         try {
 
             delete window[
-                callbackName
+                callback
             ];
 
         }
@@ -2315,7 +2337,7 @@ function loadDynamicEvents(
         catch (error) {
 
             window[
-                callbackName
+                callback
             ] = undefined;
 
         }
@@ -2323,46 +2345,18 @@ function loadDynamicEvents(
     }
 
 
-    function showEventsError(
-        container
-    ) {
-
-        if (!container) {
-            return;
-        }
-
-
-        container.innerHTML = `
-
-            <div class="empty-events">
-
-                <h3>
-                    Events couldn't be loaded
-                </h3>
-
-                <p>
-                    Please try again later.
-                </p>
-
-            </div>
-
-        `;
-
-    }
-
-
     window[
-        callbackName
+        callback
     ] =
-        function (response) {
+        data => {
 
             cleanup();
 
 
             if (
-                !response
+                !data
                 ||
-                response.success === false
+                data.success === false
             ) {
 
                 showEventsError(
@@ -2376,169 +2370,26 @@ function loadDynamicEvents(
 
             const events =
                 Array.isArray(
-                    response.events
+                    data.events
                 )
-                    ? response.events
+                    ? data.events
                     : [];
 
 
-            /* =============================
-               UPCOMING EVENTS
-            ============================== */
-
-            const upcomingEvents =
-                events.filter(
-                    event => {
-
-                        const status =
-                            String(
-                                event["Status"]
-                                ||
-                                ""
-                            )
-                            .trim()
-                            .toUpperCase();
-
-
-                        return (
-                            status === "UPCOMING"
-                            ||
-                            status === "ACTIVE"
-                        );
-
-                    }
-                );
-
-
-            /* =============================
-               PAST EVENTS
-            ============================== */
-
-            const pastEvents =
-                events.filter(
-                    event => {
-
-                        const status =
-                            String(
-                                event["Status"]
-                                ||
-                                ""
-                            )
-                            .trim()
-                            .toUpperCase();
-
-
-                        return (
-                            status === "COMPLETED"
-                            ||
-                            status === "PAST"
-                        );
-
-                    }
-                );
-
-
-            /* =============================
-               SHOW UPCOMING
-            ============================== */
-
-            if (
-                upcomingContainer
-            ) {
-
-                if (
-                    upcomingEvents.length
-                ) {
-
-                    upcomingContainer.innerHTML =
-                        upcomingEvents
-                            .map(
-                                event =>
-                                    createEventCard(
-                                        event
-                                    )
-                            )
-                            .join("");
-
-                }
-
-                else {
-
-                    upcomingContainer.innerHTML = `
-
-                        <div class="empty-events">
-
-                            <h3>
-                                No upcoming events
-                            </h3>
-
-                            <p>
-                                New IAC events will appear here.
-                            </p>
-
-                        </div>
-
-                    `;
-
-                }
-
-            }
-
-
-            /* =============================
-               SHOW PAST
-            ============================== */
-
-            if (
+            renderEvents(
+                events,
+                upcomingContainer,
                 pastContainer
-            ) {
-
-                if (
-                    pastEvents.length
-                ) {
-
-                    pastContainer.innerHTML =
-                        pastEvents
-                            .map(
-                                event =>
-                                    createEventCard(
-                                        event
-                                    )
-                            )
-                            .join("");
-
-                }
-
-                else {
-
-                    pastContainer.innerHTML = `
-
-                        <div class="empty-events">
-
-                            <h3>
-                                No past events added yet
-                            </h3>
-
-                        </div>
-
-                    `;
-
-                }
-
-            }
-
-
-            setupReveal();
-
-            setupTiltCards();
+            );
 
         };
 
 
     script.onerror =
-        function () {
+        () => {
 
             cleanup();
+
 
             showEventsError(
                 upcomingContainer
@@ -2548,20 +2399,708 @@ function loadDynamicEvents(
 
 
     script.src =
+
         GOOGLE_SCRIPT_URL
+
         +
-        "?action=events"
+
+        "?action=events&callback="
+
         +
-        "&callback="
-        +
+
         encodeURIComponent(
-            callbackName
-        );
+            callback
+        )
+
+        +
+
+        "&v="
+
+        +
+
+        Date.now();
 
 
     document.body.appendChild(
         script
     );
+
+}
+
+
+/* =========================================================
+   EVENT FIELD HELPER
+
+   Supports Google Sheet headings such as:
+   "Title", "Date", "Status", etc.
+========================================================= */
+
+function getEventField(
+    event,
+    ...keys
+) {
+
+    for (
+        const key
+        of keys
+    ) {
+
+        if (
+            event
+            &&
+            event[key] !== undefined
+            &&
+            event[key] !== null
+            &&
+            String(
+                event[key]
+            ).trim() !== ""
+        ) {
+
+            return event[key];
+
+        }
+
+    }
+
+
+    return "";
+
+}
+
+
+/* =========================================================
+   RENDER EVENTS
+========================================================= */
+
+function renderEvents(
+    events,
+    upcomingContainer,
+    pastContainer
+) {
+
+    const upcoming =
+        [];
+
+
+    const completed =
+        [];
+
+
+    events.forEach(
+        event => {
+
+            const status =
+                String(
+                    getEventField(
+                        event,
+                        "Status",
+                        "status"
+                    )
+                    ||
+                    ""
+                )
+                .trim()
+                .toUpperCase();
+
+
+            /*
+                Never show drafts / hidden events
+            */
+
+            if (
+                status === "DRAFT"
+                ||
+                status === "HIDDEN"
+            ) {
+
+                return;
+
+            }
+
+
+            /*
+                Completed / Past
+            */
+
+            if (
+                status === "COMPLETED"
+                ||
+                status === "PAST"
+            ) {
+
+                completed.push(
+                    event
+                );
+
+                return;
+
+            }
+
+
+            /*
+                UPCOMING or any active event
+                goes to Upcoming Events
+            */
+
+            upcoming.push(
+                event
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       UPCOMING EVENTS
+    ====================================================== */
+
+    if (
+        upcomingContainer
+    ) {
+
+        if (
+            upcoming.length
+        ) {
+
+            upcomingContainer.innerHTML =
+
+                upcoming
+                    .map(
+                        event =>
+                            createEventCard(
+                                event,
+                                true
+                            )
+                    )
+                    .join("");
+
+        }
+
+        else {
+
+            upcomingContainer.innerHTML = `
+
+                <div class="empty-events">
+
+                    <h3>
+                        No Upcoming Events
+                    </h3>
+
+                    <p>
+                        New events will appear here
+                        when they are announced.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       PAST EVENTS
+    ====================================================== */
+
+    if (
+        pastContainer
+    ) {
+
+        if (
+            completed.length
+        ) {
+
+            pastContainer.innerHTML =
+
+                completed
+                    .slice()
+                    .reverse()
+                    .map(
+                        event =>
+                            createEventCard(
+                                event,
+                                false
+                            )
+                    )
+                    .join("");
+
+        }
+
+        else {
+
+            pastContainer.innerHTML = `
+
+                <div class="empty-events">
+
+                    <p>
+                        Past events will appear here.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+
+    setupReveal();
+
+    setupTiltCards();
+
+}
+
+
+/* =========================================================
+   CREATE EVENT CARD
+========================================================= */
+
+function createEventCard(
+    event,
+    upcoming
+) {
+
+    const eventId =
+        escapeHTML(
+            getEventField(
+                event,
+                "Event ID",
+                "eventId",
+                "id"
+            )
+        );
+
+
+    const title =
+        escapeHTML(
+            getEventField(
+                event,
+                "Title",
+                "title"
+            )
+            ||
+            "IAC Event"
+        );
+
+
+    const category =
+        escapeHTML(
+            getEventField(
+                event,
+                "Category",
+                "category"
+            )
+            ||
+            "IAC EVENT"
+        );
+
+
+    const date =
+        escapeHTML(
+            formatEventDate(
+                getEventField(
+                    event,
+                    "Date",
+                    "date"
+                )
+            )
+        );
+
+
+    const time =
+        escapeHTML(
+            getEventField(
+                event,
+                "Time",
+                "time"
+            )
+        );
+
+
+    const venue =
+        escapeHTML(
+            getEventField(
+                event,
+                "Venue",
+                "venue"
+            )
+        );
+
+
+    const description =
+        escapeHTML(
+            getEventField(
+                event,
+                "Description",
+                "description"
+            )
+        );
+
+
+    const poster =
+        safeImageUrl(
+            getEventField(
+                event,
+                "Poster URL",
+                "posterUrl",
+                "poster"
+            )
+        );
+
+
+    const registration =
+        safeExternalUrl(
+            getEventField(
+                event,
+                "Registration URL",
+                "registrationUrl",
+                "registration"
+            )
+        );
+
+
+    return `
+
+        <article
+            class="
+                event-card
+                tilt-card
+                reveal
+            "
+            ${
+                eventId
+                    ? `data-event-id="${eventId}"`
+                    : ""
+            }
+        >
+
+
+            ${
+                poster
+
+                    ? `
+
+                        <div class="event-poster">
+
+                            <img
+                                src="${escapeHTML(poster)}"
+                                alt="${title}"
+                                loading="lazy"
+                            >
+
+                        </div>
+
+                    `
+
+                    : `
+
+                        <div
+                            class="
+                                event-poster
+                                event-poster-placeholder
+                            "
+                        >
+                            ⚡
+                        </div>
+
+                    `
+            }
+
+
+            <div class="event-card-body">
+
+
+                <div class="event-card-top">
+
+
+                    <span class="event-category">
+
+                        ${category}
+
+                    </span>
+
+
+                    <span
+                        class="
+                            event-status
+                            ${
+                                upcoming
+                                    ? "upcoming"
+                                    : "completed"
+                            }
+                        "
+                    >
+
+                        ${
+                            upcoming
+                                ? "Upcoming"
+                                : "Completed"
+                        }
+
+                    </span>
+
+
+                </div>
+
+
+                <h3>
+                    ${title}
+                </h3>
+
+
+                <div class="event-meta">
+
+
+                    <div>
+                        📅 ${date}
+                    </div>
+
+
+                    ${
+                        time
+
+                            ? `
+
+                                <div>
+                                    🕒 ${time}
+                                </div>
+
+                            `
+
+                            : ""
+                    }
+
+
+                    ${
+                        venue
+
+                            ? `
+
+                                <div>
+                                    📍 ${venue}
+                                </div>
+
+                            `
+
+                            : ""
+                    }
+
+
+                </div>
+
+
+                ${
+                    description
+
+                        ? `
+
+                            <p class="event-description">
+                                ${description}
+                            </p>
+
+                        `
+
+                        : ""
+                }
+
+
+                ${
+                    upcoming
+                    &&
+                    registration
+
+                        ? `
+
+                            <a
+                                href="${escapeHTML(registration)}"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="btn event-register-btn"
+                            >
+                                Register Now →
+                            </a>
+
+                        `
+
+                        : ""
+                }
+
+
+            </div>
+
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   EVENT DATE FORMAT
+========================================================= */
+
+function formatEventDate(
+    value
+) {
+
+    if (!value) {
+
+        return "Date TBA";
+
+    }
+
+
+    const text =
+        String(
+            value
+        )
+        .trim();
+
+
+    /*
+        yyyy-mm-dd
+        Example: 2026-10-14
+    */
+
+    if (
+        /^\d{4}-\d{2}-\d{2}$/
+            .test(
+                text
+            )
+    ) {
+
+        const date =
+            new Date(
+                text
+                +
+                "T00:00:00"
+            );
+
+
+        return date.toLocaleDateString(
+
+            "en-IN",
+
+            {
+
+                day:
+                    "2-digit",
+
+                month:
+                    "short",
+
+                year:
+                    "numeric"
+
+            }
+
+        );
+
+    }
+
+
+    /*
+        dd/mm/yyyy
+        Example: 14/10/2026
+    */
+
+    const slashMatch =
+        text.match(
+            /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/
+        );
+
+
+    if (
+        slashMatch
+    ) {
+
+        const date =
+            new Date(
+
+                Number(
+                    slashMatch[3]
+                ),
+
+                Number(
+                    slashMatch[2]
+                )
+                -
+                1,
+
+                Number(
+                    slashMatch[1]
+                )
+
+            );
+
+
+        return date.toLocaleDateString(
+
+            "en-IN",
+
+            {
+
+                day:
+                    "2-digit",
+
+                month:
+                    "short",
+
+                year:
+                    "numeric"
+
+            }
+
+        );
+
+    }
+
+
+    /*
+        Already formatted dates like:
+        14 Oct 2026
+    */
+
+    return text;
+
+}
+
+
+/* =========================================================
+   EVENT ERROR
+========================================================= */
+
+function showEventsError(
+    element
+) {
+
+    if (!element) {
+
+        return;
+
+    }
+
+
+    element.innerHTML = `
+
+        <div class="empty-events">
+
+            <h3>
+                Events couldn't be loaded
+            </h3>
+
+            <p>
+                Please try again later.
+            </p>
+
+        </div>
+
+    `;
 
 }
 /* =========================================================
