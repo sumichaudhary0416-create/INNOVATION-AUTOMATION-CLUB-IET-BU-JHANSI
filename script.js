@@ -2218,56 +2218,53 @@ function showVerificationError(
 }
 
 
+
 /* =========================================================
-   DYNAMIC EVENTS FROM GOOGLE SHEETS
+   DYNAMIC EVENTS
 ========================================================= */
 
 function setupDynamicEvents() {
 
-    const upcoming =
+    const upcomingContainer =
         document.getElementById(
             "upcomingEvents"
         );
 
 
-    const past =
+    const pastContainer =
         document.getElementById(
             "pastEvents"
         );
 
 
     if (
-        !upcoming
+        !upcomingContainer
         &&
-        !past
+        !pastContainer
     ) {
-
         return;
     }
 
 
-    if (
-        !GOOGLE_SCRIPT_URL
-        ||
-        GOOGLE_SCRIPT_URL.includes(
-            "PASTE_"
-        )
-    ) {
+    loadDynamicEvents(
+        upcomingContainer,
+        pastContainer
+    );
 
-        showEventsError(
-            upcoming
-        );
+}
 
 
-        return;
+/* =========================================================
+   LOAD EVENTS
+========================================================= */
 
-    }
+function loadDynamicEvents(
+    upcomingContainer,
+    pastContainer
+) {
 
-
-    const callback =
-        "iacEventsCallback_"
-        +
-        Date.now();
+    const callbackName =
+        "iacEvents_" + Date.now();
 
 
     const script =
@@ -2278,17 +2275,16 @@ function setupDynamicEvents() {
 
     const timeout =
         setTimeout(
-            () => {
+            function () {
 
                 cleanup();
 
-
                 showEventsError(
-                    upcoming
+                    upcomingContainer
                 );
 
             },
-            12000
+            15000
         );
 
 
@@ -2308,82 +2304,259 @@ function setupDynamicEvents() {
         }
 
 
-        delete window[
-            callback
-        ];
+        try {
+
+            delete window[
+                callbackName
+            ];
+
+        }
+
+        catch (error) {
+
+            window[
+                callbackName
+            ] = undefined;
+
+        }
+
+    }
+
+
+    function showEventsError(
+        container
+    ) {
+
+        if (!container) {
+            return;
+        }
+
+
+        container.innerHTML = `
+
+            <div class="empty-events">
+
+                <h3>
+                    Events couldn't be loaded
+                </h3>
+
+                <p>
+                    Please try again later.
+                </p>
+
+            </div>
+
+        `;
 
     }
 
 
     window[
-        callback
+        callbackName
     ] =
-        data => {
+        function (response) {
 
             cleanup();
 
 
             if (
-                !data
+                !response
                 ||
-                !data.success
+                response.success === false
             ) {
 
                 showEventsError(
-                    upcoming
+                    upcomingContainer
                 );
-
 
                 return;
 
             }
 
 
-            renderEvents(
-                data.events
-                ||
-                [],
-                upcoming,
-                past
-            );
+            const events =
+                Array.isArray(
+                    response.events
+                )
+                    ? response.events
+                    : [];
+
+
+            /* =============================
+               UPCOMING EVENTS
+            ============================== */
+
+            const upcomingEvents =
+                events.filter(
+                    event => {
+
+                        const status =
+                            String(
+                                event["Status"]
+                                ||
+                                ""
+                            )
+                            .trim()
+                            .toUpperCase();
+
+
+                        return (
+                            status === "UPCOMING"
+                            ||
+                            status === "ACTIVE"
+                        );
+
+                    }
+                );
+
+
+            /* =============================
+               PAST EVENTS
+            ============================== */
+
+            const pastEvents =
+                events.filter(
+                    event => {
+
+                        const status =
+                            String(
+                                event["Status"]
+                                ||
+                                ""
+                            )
+                            .trim()
+                            .toUpperCase();
+
+
+                        return (
+                            status === "COMPLETED"
+                            ||
+                            status === "PAST"
+                        );
+
+                    }
+                );
+
+
+            /* =============================
+               SHOW UPCOMING
+            ============================== */
+
+            if (
+                upcomingContainer
+            ) {
+
+                if (
+                    upcomingEvents.length
+                ) {
+
+                    upcomingContainer.innerHTML =
+                        upcomingEvents
+                            .map(
+                                event =>
+                                    createEventCard(
+                                        event
+                                    )
+                            )
+                            .join("");
+
+                }
+
+                else {
+
+                    upcomingContainer.innerHTML = `
+
+                        <div class="empty-events">
+
+                            <h3>
+                                No upcoming events
+                            </h3>
+
+                            <p>
+                                New IAC events will appear here.
+                            </p>
+
+                        </div>
+
+                    `;
+
+                }
+
+            }
+
+
+            /* =============================
+               SHOW PAST
+            ============================== */
+
+            if (
+                pastContainer
+            ) {
+
+                if (
+                    pastEvents.length
+                ) {
+
+                    pastContainer.innerHTML =
+                        pastEvents
+                            .map(
+                                event =>
+                                    createEventCard(
+                                        event
+                                    )
+                            )
+                            .join("");
+
+                }
+
+                else {
+
+                    pastContainer.innerHTML = `
+
+                        <div class="empty-events">
+
+                            <h3>
+                                No past events added yet
+                            </h3>
+
+                        </div>
+
+                    `;
+
+                }
+
+            }
+
+
+            setupReveal();
+
+            setupTiltCards();
 
         };
 
 
     script.onerror =
-        () => {
+        function () {
 
             cleanup();
 
-
             showEventsError(
-                upcoming
+                upcomingContainer
             );
 
         };
 
 
     script.src =
-
         GOOGLE_SCRIPT_URL
-
         +
-
-        "?action=events&callback="
-
+        "?action=events"
         +
-
+        "&callback="
+        +
         encodeURIComponent(
-            callback
-        )
-
-        +
-
-        "&v="
-
-        +
-
-        Date.now();
+            callbackName
+        );
 
 
     document.body.appendChild(
@@ -2391,509 +2564,6 @@ function setupDynamicEvents() {
     );
 
 }
-
-
-/* =========================================================
-   RENDER EVENTS
-========================================================= */
-
-function renderEvents(
-    events,
-    upcomingContainer,
-    pastContainer
-) {
-
-    const upcoming =
-        [];
-
-
-    const completed =
-        [];
-
-
-    events.forEach(
-        event => {
-
-            const status =
-                String(
-                    event.status
-                    ||
-                    ""
-                )
-                .trim()
-                .toUpperCase();
-
-
-            if (
-                status
-                ===
-                "COMPLETED"
-                ||
-                status
-                ===
-                "PAST"
-            ) {
-
-                completed.push(
-                    event
-                );
-
-            }
-
-            else {
-
-                upcoming.push(
-                    event
-                );
-
-            }
-
-        }
-    );
-
-
-    if (
-        upcomingContainer
-    ) {
-
-        upcomingContainer.innerHTML =
-
-            upcoming.length
-
-                ? upcoming
-                    .map(
-                        event =>
-                            createEventCard(
-                                event,
-                                true
-                            )
-                    )
-                    .join("")
-
-                : `
-
-                    <div class="empty-events">
-
-                        <h3>
-                            No Upcoming Events
-                        </h3>
-
-                        <p>
-                            New events will appear here
-                            when they are announced.
-                        </p>
-
-                    </div>
-
-                `;
-
-    }
-
-
-    if (
-        pastContainer
-    ) {
-
-        pastContainer.innerHTML =
-
-            completed.length
-
-                ? completed
-                    .slice()
-                    .reverse()
-                    .map(
-                        event =>
-                            createEventCard(
-                                event,
-                                false
-                            )
-                    )
-                    .join("")
-
-                : `
-
-                    <div class="empty-events">
-
-                        <p>
-                            Past events will appear here.
-                        </p>
-
-                    </div>
-
-                `;
-
-    }
-
-
-    setupReveal();
-
-    setupTiltCards();
-
-}
-
-
-/* =========================================================
-   EVENT CARD
-========================================================= */
-
-function createEventCard(
-    event,
-    upcoming
-) {
-
-    const title =
-        escapeHTML(
-            event.title
-            ||
-            "IAC Event"
-        );
-
-
-    const category =
-        escapeHTML(
-            event.category
-            ||
-            "IAC EVENT"
-        );
-
-
-    const date =
-        escapeHTML(
-            formatEventDate(
-                event.date
-            )
-        );
-
-
-    const time =
-        escapeHTML(
-            event.time
-            ||
-            ""
-        );
-
-
-    const venue =
-        escapeHTML(
-            event.venue
-            ||
-            ""
-        );
-
-
-    const description =
-        escapeHTML(
-            event.description
-            ||
-            ""
-        );
-
-
-    const poster =
-        safeImageUrl(
-            event.posterUrl
-        );
-
-
-    const registration =
-        safeExternalUrl(
-            event.registrationUrl
-        );
-
-
-    return `
-
-        <article
-            class="event-card tilt-card reveal"
-        >
-
-
-            ${
-                poster
-
-                    ? `
-
-                        <div class="event-poster">
-
-                            <img
-                                src="${escapeHTML(poster)}"
-                                alt="${title}"
-                                loading="lazy"
-                            >
-
-                        </div>
-
-                    `
-
-                    : `
-
-                        <div
-                            class="
-                                event-poster
-                                event-poster-placeholder
-                            "
-                        >
-                            ⚡
-                        </div>
-
-                    `
-            }
-
-
-            <div class="event-card-body">
-
-
-                <div class="event-card-top">
-
-
-                    <span class="event-category">
-                        ${category}
-                    </span>
-
-
-                    <span
-                        class="
-                            event-status
-                            ${
-                                upcoming
-                                    ? "upcoming"
-                                    : "completed"
-                            }
-                        "
-                    >
-
-                        ${
-                            upcoming
-                                ? "Upcoming"
-                                : "Completed"
-                        }
-
-                    </span>
-
-
-                </div>
-
-
-                <h3>
-                    ${title}
-                </h3>
-
-
-                <div class="event-meta">
-
-                    <div>
-                        📅 ${date}
-                    </div>
-
-
-                    ${
-                        time
-
-                            ? `
-
-                                <div>
-                                    🕒 ${time}
-                                </div>
-
-                            `
-
-                            : ""
-                    }
-
-
-                    ${
-                        venue
-
-                            ? `
-
-                                <div>
-                                    📍 ${venue}
-                                </div>
-
-                            `
-
-                            : ""
-                    }
-
-                </div>
-
-
-                ${
-                    description
-
-                        ? `
-
-                            <p class="event-description">
-                                ${description}
-                            </p>
-
-                        `
-
-                        : ""
-                }
-
-
-                ${
-                    upcoming
-                    &&
-                    registration
-
-                        ? `
-
-                            <a
-                                href="${escapeHTML(registration)}"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="btn event-register-btn"
-                            >
-                                Register Now →
-                            </a>
-
-                        `
-
-                        : ""
-                }
-
-
-            </div>
-
-        </article>
-
-    `;
-
-}
-
-
-/* =========================================================
-   EVENT DATE
-========================================================= */
-
-function formatEventDate(
-    value
-) {
-
-    if (!value) {
-        return "Date TBA";
-    }
-
-
-    const text =
-        String(
-            value
-        )
-        .trim();
-
-
-    /* yyyy-mm-dd */
-
-    if (
-        /^\d{4}-\d{2}-\d{2}$/
-            .test(
-                text
-            )
-    ) {
-
-        const date =
-            new Date(
-                text
-                +
-                "T00:00:00"
-            );
-
-
-        return date.toLocaleDateString(
-
-            "en-IN",
-
-            {
-                day: "2-digit",
-                month: "short",
-                year: "numeric"
-            }
-
-        );
-
-    }
-
-
-    /* dd/mm/yyyy */
-
-    const match =
-        text.match(
-            /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/
-        );
-
-
-    if (match) {
-
-        const date =
-            new Date(
-                Number(
-                    match[3]
-                ),
-                Number(
-                    match[2]
-                )
-                -
-                1,
-                Number(
-                    match[1]
-                )
-            );
-
-
-        return date.toLocaleDateString(
-
-            "en-IN",
-
-            {
-                day: "2-digit",
-                month: "short",
-                year: "numeric"
-            }
-
-        );
-
-    }
-
-
-    return text;
-
-}
-
-
-/* =========================================================
-   EVENT ERROR
-========================================================= */
-
-function showEventsError(
-    element
-) {
-
-    if (!element) {
-        return;
-    }
-
-
-    element.innerHTML = `
-
-        <div class="empty-events">
-
-            <h3>
-                Events couldn't be loaded
-            </h3>
-
-            <p>
-                Please try again later.
-            </p>
-
-        </div>
-
-    `;
-
-}
-
-
 /* =========================================================
    SECURITY HELPERS
 ========================================================= */
