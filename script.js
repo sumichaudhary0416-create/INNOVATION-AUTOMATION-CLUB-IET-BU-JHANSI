@@ -1875,22 +1875,12 @@ function setupMembershipForm() {
 
 }
 
-
-/* =========================================================
-   CERTIFICATE VERIFIER
-========================================================= */
-
 function setupCertificateVerifier() {
 
     const form =
         document.getElementById(
-            "certificateForm"
+            "verifyForm"
         );
-
-
-    if (!form) {
-        return;
-    }
 
 
     const input =
@@ -1901,8 +1891,21 @@ function setupCertificateVerifier() {
 
     const result =
         document.getElementById(
-            "certificateResult"
+            "verifyResult"
         );
+
+
+    if (
+        !form
+        ||
+        !input
+        ||
+        !result
+    ) {
+
+        return;
+
+    }
 
 
     const button =
@@ -1956,6 +1959,19 @@ function setupCertificateVerifier() {
                 "Verifying...";
 
 
+            result.className =
+                "verify-result show";
+
+
+            result.innerHTML = `
+
+                <p>
+                    Checking certificate...
+                </p>
+
+            `;
+
+
             const callback =
                 "iacCertCallback_"
                 +
@@ -1981,7 +1997,7 @@ function setupCertificateVerifier() {
                         );
 
                     },
-                    12000
+                    15000
                 );
 
 
@@ -2001,9 +2017,21 @@ function setupCertificateVerifier() {
                 }
 
 
-                delete window[
-                    callback
-                ];
+                try {
+
+                    delete window[
+                        callback
+                    ];
+
+                }
+
+                catch (error) {
+
+                    window[
+                        callback
+                    ] = undefined;
+
+                }
 
 
                 button.disabled =
@@ -2027,29 +2055,14 @@ function setupCertificateVerifier() {
                     if (
                         !data
                         ||
-                        !data.found
+                        data.valid !== true
                     ) {
 
                         showVerificationError(
                             result,
-                            "Certificate not found. Please check the Certificate ID."
-                        );
-
-
-                        return;
-
-                    }
-
-
-                    if (
-                        data.valid
-                        ===
-                        false
-                    ) {
-
-                        showVerificationError(
-                            result,
-                            "This certificate is not currently valid."
+                            data?.message
+                            ||
+                            "Certificate not found."
                         );
 
 
@@ -2059,7 +2072,9 @@ function setupCertificateVerifier() {
 
 
                     const certificate =
-                        data.certificate;
+                        data.certificate
+                        ||
+                        {};
 
 
                     result.className =
@@ -2078,7 +2093,7 @@ function setupCertificateVerifier() {
 
                             ${certificateField(
                                 "Certificate ID",
-                                certificate.id
+                                certificate.certificateId
                             )}
 
 
@@ -2133,7 +2148,7 @@ function setupCertificateVerifier() {
 
                 +
 
-                "?action=verify&id="
+                "?action=verify&certificateId="
 
                 +
 
